@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="320" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Неизменяемые vs изменяемые</text>
+
+  <defs>
+    <marker id="mi" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3776ab"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT immutable -->
+  <text x="170" y="66" text-anchor="middle" font-size="15" font-weight="700" fill="#2e7d32">Неизменяемый (int, str, tuple)</text>
+  <text x="170" y="88" text-anchor="middle" font-size="12" fill="#555" font-family="Consolas, monospace">x = 5;  x += 1</text>
+  <rect x="60" y="108" width="70" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="95" y="134" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">x</text>
+  <rect x="190" y="108" width="60" height="40" rx="6" fill="#ffebee" stroke="#e57373" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="220" y="134" text-anchor="middle" font-weight="700" fill="#c62828">5</text>
+  <rect x="190" y="168" width="60" height="40" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="220" y="194" text-anchor="middle" font-weight="700">6</text>
+  <path d="M130 138 C 160 138, 165 188, 186 188" fill="none" stroke="#3776ab" stroke-width="2" marker-end="url(#mi)"/>
+  <text x="170" y="240" text-anchor="middle" font-size="12" fill="#2e7d32">«изменение» = НОВЫЙ объект 6,</text>
+  <text x="170" y="258" text-anchor="middle" font-size="12" fill="#2e7d32">старый 5 не тронут</text>
+
+  <!-- RIGHT mutable -->
+  <text x="510" y="66" text-anchor="middle" font-size="15" font-weight="700" fill="#c62828">Изменяемый (list, dict, set)</text>
+  <text x="510" y="88" text-anchor="middle" font-size="12" fill="#555" font-family="Consolas, monospace">a = [1,2]; a.append(3)</text>
+  <rect x="400" y="108" width="70" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="435" y="134" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">a</text>
+  <rect x="540" y="108" width="110" height="40" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2.5"/>
+  <text x="595" y="134" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">[1, 2, 3]</text>
+  <path d="M470 128 L 536 128" stroke="#3776ab" stroke-width="2" marker-end="url(#mi)"/>
+  <text x="510" y="200" text-anchor="middle" font-size="12" fill="#c62828">ТОТ ЖЕ объект меняется на месте</text>
+  <text x="510" y="218" text-anchor="middle" font-size="12" fill="#c62828">(id не меняется)</text>
+
+  <line x1="340" y1="55" x2="340" y2="270" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="60" y="285" width="560" height="28" rx="8" fill="#e8f0fe" stroke="#3776ab" stroke-width="1.5"/>
+  <text x="340" y="304" text-anchor="middle" font-size="12" font-weight="600" fill="#3776ab">Отсюда алиасинг: b=a + изменяемый объект → меняешь b, меняется и a</text>
+</svg>

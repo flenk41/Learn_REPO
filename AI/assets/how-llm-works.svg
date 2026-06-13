@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 250" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="250" fill="#ffffff"/>
+  <text x="340" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Как работает ИИ: предсказание следующего слова</text>
+
+  <defs>
+    <marker id="lm" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <!-- input -->
+  <rect x="30" y="95" width="200" height="50" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="130" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">"Солнце встаёт на"</text>
+  <text x="130" y="136" text-anchor="middle" font-size="11" fill="#888">твой промпт (токены)</text>
+
+  <!-- model -->
+  <rect x="280" y="85" width="140" height="70" rx="10" fill="#7c3aed"/>
+  <text x="350" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">LLM</text>
+  <text x="350" y="135" text-anchor="middle" font-size="11" fill="#e9d5ff">оценивает вероятности</text>
+
+  <path d="M230 120 L 276 120" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#lm)"/>
+
+  <!-- predictions -->
+  <g font-family="Consolas, monospace" font-size="12">
+    <rect x="470" y="78" width="180" height="24" rx="4" fill="#ede9fe" stroke="#a78bfa"/>
+    <text x="480" y="95" fill="#5b21b6" font-weight="700">"востоке"  — 92% ✓</text>
+    <rect x="470" y="106" width="180" height="22" rx="4" fill="#faf5ff" stroke="#ddd6fe"/>
+    <text x="480" y="122" fill="#888">"горизонте" — 5%</text>
+    <rect x="470" y="132" width="180" height="22" rx="4" fill="#faf5ff" stroke="#ddd6fe"/>
+    <text x="480" y="148" fill="#888">"небе" — 2%</text>
+  </g>
+  <path d="M420 120 L 466 100" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#lm)"/>
+
+  <rect x="60" y="190" width="560" height="44" rx="8" fill="#f3e8ff" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="340" y="210" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">ИИ не «знает» и не «понимает» — он предсказывает правдоподобное продолжение</text>
+  <text x="340" y="228" text-anchor="middle" font-size="12" fill="#666">→ поэтому формулировка промпта напрямую влияет на ответ (и поэтому бывают галлюцинации)</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="720" height="380" rx="16" fill="#f3f6fc"/>
+  <text x="360" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">HTTP — модель запрос ↔ ответ</text>
+
+  <rect x="40" y="70" width="160" height="56" rx="10" fill="#2563eb"/>
+  <text x="120" y="95" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">КЛИЕНТ</text>
+  <text x="120" y="114" text-anchor="middle" font-size="11" fill="#dbeafe">браузер</text>
+
+  <rect x="520" y="70" width="160" height="56" rx="10" fill="#1e293b"/>
+  <text x="600" y="95" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">СЕРВЕР</text>
+  <text x="600" y="114" text-anchor="middle" font-size="11" fill="#cbd5e1">сайт</text>
+
+  <!-- request -->
+  <line x1="200" y1="90" x2="518" y2="90" stroke="#2563eb" stroke-width="2.5" marker-end="url(#d)"/>
+  <rect x="232" y="138" width="256" height="74" rx="8" fill="#fff" stroke="#2563eb" stroke-width="1.6"/>
+  <text x="248" y="160" font-size="12.5" font-family="Consolas, monospace" font-weight="700" fill="#1e3a8a">GET /index.html HTTP/1.1</text>
+  <text x="248" y="180" font-size="12" font-family="Consolas, monospace" fill="#334155">Host: example.com</text>
+  <text x="248" y="200" font-size="12" font-family="Consolas, monospace" fill="#334155">Accept: text/html</text>
+  <text x="360" y="132" text-anchor="middle" font-size="11.5" font-weight="700" fill="#2563eb">ЗАПРОС (метод + заголовки)</text>
+
+  <!-- response -->
+  <line x1="518" y1="110" x2="200" y2="110" stroke="#0891b2" stroke-width="2.5" marker-end="url(#d)"/>
+  <rect x="232" y="232" width="256" height="92" rx="8" fill="#fff" stroke="#0891b2" stroke-width="1.6"/>
+  <text x="248" y="254" font-size="12.5" font-family="Consolas, monospace" font-weight="700" fill="#155e75">HTTP/1.1 200 OK</text>
+  <text x="248" y="274" font-size="12" font-family="Consolas, monospace" fill="#334155">Content-Type: text/html</text>
+  <text x="248" y="296" font-size="12" font-family="Consolas, monospace" fill="#334155">&lt;html&gt;...&lt;/html&gt;</text>
+  <text x="360" y="226" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0891b2">ОТВЕТ (код + заголовки + тело)</text>
+
+  <text x="120" y="240" font-size="11" fill="#64748b">поверх TCP</text>
+  <text x="120" y="256" font-size="11" fill="#64748b">(+ TLS = HTTPS)</text>
+
+  <text x="600" y="240" text-anchor="middle" font-size="10.5" fill="#64748b">2xx ок · 3xx редирект</text>
+  <text x="600" y="256" text-anchor="middle" font-size="10.5" fill="#64748b">4xx клиент · 5xx сервер</text>
+
+  <text x="360" y="356" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">HTTP без памяти (stateless): каждый запрос самодостаточен · надёжность даёт TCP</text>
+
+  <defs>
+    <marker id="d" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L9,4 L0,8 z" fill="#475569"/>
+    </marker>
+  </defs>
+</svg>

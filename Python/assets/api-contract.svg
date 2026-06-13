@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="360" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">API = контракт: что снаружи, что спрятано</text>
+
+  <rect x="40" y="80" width="180" height="90" rx="10" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="130" y="112" text-anchor="middle" font-size="15" font-weight="700" fill="#3776ab">Кто использует</text>
+  <text x="130" y="135" text-anchor="middle" font-size="12" fill="#555">main.py / другой модуль</text>
+  <text x="130" y="153" text-anchor="middle" font-size="12" fill="#555">видит только API</text>
+
+  <rect x="320" y="60" width="300" height="240" rx="12" fill="#fafafa" stroke="#888" stroke-width="2"/>
+  <text x="470" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#444">Модуль / пакет</text>
+
+  <rect x="340" y="98" width="260" height="64" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="2.5"/>
+  <text x="470" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">ПУБЛИЧНЫЙ API (контракт)</text>
+  <text x="470" y="140" text-anchor="middle" font-size="11" fill="#555" font-family="Consolas, monospace">Vector.push() · get() · __all__</text>
+  <text x="470" y="155" text-anchor="middle" font-size="11" fill="#888">имена без _ — обещание, что есть</text>
+
+  <rect x="340" y="178" width="260" height="106" rx="8" fill="#ffebee" stroke="#e57373" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="470" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#c62828">РЕАЛИЗАЦИЯ (скрыта)</text>
+  <text x="470" y="222" text-anchor="middle" font-size="11" fill="#555" font-family="Consolas, monospace">_grow(), внутренние поля,</text>
+  <text x="470" y="238" text-anchor="middle" font-size="11" fill="#555" font-family="Consolas, monospace">приватные _helpers()</text>
+  <text x="470" y="262" text-anchor="middle" font-size="11" fill="#888">с подчёркивания _ — можно менять,</text>
+  <text x="470" y="277" text-anchor="middle" font-size="11" fill="#888">не ломая пользователей</text>
+
+  <defs>
+    <marker id="apa" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#43a047"/>
+    </marker>
+  </defs>
+  <path d="M220 125 L 336 128" stroke="#43a047" stroke-width="2.5" marker-end="url(#apa)"/>
+  <text x="278" y="116" text-anchor="middle" font-size="10" fill="#2e7d32">зовёт только</text>
+
+  <rect x="60" y="322" width="540" height="30" rx="8" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="330" y="342" text-anchor="middle" font-size="13" font-weight="600" fill="#2e7d32">Меняешь реализацию — пользователи не замечают. В этом сила API.</text>
+</svg>

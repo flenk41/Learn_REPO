@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="320" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Правило borrow checker: разделяй ИЛИ изменяй</text>
+
+  <!-- OK: many readers -->
+  <rect x="30" y="60" width="290" height="100" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="175" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32">✅ много читателей &amp;T</text>
+  <text x="70" y="120" font-size="13" fill="#2e7d32" font-family="Consolas, monospace">&amp;T  &amp;T  &amp;T</text>
+  <text x="175" y="145" text-anchor="middle" font-size="12" fill="#555">все читают — никто не меняет → безопасно</text>
+
+  <!-- OK: one writer -->
+  <rect x="340" y="60" width="290" height="100" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="485" y="84" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32">✅ один писатель &amp;mut T</text>
+  <text x="420" y="120" font-size="13" fill="#2e7d32" font-family="Consolas, monospace">&amp;mut T</text>
+  <text x="485" y="145" text-anchor="middle" font-size="12" fill="#555">меняет один — больше никто не смотрит → безопасно</text>
+
+  <!-- NOT OK -->
+  <rect x="30" y="180" width="600" height="80" rx="10" fill="#ffebee" stroke="#e57373" stroke-width="2"/>
+  <text x="330" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#c62828">❌ читатель И писатель одновременно</text>
+  <text x="330" y="232" text-anchor="middle" font-size="13" fill="#c62828" font-family="Consolas, monospace">&amp;T  +  &amp;mut T   →   ГОНКА ДАННЫХ</text>
+  <text x="330" y="250" text-anchor="middle" font-size="12" fill="#555">писатель меняет данные, пока читатель смотрит → Rust ЗАПРЕЩАЕТ при компиляции</text>
+
+  <rect x="60" y="278" width="540" height="34" rx="8" fill="#fbe9e7" stroke="#ce422b" stroke-width="1.5"/>
+  <text x="330" y="300" text-anchor="middle" font-size="13" font-weight="600" fill="#a8321f">Shared XOR Mutable. Поэтому гонки данных невозможны — даже в многопоточности.</text>
+</svg>

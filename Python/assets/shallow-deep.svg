@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="340" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Поверхностная vs глубокая копия</text>
+  <text x="340" y="52" text-anchor="middle" font-size="13" fill="#666" font-family="Consolas, monospace">a = [[1, 2], [3, 4]]</text>
+
+  <defs>
+    <marker id="sa" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3776ab"/>
+    </marker>
+    <marker id="sared" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e53935"/>
+    </marker>
+  </defs>
+
+  <!-- SHALLOW -->
+  <text x="170" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#e53935" font-family="Consolas, monospace">b = a.copy()  ⚠️</text>
+  <g font-family="Consolas, monospace" font-size="12">
+    <rect x="40" y="100" width="90" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <text x="85" y="125" text-anchor="middle" font-weight="700">a внешн.</text>
+    <rect x="210" y="100" width="90" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <text x="255" y="125" text-anchor="middle" font-weight="700">b внешн.</text>
+    <!-- shared inner -->
+    <rect x="110" y="190" width="120" height="40" rx="6" fill="#ffebee" stroke="#e53935" stroke-width="2"/>
+    <text x="170" y="215" text-anchor="middle" font-weight="700" fill="#c62828">[1, 2] ОБЩИЙ</text>
+  </g>
+  <path d="M85 140 L 150 188" stroke="#e53935" stroke-width="2" marker-end="url(#sared)"/>
+  <path d="M255 140 L 200 188" stroke="#e53935" stroke-width="2" marker-end="url(#sared)"/>
+  <text x="170" y="258" text-anchor="middle" font-size="11" fill="#c62828">внутренний список общий → меняешь b[0], портится a</text>
+
+  <!-- DEEP -->
+  <text x="510" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">deepcopy(a)  ✅</text>
+  <g font-family="Consolas, monospace" font-size="12">
+    <rect x="390" y="100" width="90" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <text x="435" y="125" text-anchor="middle" font-weight="700">a внешн.</text>
+    <rect x="540" y="100" width="90" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <text x="585" y="125" text-anchor="middle" font-weight="700">b внешн.</text>
+    <rect x="380" y="190" width="110" height="40" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+    <text x="435" y="215" text-anchor="middle" font-weight="700">[1, 2] своё</text>
+    <rect x="530" y="190" width="110" height="40" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+    <text x="585" y="215" text-anchor="middle" font-weight="700">[1, 2] своё</text>
+  </g>
+  <path d="M435 140 L 435 188" stroke="#43a047" stroke-width="2" marker-end="url(#sa)"/>
+  <path d="M585 140 L 585 188" stroke="#43a047" stroke-width="2" marker-end="url(#sa)"/>
+  <text x="510" y="258" text-anchor="middle" font-size="11" fill="#2e7d32">всё своё на всех уровнях → полная независимость</text>
+
+  <line x1="340" y1="80" x2="340" y2="270" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="60" y="290" width="560" height="36" rx="8" fill="#fff3e0" stroke="#ffb74d" stroke-width="1.5"/>
+  <text x="340" y="313" text-anchor="middle" font-size="13" font-weight="600" fill="#ef6c00">Плоский список → хватит .copy(). Вложенный → нужен copy.deepcopy()</text>
+</svg>

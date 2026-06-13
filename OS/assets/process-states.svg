@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="720" height="380" rx="16" fill="#f1f5f9"/>
+  <text x="360" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">Жизненный цикл процесса</text>
+
+  <!-- states -->
+  <rect x="40" y="150" width="120" height="56" rx="10" fill="#fff" stroke="#475569" stroke-width="1.8"/>
+  <text x="100" y="183" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1e293b">Создан</text>
+
+  <rect x="220" y="150" width="120" height="56" rx="10" fill="#cbd5e1" stroke="#475569" stroke-width="1.8"/>
+  <text x="280" y="175" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1e293b">Готов</text>
+  <text x="280" y="194" text-anchor="middle" font-size="10.5" fill="#475569">ждёт CPU</text>
+
+  <rect x="420" y="150" width="130" height="56" rx="10" fill="#475569"/>
+  <text x="485" y="175" text-anchor="middle" font-size="13.5" font-weight="700" fill="#fff">Выполняется</text>
+  <text x="485" y="194" text-anchor="middle" font-size="10.5" fill="#cbd5e1">на процессоре</text>
+
+  <rect x="610" y="150" width="80" height="56" rx="10" fill="#fff" stroke="#475569" stroke-width="1.8"/>
+  <text x="650" y="183" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e293b">Завершён</text>
+
+  <rect x="350" y="280" width="130" height="50" rx="10" fill="#fff" stroke="#94a3b8" stroke-width="1.6"/>
+  <text x="415" y="302" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e293b">Ожидание</text>
+  <text x="415" y="320" text-anchor="middle" font-size="10" fill="#64748b">ждёт диск/сеть/ввод</text>
+
+  <!-- arrows -->
+  <line x1="160" y1="178" x2="218" y2="178" stroke="#64748b" stroke-width="2" marker-end="url(#p)"/>
+  <line x1="340" y1="172" x2="418" y2="172" stroke="#64748b" stroke-width="2" marker-end="url(#p)"/>
+  <text x="380" y="162" text-anchor="middle" font-size="10" fill="#475569">планировщик дал CPU</text>
+  <line x1="420" y1="190" x2="342" y2="190" stroke="#64748b" stroke-width="2" marker-end="url(#p)"/>
+  <text x="380" y="206" text-anchor="middle" font-size="10" fill="#475569">вытеснён (квант истёк)</text>
+  <line x1="550" y1="178" x2="608" y2="178" stroke="#64748b" stroke-width="2" marker-end="url(#p)"/>
+
+  <!-- to waiting -->
+  <line x1="470" y1="206" x2="430" y2="278" stroke="#64748b" stroke-width="2" marker-end="url(#p)"/>
+  <text x="520" y="250" text-anchor="middle" font-size="10" fill="#475569">запросил I-O</text>
+  <line x1="370" y1="278" x2="300" y2="208" stroke="#64748b" stroke-width="2" marker-end="url(#p)"/>
+  <text x="300" y="255" text-anchor="middle" font-size="10" fill="#475569">I-O готов → снова готов</text>
+
+  <text x="360" y="360" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">процессов больше, чем ядер → большинство «готов» или «ожидание», а не «выполняется»</text>
+
+  <defs>
+    <marker id="p" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

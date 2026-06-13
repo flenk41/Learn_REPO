@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="720" height="420" rx="16" fill="#fbf7f4"/>
+  <text x="360" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#3a2a22">Claude Code — агент в цикле</text>
+
+  <!-- user -->
+  <rect x="40" y="80" width="150" height="60" rx="10" fill="#fff" stroke="#d97757" stroke-width="2"/>
+  <text x="115" y="108" text-anchor="middle" font-size="14" font-weight="700" fill="#3a2a22">👤 Ты</text>
+  <text x="115" y="128" text-anchor="middle" font-size="12" fill="#6b5b52">ставишь цель</text>
+
+  <!-- model -->
+  <rect x="285" y="75" width="160" height="70" rx="10" fill="#d97757"/>
+  <text x="365" y="105" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">🧠 Модель Claude</text>
+  <text x="365" y="126" text-anchor="middle" font-size="12" fill="#fde8df">думает, решает</text>
+
+  <!-- tools -->
+  <rect x="540" y="80" width="150" height="60" rx="10" fill="#fff" stroke="#c79a3a" stroke-width="2"/>
+  <text x="615" y="104" text-anchor="middle" font-size="13" font-weight="700" fill="#3a2a22">🛠️ Инструменты</text>
+  <text x="615" y="124" text-anchor="middle" font-size="11" fill="#6b5b52">read · edit · bash</text>
+
+  <!-- arrows top -->
+  <line x1="190" y1="110" x2="280" y2="110" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="445" y1="110" x2="535" y2="110" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- context box -->
+  <rect x="120" y="210" width="480" height="150" rx="12" fill="#fff" stroke="#d97757" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="360" y="238" text-anchor="middle" font-size="15" font-weight="700" fill="#b85c3c">КОНТЕКСТ (память агента на шаге)</text>
+  <text x="360" y="266" text-anchor="middle" font-size="12.5" fill="#4a3a32">• системный промпт · CLAUDE.md (правила проекта)</text>
+  <text x="360" y="288" text-anchor="middle" font-size="12.5" fill="#4a3a32">• история сессии (что говорили и делали)</text>
+  <text x="360" y="310" text-anchor="middle" font-size="12.5" fill="#4a3a32">• результаты инструментов (что прочитал / запустил)</text>
+  <text x="360" y="340" text-anchor="middle" font-size="12" font-style="italic" fill="#8a7368">нет в контексте → для модели не существует</text>
+
+  <!-- loop arrows -->
+  <line x1="615" y1="140" x2="540" y2="245" stroke="#c79a3a" stroke-width="2" marker-end="url(#a)"/>
+  <text x="612" y="195" text-anchor="end" font-size="11" fill="#8a7368">результат →</text>
+  <line x1="200" y1="245" x2="300" y2="148" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+  <text x="170" y="195" font-size="11" fill="#8a7368">→ новый шаг</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#9a8678"/>
+    </marker>
+  </defs>
+</svg>

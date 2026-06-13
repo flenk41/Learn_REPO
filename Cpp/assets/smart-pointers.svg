@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 320" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="690" height="320" fill="#ffffff"/>
+  <text x="345" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Три умных указателя</text>
+
+  <defs>
+    <marker id="sp" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#00599c"/>
+    </marker>
+  </defs>
+
+  <!-- unique_ptr -->
+  <rect x="20" y="55" width="210" height="230" rx="10" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="125" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">unique_ptr</text>
+  <text x="125" y="100" text-anchor="middle" font-size="12" fill="#555">единоличный владелец</text>
+  <rect x="55" y="120" width="60" height="34" rx="6" fill="#fff" stroke="#43a047" stroke-width="2"/>
+  <text x="85" y="142" text-anchor="middle" font-size="12" font-weight="700" font-family="Consolas, monospace">p</text>
+  <rect x="150" y="120" width="55" height="34" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="177" y="142" text-anchor="middle" font-size="12" font-weight="700">42</text>
+  <path d="M115 137 L 146 137" stroke="#00599c" stroke-width="2" marker-end="url(#sp)"/>
+  <text x="125" y="185" text-anchor="middle" font-size="11" fill="#2e7d32">один владелец</text>
+  <text x="125" y="202" text-anchor="middle" font-size="11" fill="#2e7d32">копировать нельзя,</text>
+  <text x="125" y="218" text-anchor="middle" font-size="11" fill="#2e7d32">только move</text>
+  <text x="125" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#2e7d32">✓ по умолчанию</text>
+
+  <!-- shared_ptr -->
+  <rect x="240" y="55" width="210" height="230" rx="10" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="345" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#1565c0" font-family="Consolas, monospace">shared_ptr</text>
+  <text x="345" y="100" text-anchor="middle" font-size="12" fill="#555">разделяемое владение</text>
+  <rect x="265" y="120" width="50" height="30" rx="6" fill="#fff" stroke="#3776ab" stroke-width="2"/>
+  <text x="290" y="141" text-anchor="middle" font-size="11" font-weight="700" font-family="Consolas, monospace">p1</text>
+  <rect x="265" y="158" width="50" height="30" rx="6" fill="#fff" stroke="#3776ab" stroke-width="2"/>
+  <text x="290" y="179" text-anchor="middle" font-size="11" font-weight="700" font-family="Consolas, monospace">p2</text>
+  <rect x="360" y="135" width="75" height="40" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="397" y="153" text-anchor="middle" font-size="12" font-weight="700">42</text>
+  <text x="397" y="169" text-anchor="middle" font-size="10" fill="#888">счёт: 2</text>
+  <path d="M315 135 L 356 150" stroke="#00599c" stroke-width="2" marker-end="url(#sp)"/>
+  <path d="M315 173 L 356 162" stroke="#00599c" stroke-width="2" marker-end="url(#sp)"/>
+  <text x="345" y="210" text-anchor="middle" font-size="11" fill="#1565c0">несколько владельцев</text>
+  <text x="345" y="227" text-anchor="middle" font-size="11" fill="#1565c0">счётчик ссылок →</text>
+  <text x="345" y="244" text-anchor="middle" font-size="11" fill="#1565c0">0 = удалён</text>
+
+  <!-- weak_ptr -->
+  <rect x="460" y="55" width="210" height="230" rx="10" fill="#fff3e0" stroke="#ef6c00" stroke-width="2"/>
+  <text x="565" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#e65100" font-family="Consolas, monospace">weak_ptr</text>
+  <text x="565" y="100" text-anchor="middle" font-size="12" fill="#555">наблюдатель</text>
+  <rect x="495" y="125" width="55" height="34" rx="6" fill="#fff" stroke="#ef6c00" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="522" y="147" text-anchor="middle" font-size="12" font-weight="700" font-family="Consolas, monospace">w</text>
+  <rect x="585" y="125" width="55" height="34" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="612" y="147" text-anchor="middle" font-size="12" font-weight="700">42</text>
+  <path d="M550 142 L 581 142" stroke="#ef6c00" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#sp)"/>
+  <text x="565" y="190" text-anchor="middle" font-size="11" fill="#e65100">НЕ владеет,</text>
+  <text x="565" y="207" text-anchor="middle" font-size="11" fill="#e65100">не считается</text>
+  <text x="565" y="224" text-anchor="middle" font-size="11" fill="#e65100">разрывает циклы</text>
+  <text x="565" y="248" text-anchor="middle" font-size="11" fill="#e65100">shared_ptr</text>
+
+  <text x="345" y="308" text-anchor="middle" font-size="12" fill="#888">Все три — RAII: освобождают память сами. new/delete не нужны.</text>
+</svg>

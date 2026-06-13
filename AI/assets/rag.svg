@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="260" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">RAG: поиск → вставка в контекст → ответ по данным</text>
+
+  <defs>
+    <marker id="rg" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <!-- question -->
+  <rect x="30" y="100" width="120" height="50" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="90" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">Вопрос</text>
+  <text x="90" y="140" text-anchor="middle" font-size="11" fill="#888">пользователя</text>
+
+  <!-- search -->
+  <rect x="200" y="60" width="150" height="60" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="275" y="85" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">1. ПОИСК</text>
+  <text x="275" y="104" text-anchor="middle" font-size="11" fill="#555">в базе знаний по смыслу</text>
+
+  <!-- knowledge base -->
+  <rect x="220" y="160" width="110" height="50" rx="8" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="275" y="182" text-anchor="middle" font-size="12" font-weight="700" fill="#c2410c">📚 База знаний</text>
+  <text x="275" y="199" text-anchor="middle" font-size="10" fill="#9a3412">твои документы</text>
+  <path d="M275 158 L 275 122" stroke="#fb923c" stroke-width="2" marker-end="url(#rg)"/>
+
+  <!-- insert -->
+  <rect x="400" y="60" width="150" height="60" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="475" y="85" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">2. ВСТАВКА</text>
+  <text x="475" y="104" text-anchor="middle" font-size="11" fill="#555">найденное → в контекст</text>
+
+  <!-- answer -->
+  <rect x="560" y="100" width="100" height="50" rx="8" fill="#dcfce7" stroke="#4ade80" stroke-width="2"/>
+  <text x="610" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">3. ОТВЕТ</text>
+  <text x="610" y="140" text-anchor="middle" font-size="10" fill="#166534">по данным</text>
+
+  <path d="M150 122 L 196 100" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#rg)"/>
+  <path d="M350 90 L 396 90" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#rg)"/>
+  <path d="M550 100 L 558 110" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#rg)"/>
+
+  <rect x="60" y="225" width="560" height="30" rx="8" fill="#f3e8ff" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="340" y="245" text-anchor="middle" font-size="13" font-weight="600" fill="#6d28d9">RAG = «заземление» в большом масштабе: ИИ отвечает по данным, а не из «головы»</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 290" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="290" fill="#ffffff"/>
+  <text x="320" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Список хранит ССЫЛКИ, а не объекты</text>
+  <text x="320" y="56" text-anchor="middle" font-size="14" fill="#666" font-family="Consolas, monospace">data = [42, "текст", [1, 2], 3.14]</text>
+
+  <defs>
+    <marker id="lr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3776ab"/>
+    </marker>
+  </defs>
+
+  <!-- list of slots -->
+  <text x="90" y="100" font-size="13" fill="#3776ab" font-weight="700" font-family="Consolas, monospace">data</text>
+  <g font-family="Consolas, monospace">
+    <rect x="80" y="110" width="60" height="50" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <rect x="140" y="110" width="60" height="50" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <rect x="200" y="110" width="60" height="50" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <rect x="260" y="110" width="60" height="50" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+    <circle cx="110" cy="135" r="5" fill="#3776ab"/>
+    <circle cx="170" cy="135" r="5" fill="#3776ab"/>
+    <circle cx="230" cy="135" r="5" fill="#3776ab"/>
+    <circle cx="290" cy="135" r="5" fill="#3776ab"/>
+  </g>
+  <text x="200" y="178" text-anchor="middle" font-size="11" fill="#888">массив ссылок (адресов)</text>
+
+  <!-- objects scattered -->
+  <g font-family="Consolas, monospace">
+    <rect x="420" y="80" width="120" height="34" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+    <text x="480" y="103" text-anchor="middle" font-weight="700">int 42</text>
+    <rect x="450" y="128" width="160" height="34" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+    <text x="530" y="151" text-anchor="middle" font-weight="700">str "текст"</text>
+    <rect x="410" y="176" width="130" height="34" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+    <text x="475" y="199" text-anchor="middle" font-weight="700">list [1, 2]</text>
+    <rect x="460" y="224" width="130" height="34" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+    <text x="525" y="247" text-anchor="middle" font-weight="700">float 3.14</text>
+  </g>
+
+  <path d="M110 135 C 250 100, 320 97, 418 97"   fill="none" stroke="#3776ab" stroke-width="1.8" marker-end="url(#lr)"/>
+  <path d="M170 135 C 280 140, 360 145, 448 145" fill="none" stroke="#3776ab" stroke-width="1.8" marker-end="url(#lr)"/>
+  <path d="M230 160 C 300 185, 360 192, 408 193" fill="none" stroke="#3776ab" stroke-width="1.8" marker-end="url(#lr)"/>
+  <path d="M290 160 C 360 230, 420 240, 458 241" fill="none" stroke="#3776ab" stroke-width="1.8" marker-end="url(#lr)"/>
+
+  <text x="320" y="280" text-anchor="middle" font-size="12" fill="#888">объекты разбросаны по куче · в C массив хранит сами значения подряд</text>
+</svg>

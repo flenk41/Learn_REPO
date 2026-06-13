@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 290" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="290" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Подсчёт ссылок: счётчик = 0 → объект удалён</text>
+
+  <g font-family="Consolas, monospace" font-size="13">
+    <!-- step 1 -->
+    <text x="40" y="80" font-size="13" fill="#3776ab" font-weight="700">a = [1,2,3]</text>
+    <rect x="40" y="92" width="150" height="54" rx="8" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+    <text x="115" y="116" text-anchor="middle" font-weight="700">[1, 2, 3]</text>
+    <text x="115" y="136" text-anchor="middle" fill="#2e7d32" font-weight="700">refcount = 1</text>
+
+    <!-- step 2 -->
+    <text x="255" y="80" font-size="13" fill="#3776ab" font-weight="700">b = a</text>
+    <rect x="255" y="92" width="150" height="54" rx="8" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+    <text x="330" y="116" text-anchor="middle" font-weight="700">[1, 2, 3]</text>
+    <text x="330" y="136" text-anchor="middle" fill="#2e7d32" font-weight="700">refcount = 2</text>
+
+    <!-- step 3 -->
+    <text x="470" y="80" font-size="13" fill="#3776ab" font-weight="700">del a; b = None</text>
+    <rect x="470" y="92" width="150" height="54" rx="8" fill="#ffebee" stroke="#e57373" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="545" y="116" text-anchor="middle" font-weight="700" fill="#c62828">[1, 2, 3]</text>
+    <text x="545" y="136" text-anchor="middle" fill="#c62828" font-weight="700">refcount = 0</text>
+  </g>
+
+  <defs>
+    <marker id="ra" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#888"/>
+    </marker>
+  </defs>
+  <path d="M195 119 L 250 119" stroke="#888" stroke-width="2" marker-end="url(#ra)"/>
+  <path d="M410 119 L 465 119" stroke="#888" stroke-width="2" marker-end="url(#ra)"/>
+
+  <text x="545" y="178" text-anchor="middle" font-size="22" fill="#c62828">🗑</text>
+  <text x="545" y="200" text-anchor="middle" font-size="12" fill="#c62828" font-weight="600">память освобождена</text>
+
+  <rect x="60" y="232" width="540" height="40" rx="8" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="330" y="257" text-anchor="middle" font-size="13" font-weight="600" fill="#2e7d32">Это автоматический аналог free() из C — срабатывает сам, когда ссылок не осталось</text>
+</svg>

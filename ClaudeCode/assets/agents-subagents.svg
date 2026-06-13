@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="720" height="400" rx="16" fill="#fbf7f4"/>
+  <text x="360" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#3a2a22">Саб-агенты: у каждого своё чистое окно памяти</text>
+
+  <!-- main agent -->
+  <rect x="270" y="70" width="180" height="74" rx="12" fill="#d97757"/>
+  <text x="360" y="100" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">ГЛАВНЫЙ агент</text>
+  <text x="360" y="122" text-anchor="middle" font-size="11.5" fill="#fde8df">твой разговор · чистый контекст</text>
+
+  <!-- subagents -->
+  <g>
+    <rect x="50" y="220" width="180" height="92" rx="11" fill="#fff" stroke="#c79a3a" stroke-width="2"/>
+    <text x="140" y="248" text-anchor="middle" font-size="13.5" font-weight="700" fill="#3a2a22">🔍 поиск</text>
+    <text x="140" y="270" text-anchor="middle" font-size="11" fill="#6b5b52">свой контекст,</text>
+    <text x="140" y="286" text-anchor="middle" font-size="11" fill="#6b5b52">читает кучу файлов</text>
+    <text x="140" y="304" text-anchor="middle" font-size="10.5" fill="#9a8678">модель: Haiku</text>
+  </g>
+  <g>
+    <rect x="270" y="220" width="180" height="92" rx="11" fill="#fff" stroke="#c79a3a" stroke-width="2"/>
+    <text x="360" y="248" text-anchor="middle" font-size="13.5" font-weight="700" fill="#3a2a22">🧪 тесты</text>
+    <text x="360" y="270" text-anchor="middle" font-size="11" fill="#6b5b52">свой контекст,</text>
+    <text x="360" y="286" text-anchor="middle" font-size="11" fill="#6b5b52">пишет/гоняет тесты</text>
+  </g>
+  <g>
+    <rect x="490" y="220" width="180" height="92" rx="11" fill="#fff" stroke="#c79a3a" stroke-width="2"/>
+    <text x="580" y="248" text-anchor="middle" font-size="13.5" font-weight="700" fill="#3a2a22">👓 ревью</text>
+    <text x="580" y="270" text-anchor="middle" font-size="11" fill="#6b5b52">свой контекст,</text>
+    <text x="580" y="286" text-anchor="middle" font-size="11" fill="#6b5b52">проверяет результат</text>
+    <text x="580" y="304" text-anchor="middle" font-size="10.5" fill="#9a8678">модель: Sonnet</text>
+  </g>
+
+  <!-- arrows down (delegate) -->
+  <line x1="320" y1="144" x2="150" y2="216" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="360" y1="144" x2="360" y2="216" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="400" y1="144" x2="570" y2="216" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+  <text x="222" y="180" text-anchor="middle" font-size="10.5" fill="#8a7368">делегирует ▼</text>
+
+  <text x="360" y="352" text-anchor="middle" font-size="12.5" fill="#4a3a32">саб-агент делает «грязную» работу → в главный контекст возвращает только ИТОГ</text>
+  <text x="360" y="376" text-anchor="middle" font-size="12" font-style="italic" fill="#8a7368">главное окно остаётся чистым — управление памятью на уровне процесса</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#9a8678"/>
+    </marker>
+  </defs>
+</svg>

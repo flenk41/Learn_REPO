@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="280" fill="#ffffff"/>
+  <text x="320" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Заимствование: одолжить доступ без владения</text>
+  <text x="320" y="56" text-anchor="middle" font-size="14" fill="#666" font-family="Consolas, monospace">calc_len(&amp;text)</text>
+
+  <defs>
+    <marker id="br" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#43a047"/>
+    </marker>
+  </defs>
+
+  <!-- owner -->
+  <rect x="60" y="100" width="110" height="50" rx="8" fill="#fbe9e7" stroke="#ce422b" stroke-width="2"/>
+  <text x="115" y="122" text-anchor="middle" font-size="13" font-weight="700" font-family="Consolas, monospace">text</text>
+  <text x="115" y="140" text-anchor="middle" font-size="10" fill="#a8321f">владелец</text>
+  <rect x="230" y="100" width="130" height="50" rx="8" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="295" y="130" text-anchor="middle" font-size="13" font-weight="700">"привет"</text>
+  <path d="M170 125 L 226 125" stroke="#ce422b" stroke-width="2.5" marker-end="url(#br)"/>
+
+  <!-- borrow -->
+  <rect x="440" y="100" width="140" height="50" rx="8" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="510" y="122" text-anchor="middle" font-size="13" font-weight="700" font-family="Consolas, monospace">&amp;text</text>
+  <text x="510" y="140" text-anchor="middle" font-size="10" fill="#2e7d32">ссылка — только смотрит</text>
+  <path d="M440 125 C 400 125, 380 125, 362 125" fill="none" stroke="#43a047" stroke-width="2.5" marker-end="url(#br)"/>
+
+  <text x="320" y="195" text-anchor="middle" font-size="13" fill="#2e7d32">функция читает данные через ссылку, владение остаётся у text</text>
+
+  <rect x="60" y="220" width="520" height="48" rx="8" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="320" y="241" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">&amp;T — заимствование для чтения · &amp;mut T — для изменения</text>
+  <text x="320" y="259" text-anchor="middle" font-size="12" fill="#555">после вызова text по-прежнему доступен — владение не уходило</text>
+</svg>

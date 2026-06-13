@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="280" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">__dict__ vs __slots__ — память объекта</text>
+
+  <defs>
+    <marker id="sd" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3776ab"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT: __dict__ -->
+  <text x="170" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#c62828">Обычный объект — словарь</text>
+  <rect x="70" y="85" width="90" height="44" rx="8" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="115" y="112" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">объект</text>
+  <rect x="200" y="80" width="170" height="80" rx="8" fill="#fff3e0" stroke="#ffb74d" stroke-width="2"/>
+  <text x="285" y="102" text-anchor="middle" font-size="12" font-weight="700" fill="#ef6c00">__dict__</text>
+  <text x="285" y="124" text-anchor="middle" font-size="12" font-family="Consolas, monospace">{"x": 1,</text>
+  <text x="285" y="142" text-anchor="middle" font-size="12" font-family="Consolas, monospace"> "y": 2}</text>
+  <path d="M160 107 L 196 110" stroke="#3776ab" stroke-width="2" marker-end="url(#sd)"/>
+  <text x="220" y="185" text-anchor="middle" font-size="12" fill="#c62828">+ словарь на КАЖДЫЙ объект</text>
+  <text x="220" y="203" text-anchor="middle" font-size="12" fill="#c62828">можно добавлять атрибуты на лету</text>
+
+  <!-- RIGHT: __slots__ -->
+  <text x="510" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32">__slots__ = ("x","y") — компактно</text>
+  <rect x="430" y="85" width="90" height="44" rx="8" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="475" y="112" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">объект</text>
+  <g font-family="Consolas, monospace">
+    <rect x="555" y="92" width="50" height="30" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+    <text x="580" y="112" text-anchor="middle" font-weight="700">x=1</text>
+    <rect x="605" y="92" width="50" height="30" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+    <text x="630" y="112" text-anchor="middle" font-weight="700">y=2</text>
+  </g>
+  <path d="M520 107 L 551 107" stroke="#3776ab" stroke-width="2" marker-end="url(#sd)"/>
+  <text x="555" y="185" text-anchor="middle" font-size="12" fill="#2e7d32">без словаря — поля лежат подряд</text>
+  <text x="555" y="203" text-anchor="middle" font-size="12" fill="#2e7d32">(как поля struct в C)</text>
+
+  <line x1="340" y1="55" x2="340" y2="215" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="60" y="232" width="560" height="36" rx="8" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="340" y="255" text-anchor="middle" font-size="13" font-weight="600" fill="#2e7d32">На миллионах объектов __slots__ экономит память в 2–4 раза и ускоряет доступ</text>
+</svg>

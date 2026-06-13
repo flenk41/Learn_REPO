@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="300" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Словарь = хеш-таблица (поиск O(1))</text>
+  <text x="330" y="56" text-anchor="middle" font-size="13" fill="#666" font-family="Consolas, monospace">d["name"] = "Гена"</text>
+
+  <defs>
+    <marker id="da" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3776ab"/>
+    </marker>
+  </defs>
+
+  <!-- key -->
+  <rect x="40" y="120" width="110" height="46" rx="8" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="95" y="148" text-anchor="middle" font-size="16" font-weight="700" font-family="Consolas, monospace">"name"</text>
+
+  <!-- hash box -->
+  <rect x="210" y="118" width="120" height="50" rx="8" fill="#f3e5f5" stroke="#8e24aa" stroke-width="2"/>
+  <text x="270" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#8e24aa">hash()</text>
+  <text x="270" y="158" text-anchor="middle" font-size="11" fill="#666" font-family="Consolas, monospace">→ 8273...</text>
+
+  <!-- table -->
+  <g font-family="Consolas, monospace" font-size="12">
+    <rect x="410" y="90" width="210" height="26" fill="#fafafa" stroke="#ccc"/>
+    <text x="420" y="108" fill="#999">[0] пусто</text>
+    <rect x="410" y="116" width="210" height="26" fill="#fafafa" stroke="#ccc"/>
+    <text x="420" y="134" fill="#999">[1] пусто</text>
+    <rect x="410" y="142" width="210" height="26" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+    <text x="420" y="160" font-weight="700" fill="#1a1a2e">[3] "name" → "Гена"</text>
+    <rect x="410" y="168" width="210" height="26" fill="#fafafa" stroke="#ccc"/>
+    <text x="420" y="186" fill="#999">[4] пусто</text>
+  </g>
+
+  <path d="M150 143 L 206 143" stroke="#3776ab" stroke-width="2" marker-end="url(#da)"/>
+  <path d="M330 150 C 360 150, 375 155, 406 155" stroke="#3776ab" stroke-width="2" marker-end="url(#da)"/>
+
+  <rect x="60" y="230" width="540" height="50" rx="8" fill="#e8f0fe" stroke="#3776ab" stroke-width="1.5"/>
+  <text x="330" y="251" text-anchor="middle" font-size="13" font-weight="600" fill="#3776ab">Хеш ключа сразу указывает ячейку → доступ почти мгновенный, без перебора</text>
+  <text x="330" y="270" text-anchor="middle" font-size="12" fill="#666">Поэтому ключи должны быть неизменяемыми (стабильный хеш). set устроен так же.</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="320" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Аргументы — это ссылки на объекты</text>
+
+  <defs>
+    <marker id="po" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#3776ab"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT: immutable -->
+  <text x="170" y="68" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32">Неизменяемый (число) — оригинал цел</text>
+  <text x="170" y="90" text-anchor="middle" font-size="12" fill="#555" font-family="Consolas, monospace">def f(n): n = 100</text>
+  <rect x="50" y="110" width="80" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="90" y="136" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">x</text>
+  <rect x="200" y="110" width="80" height="40" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="240" y="136" text-anchor="middle" font-weight="700">5</text>
+  <path d="M130 130 L 196 130" stroke="#3776ab" stroke-width="2" marker-end="url(#po)"/>
+  <rect x="50" y="175" width="80" height="40" rx="6" fill="#eceff1" stroke="#90a4ae" stroke-width="2"/>
+  <text x="90" y="201" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">n</text>
+  <rect x="200" y="175" width="80" height="40" rx="6" fill="#ffebee" stroke="#e57373" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="240" y="201" text-anchor="middle" font-weight="700" fill="#c62828">100</text>
+  <path d="M130 195 L 196 195" stroke="#90a4ae" stroke-width="2" marker-end="url(#po)"/>
+  <text x="170" y="248" text-anchor="middle" font-size="12" fill="#2e7d32">n переклеился на новый объект — x всё ещё [5]</text>
+
+  <!-- RIGHT: mutable -->
+  <text x="510" y="68" text-anchor="middle" font-size="14" font-weight="700" fill="#c62828">Изменяемый (список) — оригинал меняется ⚠️</text>
+  <text x="510" y="90" text-anchor="middle" font-size="12" fill="#555" font-family="Consolas, monospace">def f(lst): lst.append(99)</text>
+  <rect x="390" y="120" width="90" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="435" y="146" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">items</text>
+  <rect x="400" y="175" width="90" height="40" rx="6" fill="#eceff1" stroke="#90a4ae" stroke-width="2"/>
+  <text x="445" y="201" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">lst</text>
+  <rect x="540" y="148" width="110" height="44" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2.5"/>
+  <text x="595" y="175" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">[1,2,3,99]</text>
+  <path d="M480 142 L 536 162" stroke="#3776ab" stroke-width="2" marker-end="url(#po)"/>
+  <path d="M490 193 L 536 178" stroke="#90a4ae" stroke-width="2" marker-end="url(#po)"/>
+  <text x="510" y="248" text-anchor="middle" font-size="12" fill="#c62828">оба имени видят один список → append меняет оригинал</text>
+
+  <line x1="340" y1="55" x2="340" y2="265" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="60" y="280" width="560" height="30" rx="8" fill="#fff3e0" stroke="#ffb74d" stroke-width="1.5"/>
+  <text x="340" y="300" text-anchor="middle" font-size="13" font-weight="600" fill="#ef6c00">Хочешь сохранить оригинал списка — работай с копией (lst.copy())</text>
+</svg>

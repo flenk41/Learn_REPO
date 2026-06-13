@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="700" height="250" fill="#ffffff"/>
+  <text x="350" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Способы связать языки: тесно ↔ свободно</text>
+
+  <!-- gradient bar -->
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="0.5" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="100" width="620" height="14" rx="7" fill="url(#grad)"/>
+
+  <g font-size="12" text-anchor="middle">
+    <text x="90" y="90" font-weight="700" fill="#b91c1c">FFI</text>
+    <circle cx="90" cy="107" r="6" fill="#fff" stroke="#ef4444" stroke-width="2"/>
+    <text x="210" y="90" font-weight="700" fill="#c2410c">биндинги</text>
+    <circle cx="210" cy="107" r="6" fill="#fff" stroke="#f97316" stroke-width="2"/>
+    <text x="330" y="90" font-weight="700" fill="#b45309">WASM</text>
+    <circle cx="330" cy="107" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"/>
+    <text x="450" y="90" font-weight="700" fill="#a16207">встраивание</text>
+    <circle cx="450" cy="107" r="6" fill="#fff" stroke="#eab308" stroke-width="2"/>
+    <text x="610" y="90" font-weight="700" fill="#15803d">REST / процессы</text>
+    <circle cx="610" cy="107" r="6" fill="#fff" stroke="#22c55e" stroke-width="2"/>
+  </g>
+
+  <rect x="40" y="140" width="290" height="70" rx="10" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="185" y="163" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">Тесно (один процесс)</text>
+  <text x="185" y="183" text-anchor="middle" font-size="11" fill="#7f1d1d">⚡ быстро, общая память</text>
+  <text x="185" y="200" text-anchor="middle" font-size="11" fill="#7f1d1d">⚠️ риск ошибок памяти</text>
+
+  <rect x="370" y="140" width="290" height="70" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="515" y="163" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">Свободно (разные процессы)</text>
+  <text x="515" y="183" text-anchor="middle" font-size="11" fill="#166534">🛡️ изоляция, надёжность, просто</text>
+  <text x="515" y="200" text-anchor="middle" font-size="11" fill="#166534">🐢 медленнее (сеть/сериализация)</text>
+
+  <text x="350" y="238" text-anchor="middle" font-size="12" fill="#888">Не всегда нужен FFI — часто REST/процессы безопаснее и проще</text>
+</svg>

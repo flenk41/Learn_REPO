@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 290" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="290" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Список vs генератор — память</text>
+
+  <!-- LIST -->
+  <text x="170" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#c62828">Список: всё сразу в памяти 🐘</text>
+  <text x="170" y="88" text-anchor="middle" font-size="12" fill="#555" font-family="Consolas, monospace">[x**2 for x in range(10_000_000)]</text>
+  <g font-family="Consolas, monospace" font-size="12">
+    <rect x="40" y="105" width="46" height="34" fill="#ffebee" stroke="#e57373"/><text x="63" y="127" text-anchor="middle">0</text>
+    <rect x="86" y="105" width="46" height="34" fill="#ffebee" stroke="#e57373"/><text x="109" y="127" text-anchor="middle">1</text>
+    <rect x="132" y="105" width="46" height="34" fill="#ffebee" stroke="#e57373"/><text x="155" y="127" text-anchor="middle">4</text>
+    <rect x="178" y="105" width="46" height="34" fill="#ffebee" stroke="#e57373"/><text x="201" y="127" text-anchor="middle">9</text>
+    <rect x="224" y="105" width="70" height="34" fill="#ffebee" stroke="#e57373"/><text x="259" y="127" text-anchor="middle">… 10М</text>
+  </g>
+  <text x="170" y="165" text-anchor="middle" font-size="13" fill="#c62828" font-weight="700">~400 МБ</text>
+
+  <!-- GENERATOR -->
+  <text x="510" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32">Генератор: по одному 🪶</text>
+  <text x="510" y="88" text-anchor="middle" font-size="12" fill="#555" font-family="Consolas, monospace">(x**2 for x in range(10_000_000))</text>
+  <g font-family="Consolas, monospace" font-size="13">
+    <rect x="470" y="105" width="80" height="40" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+    <text x="510" y="130" text-anchor="middle" font-weight="700">текущее</text>
+  </g>
+  <text x="600" y="130" font-size="20" fill="#43a047">→ →</text>
+  <text x="510" y="170" text-anchor="middle" font-size="13" fill="#2e7d32" font-weight="700">~200 байт (всегда)</text>
+
+  <line x1="340" y1="55" x2="340" y2="195" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <rect x="60" y="210" width="560" height="60" rx="10" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="340" y="235" text-anchor="middle" font-size="13" font-weight="700" fill="#2e7d32">Генератор вычисляет значения ЛЕНИВО — по требованию, по одному.</text>
+  <text x="340" y="256" text-anchor="middle" font-size="12" fill="#555">Идеален для больших данных, потоков, файлов. Минус: пройти можно один раз.</text>
+</svg>

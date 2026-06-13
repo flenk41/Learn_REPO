@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="280" fill="#ffffff"/>
+  <text x="340" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Работа с веб-API: запрос → ответ (JSON)</text>
+
+  <rect x="40" y="90" width="180" height="100" rx="12" fill="#fbe9e7" stroke="#ce422b" stroke-width="2"/>
+  <text x="130" y="125" text-anchor="middle" font-size="15" font-weight="700" fill="#ce422b">Твоя программа</text>
+  <text x="130" y="148" text-anchor="middle" font-size="12" fill="#555">(клиент)</text>
+  <text x="130" y="168" text-anchor="middle" font-size="11" fill="#888">reqwest + serde</text>
+
+  <rect x="460" y="90" width="180" height="100" rx="12" fill="#fff8e1" stroke="#f4b400" stroke-width="2.5"/>
+  <text x="550" y="125" text-anchor="middle" font-size="15" font-weight="700" fill="#bb8a00">Сервер API</text>
+  <text x="550" y="148" text-anchor="middle" font-size="12" fill="#555">api.github.com</text>
+  <text x="550" y="168" text-anchor="middle" font-size="11" fill="#888">отдаёт данные</text>
+
+  <defs>
+    <marker id="wa" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#ce422b"/>
+    </marker>
+    <marker id="wb" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#43a047"/>
+    </marker>
+  </defs>
+
+  <path d="M222 120 L 456 120" stroke="#ce422b" stroke-width="2.5" marker-end="url(#wa)"/>
+  <text x="340" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#ce422b" font-family="Consolas, monospace">GET /users/torvalds</text>
+
+  <path d="M456 160 L 222 160" stroke="#43a047" stroke-width="2.5" marker-end="url(#wb)"/>
+  <text x="340" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">200 OK + JSON</text>
+
+  <rect x="240" y="208" width="200" height="48" rx="8" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.5"/>
+  <text x="340" y="228" text-anchor="middle" font-size="11" fill="#e65100" font-family="Consolas, monospace">{"name": "Linus",</text>
+  <text x="340" y="245" text-anchor="middle" font-size="11" fill="#e65100" font-family="Consolas, monospace"> "repos": 6}</text>
+</svg>

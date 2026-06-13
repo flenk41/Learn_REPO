@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧠 Курс C · от новичка до Senior</title>
+
+<!-- Подсветка кода -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<!-- Markdown -->
+<script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+<!-- Mermaid (ESM) -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: false, theme: 'neutral', securityLevel: 'loose' });
+  window.__mermaid = mermaid;
+  window.dispatchEvent(new Event('mermaid-ready'));
+</script>
+
+<style>
+  :root {
+    --bg:           #f6f7fb;
+    --bg-side:      #ffffff;
+    --bg-card:      #ffffff;
+    --text:         #1f2330;
+    --text-soft:    #5a6072;
+    --border:       #e6e8f0;
+    --accent:       #5b6cff;
+    --accent-soft:  #eef0ff;
+    --green:        #2bb673;
+    --shadow:       0 1px 3px rgba(20,24,40,.06), 0 8px 24px rgba(20,24,40,.05);
+    --radius:       14px;
+    --sidebar-w:    330px;
+  }
+  [data-theme="dark"] {
+    --bg:           #0f1117;
+    --bg-side:      #151823;
+    --bg-card:      #161a26;
+    --text:         #e7e9f0;
+    --text-soft:    #9aa0b4;
+    --border:       #262b3a;
+    --accent:       #7c8aff;
+    --accent-soft:  #1d2236;
+    --green:        #34d399;
+    --shadow:       0 1px 3px rgba(0,0,0,.4), 0 8px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  /* ---------- Sidebar ---------- */
+  #sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--bg-side);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    z-index: 30;
+    transition: transform .25s ease;
+  }
+  .side-head {
+    padding: 20px 20px 14px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; background: var(--bg-side); z-index: 2;
+  }
+  .side-title { font-size: 17px; font-weight: 800; margin: 0 0 8px; cursor: pointer; }
+  .side-sub { font-size: 12px; color: var(--text-soft); }
+  .lang-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+  .lang-tab {
+    flex: 1; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-soft);
+    padding: 7px 10px; border-radius: 9px; cursor: pointer; font-size: 13px; font-weight: 700;
+  }
+  .lang-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .side-link {
+    width: 100%; margin-top: 10px; border: 1px solid var(--border); background: var(--bg-card);
+    color: var(--text-soft); padding: 8px 10px; border-radius: 9px; cursor: pointer;
+    font-size: 13px; font-weight: 700; text-align: left;
+  }
+  .side-link:hover { border-color: var(--accent); color: var(--accent); }
+  .lang-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .progress-wrap { margin-top: 14px; }
+  .progress-bar { height: 8px; border-radius: 99px; background: var(--accent-soft); overflow: hidden; }
+  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg,var(--accent),var(--green)); transition: width .4s ease; }
+  .progress-label { font-size: 11px; color: var(--text-soft); margin-top: 6px; display: flex; justify-content: space-between; }
+
+  .level { border-bottom: 1px solid var(--border); }
+  .level-head {
+    display: flex; align-items: center; gap: 9px;
+    padding: 13px 18px; cursor: pointer; user-select: none;
+    font-weight: 700; font-size: 13.5px;
+  }
+  .level-head:hover { background: var(--accent-soft); }
+  .level-emoji { font-size: 17px; }
+  .level-name { flex: 1; }
+  .level-count { font-size: 11px; color: var(--text-soft); font-weight: 600; }
+  .chevron { transition: transform .2s; color: var(--text-soft); font-size: 11px; }
+  .level.collapsed .chevron { transform: rotate(-90deg); }
+  .level.collapsed .modules { display: none; }
+
+  .modules { padding: 2px 0 8px; }
+  .mod {
+    display: flex; align-items: center; gap: 10px;
+    padding: 7px 18px 7px 24px; cursor: pointer; font-size: 13px;
+    color: var(--text-soft); border-left: 3px solid transparent;
+  }
+  .mod:hover { background: var(--accent-soft); color: var(--text); }
+  .mod.active { background: var(--accent-soft); color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+  .mod-dot {
+    width: 16px; height: 16px; border-radius: 50%; flex: none;
+    border: 2px solid var(--border); display: grid; place-items: center;
+    font-size: 10px; color: #fff;
+  }
+  .mod.done .mod-dot { background: var(--green); border-color: var(--green); }
+  .mod-title { flex: 1; }
+  .mod.tasks .mod-title::before   { content: "✅ "; }
+  .mod.project .mod-title::before { content: "🚀 "; }
+
+  /* ---------- Main ---------- */
+  #main { margin-left: var(--sidebar-w); min-height: 100vh; }
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 28px; background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--border);
+  }
+  .crumb { font-size: 13px; color: var(--text-soft); flex: 1; }
+  .crumb b { color: var(--text); }
+  .icon-btn {
+    border: 1px solid var(--border); background: var(--bg-card); color: var(--text);
+    width: 38px; height: 38px; border-radius: 10px; cursor: pointer; font-size: 16px;
+    display: grid; place-items: center;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+  #menuBtn { display: none; }
+
+  .content {
+    max-width: 880px; margin: 0 auto; padding: 38px 28px 80px;
+  }
+  .article {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 40px 46px;
+  }
+
+  /* Markdown typography */
+  .article h1 { font-size: 30px; margin: 0 0 22px; line-height: 1.25; }
+  .article h2 { font-size: 22px; margin: 36px 0 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+  .article h2:first-of-type { border-top: none; padding-top: 0; }
+  .article h3 { font-size: 17.5px; margin: 26px 0 10px; }
+  .article p { margin: 12px 0; }
+  .article a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  .article a:hover { border-bottom-color: var(--accent); }
+  .article ul, .article ol { padding-left: 24px; }
+  .article li { margin: 5px 0; }
+  .article img { max-width: 100%; height: auto; display: block; margin: 18px auto;
+                 background: #fff; padding: 12px; border-radius: 12px; border: 1px solid var(--border); }
+  .article blockquote {
+    margin: 16px 0; padding: 12px 18px; border-left: 4px solid var(--accent);
+    background: var(--accent-soft); border-radius: 0 10px 10px 0; color: var(--text);
+  }
+  .article blockquote p { margin: 4px 0; }
+  .article table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: 14px; display: block; overflow-x: auto; }
+  .article th, .article td { border: 1px solid var(--border); padding: 9px 12px; text-align: left; }
+  .article th { background: var(--accent-soft); font-weight: 700; }
+  .article tr:nth-child(even) td { background: color-mix(in srgb, var(--border) 22%, transparent); }
+  .article code:not(pre code) {
+    background: var(--accent-soft); color: var(--accent);
+    padding: 2px 6px; border-radius: 6px; font-size: 13px;
+    font-family: "JetBrains Mono", Consolas, monospace;
+  }
+  .article pre {
+    background: #0d1117; border-radius: 12px; padding: 16px 18px; overflow-x: auto;
+    margin: 16px 0; border: 1px solid var(--border); font-size: 13.5px; line-height: 1.5;
+  }
+  .article pre code { font-family: "JetBrains Mono", Consolas, monospace; }
+  .article hr { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+  .article input[type=checkbox] { width: 16px; height: 16px; margin-right: 6px; vertical-align: -2px; accent-color: var(--green); }
+  .mermaid { text-align: center; margin: 20px 0; background:#fff; border-radius:12px; padding:14px; border:1px solid var(--border); }
+  details { margin: 12px 0; border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; }
+  summary { cursor: pointer; font-weight: 600; color: var(--text-soft); }
+
+  /* Footer nav */
+  .pager { display: flex; gap: 14px; margin-top: 26px; }
+  .pager a {
+    flex: 1; border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px;
+    background: var(--bg-card); cursor: pointer; text-decoration: none; color: var(--text);
+    box-shadow: var(--shadow); transition: border-color .15s;
+  }
+  .pager a:hover { border-color: var(--accent); }
+  .pager .dir { font-size: 11px; color: var(--text-soft); }
+  .pager .name { font-weight: 700; font-size: 14px; margin-top: 2px; }
+  .pager .next { text-align: right; }
+  .pager .disabled { visibility: hidden; }
+
+  .complete-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    margin-top: 30px; padding: 18px 22px; border: 1px dashed var(--green);
+    border-radius: 14px; background: color-mix(in srgb, var(--green) 8%, transparent);
+  }
+  .complete-bar span { font-weight: 600; }
+  .btn-done {
+    border: none; background: var(--green); color: #fff; font-weight: 700;
+    padding: 11px 20px; border-radius: 10px; cursor: pointer; font-size: 14px;
+  }
+  .btn-done.is-done { background: var(--text-soft); }
+
+  /* Overlay (file:// warning) */
+  #overlay {
+    position: fixed; inset: 0; background: var(--bg); z-index: 100;
+    display: none; place-items: center; padding: 24px; text-align: center;
+  }
+  #overlay .box { max-width: 640px; background: var(--bg-card); border:1px solid var(--border);
+                  border-radius: 16px; padding: 36px; box-shadow: var(--shadow); }
+  #overlay h2 { margin-top: 0; }
+  #overlay pre { text-align: left; background:#0d1117; color:#e7e9f0; padding:14px 18px; border-radius:10px; overflow-x:auto; }
+  .scrim { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 25; }
+
+  @media (max-width: 920px) {
+    #sidebar { transform: translateX(-100%); }
+    body.nav-open #sidebar { transform: translateX(0); }
+    body.nav-open .scrim { display: block; }
+    #main { margin-left: 0; }
+    #menuBtn { display: grid; }
+    .article { padding: 26px 20px; }
+    .content { padding: 22px 14px 70px; }
+  }
+</style>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="side-head">
+    <div class="side-title" onclick="loadHome()">🧠 Курс: работа с памятью</div>
+    <div class="lang-tabs" id="langTabs">
+      <button class="lang-tab" data-lang="c" onclick="switchLang('c')">🇨 C</button>
+      <button class="lang-tab" data-lang="cpp" onclick="switchLang('cpp')">➕ C++</button>
+      <button class="lang-tab" data-lang="python" onclick="switchLang('python')">🐍 Python</button>
+      <button class="lang-tab" data-lang="rust" onclick="switchLang('rust')">🦀 Rust</button>
+      <button class="lang-tab" data-lang="ai" onclick="switchLang('ai')">🤖 ИИ</button>
+      <button class="lang-tab" data-lang="interop" onclick="switchLang('interop')">🔗 Интеграция</button>
+      <button class="lang-tab" data-lang="claudecode" onclick="switchLang('claudecode')">⚡ Claude Code</button>
+      <button class="lang-tab" data-lang="network" onclick="switchLang('network')">🌐 Сети</button>
+      <button class="lang-tab" data-lang="os" onclick="switchLang('os')">🖥️ ОС</button>
+    </div>
+    <div class="side-sub" id="sideSub">от 🥚 новичка до 🦅 Senior</div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+      <div class="progress-label"><span id="progText">0 / 0 пройдено</span><span id="progPct">0%</span></div>
+    </div>
+    <button class="side-link" onclick="loadModule('GLOSSARY.md')" title="Справочник терминов всех треков">📖 Глоссарий терминов</button>
+    <button class="side-link" onclick="loadSolutions()" title="Решения задач текущего трека">✅ Решения задач</button>
+  </div>
+  <nav id="nav"></nav>
+</aside>
+
+<div class="scrim" onclick="toggleNav(false)"></div>
+
+<main id="main">
+  <div class="topbar">
+    <button class="icon-btn" id="menuBtn" onclick="toggleNav()" title="Меню">☰</button>
+    <div class="crumb" id="crumb">Главная</div>
+    <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="Тема">🌙</button>
+  </div>
+  <div class="content">
+    <article class="article" id="article">Загрузка…</article>
+    <div class="complete-bar" id="completeBar" style="display:none">
+      <span id="completeText">Закончил этот блок?</span>
+      <button class="btn-done" id="doneBtn" onclick="toggleDone()">Отметить пройденным ✓</button>
+    </div>
+    <div class="pager" id="pager"></div>
+  </div>
+</main>
+
+<div id="overlay">
+  <div class="box">
+    <h2>⚠️ Запусти через локальный сервер</h2>
+    <p>Браузер блокирует чтение файлов курса напрямую (через <code>file://</code>).
+       Открой терминал <b>в папке D:\LearnProject</b> и выполни одну из команд:</p>
+    <pre>python -m http.server 8000</pre>
+    <p>или, если есть Node.js:</p>
+    <pre>npx serve</pre>
+    <p>Затем открой в браузере <b><a href="http://localhost:8000">http://localhost:8000</a></b><br>
+       (или просто запусти файл <code>start-server.bat</code> двойным кликом).</p>
+  </div>
+</div>
+
+<script>
+/* ============== Манифест курса ============== */
+const COURSE_C = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Подготовка", dir:"C/00-setup", mods:[
+    { f:"00-how-computer-works.md", t:"00 · Как устроен компьютер и память" },
+    { f:"01-installation.md",       t:"01 · Установка компилятора" },
+    { f:"02-first-program.md",      t:"02 · Первая программа" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Junior (основы)", dir:"C/01-basics", mods:[
+    { f:"03-variables-types.md",      t:"03 · Переменные и типы" },
+    { f:"04-io.md",                   t:"04 · Ввод и вывод" },
+    { f:"05-operators-conditions.md", t:"05 · Операторы и условия" },
+    { f:"06-loops.md",                t:"06 · Циклы" },
+    { f:"07-functions.md",            t:"07 · Функции" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",            type:"tasks" },
+    { f:"PROJECT.md", t:"Калькулятор",                type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Память ⭐", dir:"C/02-memory", mods:[
+    { f:"08-memory-model.md",       t:"08 · Модель памяти" },
+    { f:"09-pointers.md",           t:"09 · Указатели" },
+    { f:"10-arrays-strings.md",     t:"10 · Массивы и строки" },
+    { f:"11-dynamic-memory.md",     t:"11 · Динамическая память" },
+    { f:"12-memory-errors-tools.md",t:"12 · Ошибки памяти и инструменты" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",      type:"tasks" },
+    { f:"PROJECT.md", t:"Свой Vector",          type:"project" },
+  ]},
+  { id:"l3", emoji:"🐥", name:"Уровень 3 · Middle", dir:"C/03-middle", mods:[
+    { f:"13-structs.md",                  t:"13 · Структуры, union, enum" },
+    { f:"14-data-structures.md",          t:"14 · Структуры данных" },
+    { f:"15-function-pointers.md",        t:"15 · Указатели на функции" },
+    { f:"16-preprocessor-modularity.md",  t:"16 · Препроцессор и модульность" },
+    { f:"17-files.md",                    t:"17 · Работа с файлами" },
+    { f:"18-bitwise.md",                  t:"18 · Битовые операции" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",    type:"tasks" },
+    { f:"PROJECT.md", t:"Менеджер задач",     type:"project" },
+  ]},
+  { id:"l3b", emoji:"🧩", name:"Проекты и API", dir:"C/03b-projects-api", mods:[
+    { f:"01-project-structure.md", t:"1 · Структура проекта" },
+    { f:"02-designing-api.md",     t:"2 · Проектирование API" },
+    { f:"03-external-api.md",      t:"3 · Внешние API (HTTP/JSON)" },
+    { f:"TASKS.md",   t:"Задачи раздела",            type:"tasks" },
+    { f:"PROJECT.md", t:"Библиотека с чистым API",   type:"project" },
+  ]},
+  { id:"l4", emoji:"🦅", name:"Уровень 4 · Senior", dir:"C/04-senior", mods:[
+    { f:"19-allocators.md",          t:"19 · Свои аллокаторы" },
+    { f:"20-alignment-ub.md",        t:"20 · Выравнивание, padding, UB" },
+    { f:"21-concurrency.md",         t:"21 · Многопоточность" },
+    { f:"22-cache-optimization.md",  t:"22 · Кэш и оптимизация" },
+    { f:"23-systems.md",             t:"23 · Системное программирование" },
+    { f:"24-debugging-profiling.md", t:"24 · Отладка и профилирование" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",       type:"tasks" },
+    { f:"PROJECT.md", t:"Финальные проекты",     type:"project" },
+  ]},
+];
+
+const COURSE_PYTHON = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Подготовка", dir:"Python/00-setup", mods:[
+    { f:"00-how-python-works.md", t:"00 · Как работает Python и память" },
+    { f:"01-installation.md",     t:"01 · Установка Python" },
+    { f:"02-first-program.md",    t:"02 · Первая программа, REPL" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Junior (основы)", dir:"Python/01-basics", mods:[
+    { f:"03-variables-references.md", t:"03 · Переменные как ссылки" },
+    { f:"04-numbers-strings.md",      t:"04 · Числа и строки" },
+    { f:"05-io.md",                   t:"05 · Ввод и вывод" },
+    { f:"06-operators-conditions.md", t:"06 · Операторы и условия" },
+    { f:"07-loops.md",                t:"07 · Циклы" },
+    { f:"08-functions.md",            t:"08 · Функции" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",  type:"tasks" },
+    { f:"PROJECT.md", t:"Текстовая игра",   type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Память ⭐", dir:"Python/02-memory", mods:[
+    { f:"09-objects-references.md",  t:"09 · Объекты и ссылки" },
+    { f:"10-mutable-immutable.md",   t:"10 · Изменяемые/неизменяемые" },
+    { f:"11-refcount-gc.md",         t:"11 · Подсчёт ссылок и GC" },
+    { f:"12-copying.md",             t:"12 · Копирование объектов" },
+    { f:"13-collections-memory.md",  t:"13 · Коллекции в памяти" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",      type:"tasks" },
+    { f:"PROJECT.md", t:"Визуализатор ссылок",  type:"project" },
+  ]},
+  { id:"l3", emoji:"🐥", name:"Уровень 3 · Middle", dir:"Python/03-middle", mods:[
+    { f:"14-dict-set-hashing.md",     t:"14 · dict и set: хеш-таблицы" },
+    { f:"15-generators-iterators.md", t:"15 · Генераторы и итераторы" },
+    { f:"16-oop-slots.md",            t:"16 · ООП и __slots__" },
+    { f:"17-exceptions.md",           t:"17 · Исключения" },
+    { f:"18-modules-venv.md",         t:"18 · Модули, пакеты, venv" },
+    { f:"19-files-context.md",        t:"19 · Файлы и with" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",    type:"tasks" },
+    { f:"PROJECT.md", t:"Менеджер библиотеки", type:"project" },
+  ]},
+  { id:"l3b", emoji:"🧩", name:"Проекты и API", dir:"Python/03b-projects-api", mods:[
+    { f:"01-project-structure.md", t:"1 · Структура проекта" },
+    { f:"02-designing-api.md",     t:"2 · Проектирование API" },
+    { f:"03-web-api.md",           t:"3 · Веб-API (HTTP/REST)" },
+    { f:"TASKS.md",   t:"Задачи раздела",         type:"tasks" },
+    { f:"PROJECT.md", t:"CLI-клиент для веб-API",  type:"project" },
+  ]},
+  { id:"l4", emoji:"🦅", name:"Уровень 4 · Senior", dir:"Python/04-senior", mods:[
+    { f:"20-memory-deep.md",        t:"20 · Память глубоко" },
+    { f:"21-decorators-closures.md",t:"21 · Декораторы и замыкания" },
+    { f:"22-profiling.md",          t:"22 · Профилирование" },
+    { f:"23-concurrency.md",        t:"23 · GIL, потоки, asyncio" },
+    { f:"24-performance.md",        t:"24 · Производительность, numpy" },
+    { f:"25-typing-testing.md",     t:"25 · Типы, тесты, инструменты" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",     type:"tasks" },
+    { f:"PROJECT.md", t:"Финальные проекты",   type:"project" },
+  ]},
+];
+
+const COURSE_CPP = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Подготовка", dir:"Cpp/00-setup", mods:[
+    { f:"00-what-is-cpp.md",   t:"00 · Что такое C++ и память" },
+    { f:"01-installation.md",  t:"01 · Установка компилятора" },
+    { f:"02-first-program.md", t:"02 · Первая программа" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Junior (основы)", dir:"Cpp/01-basics", mods:[
+    { f:"03-variables-types.md",      t:"03 · Типы, auto, const" },
+    { f:"04-io.md",                   t:"04 · Потоки ввода-вывода" },
+    { f:"05-operators-conditions.md", t:"05 · Операторы и условия" },
+    { f:"06-loops.md",                t:"06 · Циклы и range-for" },
+    { f:"07-functions.md",            t:"07 · Функции и ссылки" },
+    { f:"TASKS.md",   t:"Задачи уровня 1", type:"tasks" },
+    { f:"PROJECT.md", t:"Калькулятор",     type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Память ⭐", dir:"Cpp/02-memory", mods:[
+    { f:"08-memory-references.md", t:"08 · Память и ссылки" },
+    { f:"09-new-delete.md",        t:"09 · new / delete" },
+    { f:"10-raii.md",              t:"10 · RAII — главная идея ⭐" },
+    { f:"11-smart-pointers.md",    t:"11 · Умные указатели" },
+    { f:"12-move-semantics.md",    t:"12 · Move-семантика" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",      type:"tasks" },
+    { f:"PROJECT.md", t:"Свой умный указатель", type:"project" },
+  ]},
+  { id:"l3", emoji:"🐥", name:"Уровень 3 · Middle", dir:"Cpp/03-middle", mods:[
+    { f:"13-classes.md",                   t:"13 · Классы, правило 3/5" },
+    { f:"14-inheritance-polymorphism.md",  t:"14 · Наследование и vtable" },
+    { f:"15-templates.md",                 t:"15 · Шаблоны" },
+    { f:"16-stl-containers.md",            t:"16 · STL-контейнеры" },
+    { f:"17-stl-algorithms.md",            t:"17 · STL-алгоритмы, лямбды" },
+    { f:"18-operator-overloading.md",      t:"18 · Перегрузка операторов" },
+    { f:"TASKS.md",   t:"Задачи уровня 3", type:"tasks" },
+    { f:"PROJECT.md", t:"ООП-квест",       type:"project" },
+  ]},
+  { id:"l3b", emoji:"🧩", name:"Проекты и API", dir:"Cpp/03b-projects-api", mods:[
+    { f:"01-project-structure.md", t:"1 · Структура проекта (CMake)" },
+    { f:"02-designing-api.md",     t:"2 · Проектирование API (pImpl)" },
+    { f:"03-external-api.md",       t:"3 · Веб-API (HTTP/JSON)" },
+    { f:"TASKS.md",   t:"Задачи раздела",                 type:"tasks" },
+    { f:"PROJECT.md", t:"Библиотека-клиент с чистым API", type:"project" },
+  ]},
+  { id:"l4", emoji:"🦅", name:"Уровень 4 · Senior", dir:"Cpp/04-senior", mods:[
+    { f:"19-move-deep.md",          t:"19 · Move глубоко, правило нуля" },
+    { f:"20-memory-management.md",  t:"20 · Память и аллокаторы" },
+    { f:"21-concurrency.md",        t:"21 · Многопоточность" },
+    { f:"22-templates-meta.md",     t:"22 · Шаблоны и метапрограммирование" },
+    { f:"23-performance.md",        t:"23 · Производительность" },
+    { f:"24-modern-cpp.md",         t:"24 · Современный C++ (17/20/23)" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Финальные проекты", type:"project" },
+  ]},
+];
+
+const COURSE_RUST = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Подготовка", dir:"Rust/00-setup", mods:[
+    { f:"00-what-is-rust.md",  t:"00 · Что такое Rust и память" },
+    { f:"01-installation.md",  t:"01 · Установка rustup и cargo" },
+    { f:"02-first-program.md", t:"02 · Первая программа (cargo)" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Junior (основы)", dir:"Rust/01-basics", mods:[
+    { f:"03-variables-mutability.md", t:"03 · Переменные и изменяемость" },
+    { f:"04-data-types.md",           t:"04 · Типы данных" },
+    { f:"05-functions.md",            t:"05 · Функции" },
+    { f:"06-control-flow.md",         t:"06 · Поток и match" },
+    { f:"07-io-strings.md",           t:"07 · Ввод-вывод и строки" },
+    { f:"TASKS.md",   t:"Задачи уровня 1", type:"tasks" },
+    { f:"PROJECT.md", t:"Угадай число",    type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Память ⭐", dir:"Rust/02-memory", mods:[
+    { f:"08-ownership.md",      t:"08 · Владение (Ownership) ⭐" },
+    { f:"09-borrowing.md",      t:"09 · Заимствование и ссылки" },
+    { f:"10-borrow-checker.md", t:"10 · Правила borrow checker ⭐" },
+    { f:"11-slices-strings.md", t:"11 · Слайсы, String и &str" },
+    { f:"12-lifetimes.md",      t:"12 · Времена жизни" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",  type:"tasks" },
+    { f:"PROJECT.md", t:"Свой стек",        type:"project" },
+  ]},
+  { id:"l3", emoji:"🐥", name:"Уровень 3 · Middle", dir:"Rust/03-middle", mods:[
+    { f:"13-structs.md",            t:"13 · Структуры и методы" },
+    { f:"14-enums-option.md",       t:"14 · Enum и Option" },
+    { f:"15-error-handling.md",     t:"15 · Обработка ошибок (Result)" },
+    { f:"16-generics-traits.md",    t:"16 · Обобщения и трейты" },
+    { f:"17-collections.md",        t:"17 · Коллекции" },
+    { f:"18-closures-iterators.md", t:"18 · Замыкания и итераторы" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",     type:"tasks" },
+    { f:"PROJECT.md", t:"Менеджер задач (CLI)", type:"project" },
+  ]},
+  { id:"l3b", emoji:"🧩", name:"Проекты и API", dir:"Rust/03b-projects-api", mods:[
+    { f:"01-project-structure.md", t:"1 · Структура проекта (модули/крейты)" },
+    { f:"02-designing-api.md",     t:"2 · Проектирование API (pub, трейты)" },
+    { f:"03-web-api.md",            t:"3 · Веб-API (reqwest, JSON)" },
+    { f:"TASKS.md",   t:"Задачи раздела",                 type:"tasks" },
+    { f:"PROJECT.md", t:"Библиотека-клиент с чистым API", type:"project" },
+  ]},
+  { id:"l4", emoji:"🦅", name:"Уровень 4 · Senior", dir:"Rust/04-senior", mods:[
+    { f:"19-smart-pointers.md",   t:"19 · Box, Rc, RefCell" },
+    { f:"20-concurrency.md",      t:"20 · Многопоточность" },
+    { f:"21-advanced-traits.md",  t:"21 · Трейты продвинуто" },
+    { f:"22-unsafe-ffi.md",       t:"22 · Unsafe и FFI" },
+    { f:"23-performance.md",      t:"23 · Производительность" },
+    { f:"24-async-ecosystem.md",  t:"24 · Async, тесты, экосистема" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Финальные проекты", type:"project" },
+  ]},
+];
+
+const COURSE_AI = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Знакомство", dir:"AI/00-setup", mods:[
+    { f:"00-what-is-ai.md",  t:"00 · Что такое ИИ и LLM" },
+    { f:"01-tools.md",       t:"01 · Инструменты и где работать" },
+    { f:"02-first-prompt.md",t:"02 · Первый промпт" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Основы промптинга", dir:"AI/01-basics", mods:[
+    { f:"03-prompt-anatomy.md",   t:"03 · Анатомия промпта" },
+    { f:"04-clarity.md",          t:"04 · Ясность и конкретность" },
+    { f:"05-output-format.md",    t:"05 · Формат вывода" },
+    { f:"06-context-examples.md", t:"06 · Контекст и примеры" },
+    { f:"07-iteration.md",        t:"07 · Итеративное улучшение" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",      type:"tasks" },
+    { f:"PROJECT.md", t:"Личный набор промптов", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Контекст ⭐", dir:"AI/02-context", mods:[
+    { f:"08-context-window.md",   t:"08 · Контекстное окно ⭐" },
+    { f:"09-managing-context.md", t:"09 · Управление контекстом" },
+    { f:"10-system-prompts.md",   t:"10 · Системные промпты и роли" },
+    { f:"11-multistep-dialogs.md",t:"11 · Многошаговые диалоги" },
+    { f:"12-hallucinations.md",   t:"12 · Галлюцинации и достоверность" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",   type:"tasks" },
+    { f:"PROJECT.md", t:"Свой ИИ-ассистент", type:"project" },
+  ]},
+  { id:"l3", emoji:"🐥", name:"Уровень 3 · Продвинутые техники", dir:"AI/03-middle", mods:[
+    { f:"13-chain-of-thought.md",  t:"13 · Рассуждение по шагам" },
+    { f:"14-few-shot.md",          t:"14 · Few-shot и шаблоны" },
+    { f:"15-roles-personas.md",    t:"15 · Роли и персоны" },
+    { f:"16-decomposition.md",     t:"16 · Декомпозиция задач" },
+    { f:"17-working-with-data.md", t:"17 · Работа с данными" },
+    { f:"18-code-creative.md",     t:"18 · Код и творчество" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",      type:"tasks" },
+    { f:"PROJECT.md", t:"Автоматизация рутины", type:"project" },
+  ]},
+  { id:"l4", emoji:"🦅", name:"Уровень 4 · Эксперт", dir:"AI/04-senior", mods:[
+    { f:"19-prompt-engineering.md", t:"19 · Промпт-инжиниринг" },
+    { f:"20-rag.md",                t:"20 · RAG и базы знаний" },
+    { f:"21-agents-tools.md",       t:"21 · Агенты и инструменты" },
+    { f:"22-api.md",                t:"22 · Работа через API" },
+    { f:"23-evaluation.md",         t:"23 · Оценка и тестирование" },
+    { f:"24-ethics-safety.md",      t:"24 · Этика и безопасность" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Финальные проекты", type:"project" },
+  ]},
+];
+
+const COURSE_INTEROP = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"Interop/00-setup", mods:[
+    { f:"00-why-interop.md", t:"00 · Зачем связывать языки" },
+    { f:"01-abi.md",         t:"01 · Как языки понимают друг друга: ABI" },
+    { f:"02-approaches.md",  t:"02 · Способы интеграции — обзор" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · FFI: основы", dir:"Interop/01-basics", mods:[
+    { f:"03-ffi-idea.md",      t:"03 · FFI — главная идея" },
+    { f:"04-python-c.md",      t:"04 · Python вызывает C" },
+    { f:"05-passing-data.md",  t:"05 · Передача данных через границу" },
+    { f:"06-ownership.md",     t:"06 · Кто владеет памятью" },
+    { f:"07-errors-safety.md", t:"07 · Ошибки и безопасность" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",       type:"tasks" },
+    { f:"PROJECT.md", t:"Ускоряем Python через C", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Граница памяти ⭐", dir:"Interop/02-boundary", mods:[
+    { f:"08-abi-layout.md",       t:"08 · ABI и раскладка данных" },
+    { f:"09-memory-ownership.md", t:"09 · Владение памятью через границу" },
+    { f:"10-strings.md",          t:"10 · Строки и кодировки" },
+    { f:"11-structs.md",          t:"11 · Структуры и выравнивание" },
+    { f:"12-leaks-ub.md",         t:"12 · Утечки и UB на границе" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",      type:"tasks" },
+    { f:"PROJECT.md", t:"Безопасная C-обёртка", type:"project" },
+  ]},
+  { id:"l3", emoji:"🐥", name:"Уровень 3 · Связки языков", dir:"Interop/03-bindings", mods:[
+    { f:"13-c-rust.md",      t:"13 · C + Rust" },
+    { f:"14-rust-python.md", t:"14 · Rust + Python (PyO3)" },
+    { f:"15-python-js.md",   t:"15 · Python + JavaScript" },
+    { f:"16-wasm.md",        t:"16 · C/C++ + Web (WebAssembly)" },
+    { f:"17-embedding.md",   t:"17 · Встраивание интерпретатора" },
+    { f:"18-glue.md",        t:"18 · Клей: процессы, REST/gRPC" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",      type:"tasks" },
+    { f:"PROJECT.md", t:"Полиглотное приложение", type:"project" },
+  ]},
+  { id:"l4", emoji:"🦅", name:"Уровень 4 · Системное и драйверы", dir:"Interop/04-drivers", mods:[
+    { f:"19-what-is-driver.md",    t:"19 · Что такое драйвер" },
+    { f:"20-userspace-kernel.md",  t:"20 · Userspace vs kernel" },
+    { f:"21-kernel-module.md",     t:"21 · Модуль ядра Linux" },
+    { f:"22-devices.md",           t:"22 · Работа с устройствами" },
+    { f:"23-rust-embedded.md",     t:"23 · Драйверы на Rust и embedded" },
+    { f:"24-debugging-safety.md",  t:"24 · Отладка и безопасность" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Финальные проекты", type:"project" },
+  ]},
+];
+
+const COURSE_CLAUDECODE = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Знакомство и установка", dir:"ClaudeCode/00-setup", mods:[
+    { f:"00-what-is-claude-code.md", t:"00 · Что такое Claude Code" },
+    { f:"01-models.md",              t:"01 · Anthropic и модели Claude" },
+    { f:"02-install.md",             t:"02 · Установка, подписка, доступ" },
+    { f:"TASKS.md",   t:"Задачи уровня 0",       type:"tasks" },
+    { f:"PROJECT.md", t:"Песочница агента",       type:"project" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Основы работы", dir:"ClaudeCode/01-basics", mods:[
+    { f:"03-first-session.md",   t:"03 · Первая сессия и интерфейс" },
+    { f:"04-prompts.md",         t:"04 · Промпты и дисциплина общения" },
+    { f:"05-plan-mode.md",       t:"05 · Plan Mode и планирование" },
+    { f:"06-iterate.md",         t:"06 · Итерации: строим по фичам" },
+    { f:"07-slash-commands.md",  t:"07 · Slash-команды" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",        type:"tasks" },
+    { f:"PROJECT.md", t:"Фича от плана до коммита", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Контекст и архитектура ⭐", dir:"ClaudeCode/02-context", mods:[
+    { f:"08-architecture.md",      t:"08 · Как устроен Claude Code" },
+    { f:"09-context-window.md",    t:"09 · Контекстное окно — память агента ⭐⭐" },
+    { f:"10-session-management.md",t:"10 · /compact и /clear" },
+    { f:"11-claude-md.md",         t:"11 · .claude и CLAUDE.md" },
+    { f:"12-modes-permissions.md", t:"12 · Режимы и разрешения" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",         type:"tasks" },
+    { f:"PROJECT.md", t:"Память проекта и бюджет контекста", type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · MCP, Skills, агенты", dir:"ClaudeCode/03-extend", mods:[
+    { f:"13-mcp-intro.md",    t:"13 · MCP-серверы — что и зачем" },
+    { f:"14-mcp-connect.md",  t:"14 · Подключение MCP-серверов" },
+    { f:"15-own-mcp.md",      t:"15 · Свой MCP-сервер на Python" },
+    { f:"16-skills.md",       t:"16 · Skills — навыки агента" },
+    { f:"17-own-skill.md",    t:"17 · Создаём свой Skill" },
+    { f:"18-subagents.md",    t:"18 · Агенты и саб-агенты" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",      type:"tasks" },
+    { f:"PROJECT.md", t:"Прокачанный агент проекта", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Профи", dir:"ClaudeCode/04-pro", mods:[
+    { f:"19-hooks.md",            t:"19 · Hooks — автоматизация рутины" },
+    { f:"20-autonomous.md",       t:"20 · Автономные циклы и фон" },
+    { f:"21-review-security.md",  t:"21 · Code review и безопасность" },
+    { f:"22-connectors.md",       t:"22 · Connectors и внешние сервисы" },
+    { f:"23-cowork.md",           t:"23 · Cowork и «второй мозг»" },
+    { f:"24-limits.md",           t:"24 · Границы, лимиты и дисциплина" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Боевой сетап Claude Code", type:"project" },
+  ]},
+];
+
+const COURSE_NETWORK = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Знакомство с сетями", dir:"Network/00-setup", mods:[
+    { f:"00-what-is-network.md", t:"00 · Что такое сеть и интернет" },
+    { f:"01-osi-tcpip.md",       t:"01 · Модель OSI и стек TCP/IP" },
+    { f:"02-tools.md",           t:"02 · Инструменты сетевика" },
+    { f:"TASKS.md",   t:"Задачи уровня 0",     type:"tasks" },
+    { f:"PROJECT.md", t:"Карта пути до сайта",  type:"project" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Основы сетей", dir:"Network/01-basics", mods:[
+    { f:"03-ip-addresses.md", t:"03 · IP-адреса и подсети" },
+    { f:"04-mac-ethernet.md", t:"04 · MAC-адреса и Ethernet" },
+    { f:"05-routing.md",      t:"05 · Маршрутизация" },
+    { f:"06-dns.md",          t:"06 · DNS — имена и адреса" },
+    { f:"07-packets.md",      t:"07 · Пакеты и инкапсуляция" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",        type:"tasks" },
+    { f:"PROJECT.md", t:"Анатомия одного запроса", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Транспорт: TCP/UDP ⭐", dir:"Network/02-transport", mods:[
+    { f:"08-ports-sockets.md",   t:"08 · Порты и сокеты" },
+    { f:"09-tcp.md",             t:"09 · TCP — надёжная доставка ⭐⭐" },
+    { f:"10-udp.md",             t:"10 · UDP — скорость без гарантий ⭐⭐" },
+    { f:"11-tcp-vs-udp.md",      t:"11 · TCP vs UDP — когда что" },
+    { f:"12-tcp-reliability.md", t:"12 · Надёжность TCP подробно" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",        type:"tasks" },
+    { f:"PROJECT.md", t:"TCP и UDP под микроскопом", type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Прикладной уровень", dir:"Network/03-application", mods:[
+    { f:"13-http.md",                t:"13 · HTTP и HTTPS" },
+    { f:"14-tls.md",                 t:"14 · TLS/SSL — шифрование" },
+    { f:"15-app-protocols.md",       t:"15 · Прикладные протоколы" },
+    { f:"16-rest-api.md",            t:"16 · REST API и JSON" },
+    { f:"17-sockets-programming.md", t:"17 · Сокет-программирование" },
+    { f:"18-http2-http3.md",         t:"18 · HTTP/2, HTTP/3 и QUIC" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",          type:"tasks" },
+    { f:"PROJECT.md", t:"Свой сервис + клиент API", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Senior", dir:"Network/04-advanced", mods:[
+    { f:"19-nat-firewall-vpn.md", t:"19 · NAT, firewall, VPN, прокси" },
+    { f:"20-security.md",         t:"20 · Сетевая безопасность" },
+    { f:"21-performance.md",      t:"21 · Производительность сети" },
+    { f:"22-scaling.md",          t:"22 · Балансировка, CDN, масштаб" },
+    { f:"23-diagnostics.md",      t:"23 · Диагностика сети" },
+    { f:"24-cloud.md",            t:"24 · Облако и инфраструктура" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",      type:"tasks" },
+    { f:"PROJECT.md", t:"Полная карта сервиса", type:"project" },
+  ]},
+];
+
+const COURSE_OS = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Знакомство с ОС", dir:"OS/00-setup", mods:[
+    { f:"00-what-is-os.md",      t:"00 · Что такое ОС" },
+    { f:"01-kernel-syscalls.md", t:"01 · Ядро, режимы, syscalls" },
+    { f:"02-tools.md",           t:"02 · Инструменты наблюдения" },
+    { f:"TASKS.md",   t:"Задачи уровня 0",    type:"tasks" },
+    { f:"PROJECT.md", t:"Рентген своей системы", type:"project" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Процессы и потоки", dir:"OS/01-processes", mods:[
+    { f:"03-process.md",   t:"03 · Процесс и адресное пространство" },
+    { f:"04-lifecycle.md", t:"04 · fork, exec, состояния" },
+    { f:"05-threads.md",   t:"05 · Потоки и процессы" },
+    { f:"06-scheduler.md", t:"06 · Планировщик CPU" },
+    { f:"07-ipc.md",       t:"07 · Межпроцессное взаимодействие" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",       type:"tasks" },
+    { f:"PROJECT.md", t:"Наблюдатель за процессами", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Виртуальная память ⭐", dir:"OS/02-memory", mods:[
+    { f:"08-why-virtual-memory.md", t:"08 · Зачем виртуальная память ⭐⭐" },
+    { f:"09-paging.md",             t:"09 · Страницы и таблицы страниц ⭐⭐" },
+    { f:"10-page-fault-swap.md",    t:"10 · Page fault и swap" },
+    { f:"11-protection.md",         t:"11 · Защита памяти" },
+    { f:"12-tlb-hierarchy.md",      t:"12 · TLB и иерархия памяти" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",          type:"tasks" },
+    { f:"PROJECT.md", t:"Виртуальная память под микроскопом", type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Синхронизация и ресурсы", dir:"OS/03-sync", mods:[
+    { f:"13-race-conditions.md", t:"13 · Гонки данных" },
+    { f:"14-mutex-semaphore.md", t:"14 · Мьютексы и семафоры" },
+    { f:"15-deadlock.md",        t:"15 · Взаимоблокировки (deadlock)" },
+    { f:"16-filesystems.md",     t:"16 · Файловые системы" },
+    { f:"17-io.md",              t:"17 · Ввод-вывод и буферизация" },
+    { f:"18-resources.md",       t:"18 · Управление ресурсами" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",     type:"tasks" },
+    { f:"PROJECT.md", t:"Синхронизация и файлы вживую", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Senior", dir:"OS/04-advanced", mods:[
+    { f:"19-virtualization.md",     t:"19 · Виртуализация и контейнеры" },
+    { f:"20-boot.md",               t:"20 · Загрузка системы" },
+    { f:"21-performance.md",        t:"21 · Производительность ОС" },
+    { f:"22-security.md",           t:"22 · Безопасность ОС" },
+    { f:"23-realtime-embedded.md",  t:"23 · RTOS, embedded, другие ОС" },
+    { f:"24-diagnostics.md",        t:"24 · Диагностика и наблюдаемость" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Профиль системы под нагрузкой", type:"project" },
+  ]},
+];
+
+/* ============== Реестр языков ============== */
+const COURSES = {
+  c:      { label:"C",      emoji:"🇨",  sub:"Память вручную · от 🥚 до 🦅",
+            blurb:"В C ты управляешь памятью <b>вручную</b> (malloc/free) и видишь, как всё устроено на самом низком уровне: стек, куча, указатели, утечки.",
+            levels: COURSE_C },
+  cpp:    { label:"C++",    emoji:"➕", sub:"Контроль + RAII · от 🥚 до 🦅",
+            blurb:"C++ — золотая середина: полный <b>ручной контроль</b> над памятью <b>плюс инструменты безопасности</b> (RAII, умные указатели). Автоматическая очистка без сборщика мусора.",
+            levels: COURSE_CPP },
+  python: { label:"Python", emoji:"🐍", sub:"Управляемая память · от 🥚 до 🦅",
+            blurb:"В Python память управляется <b>автоматически</b> (сборщик мусора). Здесь ты поймёшь, что происходит «под капотом»: имена-ярлыки, объекты, подсчёт ссылок, хеш-таблицы.",
+            levels: COURSE_PYTHON },
+  rust:   { label:"Rust",   emoji:"🦀", sub:"Безопасность без GC · от 🥚 до 🦅",
+            blurb:"Rust — кульминация темы памяти: <b>безопасность без сборщика мусора</b>, проверенная компилятором (borrow checker). Скорость C + надёжность Python, ошибки памяти ловятся при компиляции.",
+            levels: COURSE_RUST },
+  ai:     { label:"ИИ",     emoji:"🤖", sub:"Контекст — память ИИ · от 🥚 до 🦅",
+            blurb:"Работа с ИИ и промпты — от первого запроса до эксперта. Ядро курса — <b>контекст</b> (память модели): тот же принцип памяти, что в языках, только у ИИ. Не требует программирования (кроме блока про API).",
+            levels: COURSE_AI },
+  interop:{ label:"Интеграция", emoji:"🔗", sub:"Память на границе языков · от 🥚 до 🦅",
+            blurb:"Как связать языки между собой (C+Python, Rust+Python, Python+JS, WASM) и писать системный код вплоть до <b>драйверов</b>. Ядро — <b>память на границе</b> языков (кто выделил, кто освобождает) и память железа. Вершина всего курса.",
+            levels: COURSE_INTEROP },
+  claudecode:{ label:"Claude Code", emoji:"⚡", sub:"Контекст — память агента · от 🥚 до 🚀",
+            blurb:"Как превратить <b>Claude Code</b> в полноценную рабочую среду агента: настройка, MCP-серверы, Skills, саб-агенты, hooks, автономность. Ядро — <b>контекстное окно</b> (память агента): тот же принцип памяти, что в языках и ИИ, только в работе с инструментом.",
+            levels: COURSE_CLAUDECODE },
+  network:{ label:"Сети", emoji:"🌐", sub:"Как работает интернет · от 🥚 до 🚀",
+            blurb:"Как на самом деле работает интернет: от IP-адреса и DNS до HTTP, TLS и облака. Ядро — <b>транспорт (TCP/UDP)</b>: как данные надёжно или быстро путешествуют между программами. Байты те же, что в памяти, только в пути по сети.",
+            levels: COURSE_NETWORK },
+  os:     { label:"ОС", emoji:"🖥️", sub:"Как работает система · от 🥚 до 🚀",
+            blurb:"Как работает <b>операционная система</b> — невидимый управляющий памятью, процессором и устройствами. Ядро — <b>виртуальная память</b>: кто создаёт и раздаёт ту память, которой ты управлял в языках. Самая глубокая связь с темой памяти курса.",
+            levels: COURSE_OS },
+};
+let currentLang = localStorage.getItem("course-lang") || "c";
+
+/* Плоский список и прогресс — пересобираются при смене языка */
+let COURSE = [];
+let FLAT = [];
+let byPath = {};
+let STORE_KEY = "";
+let done = new Set();
+
+function rebuildCourse() {
+  COURSE = COURSES[currentLang].levels;
+  FLAT = [];
+  COURSE.forEach(lvl => lvl.mods.forEach(m => {
+    m.path = lvl.dir + "/" + m.f;
+    m.dir  = lvl.dir;
+    m.level = lvl;
+    m.idx = FLAT.length;
+    FLAT.push(m);
+  }));
+  byPath = Object.fromEntries(FLAT.map(m => [m.path, m]));
+  STORE_KEY = "course-progress-" + currentLang + "-v1";
+  done = new Set(JSON.parse(localStorage.getItem(STORE_KEY) || "[]"));
+}
+function saveProgress() { localStorage.setItem(STORE_KEY, JSON.stringify([...done])); }
+
+function updateLangUI() {
+  document.querySelectorAll(".lang-tab").forEach(b => b.classList.toggle("active", b.dataset.lang === currentLang));
+  document.getElementById("sideSub").textContent = COURSES[currentLang].sub;
+}
+function switchLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  localStorage.setItem("course-lang", lang);
+  rebuildCourse();
+  buildSidebar();
+  loadHome();
+}
+function langFromPath(p) {
+  if (p && p.indexOf("Python/") === 0) return "python";
+  if (p && p.indexOf("Cpp/") === 0) return "cpp";
+  if (p && p.indexOf("Rust/") === 0) return "rust";
+  if (p && p.indexOf("AI/") === 0) return "ai";
+  if (p && p.indexOf("Interop/") === 0) return "interop";
+  if (p && p.indexOf("ClaudeCode/") === 0) return "claudecode";
+  if (p && p.indexOf("Network/") === 0) return "network";
+  if (p && p.indexOf("OS/") === 0) return "os";
+  if (p && p.indexOf("C/") === 0) return "c";
+  return null;
+}
+rebuildCourse();
+
+/* ============== Тема ============== */
+function applyTheme(t){ document.documentElement.setAttribute("data-theme", t);
+  document.getElementById("themeBtn").textContent = t === "dark" ? "☀️" : "🌙";
+  localStorage.setItem("c-course-theme", t);
+  if (window.__mermaid) window.__mermaid.initialize({ startOnLoad:false, theme: t==="dark"?"dark":"neutral", securityLevel:"loose" });
+}
+function toggleTheme(){ applyTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"); }
+applyTheme(localStorage.getItem("c-course-theme") || "light");
+
+/* ============== Навигация (мобилка) ============== */
+function toggleNav(force){ document.body.classList.toggle("nav-open", force===undefined ? undefined : force); }
+
+/* ============== Построение сайдбара ============== */
+function buildSidebar(){
+  updateLangUI();
+  const nav = document.getElementById("nav");
+  nav.innerHTML = "";
+  COURSE.forEach(lvl => {
+    const total = lvl.mods.length;
+    const doneN = lvl.mods.filter(m => done.has(m.path)).length;
+    const level = document.createElement("div");
+    level.className = "level";
+    level.dataset.id = lvl.id;
+    level.innerHTML = `
+      <div class="level-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <span class="level-emoji">${lvl.emoji}</span>
+        <span class="level-name">${lvl.name}</span>
+        <span class="level-count" data-count="${lvl.id}">${doneN}/${total}</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="modules"></div>`;
+    const box = level.querySelector(".modules");
+    lvl.mods.forEach(m => {
+      const row = document.createElement("div");
+      row.className = "mod" + (m.type ? " "+m.type : "") + (done.has(m.path) ? " done":"");
+      row.dataset.path = m.path;
+      row.onclick = () => loadModule(m.path);
+      row.innerHTML = `<span class="mod-dot">✓</span><span class="mod-title">${m.t}</span>`;
+      box.appendChild(row);
+    });
+    nav.appendChild(level);
+  });
+  updateProgress();
+}
+
+function updateProgress(){
+  const total = FLAT.length, n = FLAT.filter(m=>done.has(m.path)).length;
+  const pct = total ? Math.round(n/total*100) : 0;
+  document.getElementById("progFill").style.width = pct+"%";
+  document.getElementById("progText").textContent = `${n} / ${total} пройдено`;
+  document.getElementById("progPct").textContent = pct+"%";
+  COURSE.forEach(lvl=>{
+    const el = document.querySelector(`[data-count="${lvl.id}"]`);
+    if(el){ const d = lvl.mods.filter(m=>done.has(m.path)).length; el.textContent = `${d}/${lvl.mods.length}`; }
+  });
+}
+
+/* ============== Разрешение относительных путей ============== */
+function resolvePath(baseDir, href){
+  if (/^(https?:|mailto:|#|data:)/.test(href)) return href;
+  const stack = baseDir.split("/").filter(Boolean);
+  href.split("/").forEach(p=>{
+    if (p===".."||p==="") { if(p==="..") stack.pop(); }
+    else if (p===".") {}
+    else stack.push(p);
+  });
+  return stack.join("/");
+}
+
+/* ============== Рендер markdown ============== */
+function makeRenderer(baseDir){
+  const r = new marked.Renderer();
+  r.image = (href, title, text) => {
+    const src = resolvePath(baseDir, href);
+    return `<img src="${src}" alt="${text||''}" title="${title||''}" loading="lazy">`;
+  };
+  r.link = (href, title, text) => {
+    const isMd = /\.md(#.*)?$/i.test(href) && !/^https?:/.test(href);
+    if (isMd){
+      const full = resolvePath(baseDir, href.replace(/#.*$/,""));
+      return `<a href="#${full}" data-md="${full}" title="${title||''}">${text}</a>`;
+    }
+    const ext = /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : '';
+    return `<a href="${href}"${ext} title="${title||''}">${text}</a>`;
+  };
+  return r;
+}
+
+async function fetchMd(path){
+  const res = await fetch(path, { cache: "no-cache" });
+  if (!res.ok) throw new Error("not found: "+path);
+  return await res.text();
+}
+
+async function renderInto(md, baseDir){
+  const html = marked.parse(md, { renderer: makeRenderer(baseDir), breaks:false, gfm:true });
+  const art = document.getElementById("article");
+  art.innerHTML = html;
+
+  // внутренние ссылки .md → загрузка в приложении
+  art.querySelectorAll("a[data-md]").forEach(a=>{
+    a.addEventListener("click", e=>{ e.preventDefault(); loadModule(a.dataset.md); });
+  });
+
+  // mermaid
+  const mers = [...art.querySelectorAll("code.language-mermaid")];
+  if (mers.length){
+    await mermaidReady();
+    mers.forEach(c=>{ const d=document.createElement("div"); d.className="mermaid"; d.textContent=c.textContent; c.closest("pre").replaceWith(d); });
+    try { await window.__mermaid.run({ nodes: art.querySelectorAll(".mermaid") }); } catch(e){ console.warn(e); }
+  }
+  // подсветка кода
+  art.querySelectorAll("pre code:not(.language-mermaid)").forEach(el=>{ try{ hljs.highlightElement(el); }catch(e){} });
+}
+
+function mermaidReady(){
+  return new Promise(res=>{ if(window.__mermaid) return res(); window.addEventListener("mermaid-ready", res, {once:true}); });
+}
+
+/* ============== Загрузка модуля ============== */
+let currentPath = null;
+
+async function loadModule(path){
+  // если ссылка ведёт в другой трек (напр. из глоссария) — переключаемся на него
+  const hl = langFromPath(path);
+  if (hl && hl !== currentLang){
+    currentLang = hl; localStorage.setItem("course-lang", hl);
+    rebuildCourse(); buildSidebar();
+  }
+  const mod = byPath[path];
+  const baseDir = mod ? mod.dir : path.split("/").slice(0,-1).join("/");
+  currentPath = path;
+  toggleNav(false);
+  window.scrollTo(0,0);
+  document.getElementById("article").innerHTML = "Загрузка…";
+  try {
+    const md = await fetchMd(path);
+    await renderInto(md, baseDir);
+  } catch(e){
+    document.getElementById("article").innerHTML =
+      `<h1>Не удалось открыть</h1><p>Файл <code>${path}</code> не найден.</p>`;
+  }
+  // активная подсветка в сайдбаре
+  document.querySelectorAll(".mod").forEach(el=>el.classList.toggle("active", el.dataset.path===path));
+  // крошки
+  document.getElementById("crumb").innerHTML = mod
+    ? `${mod.level.emoji} ${mod.level.name.split(" · ")[0]} → <b>${mod.t}</b>`
+    : `<b>Документ</b>`;
+  // развернуть нужный уровень
+  if (mod){ const lv=[...document.querySelectorAll(".level")].find(l=>l.dataset.id===mod.level.id); if(lv) lv.classList.remove("collapsed"); }
+  // панель "пройдено" + пагинация только для модулей курса
+  setupCompleteBar(mod);
+  setupPager(mod);
+}
+
+function setupCompleteBar(mod){
+  const bar = document.getElementById("completeBar");
+  if (!mod){ bar.style.display="none"; return; }
+  bar.style.display="flex";
+  refreshDoneBtn();
+}
+function refreshDoneBtn(){
+  const isDone = done.has(currentPath);
+  const btn = document.getElementById("doneBtn");
+  const txt = document.getElementById("completeText");
+  btn.classList.toggle("is-done", isDone);
+  btn.textContent = isDone ? "Пройдено ✓ (отменить)" : "Отметить пройденным ✓";
+  txt.textContent = isDone ? "Отлично! Блок пройден 🎉" : "Закончил этот блок?";
+}
+function toggleDone(){
+  if (!currentPath) return;
+  if (done.has(currentPath)) done.delete(currentPath); else done.add(currentPath);
+  saveProgress();
+  document.querySelectorAll(`.mod[data-path="${currentPath}"]`).forEach(el=>el.classList.toggle("done", done.has(currentPath)));
+  refreshDoneBtn(); updateProgress();
+}
+
+function setupPager(mod){
+  const pager = document.getElementById("pager");
+  if (!mod){ pager.innerHTML=""; return; }
+  const prev = FLAT[mod.idx-1], next = FLAT[mod.idx+1];
+  pager.innerHTML = `
+    <a class="${prev?'':'disabled'}" ${prev?`onclick="loadModule('${prev.path}')"`:''}>
+      <div class="dir">← Назад</div><div class="name">${prev?prev.t:''}</div></a>
+    <a class="next ${next?'':'disabled'}" ${next?`onclick="loadModule('${next.path}')"`:''}>
+      <div class="dir">Далее →</div><div class="name">${next?next.t:''}</div></a>`;
+}
+
+/* ============== Домашняя страница ============== */
+async function loadHome(){
+  currentPath = null;
+  toggleNav(false); window.scrollTo(0,0);
+  document.getElementById("crumb").innerHTML = "<b>Главная</b>";
+  document.getElementById("completeBar").style.display="none";
+  document.getElementById("pager").innerHTML="";
+  document.querySelectorAll(".mod").forEach(el=>el.classList.remove("active"));
+  const c = COURSES[currentLang];
+  const first = FLAT[0];
+  const customTitle = {
+    ai:      `${c.emoji} Курс: работа с ИИ и промпты`,
+    interop: `${c.emoji} Курс: интеграция языков и системное`,
+    claudecode: `${c.emoji} Курс: Claude Code как рабочая среда`,
+    network: `${c.emoji} Курс: компьютерные сети и интернет`,
+    os: `${c.emoji} Курс: операционные системы`,
+  };
+  const isTrack = currentLang === "ai" || currentLang === "interop" || currentLang === "claudecode" || currentLang === "network" || currentLang === "os";
+  const h1 = customTitle[currentLang] || `${c.emoji} Курс по языку ${c.label} — работа с памятью`;
+  document.getElementById("article").innerHTML = `
+    <h1>${h1}</h1>
+    <p>Путь от 🥚 новичка до 🦅 ${isTrack ? "эксперта" : "Senior-разработчика"}. ${c.blurb}</p>
+    <blockquote><p>Слева — навигация по 5 уровням. Отмечай пройденные блоки — прогресс
+       сохраняется в браузере <b>отдельно для каждого трека</b>. После каждого уровня —
+       задачи и пет-проект.</p></blockquote>
+    <p>Вверху панели слева — <b>9 треков</b>: языки <b>🇨 C</b>, <b>➕ C++</b>,
+       <b>🐍 Python</b>, <b>🦀 Rust</b>, а также <b>🤖 ИИ</b>, <b>🔗 Интеграция</b>,
+       <b>⚡ Claude Code</b>, <b>🌐 Сети</b> и <b>🖥️ ОС</b>. Сквозная тема — <b>память</b>: в
+       языках это ручная → RAII → GC → borrow checker, у ИИ и Claude Code — <b>контекст</b>
+       (память агента), в Сетях байты <b>путешествуют</b> пакетами, а в ОС — <b>виртуальная
+       память</b> (кто эту память создаёт и раздаёт).</p>
+    <h2>Как учиться</h2>
+    <ul>
+      <li>📖 Читай модуль → 🛠️ повторяй на практике → ✅ решай задачи → 🚀 делай пет-проект.</li>
+      <li>Не спеши: <b>важно понимание, а не скорость</b>.</li>
+      <li>Каждый блок заканчивается чек-листом «готов идти дальше».</li>
+    </ul>
+    <div class="complete-bar" style="border-style:solid;border-color:var(--accent);background:var(--accent-soft)">
+      <span>Готов начать?</span>
+      <button class="btn-done" style="background:var(--accent)" onclick="loadModule('${first.path}')">Начать с урока 00 →</button>
+    </div>`;
+}
+
+/* ============== Решебник ============== */
+const SOLUTIONS_READY = ["c", "cpp", "python", "rust"]; // расширяется по мере добавления решебников по трекам
+function loadSolutions(){
+  if (!SOLUTIONS_READY.includes(currentLang)){
+    toggleNav(false); window.scrollTo(0,0);
+    const names = SOLUTIONS_READY.map(k => COURSES[k] ? COURSES[k].label : k).join(", ");
+    document.getElementById("article").innerHTML =
+      `<h1>✅ Решения задач</h1><p>Решебник для трека «${COURSES[currentLang].label}» ещё готовится.</p>`
+      + `<p>Уже доступны решения для: <b>${names}</b>. Переключись на нужный трек вверху панели и нажми «Решения задач».</p>`;
+    document.getElementById("crumb").innerHTML = "<b>Решения задач</b>";
+    document.getElementById("completeBar").style.display = "none";
+    document.getElementById("pager").innerHTML = "";
+    return;
+  }
+  const root = FLAT[0].path.split("/")[0];
+  loadModule(root + "/SOLUTIONS.md");
+}
+
+/* ============== Старт ============== */
+function init(){
+  if (location.protocol === "file:"){ document.getElementById("overlay").style.display="grid"; }
+  marked.setOptions({ gfm:true, breaks:false });
+  const hash = decodeURIComponent(location.hash.replace(/^#/,""));
+  const hl = langFromPath(hash);
+  if (hl && hl !== currentLang){ currentLang = hl; localStorage.setItem("course-lang", hl); rebuildCourse(); }
+  buildSidebar();
+  if (hash && byPath[hash]) loadModule(hash);
+  else loadHome();
+}
+window.addEventListener("hashchange", ()=>{
+  const h = decodeURIComponent(location.hash.replace(/^#/,""));
+  const hl = langFromPath(h);
+  if (hl && hl !== currentLang){ switchLang(hl); }
+  if (h && byPath[h] && h!==currentPath) loadModule(h);
+});
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 340" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="340" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Анатомия сильного промпта</text>
+
+  <g>
+    <rect x="60" y="58" width="540" height="44" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="80" y="85" font-size="15" font-weight="700" fill="#6d28d9">🎭 РОЛЬ</text>
+    <text x="200" y="85" font-size="13" fill="#444">кем должен «быть» ИИ — «Ты опытный редактор»</text>
+
+    <rect x="60" y="110" width="540" height="44" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="80" y="137" font-size="15" font-weight="700" fill="#6d28d9">🎯 ЗАДАЧА</text>
+    <text x="200" y="137" font-size="13" fill="#444">что сделать — «перепиши этот текст»</text>
+
+    <rect x="60" y="162" width="540" height="44" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="80" y="189" font-size="15" font-weight="700" fill="#6d28d9">📋 КОНТЕКСТ</text>
+    <text x="200" y="189" font-size="13" fill="#444">фон, данные, аудитория, цель</text>
+
+    <rect x="60" y="214" width="540" height="44" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="80" y="241" font-size="15" font-weight="700" fill="#6d28d9">📐 ФОРМАТ</text>
+    <text x="200" y="241" font-size="13" fill="#444">как оформить — «таблица», «список из 5»</text>
+
+    <rect x="60" y="266" width="540" height="44" rx="8" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="80" y="293" font-size="15" font-weight="700" fill="#6d28d9">🚧 ОГРАНИЧЕНИЯ</text>
+    <text x="240" y="293" font-size="13" fill="#444">рамки — объём, тон, что избегать</text>
+  </g>
+
+  <text x="330" y="328" text-anchor="middle" font-size="12" fill="#888">Чем сложнее задача — тем больше элементов стоит добавить</text>
+</svg>

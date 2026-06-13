@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="380" fill="#ffffff"/>
+  <text x="320" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1a2e">Иерархия памяти: чем ближе к CPU — тем быстрее</text>
+
+  <!-- pyramid rows: width grows downward = slower/bigger -->
+  <g font-family="Segoe UI, Arial">
+    <!-- registers -->
+    <rect x="250" y="70" width="140" height="44" rx="4" fill="#2e7d32"/>
+    <text x="320" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Регистры</text>
+    <text x="470" y="98" font-size="12" fill="#2e7d32" font-weight="700">~1 такт</text>
+
+    <!-- L1 -->
+    <rect x="215" y="120" width="210" height="44" rx="4" fill="#43a047"/>
+    <text x="320" y="148" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Кэш L1</text>
+    <text x="470" y="148" font-size="12" fill="#43a047" font-weight="700">~4 такта</text>
+
+    <!-- L2/L3 -->
+    <rect x="175" y="170" width="290" height="44" rx="4" fill="#fbc02d"/>
+    <text x="320" y="198" text-anchor="middle" font-size="14" font-weight="700" fill="#5d4037">Кэш L2 / L3</text>
+    <text x="490" y="198" font-size="12" fill="#f9a825" font-weight="700">~12–40</text>
+
+    <!-- RAM -->
+    <rect x="120" y="220" width="400" height="48" rx="4" fill="#fb8c00"/>
+    <text x="320" y="250" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">RAM (оперативная память)</text>
+    <text x="528" y="250" font-size="12" fill="#ef6c00" font-weight="700">~200 🐢</text>
+
+    <!-- SSD -->
+    <rect x="70" y="274" width="500" height="48" rx="4" fill="#e53935"/>
+    <text x="320" y="304" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">SSD / диск</text>
+    <text x="585" y="304" font-size="12" fill="#c62828" font-weight="700" text-anchor="end">~100000 🐌</text>
+  </g>
+
+  <!-- side arrows -->
+  <text x="40" y="100" font-size="12" fill="#2e7d32" font-weight="700">быстро</text>
+  <text x="40" y="120" font-size="12" fill="#2e7d32" font-weight="700">мало</text>
+  <text x="40" y="300" font-size="12" fill="#c62828" font-weight="700">медленно</text>
+  <text x="40" y="318" font-size="12" fill="#c62828" font-weight="700">много</text>
+
+  <rect x="60" y="338" width="520" height="32" rx="6" fill="#fff3e0" stroke="#fb8c00" stroke-width="1.5"/>
+  <text x="320" y="359" text-anchor="middle" font-size="13" font-weight="600" fill="#e65100">RAM в ~50 раз медленнее L1 → последовательный доступ = кэш-хиты</text>
+</svg>

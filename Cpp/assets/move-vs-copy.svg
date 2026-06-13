@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="300" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Копирование vs перемещение</text>
+
+  <defs>
+    <marker id="mc" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#00599c"/>
+    </marker>
+  </defs>
+
+  <!-- COPY -->
+  <text x="170" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#c62828" font-family="Consolas, monospace">b = a;  (копия)</text>
+  <rect x="50" y="85" width="70" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="85" y="110" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">a</text>
+  <rect x="150" y="85" width="160" height="40" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="230" y="110" text-anchor="middle" font-size="12" font-weight="700">[млн чисел]</text>
+  <path d="M120 105 L 146 105" stroke="#00599c" stroke-width="2" marker-end="url(#mc)"/>
+  <rect x="50" y="150" width="70" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="85" y="175" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">b</text>
+  <rect x="150" y="150" width="160" height="40" rx="6" fill="#ffebee" stroke="#e57373" stroke-width="2"/>
+  <text x="230" y="175" text-anchor="middle" font-size="12" font-weight="700" fill="#c62828">[ещё млн — копия]</text>
+  <path d="M120 170 L 146 170" stroke="#00599c" stroke-width="2" marker-end="url(#mc)"/>
+  <text x="170" y="215" text-anchor="middle" font-size="12" fill="#c62828" font-weight="700">🐢 выделить + переписать всё</text>
+  <text x="170" y="232" text-anchor="middle" font-size="11" fill="#c62828">двойная память</text>
+
+  <!-- MOVE -->
+  <text x="510" y="66" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">b = std::move(a);</text>
+  <rect x="390" y="85" width="70" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="425" y="110" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">a</text>
+  <text x="425" y="138" text-anchor="middle" font-size="10" fill="#999">(пусто)</text>
+  <rect x="390" y="150" width="70" height="40" rx="6" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="425" y="175" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">b</text>
+  <rect x="500" y="118" width="160" height="40" rx="6" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="580" y="143" text-anchor="middle" font-size="12" font-weight="700">[млн чисел]</text>
+  <path d="M460 170 L 496 145" stroke="#43a047" stroke-width="2.5" marker-end="url(#mc)"/>
+  <text x="510" y="215" text-anchor="middle" font-size="12" fill="#2e7d32" font-weight="700">⚡ перецепили указатель</text>
+  <text x="510" y="232" text-anchor="middle" font-size="11" fill="#2e7d32">мгновенно, без копий</text>
+
+  <line x1="340" y1="55" x2="340" y2="245" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="60" y="262" width="560" height="32" rx="8" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="340" y="283" text-anchor="middle" font-size="13" font-weight="600" fill="#2e7d32">Move «крадёт кишки» — передаёт владение, а не копирует. Так работает unique_ptr.</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="380" fill="#ffffff"/>
+  <text x="340" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Выравнивание: порядок полей решает</text>
+
+  <!-- BAD struct -->
+  <text x="40" y="78" font-size="15" font-weight="700" fill="#c62828" font-family="Consolas, monospace">struct Bad { char a; int b; char c; }  →  12 байт</text>
+  <g font-family="Consolas, monospace" font-size="13">
+    <!-- a -->
+    <rect x="40" y="92" width="44" height="44" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+    <text x="62" y="119" text-anchor="middle" font-weight="700">a</text>
+    <!-- pad 3 -->
+    <rect x="84" y="92" width="132" height="44" fill="#ffebee" stroke="#e57373" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="150" y="119" text-anchor="middle" fill="#c62828">padding (3)</text>
+    <!-- b -->
+    <rect x="216" y="92" width="176" height="44" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="304" y="119" text-anchor="middle" font-weight="700">b (int, 4)</text>
+    <!-- c -->
+    <rect x="392" y="92" width="44" height="44" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+    <text x="414" y="119" text-anchor="middle" font-weight="700">c</text>
+    <!-- pad 3 -->
+    <rect x="436" y="92" width="132" height="44" fill="#ffebee" stroke="#e57373" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="502" y="119" text-anchor="middle" fill="#c62828">padding (3)</text>
+  </g>
+  <text x="40" y="158" font-size="12" fill="#888">↑ две «дырки» из-за выравнивания int по адресу кратному 4</text>
+
+  <!-- GOOD struct -->
+  <text x="40" y="232" font-size="15" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">struct Good { int b; char a; char c; }  →  8 байт</text>
+  <g font-family="Consolas, monospace" font-size="13">
+    <!-- b -->
+    <rect x="40" y="246" width="176" height="44" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="128" y="273" text-anchor="middle" font-weight="700">b (int, 4)</text>
+    <!-- a -->
+    <rect x="216" y="246" width="44" height="44" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+    <text x="238" y="273" text-anchor="middle" font-weight="700">a</text>
+    <!-- c -->
+    <rect x="260" y="246" width="44" height="44" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+    <text x="282" y="273" text-anchor="middle" font-weight="700">c</text>
+    <!-- pad 2 -->
+    <rect x="304" y="246" width="88" height="44" fill="#fff3e0" stroke="#ffb74d" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="348" y="273" text-anchor="middle" fill="#ef6c00">pad (2)</text>
+  </g>
+  <text x="40" y="312" font-size="12" fill="#888">↑ те же поля, но от больших к меньшим → на 33% меньше</text>
+
+  <rect x="40" y="332" width="600" height="34" rx="6" fill="#f1f8e9" stroke="#7cb342" stroke-width="1.5"/>
+  <text x="340" y="354" text-anchor="middle" font-size="14" font-weight="600" fill="#558b2f">Правило: располагай поля от больших типов к меньшим</text>
+</svg>

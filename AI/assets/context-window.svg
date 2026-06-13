@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 320" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="320" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Контекстное окно — «память» ИИ</text>
+
+  <!-- window box -->
+  <rect x="50" y="56" width="560" height="150" rx="10" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="330" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#6d28d9">Контекстное окно (всё, что ИИ «видит» сейчас)</text>
+
+  <g font-size="12" font-family="Consolas, monospace">
+    <rect x="70" y="90" width="520" height="22" rx="3" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="80" y="106" fill="#5b21b6">[системный промпт — роль]</text>
+    <rect x="70" y="116" width="520" height="22" rx="3" fill="#fff" stroke="#ddd6fe"/>
+    <text x="80" y="132" fill="#444">Ты: сообщение 1   →   ИИ: ответ 1</text>
+    <rect x="70" y="142" width="520" height="22" rx="3" fill="#fff" stroke="#ddd6fe"/>
+    <text x="80" y="158" fill="#444">Ты: сообщение 2   →   ИИ: ответ 2</text>
+    <rect x="70" y="168" width="520" height="22" rx="3" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="80" y="184" fill="#5b21b6">Ты: новый вопрос  ← ИИ читает ВСЁ выше при ответе</text>
+  </g>
+
+  <!-- overflow -->
+  <rect x="50" y="220" width="560" height="44" rx="8" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+  <text x="330" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#c2410c">⚠️ Лимит в токенах. Когда диалог длиннее окна —</text>
+  <text x="330" y="257" text-anchor="middle" font-size="12" fill="#9a3412">самое СТАРОЕ выпадает («забывается»)</text>
+
+  <rect x="50" y="276" width="560" height="36" rx="8" fill="#ede9fe" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="330" y="299" text-anchor="middle" font-size="12" font-weight="600" fill="#6d28d9">Новый чат = чистая память. Между чатами ИИ НЕ помнит. Это как RAM в программировании.</text>
+</svg>

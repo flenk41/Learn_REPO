@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 280" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="280" fill="#ffffff"/>
+  <text x="330" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Рассуждение по шагам (chain-of-thought)</text>
+
+  <defs>
+    <marker id="ct" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <!-- without -->
+  <text x="165" y="64" text-anchor="middle" font-size="14" font-weight="700" fill="#c2410c">❌ Сразу к ответу</text>
+  <rect x="70" y="78" width="190" height="34" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="165" y="100" text-anchor="middle" font-size="12">вопрос</text>
+  <rect x="70" y="138" width="190" height="34" rx="6" fill="#fee2e2" stroke="#f87171"/>
+  <text x="165" y="160" text-anchor="middle" font-size="12" fill="#b91c1c">ответ (часто ошибка)</text>
+  <path d="M165 112 L 165 136" stroke="#fb923c" stroke-width="2.5" marker-end="url(#ct)"/>
+  <text x="165" y="195" text-anchor="middle" font-size="11" fill="#9a3412">прыжок — легко ошибиться</text>
+
+  <!-- with -->
+  <text x="495" y="64" text-anchor="middle" font-size="14" font-weight="700" fill="#6d28d9">✅ «Рассуждай по шагам»</text>
+  <g font-size="11" font-family="Consolas, monospace">
+    <rect x="400" y="76" width="190" height="26" rx="5" fill="#f3e8ff" stroke="#a78bfa"/>
+    <text x="410" y="93" fill="#5b21b6">вопрос</text>
+    <rect x="400" y="110" width="190" height="26" rx="5" fill="#ede9fe" stroke="#a78bfa"/>
+    <text x="410" y="127" fill="#5b21b6">Шаг 1: ...</text>
+    <rect x="400" y="144" width="190" height="26" rx="5" fill="#ede9fe" stroke="#a78bfa"/>
+    <text x="410" y="161" fill="#5b21b6">Шаг 2: ...</text>
+    <rect x="400" y="178" width="190" height="26" rx="5" fill="#dcfce7" stroke="#4ade80"/>
+    <text x="410" y="195" fill="#15803d" font-weight="700">Ответ (точнее ✓)</text>
+  </g>
+  <path d="M495 102 L 495 108" stroke="#7c3aed" stroke-width="2" marker-end="url(#ct)"/>
+  <path d="M495 136 L 495 142" stroke="#7c3aed" stroke-width="2" marker-end="url(#ct)"/>
+  <path d="M495 170 L 495 176" stroke="#7c3aed" stroke-width="2" marker-end="url(#ct)"/>
+
+  <line x1="330" y1="55" x2="330" y2="210" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <rect x="60" y="230" width="540" height="40" rx="8" fill="#f3e8ff" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="330" y="255" text-anchor="middle" font-size="13" font-weight="600" fill="#6d28d9">Каждый шаг — контекст для следующего. Так ИИ «думает», а не угадывает.</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 290" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="290" fill="#ffffff"/>
+  <text x="330" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">GIL: байткод выполняет один поток за раз</text>
+
+  <!-- timeline -->
+  <text x="40" y="70" font-size="12" fill="#888">время →</text>
+
+  <g font-family="Consolas, monospace" font-size="12">
+    <text x="70" y="100" text-anchor="end" fill="#3776ab" font-weight="700">Поток 1</text>
+    <text x="70" y="140" text-anchor="end" fill="#3776ab" font-weight="700">Поток 2</text>
+    <text x="70" y="180" text-anchor="end" fill="#3776ab" font-weight="700">Поток 3</text>
+  </g>
+
+  <!-- track backgrounds -->
+  <rect x="90" y="84" width="520" height="24" fill="#f5f5f5" stroke="#e0e0e0"/>
+  <rect x="90" y="124" width="520" height="24" fill="#f5f5f5" stroke="#e0e0e0"/>
+  <rect x="90" y="164" width="520" height="24" fill="#f5f5f5" stroke="#e0e0e0"/>
+
+  <!-- active slices (only one at a time holds GIL) -->
+  <rect x="90"  y="84"  width="120" height="24" fill="#43a047"/>
+  <rect x="330" y="84"  width="120" height="24" fill="#43a047"/>
+  <rect x="210" y="124" width="120" height="24" fill="#43a047"/>
+  <rect x="450" y="164" width="120" height="24" fill="#43a047"/>
+
+  <text x="555" y="76" font-size="11" fill="#2e7d32" font-weight="700">зелёное = держит GIL (работает)</text>
+
+  <rect x="60" y="210" width="540" height="60" rx="10" fill="#fff3e0" stroke="#ffb74d" stroke-width="1.5"/>
+  <text x="330" y="234" text-anchor="middle" font-size="13" font-weight="700" fill="#ef6c00">CPU-вычисления: потоки НЕ ускоряют (GIL пускает по одному) → бери multiprocessing.</text>
+  <text x="330" y="256" text-anchor="middle" font-size="12" fill="#555">I/O-ожидание (сеть, диск): GIL отпускается → потоки и asyncio помогают.</text>
+</svg>

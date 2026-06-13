@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 300" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="300" fill="#ffffff"/>
+  <text x="330" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Ссылка vs указатель</text>
+
+  <defs>
+    <marker id="rp" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#00599c"/>
+    </marker>
+  </defs>
+
+  <!-- reference -->
+  <text x="170" y="68" text-anchor="middle" font-size="14" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">int&amp; ref = a;</text>
+  <text x="170" y="88" text-anchor="middle" font-size="12" fill="#555">псевдоним — ДРУГОЕ ИМЯ той же ячейки</text>
+  <rect x="120" y="110" width="100" height="56" rx="8" fill="#fff8e1" stroke="#f4b400" stroke-width="2.5"/>
+  <text x="170" y="143" text-anchor="middle" font-size="20" font-weight="700">5</text>
+  <text x="95" y="128" text-anchor="end" font-size="13" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">a</text>
+  <text x="95" y="155" text-anchor="end" font-size="13" font-weight="700" fill="#2e7d32" font-family="Consolas, monospace">ref</text>
+  <path d="M100 122 L 116 128" stroke="#43a047" stroke-width="2"/>
+  <path d="M100 150 L 116 144" stroke="#43a047" stroke-width="2"/>
+  <text x="170" y="195" text-anchor="middle" font-size="11" fill="#2e7d32">обязана инициализироваться,</text>
+  <text x="170" y="211" text-anchor="middle" font-size="11" fill="#2e7d32">нельзя перенаправить, не бывает «пустой»</text>
+
+  <!-- pointer -->
+  <text x="490" y="68" text-anchor="middle" font-size="14" font-weight="700" fill="#1565c0" font-family="Consolas, monospace">int* ptr = &amp;a;</text>
+  <text x="490" y="88" text-anchor="middle" font-size="12" fill="#555">хранит АДРЕС ячейки</text>
+  <rect x="380" y="110" width="90" height="56" rx="8" fill="#e8f0fe" stroke="#3776ab" stroke-width="2"/>
+  <text x="425" y="135" text-anchor="middle" font-size="13" font-weight="700" font-family="Consolas, monospace">ptr</text>
+  <text x="425" y="155" text-anchor="middle" font-size="12" fill="#555" font-family="Consolas, monospace">0x1000</text>
+  <rect x="520" y="110" width="90" height="56" rx="8" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="565" y="143" text-anchor="middle" font-size="20" font-weight="700">5</text>
+  <path d="M470 138 L 516 138" stroke="#00599c" stroke-width="2" marker-end="url(#rp)"/>
+  <text x="490" y="195" text-anchor="middle" font-size="11" fill="#1565c0">может быть nullptr,</text>
+  <text x="490" y="211" text-anchor="middle" font-size="11" fill="#1565c0">можно перенаправить, нужны * и &amp;</text>
+
+  <line x1="305" y1="55" x2="305" y2="225" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <rect x="60" y="245" width="540" height="40" rx="8" fill="#e8f5e9" stroke="#66bb6a" stroke-width="1.5"/>
+  <text x="330" y="270" text-anchor="middle" font-size="13" font-weight="600" fill="#2e7d32">В C++ предпочитают ссылки — они безопаснее (никогда не «никуда»)</text>
+</svg>

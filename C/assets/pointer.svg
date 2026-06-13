@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="640" height="320" fill="#ffffff"/>
+  <text x="320" y="36" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1a2e">Указатель = адрес другой переменной</text>
+  <text x="320" y="60" text-anchor="middle" font-size="14" fill="#666" font-family="Consolas, monospace">int x = 42;   int *p = &amp;x;</text>
+
+  <!-- variable x -->
+  <rect x="80" y="120" width="160" height="100" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="2"/>
+  <text x="160" y="108" text-anchor="middle" font-size="16" font-weight="700" fill="#388e3c">x</text>
+  <rect x="100" y="140" width="120" height="44" rx="4" fill="#ffffff" stroke="#388e3c"/>
+  <text x="160" y="169" text-anchor="middle" font-size="22" font-weight="700" fill="#1a1a2e">42</text>
+  <text x="160" y="206" text-anchor="middle" font-size="13" fill="#666" font-family="Consolas, monospace">адрес 0x1000</text>
+
+  <!-- pointer p -->
+  <rect x="400" y="120" width="160" height="100" rx="8" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="480" y="108" text-anchor="middle" font-size="16" font-weight="700" fill="#f57c00">p</text>
+  <rect x="420" y="140" width="120" height="44" rx="4" fill="#ffffff" stroke="#f57c00"/>
+  <text x="480" y="169" text-anchor="middle" font-size="18" font-weight="700" fill="#1a1a2e" font-family="Consolas, monospace">0x1000</text>
+  <text x="480" y="206" text-anchor="middle" font-size="13" fill="#666" font-family="Consolas, monospace">хранит адрес x</text>
+
+  <!-- arrow p -> x -->
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f57c00"/>
+    </marker>
+  </defs>
+  <path d="M418 162 C 330 100, 250 100, 222 152" fill="none" stroke="#f57c00" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <text x="320" y="270" text-anchor="middle" font-size="14" fill="#333" font-family="Consolas, monospace">&amp;x  → 0x1000  (адрес x)</text>
+  <text x="320" y="294" text-anchor="middle" font-size="14" fill="#333" font-family="Consolas, monospace">*p  → 42      (значение по адресу p)</text>
+</svg>

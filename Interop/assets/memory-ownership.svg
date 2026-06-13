@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 290" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="680" height="290" fill="#ffffff"/>
+  <text x="340" y="30" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Кто владеет памятью через границу</text>
+
+  <!-- danger row -->
+  <rect x="40" y="55" width="600" height="60" rx="10" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+  <text x="340" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">⚠️ Память, выделенная одним языком, нельзя освобождать другим</text>
+  <text x="340" y="102" text-anchor="middle" font-size="12" fill="#7f1d1d" font-family="Consolas, monospace">C malloc → НЕ Python GC · Rust Box → НЕ C free  (разные аллокаторы!)</text>
+
+  <!-- model A -->
+  <rect x="40" y="135" width="290" height="120" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+  <text x="185" y="160" text-anchor="middle" font-size="14" font-weight="700" fill="#15803d">✅ Вызывающий владеет</text>
+  <text x="185" y="184" text-anchor="middle" font-size="12" fill="#444">Python выделил буфер</text>
+  <text x="185" y="204" text-anchor="middle" font-size="12" fill="#444">C только пишет в него</text>
+  <text x="185" y="224" text-anchor="middle" font-size="12" fill="#444">Python сам освободит</text>
+  <text x="185" y="244" text-anchor="middle" font-size="11" fill="#15803d" font-weight="700">нет вопроса «кто free» → безопасно</text>
+
+  <!-- model B -->
+  <rect x="350" y="135" width="290" height="120" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="495" y="160" text-anchor="middle" font-size="14" font-weight="700" fill="#a16207">⚠️ Библиотека владеет</text>
+  <text x="495" y="184" text-anchor="middle" font-size="12" fill="#444">C выделил (thing_new)</text>
+  <text x="495" y="204" text-anchor="middle" font-size="12" fill="#444">даёт парную thing_free()</text>
+  <text x="495" y="224" text-anchor="middle" font-size="12" fill="#444">обязан вызвать ЕЁ, не Python-free</text>
+  <text x="495" y="244" text-anchor="middle" font-size="11" fill="#a16207" font-weight="700">забыл → утечка · чужой free → краш</text>
+
+  <text x="340" y="278" text-anchor="middle" font-size="12" fill="#888">Правило: кто выделил — тот освобождает. Прячь за opaque handle + RAII-обёртку.</text>
+</svg>

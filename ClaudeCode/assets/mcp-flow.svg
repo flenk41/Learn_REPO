@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="720" height="380" rx="16" fill="#fbf7f4"/>
+  <text x="360" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#3a2a22">MCP — стандартная «розетка» для инструментов</text>
+
+  <!-- claude code -->
+  <rect x="50" y="130" width="180" height="110" rx="12" fill="#d97757"/>
+  <text x="140" y="178" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Claude Code</text>
+  <text x="140" y="200" text-anchor="middle" font-size="12" fill="#fde8df">(агент)</text>
+
+  <!-- mcp server -->
+  <rect x="290" y="120" width="180" height="130" rx="12" fill="#fff" stroke="#c79a3a" stroke-width="2"/>
+  <text x="380" y="150" text-anchor="middle" font-size="14" font-weight="700" fill="#3a2a22">MCP-сервер</text>
+  <text x="380" y="170" text-anchor="middle" font-size="11.5" fill="#6b5b52">(адаптер)</text>
+  <rect x="306" y="184" width="148" height="24" rx="6" fill="#f3e3da"/>
+  <text x="380" y="201" text-anchor="middle" font-size="11" fill="#5a4a42">create_issue()</text>
+  <rect x="306" y="212" width="148" height="24" rx="6" fill="#f3e3da"/>
+  <text x="380" y="229" text-anchor="middle" font-size="11" fill="#5a4a42">run_query()</text>
+
+  <!-- external systems -->
+  <rect x="540" y="80" width="150" height="40" rx="8" fill="#fff" stroke="#6b8e5a" stroke-width="1.6"/>
+  <text x="615" y="105" text-anchor="middle" font-size="12.5" fill="#3a2a22">🐙 GitHub</text>
+  <rect x="540" y="135" width="150" height="40" rx="8" fill="#fff" stroke="#6b8e5a" stroke-width="1.6"/>
+  <text x="615" y="160" text-anchor="middle" font-size="12.5" fill="#3a2a22">🗄️ База данных</text>
+  <rect x="540" y="190" width="150" height="40" rx="8" fill="#fff" stroke="#6b8e5a" stroke-width="1.6"/>
+  <text x="615" y="215" text-anchor="middle" font-size="12.5" fill="#3a2a22">📋 Jira / Slack</text>
+
+  <!-- arrows -->
+  <line x1="230" y1="185" x2="285" y2="185" stroke="#9a8678" stroke-width="2.5" marker-end="url(#a)"/>
+  <text x="258" y="175" text-anchor="middle" font-size="10.5" fill="#8a7368">MCP</text>
+  <line x1="470" y1="160" x2="535" y2="100" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="470" y1="175" x2="535" y2="155" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="470" y1="200" x2="535" y2="210" stroke="#9a8678" stroke-width="2" marker-end="url(#a)"/>
+
+  <text x="360" y="305" text-anchor="middle" font-size="13" fill="#4a3a32">Один стандарт → агент видит инструменты сервиса как «свои» и вызывает их</text>
+  <text x="360" y="332" text-anchor="middle" font-size="12" font-style="italic" fill="#8a7368">готовый MCP — подключаешь · свой MCP — пишешь под внутреннее (Python)</text>
+
+  <defs>
+    <marker id="a" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#9a8678"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 290" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="660" height="290" fill="#ffffff"/>
+  <text x="330" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1a1a2e">Перемещение: владение переходит, старая переменная аннулируется</text>
+  <text x="330" y="56" text-anchor="middle" font-size="14" fill="#666" font-family="Consolas, monospace">let s2 = s1;</text>
+
+  <defs>
+    <marker id="om" markerWidth="11" markerHeight="11" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#ce422b"/>
+    </marker>
+  </defs>
+
+  <!-- before -->
+  <text x="165" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#ce422b" font-family="Consolas, monospace">до</text>
+  <rect x="60" y="115" width="80" height="44" rx="8" fill="#fbe9e7" stroke="#ce422b" stroke-width="2"/>
+  <text x="100" y="143" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">s1</text>
+  <rect x="200" y="115" width="120" height="44" rx="8" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="260" y="143" text-anchor="middle" font-size="13" font-weight="700">"привет"</text>
+  <path d="M140 137 L 196 137" stroke="#ce422b" stroke-width="2.5" marker-end="url(#om)"/>
+
+  <!-- after -->
+  <text x="495" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#ce422b" font-family="Consolas, monospace">после move</text>
+  <rect x="370" y="100" width="80" height="40" rx="8" fill="#eeeeee" stroke="#bbb" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="410" y="125" text-anchor="middle" font-weight="700" fill="#999" font-family="Consolas, monospace">s1 ╳</text>
+  <text x="410" y="160" text-anchor="middle" font-size="10" fill="#c62828">недоступна</text>
+  <rect x="370" y="170" width="80" height="40" rx="8" fill="#fbe9e7" stroke="#ce422b" stroke-width="2"/>
+  <text x="410" y="195" text-anchor="middle" font-weight="700" font-family="Consolas, monospace">s2</text>
+  <rect x="510" y="135" width="120" height="44" rx="8" fill="#fff8e1" stroke="#f4b400" stroke-width="2"/>
+  <text x="570" y="163" text-anchor="middle" font-size="13" font-weight="700">"привет"</text>
+  <path d="M450 190 L 506 165" stroke="#ce422b" stroke-width="2.5" marker-end="url(#om)"/>
+
+  <line x1="345" y1="90" x2="345" y2="215" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+  <rect x="60" y="240" width="540" height="40" rx="8" fill="#fbe9e7" stroke="#ce422b" stroke-width="1.5"/>
+  <text x="330" y="265" text-anchor="middle" font-size="13" font-weight="600" fill="#a8321f">println!("{}", s1) после move → ОШИБКА КОМПИЛЯЦИИ. Один владелец → нет double-free.</text>
+</svg>

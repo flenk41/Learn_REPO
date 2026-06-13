@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" font-family="Segoe UI, Arial, sans-serif">
+  <rect x="0" y="0" width="720" height="430" rx="16" fill="#f3f6fc"/>
+  <text x="360" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">Слои сети: OSI (7) и стек TCP/IP (4)</text>
+
+  <text x="180" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#2563eb">Модель OSI</text>
+  <text x="540" y="70" text-anchor="middle" font-size="14" font-weight="700" fill="#0891b2">Стек TCP/IP</text>
+
+  <!-- OSI 7 layers -->
+  <g font-size="12.5" fill="#1e293b">
+    <rect x="40" y="84" width="280" height="34" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.4"/>
+    <text x="56" y="106">7 · Прикладной — HTTP, DNS, SMTP</text>
+    <rect x="40" y="122" width="280" height="34" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.4"/>
+    <text x="56" y="144">6 · Представления — шифрование, кодировки</text>
+    <rect x="40" y="160" width="280" height="34" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.4"/>
+    <text x="56" y="182">5 · Сеансовый — управление сессией</text>
+    <rect x="40" y="198" width="280" height="34" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="56" y="220" font-weight="700">4 · Транспортный — TCP / UDP ⭐</text>
+    <rect x="40" y="236" width="280" height="34" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.4"/>
+    <text x="56" y="258">3 · Сетевой — IP, маршрутизация</text>
+    <rect x="40" y="274" width="280" height="34" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.4"/>
+    <text x="56" y="296">2 · Канальный — MAC, Ethernet</text>
+    <rect x="40" y="312" width="280" height="34" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.4"/>
+    <text x="56" y="334">1 · Физический — биты по проводу</text>
+  </g>
+
+  <!-- TCP/IP 4 layers -->
+  <g font-size="12.5" fill="#1e293b">
+    <rect x="400" y="84" width="280" height="72" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.6"/>
+    <text x="540" y="114" text-anchor="middle" font-weight="700">Прикладной</text>
+    <text x="540" y="134" text-anchor="middle" font-size="11.5">HTTP, DNS, SSH (= OSI 5-7)</text>
+    <rect x="400" y="198" width="280" height="34" rx="6" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+    <text x="540" y="220" text-anchor="middle" font-weight="700">Транспортный — TCP/UDP ⭐</text>
+    <rect x="400" y="236" width="280" height="34" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.6"/>
+    <text x="540" y="258" text-anchor="middle">Интернет — IP (= OSI 3)</text>
+    <rect x="400" y="274" width="280" height="72" rx="6" fill="#fff" stroke="#0891b2" stroke-width="1.6"/>
+    <text x="540" y="304" text-anchor="middle" font-weight="700">Доступ к сети</text>
+    <text x="540" y="324" text-anchor="middle" font-size="11.5">Ethernet, Wi-Fi (= OSI 1-2)</text>
+  </g>
+
+  <text x="360" y="370" text-anchor="middle" font-size="13" fill="#334155">Данные идут сверху вниз, оборачиваясь заголовком каждого слоя (инкапсуляция)</text>
+  <text x="360" y="394" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">OSI — для объяснений · TCP/IP — как работает реально · ядро трека — транспорт</text>
+</svg>
