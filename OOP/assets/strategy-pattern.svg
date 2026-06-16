@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#ecfdf5"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#064e3b">Паттерн «Стратегия»: поведение как сменная деталь</text>
+
+  <!-- context -->
+  <rect x="60" y="80" width="170" height="90" rx="10" fill="#059669"/>
+  <text x="145" y="110" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">Контекст</text>
+  <text x="145" y="132" text-anchor="middle" font-size="11.5" fill="#d1fae5">Корзина</text>
+  <text x="145" y="152" text-anchor="middle" font-size="10.5" fill="#a7f3d0">.оплатить()</text>
+
+  <!-- interface -->
+  <rect x="300" y="80" width="170" height="90" rx="10" fill="#fff" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="385" y="108" text-anchor="middle" font-size="13.5" fill="#065f46" font-weight="700">«интерфейс»</text>
+  <text x="385" y="130" text-anchor="middle" font-size="12.5" fill="#065f46" font-weight="700">Оплата</text>
+  <text x="385" y="150" text-anchor="middle" font-size="10.5" fill="#047857">оплатить(сумма)</text>
+
+  <line x1="230" y1="125" x2="296" y2="125" stroke="#059669" stroke-width="2.5" marker-end="url(#ao)"/>
+  <text x="263" y="116" text-anchor="middle" font-size="10.5" fill="#047857">использует</text>
+  <defs><marker id="ao" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="#059669"/></marker></defs>
+
+  <!-- concrete strategies -->
+  <g>
+    <rect x="540" y="60" width="170" height="50" rx="8" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="625" y="82" text-anchor="middle" font-size="12.5" fill="#064e3b" font-weight="700">КартойОплата</text>
+    <text x="625" y="99" text-anchor="middle" font-size="10" fill="#047857">оплатить()…</text>
+    <rect x="540" y="118" width="170" height="50" rx="8" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="625" y="140" text-anchor="middle" font-size="12.5" fill="#064e3b" font-weight="700">СБПОплата</text>
+    <text x="625" y="157" text-anchor="middle" font-size="10" fill="#047857">оплатить()…</text>
+    <rect x="540" y="176" width="170" height="50" rx="8" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+    <text x="625" y="198" text-anchor="middle" font-size="12.5" fill="#064e3b" font-weight="700">КриптоОплата</text>
+    <text x="625" y="215" text-anchor="middle" font-size="10" fill="#047857">оплатить()…</text>
+  </g>
+  <g stroke="#059669" stroke-width="2" fill="none">
+    <path d="M470,120 L505,85 L538,85" marker-end="url(#tri2)"/>
+    <path d="M470,128 L538,143" marker-end="url(#tri2)"/>
+    <path d="M470,136 L505,201 L538,201" marker-end="url(#tri2)"/>
+  </g>
+  <defs><marker id="tri2" markerWidth="14" markerHeight="14" refX="2" refY="6" orient="auto"><path d="M1,1 L11,6 L1,11 z" fill="#fff" stroke="#059669" stroke-width="1.5"/></marker></defs>
+  <text x="625" y="248" text-anchor="middle" font-size="11" fill="#047857" font-weight="700">реализуют интерфейс</text>
+
+  <rect x="60" y="270" width="640" height="95" rx="10" fill="#d1fae5"/>
+  <text x="380" y="296" text-anchor="middle" font-size="12.5" fill="#064e3b">Корзина не знает <tspan font-weight="700">как</tspan> оплачивают — она держит ссылку на интерфейс <tspan font-weight="700">Оплата</tspan> и зовёт <tspan font-family="Consolas, monospace">оплатить()</tspan>.</text>
+  <text x="380" y="318" text-anchor="middle" font-size="12.5" fill="#065f46">Добавить новый способ = новый класс-стратегия. Старый код менять <tspan font-weight="700">не нужно</tspan> (принцип OCP).</text>
+  <text x="380" y="340" text-anchor="middle" font-size="11.5" fill="#065f46" font-style="italic">это полиморфизм в действии: один вызов — разное поведение, выбранное во время работы.</text>
+  <text x="380" y="358" text-anchor="middle" font-size="11" fill="#059669" font-weight="700">«Стратегия» убирает большой if/switch по типу оплаты.</text>
+</svg>

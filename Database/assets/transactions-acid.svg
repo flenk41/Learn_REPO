@@ -1,0 +1,45 @@
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="400" fill="#f5f3ff" rx="12"/>
+  <text x="360" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#4c1d95">Транзакция и ACID: всё или ничего</text>
+
+  <!-- transaction box -->
+  <rect x="40" y="60" width="320" height="200" rx="10" fill="#fff" stroke="#6d28d9" stroke-width="2"/>
+  <rect x="40" y="60" width="320" height="30" rx="10" fill="#6d28d9"/>
+  <rect x="40" y="76" width="320" height="14" fill="#6d28d9"/>
+  <text x="55" y="81" font-size="13.5" font-weight="700" fill="#fff">BEGIN — перевод 500₽ A→B</text>
+
+  <rect x="60" y="105" width="280" height="34" rx="6" fill="#ede9fe"/>
+  <text x="74" y="127" font-size="12.5" fill="#1e1b4b">① UPDATE A SET баланс = баланс − 500</text>
+  <rect x="60" y="148" width="280" height="34" rx="6" fill="#ede9fe"/>
+  <text x="74" y="170" font-size="12.5" fill="#1e1b4b">② UPDATE B SET баланс = баланс + 500</text>
+
+  <rect x="60" y="200" width="135" height="38" rx="6" fill="#15803d"/>
+  <text x="127" y="224" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">COMMIT ✓</text>
+  <rect x="205" y="200" width="135" height="38" rx="6" fill="#be123c"/>
+  <text x="272" y="224" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">ROLLBACK ✗</text>
+  <text x="200" y="252" text-anchor="middle" font-size="11.5" fill="#6b7280">сбой между ① и ② → откат целиком, денег не теряется</text>
+
+  <!-- ACID -->
+  <g>
+    <rect x="390" y="70" width="290" height="44" rx="7" fill="#fff" stroke="#c4b5fd"/>
+    <text x="404" y="89" font-size="14" font-weight="700" fill="#6d28d9">A — Atomicity</text>
+    <text x="404" y="107" font-size="11.5" fill="#1e1b4b">атомарность: все шаги или ни одного</text>
+
+    <rect x="390" y="122" width="290" height="44" rx="7" fill="#fff" stroke="#c4b5fd"/>
+    <text x="404" y="141" font-size="14" font-weight="700" fill="#6d28d9">C — Consistency</text>
+    <text x="404" y="159" font-size="11.5" fill="#1e1b4b">согласованность: правила БД не нарушены</text>
+
+    <rect x="390" y="174" width="290" height="44" rx="7" fill="#fff" stroke="#c4b5fd"/>
+    <text x="404" y="193" font-size="14" font-weight="700" fill="#6d28d9">I — Isolation</text>
+    <text x="404" y="211" font-size="11.5" fill="#1e1b4b">изоляция: параллельные не мешают</text>
+
+    <rect x="390" y="226" width="290" height="44" rx="7" fill="#fff" stroke="#c4b5fd"/>
+    <text x="404" y="245" font-size="14" font-weight="700" fill="#6d28d9">D — Durability</text>
+    <text x="404" y="263" font-size="11.5" fill="#1e1b4b">прочность: после commit — навсегда (WAL)</text>
+  </g>
+
+  <rect x="40" y="290" width="640" height="90" rx="8" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="60" y="316" font-size="13.5" font-weight="700" fill="#4c1d95">Транзакция группирует операции в неделимую единицу.</text>
+  <text x="60" y="338" font-size="13" fill="#1e1b4b">Без неё: сбой посередине → деньги списаны, но не зачислены (повреждённое состояние).</text>
+  <text x="60" y="360" font-size="13" fill="#1e1b4b">С транзакцией: либо обе операции, либо ни одной. Это надёжность реляционных БД.</text>
+</svg>

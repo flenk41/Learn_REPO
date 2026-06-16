@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#f0fdfa"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#134e4a">Middle vs Senior: разница в подходе</text>
+
+  <!-- Middle column -->
+  <rect x="40" y="64" width="330" height="280" rx="12" fill="#fff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="205" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="#475569">MIDDLE — мыслит задачей</text>
+  <g font-size="12.5" fill="#334155">
+    <text x="62" y="124">📋 выполняет поставленную задачу</text>
+    <text x="62" y="152">⌨️ сразу кодит</text>
+    <text x="62" y="180">🔧 чинит симптом бага</text>
+    <text x="62" y="208">🙋 ждёт, пока научат новому</text>
+    <text x="62" y="236">✅ «мой код работает»</text>
+    <text x="62" y="264">👤 отвечает за свою часть</text>
+    <text x="62" y="292">📊 видит свой модуль</text>
+  </g>
+  <text x="205" y="326" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">[ моя задача ] → готово</text>
+
+  <!-- Senior column -->
+  <rect x="390" y="64" width="330" height="280" rx="12" fill="#ccfbf1" stroke="#0f766e" stroke-width="2.5"/>
+  <text x="555" y="92" text-anchor="middle" font-size="16" font-weight="700" fill="#0f766e">SENIOR — мыслит системой</text>
+  <g font-size="12.5" fill="#134e4a">
+    <text x="412" y="124">❓ уточняет, оспаривает, переформулирует</text>
+    <text x="412" y="152">⚖️ взвешивает варианты и их цену</text>
+    <text x="412" y="180">🎯 ищет корневую причину</text>
+    <text x="412" y="208">🚀 разбирается сам, потом делится</text>
+    <text x="412" y="236">🌐 «система работает, команда сильнее»</text>
+    <text x="412" y="264">🤝 отвечает за результат (ownership)</text>
+    <text x="412" y="292">🔭 видит всю систему и будущее</text>
+  </g>
+  <text x="555" y="326" text-anchor="middle" font-size="11.5" font-style="italic" fill="#0f766e">задача ↔ система ↔ команда ↔ бизнес</text>
+
+  <text x="380" y="366" text-anchor="middle" font-size="12.5" fill="#0f766e" font-weight="700">Разница не в IQ, а в ПОДХОДЕ: вопросы перед кодом, корень вместо симптома, ответственность за итог.</text>
+</svg>

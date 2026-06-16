@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#fff7ed"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#7c2d12">Интерпретатор: от текста к результату</text>
+
+  <defs><marker id="ai" markerWidth="11" markerHeight="11" refX="8" refY="4.5" orient="auto"><path d="M0,0 L10,4.5 L0,9 z" fill="#c2410c"/></marker></defs>
+
+  <g text-anchor="middle">
+    <rect x="40" y="80" width="130" height="60" rx="8" fill="#c2410c"/>
+    <text x="105" y="104" font-size="12.5" fill="#fff" font-weight="700">ИСХОДНИК</text>
+    <text x="105" y="124" font-size="12" fill="#fed7aa" font-family="Consolas,monospace">2 + 3 * 4</text>
+
+    <rect x="215" y="80" width="130" height="60" rx="8" fill="#ea580c"/>
+    <text x="280" y="104" font-size="12.5" fill="#fff" font-weight="700">ЛЕКСЕР</text>
+    <text x="280" y="124" font-size="9.5" fill="#fff7ed" font-family="Consolas,monospace">[2][+][3][*][4]</text>
+
+    <rect x="390" y="80" width="130" height="60" rx="8" fill="#f97316"/>
+    <text x="455" y="104" font-size="12.5" fill="#fff" font-weight="700">ПАРСЕР</text>
+    <text x="455" y="124" font-size="10" fill="#fff7ed">AST (дерево)</text>
+
+    <rect x="565" y="80" width="150" height="60" rx="8" fill="#16a34a"/>
+    <text x="640" y="104" font-size="12.5" fill="#fff" font-weight="700">ВЫЧИСЛИТЕЛЬ</text>
+    <text x="640" y="124" font-size="12" fill="#dcfce7" font-family="Consolas,monospace">= 14</text>
+  </g>
+  <g stroke="#c2410c" stroke-width="2.5" marker-end="url(#ai)">
+    <line x1="172" y1="110" x2="211" y2="110"/>
+    <line x1="347" y1="110" x2="386" y2="110"/>
+    <line x1="522" y1="110" x2="561" y2="110"/>
+  </g>
+  <text x="280" y="158" text-anchor="middle" font-size="10" fill="#9a3412">текст → токены</text>
+  <text x="455" y="158" text-anchor="middle" font-size="10" fill="#9a3412">токены → дерево (приоритеты)</text>
+  <text x="640" y="158" text-anchor="middle" font-size="10" fill="#9a3412">обход дерева → результат</text>
+
+  <!-- AST tree -->
+  <g text-anchor="middle" font-size="13" font-weight="700">
+    <line x1="380" y1="200" x2="330" y2="240" stroke="#9a3412" stroke-width="2"/>
+    <line x1="380" y1="200" x2="430" y2="240" stroke="#9a3412" stroke-width="2"/>
+    <line x1="430" y1="240" x2="400" y2="280" stroke="#9a3412" stroke-width="2"/>
+    <line x1="430" y1="240" x2="460" y2="280" stroke="#9a3412" stroke-width="2"/>
+    <circle cx="380" cy="200" r="18" fill="#c2410c"/><text x="380" y="205" fill="#fff">+</text>
+    <circle cx="330" cy="240" r="16" fill="#fb923c"/><text x="330" y="245" fill="#fff">2</text>
+    <circle cx="430" cy="240" r="16" fill="#c2410c"/><text x="430" y="245" fill="#fff">*</text>
+    <circle cx="400" cy="280" r="15" fill="#fb923c"/><text x="400" y="285" fill="#fff">3</text>
+    <circle cx="460" cy="280" r="15" fill="#fb923c"/><text x="460" y="285" fill="#fff">4</text>
+  </g>
+  <text x="560" y="245" font-size="11" fill="#9a3412">приоритеты «вшиты» в дерево:</text>
+  <text x="560" y="262" font-size="11" fill="#9a3412">3*4 глубже → раньше → 2+(3*4)</text>
+
+  <rect x="40" y="318" width="680" height="48" rx="10" fill="#ffedd5"/>
+  <text x="380" y="340" text-anchor="middle" font-size="12" fill="#7c2d12">Построй язык → поймёшь, как работают ВСЕ языки. (+ опц.: AST → байткод → стековая VM для скорости)</text>
+  <text x="380" y="358" text-anchor="middle" font-size="11" font-style="italic" fill="#c2410c">это тот же тулчейн из трека ⚙️ CS — теперь ты видишь его изнутри</text>
+</svg>

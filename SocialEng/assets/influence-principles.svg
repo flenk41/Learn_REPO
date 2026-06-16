@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="420" rx="16" fill="#fff1f2"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#881337">Шесть рычагов влияния — узнай, чтобы устоять ⭐⭐</text>
+
+  <g font-size="13">
+    <!-- card template: title + attack + defense -->
+    <g>
+      <rect x="40" y="58" width="220" height="100" rx="10" fill="#fff" stroke="#be123c" stroke-width="1.8"/>
+      <text x="56" y="80" font-size="14" font-weight="700" fill="#be123c">1 · Авторитет</text>
+      <text x="56" y="102" font-size="11.5" fill="#475569">«это IT / банк / руководитель»</text>
+      <text x="56" y="124" font-size="11.5" fill="#16a34a" font-weight="700">🛡️ авторитет проверяем</text>
+      <text x="56" y="142" font-size="11" fill="#64748b">должность ≠ отмена проверки</text>
+    </g>
+    <g>
+      <rect x="270" y="58" width="220" height="100" rx="10" fill="#fff" stroke="#be123c" stroke-width="1.8"/>
+      <text x="286" y="80" font-size="14" font-weight="700" fill="#be123c">2 · Срочность/дефицит</text>
+      <text x="286" y="102" font-size="11.5" fill="#475569">«только сейчас», «успей»</text>
+      <text x="286" y="124" font-size="11.5" fill="#16a34a" font-weight="700">🛡️ тороплюсь → притормозлю</text>
+      <text x="286" y="142" font-size="11" fill="#64748b">искусств. срочность = флаг</text>
+    </g>
+    <g>
+      <rect x="500" y="58" width="220" height="100" rx="10" fill="#fff" stroke="#be123c" stroke-width="1.8"/>
+      <text x="516" y="80" font-size="14" font-weight="700" fill="#be123c">3 · Соц. доказательство</text>
+      <text x="516" y="102" font-size="11.5" fill="#475569">«все уже подтвердили»</text>
+      <text x="516" y="124" font-size="11.5" fill="#16a34a" font-weight="700">🛡️ проверяй по сути</text>
+      <text x="516" y="142" font-size="11" fill="#64748b">«другие» — не довод</text>
+    </g>
+    <g>
+      <rect x="40" y="170" width="220" height="100" rx="10" fill="#fff" stroke="#be123c" stroke-width="1.8"/>
+      <text x="56" y="192" font-size="14" font-weight="700" fill="#be123c">4 · Симпатия</text>
+      <text x="56" y="214" font-size="11.5" fill="#475569">дружелюбие, лесть, «мы похожи»</text>
+      <text x="56" y="236" font-size="11.5" fill="#16a34a" font-weight="700">🛡️ отдели симпатию от просьбы</text>
+      <text x="56" y="254" font-size="11" fill="#64748b">приятный ≠ право на доступ</text>
+    </g>
+    <g>
+      <rect x="270" y="170" width="220" height="100" rx="10" fill="#fff" stroke="#be123c" stroke-width="1.8"/>
+      <text x="286" y="192" font-size="14" font-weight="700" fill="#be123c">5 · Взаимность</text>
+      <text x="286" y="214" font-size="11.5" fill="#475569">«я помог → ты обязан»</text>
+      <text x="286" y="236" font-size="11.5" fill="#16a34a" font-weight="700">🛡️ незваный подарок = крючок</text>
+      <text x="286" y="254" font-size="11" fill="#64748b">не чувствуй себя должным</text>
+    </g>
+    <g>
+      <rect x="500" y="170" width="220" height="100" rx="10" fill="#fff" stroke="#be123c" stroke-width="1.8"/>
+      <text x="516" y="192" font-size="14" font-weight="700" fill="#be123c">6 · Обязательство</text>
+      <text x="516" y="214" font-size="11.5" fill="#475569">«сказал да малому → и большому»</text>
+      <text x="516" y="236" font-size="11.5" fill="#16a34a" font-weight="700">🛡️ оценивай просьбу отдельно</text>
+      <text x="516" y="254" font-size="11" fill="#64748b">«я начал» не обязывает</text>
+    </g>
+  </g>
+
+  <rect x="40" y="290" width="680" height="64" rx="10" fill="#ffe4e6"/>
+  <text x="380" y="314" text-anchor="middle" font-size="12.5" fill="#881337">Любая атака = <tspan font-weight="700">один или несколько рычагов + просьба</tspan>. Узнал рычаг → «на меня давят по схеме» → пауза → проверка.</text>
+  <text x="380" y="336" text-anchor="middle" font-size="11.5" font-style="italic" fill="#be123c">само НАЗЫВАНИЕ приёма выключает автопилот: «это давление авторитетом и срочностью»</text>
+  <text x="380" y="372" text-anchor="middle" font-size="11.5" fill="#9f1239">⚠️ Принципы нейтральны (есть и в честном общении). Изучаем, чтобы распознавать манипуляцию и защищаться.</text>
+</svg>

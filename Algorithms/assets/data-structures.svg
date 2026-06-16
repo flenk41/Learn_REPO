@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="720" height="400" rx="16" fill="#eef2ff"/>
+  <text x="360" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#312e81">Массив против связного списка в памяти</text>
+
+  <!-- array -->
+  <text x="70" y="84" font-size="15" font-weight="700" fill="#4f46e5">Массив — подряд в памяти</text>
+  <g>
+    <rect x="70" y="100" width="80" height="50" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+    <rect x="150" y="100" width="80" height="50" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+    <rect x="230" y="100" width="80" height="50" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+    <rect x="310" y="100" width="80" height="50" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="110" y="131" text-anchor="middle" font-size="16" fill="#312e81">10</text>
+    <text x="190" y="131" text-anchor="middle" font-size="16" fill="#312e81">20</text>
+    <text x="270" y="131" text-anchor="middle" font-size="16" fill="#312e81">30</text>
+    <text x="350" y="131" text-anchor="middle" font-size="16" fill="#312e81">40</text>
+    <text x="110" y="168" text-anchor="middle" font-size="11" fill="#666">[0]</text>
+    <text x="190" y="168" text-anchor="middle" font-size="11" fill="#666">[1]</text>
+    <text x="270" y="168" text-anchor="middle" font-size="11" fill="#666">[2]</text>
+    <text x="350" y="168" text-anchor="middle" font-size="11" fill="#666">[3]</text>
+  </g>
+  <text x="480" y="118" font-size="13" fill="#047857">✅ доступ по индексу O(1)</text>
+  <text x="480" y="140" font-size="13" fill="#b91c1c">❌ вставка в середину O(n)</text>
+  <text x="480" y="162" font-size="12" fill="#666">дружит с кэшем</text>
+
+  <!-- linked list -->
+  <text x="70" y="226" font-size="15" font-weight="700" fill="#4f46e5">Связный список — узлы со ссылками</text>
+  <g>
+    <rect x="70" y="244" width="70" height="46" rx="6" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="105" y="272" text-anchor="middle" font-size="14" fill="#312e81">10 •</text>
+    <rect x="190" y="280" width="70" height="46" rx="6" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="225" y="308" text-anchor="middle" font-size="14" fill="#312e81">20 •</text>
+    <rect x="320" y="248" width="70" height="46" rx="6" fill="#fff" stroke="#4f46e5" stroke-width="2"/>
+    <text x="355" y="276" text-anchor="middle" font-size="14" fill="#312e81">30 •</text>
+    <line x1="140" y1="267" x2="188" y2="295" stroke="#818cf8" stroke-width="2" marker-end="url(#al)"/>
+    <line x1="260" y1="295" x2="318" y2="271" stroke="#818cf8" stroke-width="2" marker-end="url(#al)"/>
+  </g>
+  <text x="105" y="312" text-anchor="middle" font-size="10" fill="#666">разбросаны</text>
+  <text x="480" y="268" font-size="13" fill="#b91c1c">❌ доступ по индексу O(n)</text>
+  <text x="480" y="290" font-size="13" fill="#047857">✅ вставка в начало O(1)</text>
+  <text x="480" y="312" font-size="12" fill="#666">кэш-недружелюбен</text>
+
+  <text x="360" y="370" text-anchor="middle" font-size="12.5" font-style="italic" fill="#4338ca">структура определяет, какие операции быстрые, а какие медленные</text>
+
+  <defs><marker id="al" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#818cf8"/></marker></defs>
+</svg>

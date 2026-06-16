@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="720" height="380" rx="16" fill="#f0fdf4"/>
+  <text x="360" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#14532d">Класс — чертёж · Объект — экземпляр</text>
+
+  <!-- class -->
+  <rect x="60" y="90" width="240" height="170" rx="12" fill="#fff" stroke="#059669" stroke-width="2.5"/>
+  <rect x="60" y="90" width="240" height="36" rx="12" fill="#059669"/>
+  <text x="180" y="114" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">class Машина</text>
+  <text x="80" y="150" font-size="13" fill="#334155">поля:  цвет, скорость</text>
+  <line x1="70" y1="162" x2="290" y2="162" stroke="#d1fae5"/>
+  <text x="80" y="188" font-size="13" fill="#334155">методы:  поехать()</text>
+  <text x="80" y="210" font-size="13" fill="#334155">              стоп()</text>
+  <text x="180" y="245" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">ЧЕРТЁЖ (один)</text>
+
+  <!-- arrow -->
+  <text x="330" y="165" font-size="13" fill="#047857">создаём</text>
+  <line x1="300" y1="175" x2="395" y2="120" stroke="#059669" stroke-width="2" marker-end="url(#co)"/>
+  <line x1="300" y1="175" x2="395" y2="175" stroke="#059669" stroke-width="2" marker-end="url(#co)"/>
+  <line x1="300" y1="175" x2="395" y2="230" stroke="#059669" stroke-width="2" marker-end="url(#co)"/>
+
+  <!-- objects -->
+  <g font-size="12">
+    <rect x="400" y="95" width="260" height="50" rx="9" fill="#d1fae5" stroke="#059669"/>
+    <text x="416" y="116" font-weight="700" fill="#065f46">🚗 объект</text><text x="416" y="134" fill="#047857">красная Tesla, 0 км/ч</text>
+    <rect x="400" y="152" width="260" height="50" rx="9" fill="#d1fae5" stroke="#059669"/>
+    <text x="416" y="173" font-weight="700" fill="#065f46">🚙 объект</text><text x="416" y="191" fill="#047857">синяя BMW, 60 км/ч</text>
+    <rect x="400" y="209" width="260" height="50" rx="9" fill="#d1fae5" stroke="#059669"/>
+    <text x="416" y="230" font-weight="700" fill="#065f46">🚕 объект</text><text x="416" y="248" fill="#047857">чёрная Lada, 0 км/ч</text>
+  </g>
+  <text x="530" y="280" text-anchor="middle" font-size="12.5" font-style="italic" fill="#64748b">ЭКЗЕМПЛЯРЫ (много, у каждого своё состояние)</text>
+
+  <text x="360" y="335" text-anchor="middle" font-size="13" fill="#334155">класс = форма для печенья · объекты = сами печеньки (надкусил одно — другие целы)</text>
+
+  <defs><marker id="co" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#059669"/></marker></defs>
+</svg>

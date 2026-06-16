@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#fff3e0"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a2e">Undefined Behavior: оптимизатор «удаляет» защиту</text>
+
+  <!-- misconception vs reality -->
+  <rect x="40" y="58" width="330" height="70" rx="10" fill="#fff" stroke="#c62828" stroke-width="1.5"/>
+  <text x="205" y="80" text-anchor="middle" font-size="12.5" fill="#c62828" font-weight="700">❌ Заблуждение</text>
+  <text x="205" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">«UB = случайное/мусорное</text>
+  <text x="205" y="118" text-anchor="middle" font-size="11.5" fill="#1a1a2e">значение в переменной»</text>
+
+  <rect x="390" y="58" width="330" height="70" rx="10" fill="#fff" stroke="#388e3c" stroke-width="1.5"/>
+  <text x="555" y="80" text-anchor="middle" font-size="12.5" fill="#388e3c" font-weight="700">✅ Реальность</text>
+  <text x="555" y="102" text-anchor="middle" font-size="11.5" fill="#1a1a2e">компилятор ВПРАВЕ предполагать,</text>
+  <text x="555" y="118" text-anchor="middle" font-size="11.5" fill="#1a1a2e">что UB не происходит → оптимизирует</text>
+
+  <!-- example -->
+  <rect x="60" y="148" width="640" height="118" rx="10" fill="#1a1a2e"/>
+  <text x="80" y="172" font-size="11.5" font-family="Consolas,monospace" fill="#f57c00">if (idx &lt; 10) { ... }       // проверка границ</text>
+  <text x="80" y="194" font-size="11.5" font-family="Consolas,monospace" fill="#ffcc80">arr[idx] = 0;             // если idx может быть &gt;= 10 — это UB</text>
+  <text x="80" y="222" font-size="11.5" font-family="Consolas,monospace" fill="#e57373">// -O2: «раз arr[idx] без UB → idx&lt;10 ВСЕГДА» →</text>
+  <text x="80" y="244" font-size="11.5" font-family="Consolas,monospace" fill="#e57373">// компилятор ВЫБРАСЫВАЕТ проверку! защита исчезла.</text>
+
+  <rect x="40" y="282" width="680" height="84" rx="10" fill="#fff8e1"/>
+  <text x="380" y="304" text-anchor="middle" font-size="12.5" fill="#1a1a2e" font-weight="700">UB не локально «упадёт здесь» — может удалить проверки, изменить логику, дать дыру.</text>
+  <text x="380" y="326" text-anchor="middle" font-size="11.5" fill="#5d4037">«работает на -O0» ≠ корректно. Частые: signed overflow, strict aliasing, use-after-free, sequence points.</text>
+  <text x="380" y="348" text-anchor="middle" font-size="11.5" font-style="italic" fill="#f57c00">Реинтерпретация типа — через memcpy, не *(int*)&amp;float. Лови UB санитайзерами (UBSan/ASan).</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#f1f5f9"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">Процессы vs потоки: что с памятью</text>
+
+  <!-- two processes -->
+  <text x="200" y="74" text-anchor="middle" font-size="14.5" font-weight="700" fill="#475569">Два ПРОЦЕССА</text>
+  <text x="200" y="92" text-anchor="middle" font-size="11.5" fill="#64748b">у каждого своя память (изоляция)</text>
+  <g>
+    <rect x="70" y="105" width="120" height="150" rx="10" fill="#fff" stroke="#475569" stroke-width="2"/>
+    <text x="130" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Процесс A</text>
+    <rect x="84" y="136" width="92" height="40" rx="5" fill="#cbd5e1"/>
+    <text x="130" y="161" text-anchor="middle" font-size="11" fill="#1e293b">своя память</text>
+    <rect x="100" y="186" width="60" height="55" rx="5" fill="#64748b"/>
+    <text x="130" y="218" text-anchor="middle" font-size="10.5" fill="#fff">поток</text>
+
+    <rect x="210" y="105" width="120" height="150" rx="10" fill="#fff" stroke="#475569" stroke-width="2"/>
+    <text x="270" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Процесс B</text>
+    <rect x="224" y="136" width="92" height="40" rx="5" fill="#cbd5e1"/>
+    <text x="270" y="161" text-anchor="middle" font-size="11" fill="#1e293b">своя память</text>
+    <rect x="240" y="186" width="60" height="55" rx="5" fill="#64748b"/>
+    <text x="270" y="218" text-anchor="middle" font-size="10.5" fill="#fff">поток</text>
+  </g>
+  <text x="200" y="278" text-anchor="middle" font-size="11.5" fill="#16a34a" font-weight="700">✅ упал один — другой жив</text>
+  <text x="200" y="296" text-anchor="middle" font-size="11.5" fill="#dc2626">✗ обмен данными дорогой (IPC)</text>
+
+  <line x1="395" y1="80" x2="395" y2="310" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- one process, many threads -->
+  <text x="560" y="74" text-anchor="middle" font-size="14.5" font-weight="700" fill="#475569">Один процесс, МНОГО потоков</text>
+  <text x="560" y="92" text-anchor="middle" font-size="11.5" fill="#64748b">потоки делят ОДНУ память</text>
+  <rect x="440" y="105" width="240" height="150" rx="10" fill="#fff" stroke="#475569" stroke-width="2"/>
+  <text x="560" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Процесс C</text>
+  <rect x="454" y="136" width="212" height="40" rx="5" fill="#94a3b8"/>
+  <text x="560" y="161" text-anchor="middle" font-size="11" fill="#fff" font-weight="700">ОБЩАЯ память (куча, данные)</text>
+  <g>
+    <rect x="460" y="186" width="60" height="55" rx="5" fill="#475569"/><text x="490" y="218" text-anchor="middle" font-size="10.5" fill="#fff">поток 1</text>
+    <rect x="530" y="186" width="60" height="55" rx="5" fill="#475569"/><text x="560" y="218" text-anchor="middle" font-size="10.5" fill="#fff">поток 2</text>
+    <rect x="600" y="186" width="60" height="55" rx="5" fill="#475569"/><text x="630" y="218" text-anchor="middle" font-size="10.5" fill="#fff">поток 3</text>
+  </g>
+  <text x="560" y="278" text-anchor="middle" font-size="11.5" fill="#16a34a" font-weight="700">✅ быстрый обмен (общая память)</text>
+  <text x="560" y="296" text-anchor="middle" font-size="11.5" fill="#dc2626">✗ гонки данных → нужна синхронизация</text>
+
+  <rect x="60" y="325" width="640" height="42" rx="10" fill="#e2e8f0"/>
+  <text x="380" y="351" text-anchor="middle" font-size="12.5" fill="#1e293b">Поток = «линия выполнения». Главный компромисс: <tspan font-weight="700">изоляция</tspan> (процессы) против <tspan font-weight="700">скорости обмена</tspan> (потоки).</text>
+</svg>

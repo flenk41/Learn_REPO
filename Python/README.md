@@ -62,6 +62,13 @@ flowchart TD
         D6[19 · Файлы и контекстные менеджеры]
     end
 
+    subgraph OOP [🏛️ Раздел — Углублённое ООП]
+        O1[1 · Инкапсуляция и @property]
+        O2[2 · Наследование, super, MRO]
+        O3[3 · Абстракция и полиморфизм]
+        O4[4 · Магические методы]
+    end
+
     subgraph LVL4 [🦅 Уровень 4 — Senior]
         Z1[20 · Память глубоко: gc, weakref, tracemalloc]
         Z2[21 · Декораторы и замыкания]
@@ -74,7 +81,8 @@ flowchart TD
     S0-->S1-->S2-->B1
     B1-->B2-->B3-->B4-->B5-->B6-->M1
     M1-->M2-->M3-->M4-->M5-->D1
-    D1-->D2-->D3-->D4-->D5-->D6-->Z1
+    D1-->D2-->D3-->D4-->D5-->D6-->O1
+    O1-->O2-->O3-->O4-->Z1
     Z1-->Z2-->Z3-->Z4-->Z5-->Z6-->Done
     Done([🦅 Senior Python developer])
 ```
@@ -123,6 +131,17 @@ flowchart TD
 - [3 · Работа с веб-API (HTTP/REST/JSON)](03b-projects-api/03-web-api.md)
 - ✅ [Задачи раздела](03b-projects-api/TASKS.md)
 - 🚀 [Мини-проект: CLI-клиент для веб-API](03b-projects-api/PROJECT.md)
+
+### 🏛️ Раздел — Углублённое ООП
+- [1 · Инкапсуляция и свойства (@property, дескрипторы)](03c-oop/01-encapsulation-properties.md)
+- [2 · Наследование, super() и MRO](03c-oop/02-inheritance-mro.md)
+- [3 · Абстракция и полиморфизм (ABC, Protocol, duck typing)](03c-oop/03-abstraction-polymorphism.md)
+- [4 · Магические методы: операторы, контекст, протоколы](03c-oop/04-magic-methods.md)
+- ✅ [Задачи раздела](03c-oop/TASKS.md)
+- 🚀 [Мини-проект: библиотека фигур](03c-oop/PROJECT.md)
+
+> 💡 Это «как писать ООП на Python». А «как **проектировать** объектами» (четыре столпа, SOLID,
+> паттерны) — отдельный трек [🏛️ ООП](../OOP/README.md).
 
 ### 🦅 Уровень 4 — Senior
 - [20 · Память глубоко: gc, weakref, tracemalloc](04-senior/20-memory-deep.md)

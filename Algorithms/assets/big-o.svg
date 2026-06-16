@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="720" height="420" rx="16" fill="#eef2ff"/>
+  <text x="360" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#312e81">Big-O: классы сложности ⭐⭐</text>
+
+  <!-- axes -->
+  <line x1="80" y1="340" x2="660" y2="340" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="80" y1="340" x2="80" y2="70" stroke="#94a3b8" stroke-width="2"/>
+  <text x="370" y="372" text-anchor="middle" font-size="13" fill="#475569">размер данных n →</text>
+  <text x="30" y="200" font-size="13" fill="#475569" transform="rotate(-90 30 200)">операции →</text>
+
+  <!-- curves -->
+  <path d="M80,335 L660,330" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="668" y="330" font-size="12" font-weight="700" fill="#16a34a">O(1)</text>
+
+  <path d="M80,335 Q300,315 660,300" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+  <text x="668" y="300" font-size="12" font-weight="700" fill="#16a34a">O(log n)</text>
+
+  <path d="M80,335 L660,170" fill="none" stroke="#4f46e5" stroke-width="2.5"/>
+  <text x="668" y="170" font-size="12" font-weight="700" fill="#4f46e5">O(n)</text>
+
+  <path d="M80,335 Q400,200 600,110 L640,95" fill="none" stroke="#d97706" stroke-width="2.5"/>
+  <text x="650" y="100" font-size="12" font-weight="700" fill="#d97706">O(n log n)</text>
+
+  <path d="M80,335 Q250,310 360,200 Q440,110 470,75" fill="none" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="460" y="68" font-size="12" font-weight="700" fill="#dc2626">O(n²)</text>
+
+  <path d="M80,335 Q160,330 210,200 Q235,110 245,75" fill="none" stroke="#7f1d1d" stroke-width="2.5"/>
+  <text x="200" y="68" font-size="12" font-weight="700" fill="#7f1d1d">O(2ⁿ)</text>
+
+  <!-- legend -->
+  <text x="100" y="398" font-size="12.5" fill="#16a34a" font-weight="700">отлично</text>
+  <text x="320" y="398" font-size="12.5" fill="#4f46e5" font-weight="700">хорошо</text>
+  <text x="520" y="398" font-size="12.5" fill="#dc2626" font-weight="700">плохо на масштабе</text>
+  <text x="360" y="56" text-anchor="middle" font-size="12" fill="#4338ca">цель — алгоритм как можно НИЖЕ по этой лестнице роста</text>
+</svg>

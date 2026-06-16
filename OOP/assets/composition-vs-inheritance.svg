@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#ecfdf5"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#064e3b">Композиция (has-a) против наследования (is-a)</text>
+
+  <!-- inheritance -->
+  <text x="195" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="#b45309">Наследование: «is-a» (является)</text>
+  <rect x="120" y="90" width="150" height="44" rx="8" fill="#fff" stroke="#d97706" stroke-width="2"/>
+  <text x="195" y="118" text-anchor="middle" font-size="13.5" fill="#92400e" font-weight="700">Животное</text>
+  <line x1="195" y1="134" x2="195" y2="170" stroke="#d97706" stroke-width="2" marker-end="url(#tri)"/>
+  <rect x="120" y="172" width="150" height="44" rx="8" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+  <text x="195" y="200" text-anchor="middle" font-size="13.5" fill="#92400e" font-weight="700">Собака</text>
+  <text x="195" y="244" text-anchor="middle" font-size="12" fill="#475569">Собака <tspan font-weight="700">ЯВЛЯЕТСЯ</tspan> Животным</text>
+  <text x="195" y="266" text-anchor="middle" font-size="11.5" fill="#dc2626">⚠️ жёсткая связь, хрупкие иерархии</text>
+  <defs><marker id="tri" markerWidth="14" markerHeight="14" refX="6" refY="6" orient="auto"><path d="M1,1 L11,6 L1,11 z" fill="#fff" stroke="#d97706" stroke-width="1.5"/></marker></defs>
+
+  <line x1="390" y1="60" x2="390" y2="320" stroke="#a7f3d0" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- composition -->
+  <text x="575" y="72" text-anchor="middle" font-size="15" font-weight="700" fill="#059669">Композиция: «has-a» (содержит)</text>
+  <rect x="500" y="90" width="150" height="44" rx="8" fill="#a7f3d0" stroke="#059669" stroke-width="2"/>
+  <text x="575" y="118" text-anchor="middle" font-size="13.5" fill="#064e3b" font-weight="700">Машина</text>
+  <line x1="575" y1="134" x2="575" y2="168" stroke="#059669" stroke-width="2" marker-end="url(#dia)"/>
+  <rect x="470" y="172" width="100" height="40" rx="8" fill="#fff" stroke="#059669" stroke-width="2"/>
+  <text x="520" y="197" text-anchor="middle" font-size="12.5" fill="#065f46" font-weight="700">Двигатель</text>
+  <rect x="585" y="172" width="100" height="40" rx="8" fill="#fff" stroke="#059669" stroke-width="2"/>
+  <text x="635" y="197" text-anchor="middle" font-size="12.5" fill="#065f46" font-weight="700">Колёса</text>
+  <line x1="560" y1="168" x2="535" y2="172" stroke="#059669" stroke-width="2"/>
+  <line x1="590" y1="168" x2="615" y2="172" stroke="#059669" stroke-width="2"/>
+  <defs><marker id="dia" markerWidth="14" markerHeight="14" refX="6" refY="6" orient="auto"><path d="M6,1 L11,6 L6,11 L1,6 z" fill="#059669"/></marker></defs>
+  <text x="575" y="244" text-anchor="middle" font-size="12" fill="#475569">Машина <tspan font-weight="700">СОДЕРЖИТ</tspan> двигатель и колёса</text>
+  <text x="575" y="266" text-anchor="middle" font-size="11.5" fill="#16a34a">✅ гибко: можно заменить деталь</text>
+
+  <rect x="60" y="295" width="640" height="68" rx="10" fill="#d1fae5"/>
+  <text x="380" y="320" text-anchor="middle" font-size="12.5" fill="#064e3b" font-weight="700">Принцип: «предпочитай композицию наследованию»</text>
+  <text x="380" y="342" text-anchor="middle" font-size="12.5" fill="#065f46">Наследование связывает класс с родителем навсегда. Композиция собирает поведение из частей — её легко менять.</text>
+  <text x="380" y="360" text-anchor="middle" font-size="11" font-style="italic" fill="#059669">спрашивай себя: «X ЯВЛЯЕТСЯ Y» или «X СОДЕРЖИТ Y»? Чаще ответ — содержит.</text>
+</svg>

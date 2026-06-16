@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#fff1f2"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#881337">Анатомия фишинга — красные флаги</text>
+
+  <!-- email mockup -->
+  <rect x="120" y="60" width="420" height="270" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="120" y1="96" x2="540" y2="96" stroke="#e2e8f0"/>
+  <line x1="120" y1="128" x2="540" y2="128" stroke="#e2e8f0"/>
+  <text x="136" y="84" font-size="12.5" fill="#334155" font-family="Consolas, monospace">От: Сбербанк &lt;security@sber-verify.xyz&gt;</text>
+  <text x="136" y="118" font-size="12.5" fill="#334155" font-weight="700">Тема: СРОЧНО! Ваш счёт заблокирован</text>
+  <text x="136" y="156" font-size="12" fill="#475569">Уважаемый клиент,</text>
+  <text x="136" y="180" font-size="12" fill="#475569">обнаружена подозрительная операция.</text>
+  <text x="136" y="204" font-size="12" fill="#475569">Подтвердите данные в течение 24 часов,</text>
+  <text x="136" y="224" font-size="12" fill="#475569">иначе счёт будет заблокирован навсегда.</text>
+  <rect x="136" y="244" width="200" height="40" rx="6" fill="#be123c"/>
+  <text x="236" y="269" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">Войти и подтвердить</text>
+  <text x="136" y="306" font-size="11" fill="#94a3b8" font-family="Consolas, monospace">→ bank-secure-login.xyz</text>
+
+  <!-- red flags pointers -->
+  <g font-size="11.5" fill="#be123c" font-weight="700">
+    <text x="556" y="80">🚩 домен не настоящий</text>
+    <text x="556" y="118">🚩 срочность + страх</text>
+    <text x="556" y="156">🚩 безличное обращение</text>
+    <text x="556" y="218">🚩 дедлайн-давление</text>
+    <text x="556" y="262">🚩 кнопка ведёт</text>
+    <text x="576" y="278" font-weight="400" fill="#9f1239">не на сайт банка</text>
+    <text x="556" y="306">🚩 просят «подтвердить»</text>
+  </g>
+  <g stroke="#fca5a5" stroke-width="1.2" stroke-dasharray="3 2">
+    <line x1="540" y1="78" x2="552" y2="76"/>
+    <line x1="540" y1="115" x2="552" y2="114"/>
+    <line x1="540" y1="152" x2="552" y2="152"/>
+    <line x1="540" y1="216" x2="552" y2="214"/>
+    <line x1="540" y1="264" x2="552" y2="259"/>
+  </g>
+
+  <rect x="120" y="346" width="520" height="42" rx="9" fill="#dcfce7"/>
+  <text x="380" y="372" text-anchor="middle" font-size="12.5" fill="#166534" font-weight="700">🛡️ Не действуй ВНУТРИ письма: зайди на сайт банка сам · проверь отправителя · включи MFA</text>
+</svg>

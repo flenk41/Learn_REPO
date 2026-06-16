@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="420" rx="16" fill="#f0f9ff"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#0c4a6e">Иерархия памяти: ближе = быстрее, дальше = больше</text>
+
+  <!-- pyramid-ish rows -->
+  <g font-size="12.5">
+    <rect x="300" y="58" width="160" height="34" rx="6" fill="#0c4a6e"/><text x="380" y="80" text-anchor="middle" fill="#fff" font-weight="700">Регистры</text>
+    <text x="475" y="80" font-size="11" fill="#0369a1">~0 тактов · байты</text>
+    <rect x="270" y="96" width="220" height="34" rx="6" fill="#0369a1"/><text x="380" y="118" text-anchor="middle" fill="#fff" font-weight="700">Кэш L1</text>
+    <text x="505" y="118" font-size="11" fill="#0369a1">~4 такта · ~32-64 КБ</text>
+    <rect x="240" y="134" width="280" height="34" rx="6" fill="#0284c7"/><text x="380" y="156" text-anchor="middle" fill="#fff" font-weight="700">Кэш L2</text>
+    <text x="535" y="156" font-size="11" fill="#0369a1">~12 тактов · ~МБ</text>
+    <rect x="200" y="172" width="360" height="34" rx="6" fill="#0ea5e9"/><text x="380" y="194" text-anchor="middle" fill="#fff" font-weight="700">Кэш L3 (общий)</text>
+    <text x="575" y="194" font-size="11" fill="#0369a1">~40 тактов</text>
+    <rect x="140" y="210" width="480" height="40" rx="6" fill="#38bdf8"/><text x="380" y="235" text-anchor="middle" fill="#0c4a6e" font-weight="700">RAM</text>
+    <text x="630" y="235" font-size="11" fill="#b91c1c" font-weight="700">~100+ тактов!</text>
+    <rect x="80" y="254" width="600" height="40" rx="6" fill="#bae6fd"/><text x="380" y="279" text-anchor="middle" fill="#0c4a6e" font-weight="700">SSD / Диск</text>
+    <text x="690" y="279" font-size="11" fill="#0369a1" text-anchor="end">~миллионы тактов</text>
+  </g>
+
+  <!-- arrow -->
+  <text x="55" y="80" font-size="11" fill="#0369a1" font-weight="700" transform="rotate(90 55 175)">быстро, мало →→→ медленно, много</text>
+
+  <rect x="60" y="312" width="640" height="92" rx="10" fill="#e0f2fe"/>
+  <text x="380" y="336" text-anchor="middle" font-size="13" fill="#0c4a6e" font-weight="700">Промах кэша → RAM в ~100 раз дороже попадания в L1!</text>
+  <text x="380" y="360" text-anchor="middle" font-size="12.5" fill="#0c4a6e">Кэш грузит данные <tspan font-weight="700">линиями ~64 байта</tspan> → последовательный доступ быстр, прыжки — медленны.</text>
+  <text x="380" y="382" text-anchor="middle" font-size="12" font-style="italic" fill="#0369a1">CPU чаще ЖДЁТ данные, чем считает → расположение данных часто важнее числа операций.</text>
+</svg>

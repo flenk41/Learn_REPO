@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="440" rx="16" fill="#f0fdf4"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#14532d">OWASP Top-10: классы рисков и защита</text>
+
+  <g font-size="11.5">
+    <!-- row template -->
+    <g>
+      <rect x="40" y="58" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+      <text x="52" y="80" fill="#b91c1c" font-weight="700">1 Контроль доступа</text>
+      <text x="372" y="80" text-anchor="end" fill="#166534">🛡️ проверка прав на сервере</text>
+    </g>
+    <rect x="40" y="94" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="52" y="116" fill="#b91c1c" font-weight="700">2 Ошибки криптографии</text>
+    <text x="372" y="116" text-anchor="end" fill="#166534">🛡️ TLS, bcrypt, не своё</text>
+
+    <rect x="40" y="130" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="52" y="152" fill="#b91c1c" font-weight="700">3 Инъекции (SQLi, XSS)</text>
+    <text x="372" y="152" text-anchor="end" fill="#166534">🛡️ параметры, экранирование</text>
+
+    <rect x="40" y="166" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="52" y="188" fill="#b91c1c" font-weight="700">4 Небезопасный дизайн</text>
+    <text x="372" y="188" text-anchor="end" fill="#166534">🛡️ модель угроз</text>
+
+    <rect x="40" y="202" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="52" y="224" fill="#b91c1c" font-weight="700">5 Ошибки конфигурации</text>
+    <text x="372" y="224" text-anchor="end" fill="#166534">🛡️ нет дефолтов/debug</text>
+
+    <rect x="380" y="58" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="392" y="80" fill="#b91c1c" font-weight="700">6 Уязвимые зависимости</text>
+    <text x="712" y="80" text-anchor="end" fill="#166534">🛡️ аудит, обновления</text>
+
+    <rect x="380" y="94" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="392" y="116" fill="#b91c1c" font-weight="700">7 Аутентификация</text>
+    <text x="712" y="116" text-anchor="end" fill="#166534">🛡️ MFA, лимиты, сессии</text>
+
+    <rect x="380" y="130" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="392" y="152" fill="#b91c1c" font-weight="700">8 Целостность ПО/данных</text>
+    <text x="712" y="152" text-anchor="end" fill="#166534">🛡️ подписи, защита CI/CD</text>
+
+    <rect x="380" y="166" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="392" y="188" fill="#b91c1c" font-weight="700">9 Логи и мониторинг</text>
+    <text x="712" y="188" text-anchor="end" fill="#166534">🛡️ логировать, обнаруживать</text>
+
+    <rect x="380" y="202" width="340" height="34" rx="6" fill="#fff" stroke="#86efac"/>
+    <text x="392" y="224" fill="#b91c1c" font-weight="700">10 SSRF</text>
+    <text x="712" y="224" text-anchor="end" fill="#166534">🛡️ allow-list, сегментация</text>
+  </g>
+
+  <rect x="40" y="252" width="680" height="130" rx="10" fill="#15803d"/>
+  <text x="380" y="276" text-anchor="middle" font-size="13.5" fill="#fff" font-weight="700">За списком — 8 сквозных принципов (важнее номеров):</text>
+  <g font-size="11.5" fill="#dcfce7">
+    <text x="60" y="300">• не доверяй вводу</text>
+    <text x="60" y="320">• разделяй код и данные</text>
+    <text x="60" y="340">• проверяй доступ на сервере</text>
+    <text x="60" y="360">• наименьшие привилегии</text>
+    <text x="400" y="300">• защита в глубину</text>
+    <text x="400" y="320">• безопасно по умолчанию</text>
+    <text x="400" y="340">• не изобретай безопасность</text>
+    <text x="400" y="360">• логируй и наблюдай</text>
+  </g>
+  <text x="380" y="408" text-anchor="middle" font-size="11.5" font-style="italic" fill="#15803d">Top-10 — обязательный минимум, не предел. Закрыл классы → убрал большинство реальных атак.</text>
+</svg>

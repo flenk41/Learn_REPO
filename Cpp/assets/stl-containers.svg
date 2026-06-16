@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#f0f6fb"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#00599c">STL изнутри: какой контейнер и почему</text>
+
+  <g font-size="11.5">
+    <!-- vector -->
+    <rect x="40" y="58" width="340" height="74" rx="8" fill="#fff" stroke="#00599c" stroke-width="2"/>
+    <text x="54" y="78" font-weight="700" fill="#00599c" font-family="Consolas,monospace">vector</text>
+    <text x="54" y="96" fill="#1a1a2e">непрерывный буфер, рост ×2</text>
+    <text x="54" y="112" fill="#2e7d32">✅ O(1) доступ, кэш-дружелюбен (по умолчанию!)</text>
+    <text x="54" y="126" fill="#c62828">⚠️ вставка в середину O(n); реаллокация инвалидирует</text>
+
+    <rect x="400" y="58" width="320" height="74" rx="8" fill="#fff" stroke="#00599c" stroke-width="2"/>
+    <text x="414" y="78" font-weight="700" fill="#00599c" font-family="Consolas,monospace">deque</text>
+    <text x="414" y="96" fill="#1a1a2e">массив указателей на блоки</text>
+    <text x="414" y="112" fill="#2e7d32">✅ O(1) push с обоих концов, индексация O(1)</text>
+    <text x="414" y="126" fill="#c62828">⚠️ не непрерывен, чуть хуже локальность</text>
+
+    <rect x="40" y="142" width="340" height="74" rx="8" fill="#fff" stroke="#00599c" stroke-width="2"/>
+    <text x="54" y="162" font-weight="700" fill="#00599c" font-family="Consolas,monospace">list</text>
+    <text x="54" y="180" fill="#1a1a2e">двусвязный список узлов в куче</text>
+    <text x="54" y="196" fill="#2e7d32">✅ O(1) вставка/удаление, стабильные итераторы</text>
+    <text x="54" y="210" fill="#c62828">⚠️ доступ O(n), ПЛОХАЯ локальность (промахи кэша)</text>
+
+    <rect x="400" y="142" width="320" height="74" rx="8" fill="#fff" stroke="#00599c" stroke-width="2"/>
+    <text x="414" y="162" font-weight="700" fill="#00599c" font-family="Consolas,monospace">array</text>
+    <text x="414" y="180" fill="#1a1a2e">C-массив фикс. размера на стеке</text>
+    <text x="414" y="196" fill="#2e7d32">✅ O(1), без аллокаций</text>
+    <text x="414" y="210" fill="#c62828">⚠️ размер фиксирован при компиляции</text>
+  </g>
+
+  <!-- map vs unordered -->
+  <rect x="40" y="230" width="340" height="74" rx="8" fill="#e8f0fe" stroke="#00599c"/>
+  <text x="54" y="250" font-weight="700" fill="#00599c" font-family="Consolas,monospace">map</text>
+  <text x="54" y="268" font-size="11.5" fill="#1a1a2e">красно-чёрное ДЕРЕВО (сбалансир. BST)</text>
+  <text x="54" y="284" font-size="11.5" fill="#2e7d32">✅ ключи отсортированы, O(log n), диапазоны</text>
+  <text x="54" y="300" font-size="11.5" fill="#c62828">⚠️ не O(1), узлы в куче</text>
+
+  <rect x="400" y="230" width="320" height="74" rx="8" fill="#e8f0fe" stroke="#00599c"/>
+  <text x="414" y="250" font-weight="700" fill="#00599c" font-family="Consolas,monospace">unordered_map</text>
+  <text x="414" y="268" font-size="11.5" fill="#1a1a2e">ХЕШ-таблица (корзины + цепочки)</text>
+  <text x="414" y="284" font-size="11.5" fill="#2e7d32">✅ ~O(1) в среднем</text>
+  <text x="414" y="300" font-size="11.5" fill="#c62828">⚠️ O(n) худший, без порядка, rehash инвалидирует</text>
+
+  <rect x="40" y="318" width="680" height="64" rx="10" fill="#00599c"/>
+  <text x="380" y="342" text-anchor="middle" font-size="12.5" fill="#fff" font-weight="700">По умолчанию vector. map — нужен порядок/диапазоны; unordered_map — максимальная скорость по ключу.</text>
+  <text x="380" y="364" text-anchor="middle" font-size="11.5" fill="#cfe2f3">Знание устройства = осознанный выбор + понимание инвалидации итераторов и реальной стоимости.</text>
+</svg>

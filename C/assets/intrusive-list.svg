@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#fff3e0"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a2e">Intrusive список: узел встроен в объект</text>
+
+  <!-- ordinary -->
+  <text x="200" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#888">Обычный список</text>
+  <g font-size="10.5" font-family="Consolas,monospace">
+    <rect x="80" y="82" width="100" height="50" rx="6" fill="#fff" stroke="#888"/>
+    <text x="130" y="102" text-anchor="middle" fill="#1a1a2e">Node</text>
+    <text x="130" y="120" text-anchor="middle" fill="#666" font-size="9">{Data, next}</text>
+    <rect x="220" y="82" width="100" height="50" rx="6" fill="#fff" stroke="#888"/>
+    <text x="270" y="102" text-anchor="middle" fill="#1a1a2e">Node</text>
+    <text x="270" y="120" text-anchor="middle" fill="#666" font-size="9">{Data, next}</text>
+  </g>
+  <text x="200" y="150" text-anchor="middle" font-size="10.5" fill="#c62828">отдельная аллокация под КАЖДЫЙ узел</text>
+
+  <line x1="380" y1="78" x2="380" y2="158" stroke="#ffcc80" stroke-width="1.5" stroke-dasharray="4"/>
+
+  <!-- intrusive -->
+  <text x="570" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#f57c00">Intrusive</text>
+  <g font-size="10" font-family="Consolas,monospace">
+    <rect x="430" y="82" width="130" height="50" rx="6" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="495" y="100" text-anchor="middle" fill="#1a1a2e" font-weight="700">Object</text>
+    <text x="495" y="115" text-anchor="middle" fill="#388e3c" font-size="9">{ value;</text>
+    <text x="495" y="127" text-anchor="middle" fill="#f57c00" font-size="9">  list_node node; }</text>
+    <rect x="600" y="82" width="130" height="50" rx="6" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="665" y="100" text-anchor="middle" fill="#1a1a2e" font-weight="700">Object</text>
+    <text x="665" y="115" text-anchor="middle" fill="#388e3c" font-size="9">{ value;</text>
+    <text x="665" y="127" text-anchor="middle" fill="#f57c00" font-size="9">  list_node node; }</text>
+  </g>
+  <text x="570" y="150" text-anchor="middle" font-size="10.5" fill="#388e3c">узел-связь ВНУТРИ объекта — нет отдельных аллокаций</text>
+
+  <!-- container_of -->
+  <rect x="60" y="172" width="640" height="74" rx="10" fill="#1a1a2e"/>
+  <text x="80" y="194" font-size="12" fill="#f57c00" font-weight="700" font-family="Consolas,monospace">container_of(ptr, type, member):</text>
+  <text x="80" y="216" font-size="11" fill="#ffcc80" font-family="Consolas,monospace">(type*)((char*)ptr - offsetof(type, member))</text>
+  <text x="80" y="236" font-size="10.5" fill="#a5d6a7">из указателя на ПОЛЕ node → вычесть смещение → получить весь Object</text>
+
+  <rect x="40" y="262" width="680" height="104" rx="10" fill="#fff8e1"/>
+  <text x="380" y="286" text-anchor="middle" font-size="12.5" fill="#1a1a2e" font-weight="700">Плюсы intrusive (так устроено ядро Linux — list_head):</text>
+  <g font-size="11.5" fill="#5d4037">
+    <text x="70" y="310">✅ нет отдельных аллокаций под узлы (меньше памяти/фрагментации)</text>
+    <text x="70" y="330">✅ объект может быть в НЕСКОЛЬКИХ списках сразу (несколько node-полей)</text>
+    <text x="70" y="350">✅ удаление O(1) без поиска · ❌ сложнее (container_of), осторожно с временем жизни</text>
+  </g>
+</svg>

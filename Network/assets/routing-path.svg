@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="360" rx="16" fill="#eff6ff"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1e3a8a">Маршрутизация: пакет идёт через хопы (роутеры)</text>
+
+  <!-- nodes -->
+  <g text-anchor="middle">
+    <rect x="40" y="150" width="110" height="70" rx="10" fill="#2563eb"/>
+    <text x="95" y="180" font-size="13" fill="#fff" font-weight="700">Твой ПК</text>
+    <text x="95" y="200" font-size="11" fill="#dbeafe">192.168.1.10</text>
+
+    <rect x="210" y="150" width="90" height="70" rx="10" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+    <text x="255" y="180" font-size="13" fill="#1e3a8a" font-weight="700">Роутер R1</text>
+    <text x="255" y="200" font-size="11" fill="#64748b">шлюз</text>
+
+    <rect x="360" y="150" width="90" height="70" rx="10" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+    <text x="405" y="180" font-size="13" fill="#1e3a8a" font-weight="700">Роутер R2</text>
+    <text x="405" y="200" font-size="11" fill="#64748b">провайдер</text>
+
+    <rect x="510" y="150" width="90" height="70" rx="10" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+    <text x="555" y="180" font-size="13" fill="#1e3a8a" font-weight="700">Роутер R3</text>
+    <text x="555" y="200" font-size="11" fill="#64748b">магистраль</text>
+
+    <rect x="650" y="150" width="80" height="70" rx="10" fill="#16a34a"/>
+    <text x="690" y="180" font-size="13" fill="#fff" font-weight="700">Сервер</text>
+    <text x="690" y="200" font-size="11" fill="#dcfce7">сайт</text>
+  </g>
+
+  <!-- arrows with TTL -->
+  <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="#2563eb"/></marker></defs>
+  <g stroke="#2563eb" stroke-width="2.5" marker-end="url(#ar)">
+    <line x1="152" y1="185" x2="206" y2="185"/>
+    <line x1="302" y1="185" x2="356" y2="185"/>
+    <line x1="452" y1="185" x2="506" y2="185"/>
+    <line x1="602" y1="185" x2="646" y2="185"/>
+  </g>
+  <g text-anchor="middle" font-size="11" fill="#1d4ed8" font-weight="700">
+    <text x="179" y="135">TTL 64</text>
+    <text x="329" y="135">TTL 63</text>
+    <text x="479" y="135">TTL 62</text>
+    <text x="624" y="135">TTL 61</text>
+  </g>
+
+  <rect x="60" y="265" width="640" height="70" rx="10" fill="#dbeafe"/>
+  <text x="380" y="292" text-anchor="middle" font-size="12.5" fill="#1e3a8a">Каждый роутер смотрит в свою <tspan font-weight="700">таблицу маршрутизации</tspan> и пересылает пакет ближе к цели.</text>
+  <text x="380" y="314" text-anchor="middle" font-size="12.5" fill="#1e3a8a">Поле <tspan font-weight="700">TTL</tspan> уменьшается на каждом хопе; дошло до 0 → пакет отбрасывается (защита от петель).</text>
+  <text x="380" y="332" text-anchor="middle" font-size="11" font-style="italic" fill="#3b82f6">именно хопы показывает команда traceroute</text>
+</svg>

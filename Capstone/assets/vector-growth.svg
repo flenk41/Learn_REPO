@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="360" rx="16" fill="#fff7ed"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#7c2d12">Свой vector: рост ×2 = амортизированная O(1)</text>
+
+  <g font-family="Consolas, monospace" font-size="13" text-anchor="middle">
+    <!-- step 1 -->
+    <text x="70" y="92" font-family="Segoe UI" font-size="11" fill="#9a3412" text-anchor="start">cap=2, заполнен:</text>
+    <rect x="200" y="76" width="40" height="32" fill="#c2410c"/><text x="220" y="98" fill="#fff">1</text>
+    <rect x="240" y="76" width="40" height="32" fill="#c2410c"/><text x="260" y="98" fill="#fff">2</text>
+    <text x="320" y="96" font-family="Segoe UI" font-size="11.5" fill="#9a3412" text-anchor="start">push(3) → нет места → grow ×2</text>
+
+    <!-- step 2 -->
+    <text x="70" y="160" font-family="Segoe UI" font-size="11" fill="#9a3412" text-anchor="start">cap=4, скопировали:</text>
+    <rect x="200" y="144" width="40" height="32" fill="#fb923c"/><text x="220" y="166" fill="#fff">1</text>
+    <rect x="240" y="144" width="40" height="32" fill="#fb923c"/><text x="260" y="166" fill="#fff">2</text>
+    <rect x="280" y="144" width="40" height="32" fill="#c2410c"/><text x="300" y="166" fill="#fff">3</text>
+    <rect x="320" y="144" width="40" height="32" fill="#fed7aa" stroke="#fb923c"/>
+    <text x="430" y="164" font-family="Segoe UI" font-size="11.5" fill="#9a3412" text-anchor="start">старый буфер освобождён ✓</text>
+
+    <!-- step 3 -->
+    <text x="70" y="228" font-family="Segoe UI" font-size="11" fill="#9a3412" text-anchor="start">cap=8, опять заполнен:</text>
+    <g>
+      <rect x="200" y="212" width="34" height="30" fill="#fb923c"/><rect x="234" y="212" width="34" height="30" fill="#fb923c"/>
+      <rect x="268" y="212" width="34" height="30" fill="#fb923c"/><rect x="302" y="212" width="34" height="30" fill="#fb923c"/>
+      <rect x="336" y="212" width="34" height="30" fill="#c2410c"/><rect x="370" y="212" width="34" height="30" fill="#c2410c"/>
+      <rect x="404" y="212" width="34" height="30" fill="#c2410c"/><rect x="438" y="212" width="34" height="30" fill="#c2410c"/>
+    </g>
+    <text x="490" y="232" font-family="Segoe UI" font-size="11.5" fill="#9a3412" text-anchor="start">рост реже и реже →</text>
+  </g>
+
+  <rect x="60" y="262" width="640" height="84" rx="10" fill="#ffedd5"/>
+  <text x="380" y="286" text-anchor="middle" font-size="12.5" fill="#7c2d12" font-weight="700">Рост ×2: копирование редкое, размазывается → push в среднем O(1) (амортизированно)</text>
+  <text x="380" y="308" text-anchor="middle" font-size="12" fill="#9a3412">❌ Рост +1: каждый push копирует всё → O(n) на push → O(n²) на n вставок. Катастрофа!</text>
+  <text x="380" y="330" text-anchor="middle" font-size="11.5" font-style="italic" fill="#c2410c">+ правило 5 (C++): ручной буфер требует copy/move — иначе двойное освобождение</text>
+</svg>

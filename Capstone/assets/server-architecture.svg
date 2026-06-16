@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#fff7ed"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#7c2d12">Архитектура сервера: event loop ⭐⭐</text>
+
+  <!-- clients -->
+  <g text-anchor="middle" font-size="11.5">
+    <rect x="40" y="80" width="90" height="36" rx="6" fill="#fed7aa" stroke="#c2410c"/><text x="85" y="103" fill="#7c2d12">клиент 1</text>
+    <rect x="40" y="124" width="90" height="36" rx="6" fill="#fed7aa" stroke="#c2410c"/><text x="85" y="147" fill="#7c2d12">клиент 2</text>
+    <rect x="40" y="168" width="90" height="36" rx="6" fill="#fed7aa" stroke="#c2410c"/><text x="85" y="191" fill="#7c2d12">...тысячи</text>
+  </g>
+
+  <!-- event loop core -->
+  <rect x="200" y="74" width="200" height="160" rx="12" fill="#c2410c"/>
+  <text x="300" y="100" text-anchor="middle" font-size="14" fill="#fff" font-weight="700">EVENT LOOP (1 поток)</text>
+  <text x="300" y="124" text-anchor="middle" font-size="11" fill="#fed7aa">epoll_wait: «кто готов?»</text>
+  <text x="300" y="148" text-anchor="middle" font-size="11" fill="#fff7ed">готов → accept / read / write</text>
+  <text x="300" y="172" text-anchor="middle" font-size="11" fill="#fff7ed">неблокирующий I-O</text>
+  <text x="300" y="196" text-anchor="middle" font-size="10.5" fill="#fed7aa">состояние каждого соединения</text>
+  <text x="300" y="216" text-anchor="middle" font-size="10.5" fill="#fed7aa">(буферы read/write)</text>
+
+  <defs><marker id="as" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="#c2410c"/></marker></defs>
+  <g stroke="#c2410c" stroke-width="2" marker-end="url(#as)">
+    <line x1="132" y1="98" x2="196" y2="120"/>
+    <line x1="132" y1="142" x2="196" y2="150"/>
+    <line x1="132" y1="186" x2="196" y2="180"/>
+  </g>
+
+  <!-- handlers / pool -->
+  <rect x="460" y="74" width="240" height="70" rx="10" fill="#fdba74" stroke="#c2410c" stroke-width="2"/>
+  <text x="580" y="98" text-anchor="middle" font-size="12.5" fill="#7c2d12" font-weight="700">Обработка (HTTP/протокол)</text>
+  <text x="580" y="120" text-anchor="middle" font-size="10.5" fill="#9a3412">парсинг запроса → роутинг → ответ</text>
+  <text x="580" y="136" text-anchor="middle" font-size="10.5" fill="#9a3412">статика / REST / key-value</text>
+
+  <rect x="460" y="158" width="240" height="76" rx="10" fill="#fff" stroke="#c2410c" stroke-width="2"/>
+  <text x="580" y="182" text-anchor="middle" font-size="12.5" fill="#7c2d12" font-weight="700">Пул потоков (многоядерность)</text>
+  <text x="580" y="204" text-anchor="middle" font-size="10.5" fill="#9a3412">тяжёлые задачи / параллелизм</text>
+  <text x="580" y="222" text-anchor="middle" font-size="10.5" fill="#9a3412">синхронизация (mutex/atomic, без гонок)</text>
+  <line x1="402" y1="150" x2="456" y2="120" stroke="#c2410c" stroke-width="2" marker-end="url(#as)"/>
+  <line x1="402" y1="180" x2="456" y2="190" stroke="#c2410c" stroke-width="2" marker-end="url(#as)"/>
+
+  <rect x="60" y="256" width="640" height="90" rx="10" fill="#ffedd5"/>
+  <text x="380" y="280" text-anchor="middle" font-size="12.5" fill="#7c2d12">Один поток через epoll держит ТЫСЯЧИ соединений (так работают nginx, Redis, Node.js).</text>
+  <text x="380" y="302" text-anchor="middle" font-size="12" fill="#9a3412">Главное: НЕблокирующий I-O + явное состояние каждого соединения (частичные read/write).</text>
+  <text x="380" y="324" text-anchor="middle" font-size="11.5" font-style="italic" fill="#c2410c">путь трека: TCP echo → event loop → конкурентность → HTTP. Синтез ОС + сетей + конкурентности.</text>
+</svg>

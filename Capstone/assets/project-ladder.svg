@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#fff7ed"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#7c2d12">Лестница капстоун-проектов</text>
+
+  <!-- steps -->
+  <g font-size="12.5">
+    <rect x="60" y="290" width="340" height="56" rx="8" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/>
+    <text x="75" y="313" fill="#7c2d12" font-weight="700">Ур.1 · Свои структуры данных</text>
+    <text x="75" y="333" font-size="11" fill="#9a3412">vector · hash map · smart ptr · аллокатор</text>
+
+    <rect x="160" y="222" width="340" height="56" rx="8" fill="#fdba74" stroke="#c2410c" stroke-width="2"/>
+    <text x="175" y="245" fill="#7c2d12" font-weight="700">Ур.2 · Свой сервер ⭐</text>
+    <text x="175" y="265" font-size="11" fill="#9a3412">TCP → event loop → конкурентность → HTTP</text>
+
+    <rect x="260" y="154" width="340" height="56" rx="8" fill="#fb923c" stroke="#c2410c" stroke-width="2"/>
+    <text x="275" y="177" fill="#fff" font-weight="700">Ур.3 · Своё хранилище / БД</text>
+    <text x="275" y="197" font-size="11" fill="#fff7ed">KV · протокол · WAL · индексы · транзакции</text>
+
+    <rect x="360" y="86" width="340" height="56" rx="8" fill="#c2410c"/>
+    <text x="375" y="109" fill="#fff" font-weight="700">Ур.4 · Свой язык / движок</text>
+    <text x="375" y="129" font-size="11" fill="#fed7aa">лексер → парсер → AST → eval → байткод</text>
+  </g>
+
+  <!-- arrow up -->
+  <defs><marker id="al" markerWidth="11" markerHeight="11" refX="8" refY="4.5" orient="auto"><path d="M0,0 L10,4.5 L0,9 z" fill="#7c2d12"/></marker></defs>
+  <line x1="40" y1="350" x2="40" y2="90" stroke="#7c2d12" stroke-width="2.5" marker-end="url(#al)"/>
+  <text x="30" y="220" font-size="11" fill="#7c2d12" font-weight="700" transform="rotate(-90 30 220)">сложность / синтез растут</text>
+
+  <text x="380" y="378" text-anchor="middle" font-size="12" font-style="italic" fill="#c2410c">Каждый проект опирается на предыдущие и синтезирует несколько треков. Начни снизу.</text>
+</svg>

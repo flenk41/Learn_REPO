@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" font-family="Segoe UI, Arial, sans-serif">
+<rect width="760" height="520" rx="16" fill="#fffbeb"/>
+<text x="380.0" y="30" font-size="19" fill="#713f12" text-anchor="middle" font-weight="700" font-style="normal">Мультипанель: цена + RSI + MACD</text>
+<text x="380.0" y="50" font-size="12.5" fill="#92400e" text-anchor="middle" font-weight="400" font-style="normal">как выглядит терминал с индикаторами под графиком</text>
+<rect x="70" y="60" width="620" height="180" rx="8" fill="#ffffff"/>
+<line x1="70" y1="214.3" x2="690" y2="214.3" stroke="#f3e8c8" stroke-width="1"/>
+<text x="696" y="218.3" font-size="10.5" fill="#a8a29e">100</text>
+<line x1="70" y1="150.0" x2="690" y2="150.0" stroke="#f3e8c8" stroke-width="1"/>
+<text x="696" y="154.0" font-size="10.5" fill="#a8a29e">110</text>
+<line x1="70" y1="85.7" x2="690" y2="85.7" stroke="#f3e8c8" stroke-width="1"/>
+<text x="696" y="89.7" font-size="10.5" fill="#a8a29e">120</text>
+<line x1="108.8" y1="187.3" x2="108.8" y2="222.0" stroke="#166534" stroke-width="1.5"/>
+<rect x="98.1" y="195.0" width="21.3" height="19.3" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="147.5" y1="168.0" x2="147.5" y2="202.7" stroke="#166534" stroke-width="1.5"/>
+<rect x="136.8" y="175.7" width="21.3" height="19.3" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="186.2" y1="148.7" x2="186.2" y2="183.4" stroke="#166534" stroke-width="1.5"/>
+<rect x="175.6" y="156.4" width="21.3" height="19.3" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="225.0" y1="129.4" x2="225.0" y2="164.1" stroke="#166534" stroke-width="1.5"/>
+<rect x="214.3" y="137.1" width="21.3" height="19.3" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="263.8" y1="110.1" x2="263.8" y2="144.9" stroke="#166534" stroke-width="1.5"/>
+<rect x="253.1" y="117.9" width="21.3" height="19.3" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="302.5" y1="97.3" x2="302.5" y2="125.6" stroke="#166534" stroke-width="1.5"/>
+<rect x="291.8" y="105.0" width="21.3" height="12.9" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="341.2" y1="84.4" x2="341.2" y2="112.7" stroke="#166534" stroke-width="1.5"/>
+<rect x="330.6" y="92.1" width="21.3" height="12.9" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="380.0" y1="84.4" x2="380.0" y2="106.3" stroke="#991b1b" stroke-width="1.5"/>
+<rect x="369.3" y="92.1" width="21.3" height="6.4" rx="1.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+<line x1="418.8" y1="90.9" x2="418.8" y2="119.1" stroke="#991b1b" stroke-width="1.5"/>
+<rect x="408.1" y="98.6" width="21.3" height="12.9" rx="1.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+<line x1="457.5" y1="103.7" x2="457.5" y2="138.4" stroke="#991b1b" stroke-width="1.5"/>
+<rect x="446.8" y="111.4" width="21.3" height="19.3" rx="1.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+<line x1="496.2" y1="123.0" x2="496.2" y2="151.3" stroke="#991b1b" stroke-width="1.5"/>
+<rect x="485.6" y="130.7" width="21.3" height="12.9" rx="1.5" fill="#ef4444" stroke="#991b1b" stroke-width="1"/>
+<line x1="535.0" y1="123.0" x2="535.0" y2="151.3" stroke="#166534" stroke-width="1.5"/>
+<rect x="524.3" y="130.7" width="21.3" height="12.9" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="573.8" y1="103.7" x2="573.8" y2="138.4" stroke="#166534" stroke-width="1.5"/>
+<rect x="563.1" y="111.4" width="21.3" height="19.3" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="612.5" y1="84.4" x2="612.5" y2="119.1" stroke="#166534" stroke-width="1.5"/>
+<rect x="601.8" y="92.1" width="21.3" height="19.3" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<line x1="651.2" y1="71.6" x2="651.2" y2="99.9" stroke="#166534" stroke-width="1.5"/>
+<rect x="640.6" y="79.3" width="21.3" height="12.9" rx="1.5" fill="#22c55e" stroke="#166534" stroke-width="1"/>
+<text x="78" y="76" font-size="11" fill="#a8a29e" text-anchor="start" font-weight="700" font-style="normal">ЦЕНА</text>
+<rect x="70" y="270" width="620" height="90" rx="8" fill="#ffffff"/>
+<text x="78" y="286" font-size="11" fill="#a8a29e" text-anchor="start" font-weight="700" font-style="normal">RSI (14)</text>
+<line x1="70" y1="297.0" x2="690" y2="297.0" stroke="#dc2626" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="694" y="301.0" font-size="9.5" fill="#dc2626" text-anchor="start" font-weight="400" font-style="normal">70 перекуплен</text>
+<line x1="70" y1="333.0" x2="690" y2="333.0" stroke="#16a34a" stroke-width="1" stroke-dasharray="5 3"/>
+<text x="694" y="337.0" font-size="9.5" fill="#16a34a" text-anchor="start" font-weight="400" font-style="normal">30 перепродан</text>
+<polyline points="108.8,315.0 147.5,307.8 186.2,302.4 225.0,297.0 263.8,292.5 302.5,289.8 341.2,288.0 380.0,291.6 418.8,298.8 457.5,307.8 496.2,316.8 535.0,313.2 573.8,306.0 612.5,298.8 651.2,293.4" fill="none" stroke="#7c3aed" stroke-width="2.2"/>
+<circle cx="341.2" cy="288.0" r="6" fill="none" stroke="#dc2626" stroke-width="2"/>
+<rect x="70" y="390" width="620" height="100" rx="8" fill="#ffffff"/>
+<text x="78" y="406" font-size="11" fill="#a8a29e" text-anchor="start" font-weight="700" font-style="normal">MACD</text>
+<line x1="70" y1="440.0" x2="690" y2="440.0" stroke="#f3e8c8" stroke-width="1.5"/>
+<rect x="102.8" y="432.0" width="12" height="8.0" fill="#86efac"/>
+<rect x="141.5" y="424.0" width="12" height="16.0" fill="#86efac"/>
+<rect x="180.2" y="416.0" width="12" height="24.0" fill="#86efac"/>
+<rect x="219.0" y="408.0" width="12" height="32.0" fill="#86efac"/>
+<rect x="257.8" y="408.0" width="12" height="32.0" fill="#86efac"/>
+<rect x="296.5" y="416.0" width="12" height="24.0" fill="#86efac"/>
+<rect x="335.2" y="424.0" width="12" height="16.0" fill="#86efac"/>
+<rect x="374.0" y="440.0" width="12" height="0.0" fill="#86efac"/>
+<rect x="412.8" y="440.0" width="12" height="16.0" fill="#fca5a5"/>
+<rect x="451.5" y="440.0" width="12" height="24.0" fill="#fca5a5"/>
+<rect x="490.2" y="440.0" width="12" height="24.0" fill="#fca5a5"/>
+<rect x="529.0" y="440.0" width="12" height="8.0" fill="#fca5a5"/>
+<rect x="567.8" y="432.0" width="12" height="8.0" fill="#86efac"/>
+<rect x="606.5" y="416.0" width="12" height="24.0" fill="#86efac"/>
+<rect x="645.2" y="408.0" width="12" height="32.0" fill="#86efac"/>
+<polyline points="108.8,433.0 147.5,426.0 186.2,419.0 225.0,412.0 263.8,412.0 302.5,419.0 341.2,426.0 380.0,440.0 418.8,454.0 457.5,461.0 496.2,461.0 535.0,447.0 573.8,433.0 612.5,419.0 651.2,412.0" fill="none" stroke="#2563eb" stroke-width="2"/>
+<text x="380" y="508" font-size="11.5" fill="#92400e" text-anchor="middle" font-weight="400" font-style="italic">RSI&gt;70 = перекуплен (рискованно покупать). MACD-гистограмма меняет знак = сдвиг импульса.</text>
+</svg>

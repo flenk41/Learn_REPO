@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="420" rx="16" fill="#f0f9ff"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#0c4a6e">Карта памяти процесса</text>
+
+  <!-- memory map -->
+  <g text-anchor="middle" font-size="12.5">
+    <rect x="200" y="56" width="360" height="46" rx="6" fill="#0369a1"/>
+    <text x="380" y="76" fill="#fff" font-weight="700">СТЕК (stack) ↓</text>
+    <text x="380" y="93" font-size="10.5" fill="#bae6fd">локальные, кадры вызовов · растёт вниз · ~8 МБ</text>
+
+    <rect x="200" y="110" width="360" height="40" rx="6" fill="#e0f2fe" stroke="#7dd3fc"/>
+    <text x="380" y="135" fill="#0369a1">↕ свободное виртуальное пространство ↕</text>
+
+    <rect x="200" y="158" width="360" height="46" rx="6" fill="#0284c7"/>
+    <text x="380" y="178" fill="#fff" font-weight="700">КУЧА (heap) ↑</text>
+    <text x="380" y="195" font-size="10.5" fill="#e0f2fe">malloc/new · растёт вверх · ручное управление</text>
+
+    <rect x="200" y="212" width="360" height="30" rx="4" fill="#7dd3fc"/><text x="380" y="232" fill="#0c4a6e">.bss — глобальные без значения (нули)</text>
+    <rect x="200" y="244" width="360" height="30" rx="4" fill="#7dd3fc"/><text x="380" y="264" fill="#0c4a6e">.data — глобальные с значением</text>
+    <rect x="200" y="276" width="360" height="30" rx="4" fill="#bae6fd"/><text x="380" y="296" fill="#0c4a6e">.rodata — константы, строки (только чтение)</text>
+    <rect x="200" y="308" width="360" height="32" rx="4" fill="#0c4a6e"/><text x="380" y="329" fill="#fff" font-weight="700">.text — КОД (чтение + исполнение)</text>
+  </g>
+  <text x="180" y="80" text-anchor="end" font-size="10.5" fill="#0369a1">высокие адреса</text>
+  <text x="180" y="330" text-anchor="end" font-size="10.5" fill="#0369a1">низкие адреса</text>
+
+  <!-- crash hints -->
+  <g font-size="10.5" fill="#b91c1c">
+    <text x="585" y="78">← stack overflow:</text>
+    <text x="585" y="92">рекурсия упёрлась</text>
+    <text x="585" y="294">← запись сюда =</text>
+    <text x="585" y="308">SEGFAULT (r/o)</text>
+  </g>
+
+  <rect x="60" y="352" width="640" height="56" rx="10" fill="#e0f2fe"/>
+  <text x="380" y="376" text-anchor="middle" font-size="12.5" fill="#0c4a6e">Понимая карту, ты <tspan font-weight="700">читаешь падения</tspan>: segfault = нарушение прав/неотображённый адрес;</text>
+  <text x="380" y="396" text-anchor="middle" font-size="12.5" fill="#0c4a6e">stack overflow = стек упёрся; адреса виртуальные → MMU переводит в физ. RAM.</text>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#fbe9e7"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#ce422b">Умные указатели Rust: таблица решений</text>
+
+  <!-- table headers -->
+  <g font-size="12.5" font-weight="700" fill="#ce422b" text-anchor="middle">
+    <text x="200" y="78">владение / мутация</text>
+    <text x="430" y="64">только ЧТЕНИЕ</text>
+    <text x="610" y="64">+ МУТАЦИЯ</text>
+  </g>
+
+  <!-- rows -->
+  <g font-size="12.5">
+    <rect x="40" y="86" width="320" height="56" rx="8" fill="#fff" stroke="#ce422b"/>
+    <text x="56" y="110" fill="#1a1a2e" font-weight="700">Одно владение</text>
+    <text x="56" y="130" font-size="11" fill="#666">один хозяин данных</text>
+    <rect x="370" y="86" width="160" height="56" rx="8" fill="#ffe0b2"/>
+    <text x="450" y="118" text-anchor="middle" font-family="Consolas,monospace" fill="#5d4037">T / &amp;T</text>
+    <rect x="540" y="86" width="180" height="56" rx="8" fill="#ffe0b2"/>
+    <text x="630" y="118" text-anchor="middle" font-family="Consolas,monospace" fill="#5d4037">&amp;mut T</text>
+
+    <rect x="40" y="148" width="320" height="56" rx="8" fill="#fff" stroke="#ce422b"/>
+    <text x="56" y="172" fill="#1a1a2e" font-weight="700">Разделяемое, 1 поток</text>
+    <text x="56" y="192" font-size="11" fill="#666">несколько владельцев</text>
+    <rect x="370" y="148" width="160" height="56" rx="8" fill="#ffccbc"/>
+    <text x="450" y="180" text-anchor="middle" font-family="Consolas,monospace" fill="#bf360c" font-weight="700">Rc&lt;T&gt;</text>
+    <rect x="540" y="148" width="180" height="56" rx="8" fill="#ffccbc"/>
+    <text x="630" y="174" text-anchor="middle" font-family="Consolas,monospace" font-size="11.5" fill="#bf360c" font-weight="700">Rc&lt;RefCell&lt;T&gt;&gt;</text>
+    <text x="630" y="192" text-anchor="middle" font-size="9.5" fill="#bf360c">рантайм-проверка</text>
+
+    <rect x="40" y="210" width="320" height="56" rx="8" fill="#fff" stroke="#ce422b"/>
+    <text x="56" y="234" fill="#1a1a2e" font-weight="700">Разделяемое, N потоков</text>
+    <text x="56" y="254" font-size="11" fill="#666">потокобезопасно</text>
+    <rect x="370" y="210" width="160" height="56" rx="8" fill="#ce422b"/>
+    <text x="450" y="242" text-anchor="middle" font-family="Consolas,monospace" fill="#fff" font-weight="700">Arc&lt;T&gt;</text>
+    <rect x="540" y="210" width="180" height="56" rx="8" fill="#ce422b"/>
+    <text x="630" y="236" text-anchor="middle" font-family="Consolas,monospace" font-size="11.5" fill="#fff" font-weight="700">Arc&lt;Mutex&lt;T&gt;&gt;</text>
+    <text x="630" y="254" text-anchor="middle" font-size="9.5" fill="#ffe0b2">блокировка</text>
+  </g>
+
+  <rect x="40" y="282" width="680" height="84" rx="10" fill="#fff3e0"/>
+  <text x="380" y="306" text-anchor="middle" font-size="12.5" fill="#bf360c" font-weight="700">Логика: Rc/Arc = КТО владеет (один/много, поток?) · RefCell/Mutex = как МУТИРОВАТЬ</text>
+  <text x="380" y="328" text-anchor="middle" font-size="12" fill="#5d4037">Циклы Rc → утечка → реши через Weak (слабая ссылка, не владеет). Cow — ссылка/владение по нужде.</text>
+  <text x="380" y="350" text-anchor="middle" font-size="11.5" font-style="italic" fill="#ce422b">⚠️ Rc&lt;RefCell&gt; — «escape hatch»: сперва попробуй обычное владение/рефакторинг.</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#f0fdfa"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#134e4a">Четыре оси Senior — баланс важнее перекоса</text>
+
+  <!-- radar grid centered at 250,220 -->
+  <g transform="translate(250,225)">
+    <!-- axes rings -->
+    <polygon points="0,-130 130,0 0,130 -130,0" fill="none" stroke="#99f6e4" stroke-width="1.5"/>
+    <polygon points="0,-87 87,0 0,87 -87,0" fill="none" stroke="#99f6e4" stroke-width="1.5"/>
+    <polygon points="0,-43 43,0 0,43 -43,0" fill="none" stroke="#99f6e4" stroke-width="1.5"/>
+    <!-- axes lines -->
+    <line x1="0" y1="0" x2="0" y2="-130" stroke="#5eead4" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="130" y2="0" stroke="#5eead4" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="0" y2="130" stroke="#5eead4" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="-130" y2="0" stroke="#5eead4" stroke-width="1.5"/>
+
+    <!-- MIDDLE shape: strong tech, weak others (lopsided) -->
+    <polygon points="0,-122 35,0 0,40 -38,0" fill="#94a3b8" fill-opacity="0.25" stroke="#64748b" stroke-width="2"/>
+    <!-- SENIOR shape: balanced, big -->
+    <polygon points="0,-105 108,0 0,108 -100,0" fill="#0f766e" fill-opacity="0.22" stroke="#0f766e" stroke-width="2.5"/>
+
+    <!-- axis labels -->
+    <text x="0" y="-142" text-anchor="middle" font-size="13.5" font-weight="700" fill="#134e4a">ТЕХНИКА</text>
+    <text x="150" y="4" text-anchor="middle" font-size="13.5" font-weight="700" fill="#134e4a">РЕШЕНИЯ</text>
+    <text x="0" y="152" text-anchor="middle" font-size="13.5" font-weight="700" fill="#134e4a">ПРАКТИКИ</text>
+    <text x="-150" y="4" text-anchor="middle" font-size="13.5" font-weight="700" fill="#134e4a">ЛЮДИ</text>
+  </g>
+
+  <!-- legend -->
+  <rect x="500" y="120" width="220" height="150" rx="10" fill="#fff" stroke="#5eead4"/>
+  <rect x="516" y="140" width="22" height="12" fill="#94a3b8" fill-opacity="0.5" stroke="#64748b"/>
+  <text x="546" y="151" font-size="12.5" fill="#475569" font-weight="700">Middle</text>
+  <text x="516" y="172" font-size="11.5" fill="#64748b">длинный по технике,</text>
+  <text x="516" y="188" font-size="11.5" fill="#64748b">короткий по людям/решениям</text>
+  <rect x="516" y="206" width="22" height="12" fill="#0f766e" fill-opacity="0.4" stroke="#0f766e"/>
+  <text x="546" y="217" font-size="12.5" fill="#0f766e" font-weight="700">Senior</text>
+  <text x="516" y="238" font-size="11.5" fill="#0f766e">баланс всех четырёх осей</text>
+  <text x="516" y="256" font-size="11.5" fill="#0f766e">— ровная большая фигура</text>
+
+  <text x="380" y="384" text-anchor="middle" font-size="12.5" fill="#0f766e" font-weight="700">Большинство приходит сильным по «Технике». Senior — это выровнять «Решения», «Практики», «Люди».</text>
+</svg>

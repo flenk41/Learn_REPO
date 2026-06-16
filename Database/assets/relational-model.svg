@@ -1,0 +1,58 @@
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="380" fill="#f5f3ff" rx="12"/>
+  <text x="360" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#4c1d95">Реляционная модель: таблицы, связанные ключами</text>
+
+  <!-- users table -->
+  <g>
+    <rect x="40" y="70" width="250" height="150" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="2"/>
+    <rect x="40" y="70" width="250" height="30" rx="8" fill="#6d28d9"/>
+    <rect x="40" y="86" width="250" height="14" fill="#6d28d9"/>
+    <text x="55" y="91" font-size="14" font-weight="700" fill="#fff">users</text>
+    <text x="55" y="124" font-size="12.5" fill="#4c1d95" font-weight="700">🔑 id</text>
+    <text x="130" y="124" font-size="12.5" fill="#1e1b4b">name</text>
+    <text x="220" y="124" font-size="12.5" fill="#1e1b4b">email</text>
+    <line x1="48" y1="132" x2="282" y2="132" stroke="#ddd6fe"/>
+    <text x="55" y="152" font-size="12" fill="#1e1b4b">1</text>
+    <text x="130" y="152" font-size="12" fill="#1e1b4b">Анна</text>
+    <text x="220" y="152" font-size="12" fill="#6b7280">a@ya.ru</text>
+    <text x="55" y="176" font-size="12" fill="#1e1b4b">2</text>
+    <text x="130" y="176" font-size="12" fill="#1e1b4b">Борис</text>
+    <text x="220" y="176" font-size="12" fill="#6b7280">b@ya.ru</text>
+    <text x="55" y="200" font-size="12" fill="#1e1b4b">3</text>
+    <text x="130" y="200" font-size="12" fill="#1e1b4b">Вера</text>
+    <text x="220" y="200" font-size="12" fill="#6b7280">v@ya.ru</text>
+  </g>
+
+  <!-- orders table -->
+  <g>
+    <rect x="430" y="70" width="250" height="150" rx="8" fill="#fff" stroke="#6d28d9" stroke-width="2"/>
+    <rect x="430" y="70" width="250" height="30" rx="8" fill="#6d28d9"/>
+    <rect x="430" y="86" width="250" height="14" fill="#6d28d9"/>
+    <text x="445" y="91" font-size="14" font-weight="700" fill="#fff">orders</text>
+    <text x="445" y="124" font-size="12.5" fill="#4c1d95" font-weight="700">🔑 id</text>
+    <text x="505" y="124" font-size="12.5" fill="#be123c" font-weight="700">user_id</text>
+    <text x="600" y="124" font-size="12.5" fill="#1e1b4b">сумма</text>
+    <line x1="438" y1="132" x2="672" y2="132" stroke="#ddd6fe"/>
+    <text x="445" y="152" font-size="12" fill="#1e1b4b">10</text>
+    <text x="505" y="152" font-size="12" fill="#be123c">1</text>
+    <text x="600" y="152" font-size="12" fill="#1e1b4b">500₽</text>
+    <text x="445" y="176" font-size="12" fill="#1e1b4b">11</text>
+    <text x="505" y="176" font-size="12" fill="#be123c">1</text>
+    <text x="600" y="176" font-size="12" fill="#1e1b4b">300₽</text>
+    <text x="445" y="200" font-size="12" fill="#1e1b4b">12</text>
+    <text x="505" y="200" font-size="12" fill="#be123c">2</text>
+    <text x="600" y="200" font-size="12" fill="#1e1b4b">900₽</text>
+  </g>
+
+  <!-- FK relation arrow -->
+  <path d="M 505 148 C 360 148, 360 120, 295 120" fill="none" stroke="#be123c" stroke-width="2" stroke-dasharray="5 3"/>
+  <polygon points="295,120 305,115 305,125" fill="#be123c"/>
+  <text x="360" y="100" text-anchor="middle" font-size="12.5" font-weight="700" fill="#be123c">FOREIGN KEY</text>
+  <text x="360" y="240" text-anchor="middle" font-size="12.5" fill="#4c1d95">orders.user_id → users.id (связь 1:N)</text>
+
+  <!-- bottom note -->
+  <rect x="40" y="270" width="640" height="80" rx="8" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="60" y="298" font-size="13.5" font-weight="700" fill="#4c1d95">Данные — в таблицах (строки = записи, столбцы = атрибуты).</text>
+  <text x="60" y="320" font-size="13" fill="#1e1b4b">🔑 Первичный ключ (PK) уникально идентифицирует строку.</text>
+  <text x="60" y="340" font-size="13" fill="#1e1b4b">Внешний ключ (FK) ссылается на PK другой таблицы → связи между таблицами.</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#f0fdf4"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#14532d">Три «шляпы»: граница — в разрешении</text>
+
+  <!-- white hat -->
+  <rect x="40" y="70" width="220" height="200" rx="12" fill="#fff" stroke="#15803d" stroke-width="2.5"/>
+  <text x="150" y="104" text-anchor="middle" font-size="30">⚪</text>
+  <text x="150" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#15803d">WHITE HAT</text>
+  <text x="150" y="152" text-anchor="middle" font-size="11.5" fill="#166534">этичный</text>
+  <text x="60" y="180" font-size="11.5" fill="#14532d">✅ С разрешения</text>
+  <text x="60" y="202" font-size="11.5" fill="#14532d">✅ Цель — защитить</text>
+  <text x="60" y="224" font-size="11.5" fill="#14532d">✅ Пентест, bug bounty</text>
+  <text x="150" y="254" text-anchor="middle" font-size="12.5" fill="#16a34a" font-weight="700">ЛЕГАЛЬНО · профессия</text>
+
+  <!-- grey hat -->
+  <rect x="275" y="70" width="210" height="200" rx="12" fill="#fff" stroke="#d97706" stroke-width="2.5"/>
+  <text x="380" y="104" text-anchor="middle" font-size="30">🩶</text>
+  <text x="380" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#b45309">GREY HAT</text>
+  <text x="380" y="152" text-anchor="middle" font-size="11.5" fill="#92400e">«серый»</text>
+  <text x="292" y="180" font-size="11.5" fill="#7c2d12">⚠️ Без разрешения,</text>
+  <text x="292" y="198" font-size="11.5" fill="#7c2d12">   но «без злого умысла»</text>
+  <text x="292" y="224" font-size="11.5" fill="#b91c1c">❌ Несанкц. доступ</text>
+  <text x="380" y="254" text-anchor="middle" font-size="12" fill="#b91c1c" font-weight="700">тоже ПРЕСТУПЛЕНИЕ</text>
+
+  <!-- black hat -->
+  <rect x="500" y="70" width="220" height="200" rx="12" fill="#fff" stroke="#991b1b" stroke-width="2.5"/>
+  <text x="610" y="104" text-anchor="middle" font-size="30">⚫</text>
+  <text x="610" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#991b1b">BLACK HAT</text>
+  <text x="610" y="152" text-anchor="middle" font-size="11.5" fill="#7f1d1d">преступник</text>
+  <text x="520" y="180" font-size="11.5" fill="#7f1d1d">❌ Без разрешения</text>
+  <text x="520" y="202" font-size="11.5" fill="#7f1d1d">❌ Ради выгоды/вреда</text>
+  <text x="520" y="224" font-size="11.5" fill="#7f1d1d">❌ Эксплуатирует</text>
+  <text x="610" y="254" text-anchor="middle" font-size="12.5" fill="#991b1b" font-weight="700">ПРЕСТУПЛЕНИЕ</text>
+
+  <rect x="40" y="295" width="680" height="62" rx="10" fill="#dcfce7"/>
+  <text x="380" y="320" text-anchor="middle" font-size="12.5" fill="#14532d">Навыки одинаковые. Граница — <tspan font-weight="700">РАЗРЕШЕНИЕ</tspan>, а не «добрые намерения» или мастерство.</text>
+  <text x="380" y="342" text-anchor="middle" font-size="11.5" font-style="italic" fill="#15803d">этот трек делает тебя white-hat: те же знания → применяешь только там, где авторизован.</text>
+</svg>

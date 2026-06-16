@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#eef2ff"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#312e81">Рекурсия: дерево вызовов fib(4)</text>
+
+  <!-- edges -->
+  <g stroke="#94a3b8" stroke-width="2">
+    <line x1="380" y1="80" x2="250" y2="140"/>
+    <line x1="380" y1="80" x2="510" y2="140"/>
+    <line x1="250" y1="140" x2="170" y2="210"/>
+    <line x1="250" y1="140" x2="330" y2="210"/>
+    <line x1="510" y1="140" x2="440" y2="210"/>
+    <line x1="510" y1="140" x2="580" y2="210"/>
+    <line x1="170" y1="210" x2="120" y2="280"/>
+    <line x1="170" y1="210" x2="220" y2="280"/>
+  </g>
+
+  <!-- nodes -->
+  <g text-anchor="middle" font-size="13" font-weight="700" font-family="Consolas, monospace">
+    <circle cx="380" cy="80" r="26" fill="#4f46e5"/><text x="380" y="85" fill="#fff">fib4</text>
+    <circle cx="250" cy="140" r="24" fill="#6366f1"/><text x="250" y="145" fill="#fff">fib3</text>
+    <circle cx="510" cy="140" r="24" fill="#6366f1"/><text x="510" y="145" fill="#fff">fib2</text>
+    <circle cx="170" cy="210" r="22" fill="#818cf8"/><text x="170" y="215" fill="#fff">fib2</text>
+    <circle cx="330" cy="210" r="22" fill="#22c55e"/><text x="330" y="215" fill="#fff">fib1</text>
+    <circle cx="440" cy="210" r="22" fill="#22c55e"/><text x="440" y="215" fill="#fff">fib1</text>
+    <circle cx="580" cy="210" r="22" fill="#22c55e"/><text x="580" y="215" fill="#fff">fib0</text>
+    <circle cx="120" cy="280" r="20" fill="#22c55e"/><text x="120" y="285" fill="#fff">fib1</text>
+    <circle cx="220" cy="280" r="20" fill="#22c55e"/><text x="220" y="285" fill="#fff">fib0</text>
+  </g>
+  <text x="635" y="145" font-size="11.5" fill="#4338ca">← разветвление</text>
+  <text x="330" y="320" text-anchor="middle" font-size="11.5" fill="#16a34a" font-weight="700">зелёные = базовый случай (fib0=0, fib1=1) — рекурсия ОСТАНАВЛИВАЕТСЯ</text>
+
+  <rect x="60" y="338" width="640" height="50" rx="10" fill="#e0e7ff"/>
+  <text x="380" y="360" text-anchor="middle" font-size="12.5" fill="#3730a3">Функция вызывает себя с меньшим аргументом, пока не дойдёт до <tspan font-weight="700">базового случая</tspan>. Без него — бесконечность и переполнение стека.</text>
+  <text x="380" y="380" text-anchor="middle" font-size="11.5" font-style="italic" fill="#4f46e5">видно повторные вызовы (fib2 дважды) → отсюда растёт идея динамического программирования (запоминать)</text>
+</svg>

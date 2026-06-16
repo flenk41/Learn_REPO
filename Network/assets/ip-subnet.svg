@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="360" rx="16" fill="#eff6ff"/>
+  <text x="380" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1e3a8a">IP-адрес и маска подсети (/24)</text>
+
+  <!-- address octets -->
+  <g text-anchor="middle" font-family="Consolas, monospace">
+    <rect x="120" y="80" width="120" height="56" rx="8" fill="#2563eb"/>
+    <rect x="245" y="80" width="120" height="56" rx="8" fill="#2563eb"/>
+    <rect x="370" y="80" width="120" height="56" rx="8" fill="#2563eb"/>
+    <rect x="495" y="80" width="120" height="56" rx="8" fill="#22c55e"/>
+    <text x="180" y="116" font-size="22" fill="#fff" font-weight="700">192</text>
+    <text x="305" y="116" font-size="22" fill="#fff" font-weight="700">168</text>
+    <text x="430" y="116" font-size="22" fill="#fff" font-weight="700">1</text>
+    <text x="555" y="116" font-size="22" fill="#fff" font-weight="700">10</text>
+    <text x="242" y="116" font-size="20" fill="#1e3a8a" font-weight="700">.</text>
+    <text x="367" y="116" font-size="20" fill="#1e3a8a" font-weight="700">.</text>
+    <text x="492" y="116" font-size="20" fill="#1e3a8a" font-weight="700">.</text>
+  </g>
+
+  <!-- brackets -->
+  <path d="M120,150 L120,160 L490,160 L490,150" fill="none" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="305" y="182" text-anchor="middle" font-size="13.5" fill="#1d4ed8" font-weight="700">СЕТЬ (network) — первые 24 бита</text>
+  <text x="305" y="200" text-anchor="middle" font-size="11.5" fill="#475569">общая часть для всех в подсети</text>
+
+  <path d="M495,150 L495,160 L615,160 L615,150" fill="none" stroke="#15803d" stroke-width="2"/>
+  <text x="555" y="182" text-anchor="middle" font-size="13.5" fill="#15803d" font-weight="700">ХОСТ</text>
+  <text x="555" y="200" text-anchor="middle" font-size="11.5" fill="#475569">номер устройства</text>
+
+  <!-- mask -->
+  <rect x="120" y="225" width="495" height="48" rx="8" fill="#dbeafe"/>
+  <text x="135" y="246" font-size="13" fill="#1e3a8a" font-weight="700">Маска /24 =</text>
+  <text x="135" y="265" font-size="12.5" fill="#1e3a8a" font-family="Consolas, monospace">255.255.255.0 → 11111111.11111111.11111111.00000000</text>
+
+  <text x="380" y="305" text-anchor="middle" font-size="12.5" fill="#1e3a8a">1 = бит сети, 0 = бит хоста. /24 → 256 адресов в подсети (254 для устройств).</text>
+  <text x="380" y="328" text-anchor="middle" font-size="11.5" font-style="italic" fill="#3b82f6">если сетевые части совпадают — хосты в одной сети и говорят напрямую, без роутера</text>
+</svg>

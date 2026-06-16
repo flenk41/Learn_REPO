@@ -1,0 +1,44 @@
+<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="400" fill="#f5f3ff" rx="12"/>
+  <text x="360" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#4c1d95">Индекс (B-дерево): находит строку не перебором, а спуском</text>
+
+  <!-- root -->
+  <rect x="305" y="60" width="110" height="34" rx="6" fill="#6d28d9"/>
+  <text x="360" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">30 | 60</text>
+
+  <!-- level 2 -->
+  <rect x="120" y="150" width="100" height="32" rx="6" fill="#8b5cf6"/>
+  <text x="170" y="171" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">10 | 20</text>
+  <rect x="310" y="150" width="100" height="32" rx="6" fill="#8b5cf6"/>
+  <text x="360" y="171" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">40 | 50</text>
+  <rect x="500" y="150" width="100" height="32" rx="6" fill="#8b5cf6"/>
+  <text x="550" y="171" text-anchor="middle" font-size="12.5" font-weight="700" fill="#fff">70 | 90</text>
+
+  <!-- edges root->level2 -->
+  <line x1="330" y1="94" x2="170" y2="150" stroke="#a78bfa" stroke-width="2"/>
+  <line x1="360" y1="94" x2="360" y2="150" stroke="#a78bfa" stroke-width="2"/>
+  <line x1="390" y1="94" x2="550" y2="150" stroke="#a78bfa" stroke-width="2"/>
+
+  <!-- leaves -->
+  <g font-size="11.5" fill="#fff" font-weight="700">
+    <rect x="70" y="240" width="80" height="30" rx="5" fill="#c4b5fd"/><text x="110" y="260" text-anchor="middle" fill="#4c1d95">5·8</text>
+    <rect x="170" y="240" width="80" height="30" rx="5" fill="#c4b5fd"/><text x="210" y="260" text-anchor="middle" fill="#4c1d95">12·18</text>
+    <rect x="300" y="240" width="80" height="30" rx="5" fill="#c4b5fd"/><text x="340" y="260" text-anchor="middle" fill="#4c1d95">35·38</text>
+    <rect x="400" y="240" width="80" height="30" rx="5" fill="#c4b5fd"/><text x="440" y="260" text-anchor="middle" fill="#4c1d95">42·55</text>
+    <rect x="510" y="240" width="80" height="30" rx="5" fill="#c4b5fd"/><text x="550" y="260" text-anchor="middle" fill="#4c1d95">65·68</text>
+    <rect x="610" y="240" width="80" height="30" rx="5" fill="#c4b5fd"/><text x="650" y="260" text-anchor="middle" fill="#4c1d95">80·95</text>
+  </g>
+  <line x1="150" y1="182" x2="110" y2="240" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="190" y1="182" x2="210" y2="240" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="340" y1="182" x2="340" y2="240" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="380" y1="182" x2="440" y2="240" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="530" y1="182" x2="550" y2="240" stroke="#c4b5fd" stroke-width="1.5"/>
+  <line x1="570" y1="182" x2="650" y2="240" stroke="#c4b5fd" stroke-width="1.5"/>
+
+  <!-- search path highlight -->
+  <text x="360" y="305" text-anchor="middle" font-size="13" fill="#be123c" font-weight="700">Поиск 42: корень → 40|50 → лист 42·55 — 3 шага, не 1000 строк</text>
+
+  <rect x="40" y="325" width="640" height="55" rx="8" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="60" y="349" font-size="13" fill="#1e1b4b">Без индекса: <tspan font-weight="700" fill="#be123c">seq scan</tspan> — перебор всех строк (O(n)).</text>
+  <text x="60" y="370" font-size="13" fill="#1e1b4b">С индексом: <tspan font-weight="700" fill="#15803d">index scan</tspan> — спуск по дереву (O(log n)). Цена: место + замедление записи.</text>
+</svg>

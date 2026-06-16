@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#f0fdf4"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#14532d">Думай как атакующий — действуй как защитник</text>
+
+  <!-- the feature -->
+  <rect x="300" y="58" width="160" height="44" rx="8" fill="#15803d"/>
+  <text x="380" y="80" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">форма входа</text>
+  <text x="380" y="96" text-anchor="middle" font-size="10.5" fill="#bbf7d0">login(user, pass)</text>
+
+  <!-- developer view -->
+  <text x="150" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#64748b">Разработчик видит</text>
+  <rect x="40" y="148" width="220" height="50" rx="8" fill="#fff" stroke="#94a3b8"/>
+  <text x="150" y="170" text-anchor="middle" font-size="11.5" fill="#475569">«ввёл имя → показали профиль»</text>
+  <text x="150" y="188" text-anchor="middle" font-size="11" fill="#94a3b8">счастливый путь ✅</text>
+
+  <!-- attacker view -->
+  <text x="585" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">Атакующий видит «а что, если…»</text>
+  <g font-size="11" fill="#7f1d1d">
+    <rect x="470" y="148" width="250" height="22" rx="4" fill="#fee2e2"/><text x="480" y="163">pass = ' OR '1'='1  → SQLi</text>
+    <rect x="470" y="174" width="250" height="22" rx="4" fill="#fee2e2"/><text x="480" y="189">перебор 10000 паролей → brute force</text>
+    <rect x="470" y="200" width="250" height="22" rx="4" fill="#fee2e2"/><text x="480" y="215">украсть сессию → XSS / hijack</text>
+    <rect x="470" y="226" width="250" height="22" rx="4" fill="#fee2e2"/><text x="480" y="241">чужой id в URL → IDOR</text>
+  </g>
+
+  <!-- defender action -->
+  <defs><marker id="ad" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="#15803d"/></marker></defs>
+  <line x1="595" y1="256" x2="595" y2="282" stroke="#15803d" stroke-width="2.5" marker-end="url(#ad)"/>
+  <rect x="430" y="288" width="290" height="58" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="575" y="310" text-anchor="middle" font-size="12" fill="#14532d" font-weight="700">🛡️ Защитник закрывает КАЖДЫЙ «что если»:</text>
+  <text x="575" y="328" text-anchor="middle" font-size="10.5" fill="#166534">параметризация · лимиты+MFA · экранирование · проверка прав</text>
+
+  <rect x="40" y="288" width="360" height="58" rx="8" fill="#dcfce7"/>
+  <text x="220" y="312" text-anchor="middle" font-size="12.5" fill="#14532d" font-weight="700">Правило: «а как сломать?»</text>
+  <text x="220" y="332" text-anchor="middle" font-size="12.5" fill="#14532d" font-weight="700">→ сразу «а как защитить?»</text>
+</svg>

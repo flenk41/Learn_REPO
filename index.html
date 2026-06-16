@@ -90,6 +90,27 @@
   .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg,var(--accent),var(--green)); transition: width .4s ease; }
   .progress-label { font-size: 11px; color: var(--text-soft); margin-top: 6px; display: flex; justify-content: space-between; }
 
+  .search-box { width: 100%; box-sizing: border-box; margin-top: 10px; border: 1px solid var(--border);
+    background: var(--bg-card); color: var(--text); padding: 8px 10px; border-radius: 9px; font-size: 13px; }
+  .search-box:focus { outline: none; border-color: var(--accent); }
+  .search-results { margin-top: 6px; max-height: 320px; overflow: auto; }
+  .search-results:empty { display: none; }
+  .sr-item { padding: 7px 9px; border-radius: 8px; cursor: pointer; font-size: 12.5px; color: var(--text);
+    border: 1px solid transparent; }
+  .sr-item:hover { background: var(--accent-soft); border-color: var(--accent); }
+  .sr-item .sr-track { color: var(--text-soft); font-size: 11px; margin-top: 2px; }
+  .sr-empty { padding: 8px; font-size: 12px; color: var(--text-soft); }
+
+  .track-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 12px; margin: 14px 0 24px; }
+  .track-card { border: 1px solid var(--border); border-radius: 12px; padding: 14px; cursor: pointer;
+    background: var(--bg-card); transition: border-color .2s; }
+  .track-card:hover { border-color: var(--accent); }
+  .track-card .tc-title { font-weight: 800; font-size: 15px; margin-bottom: 4px; }
+  .track-card .tc-sub { font-size: 12px; color: var(--text-soft); margin-bottom: 9px; min-height: 30px; }
+  .track-card .tc-bar { height: 6px; border-radius: 99px; background: var(--accent-soft); overflow: hidden; }
+  .track-card .tc-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--green)); }
+  .track-card .tc-pct { font-size: 11px; color: var(--text-soft); margin-top: 5px; }
+
   .level { border-bottom: 1px solid var(--border); }
   .level-head {
     display: flex; align-items: center; gap: 9px;
@@ -237,7 +258,7 @@
 
 <aside id="sidebar">
   <div class="side-head">
-    <div class="side-title" onclick="loadHome()">🧠 Курс: работа с памятью</div>
+    <div class="side-title" onclick="loadHome()">🧠 Курс: путь к Senior-разработчику</div>
     <div class="lang-tabs" id="langTabs">
       <button class="lang-tab" data-lang="c" onclick="switchLang('c')">🇨 C</button>
       <button class="lang-tab" data-lang="cpp" onclick="switchLang('cpp')">➕ C++</button>
@@ -248,14 +269,26 @@
       <button class="lang-tab" data-lang="claudecode" onclick="switchLang('claudecode')">⚡ Claude Code</button>
       <button class="lang-tab" data-lang="network" onclick="switchLang('network')">🌐 Сети</button>
       <button class="lang-tab" data-lang="os" onclick="switchLang('os')">🖥️ ОС</button>
+      <button class="lang-tab" data-lang="oop" onclick="switchLang('oop')">🏛️ ООП</button>
+      <button class="lang-tab" data-lang="trading" onclick="switchLang('trading')">📈 Трейдинг</button>
+      <button class="lang-tab" data-lang="algorithms" onclick="switchLang('algorithms')">🧮 Алгоритмы</button>
+      <button class="lang-tab" data-lang="senior" onclick="switchLang('senior')">🧭 Senior-мышление</button>
+      <button class="lang-tab" data-lang="socialeng" onclick="switchLang('socialeng')">🎭 Соц. инженерия</button>
+      <button class="lang-tab" data-lang="security" onclick="switchLang('security')">🛡️ Этичный хакинг</button>
+      <button class="lang-tab" data-lang="cs" onclick="switchLang('cs')">⚙️ Как работает ПК</button>
+      <button class="lang-tab" data-lang="capstone" onclick="switchLang('capstone')">🔨 Капстоун-проекты</button>
+      <button class="lang-tab" data-lang="database" onclick="switchLang('database')">🗄️ Базы данных</button>
     </div>
     <div class="side-sub" id="sideSub">от 🥚 новичка до 🦅 Senior</div>
     <div class="progress-wrap">
       <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
       <div class="progress-label"><span id="progText">0 / 0 пройдено</span><span id="progPct">0%</span></div>
     </div>
+    <button class="side-link" onclick="loadModule('ROADMAP.md')" title="Путь системного разработчика — как связаны треки">🧭 Roadmap (путь разработчика)</button>
     <button class="side-link" onclick="loadModule('GLOSSARY.md')" title="Справочник терминов всех треков">📖 Глоссарий терминов</button>
     <button class="side-link" onclick="loadSolutions()" title="Решения задач текущего трека">✅ Решения задач</button>
+    <input id="searchBox" class="search-box" type="text" placeholder="🔎 Поиск по урокам…" oninput="doSearch(this.value)" autocomplete="off">
+    <div id="searchResults" class="search-results"></div>
   </div>
   <nav id="nav"></nav>
 </aside>
@@ -344,6 +377,15 @@ const COURSE_C = [
     { f:"TASKS.md",   t:"Задачи уровня 4",       type:"tasks" },
     { f:"PROJECT.md", t:"Финальные проекты",     type:"project" },
   ]},
+  { id:"l4d", emoji:"🔬", name:"Углублённый C", dir:"C/03d-deep", mods:[
+    { f:"01-undefined-behavior.md", t:"1 · Undefined behavior глубоко" },
+    { f:"02-generic-c.md",          t:"2 · Обобщённое программирование" },
+    { f:"03-preprocessor-meta.md",  t:"3 · Метапрограммирование препроцессором" },
+    { f:"04-volatile-asm.md",       t:"4 · volatile, inline asm, барьеры" },
+    { f:"05-advanced-structures.md",t:"5 · Продвинутые структуры данных" },
+    { f:"TASKS.md",   t:"Задачи раздела",          type:"tasks" },
+    { f:"PROJECT.md", t:"Обобщённый контейнер на C", type:"project" },
+  ]},
 ];
 
 const COURSE_PYTHON = [
@@ -380,6 +422,14 @@ const COURSE_PYTHON = [
     { f:"19-files-context.md",        t:"19 · Файлы и with" },
     { f:"TASKS.md",   t:"Задачи уровня 3",    type:"tasks" },
     { f:"PROJECT.md", t:"Менеджер библиотеки", type:"project" },
+  ]},
+  { id:"l3c", emoji:"🏛️", name:"Углублённое ООП", dir:"Python/03c-oop", mods:[
+    { f:"01-encapsulation-properties.md", t:"1 · Инкапсуляция и @property" },
+    { f:"02-inheritance-mro.md",          t:"2 · Наследование, super(), MRO" },
+    { f:"03-abstraction-polymorphism.md", t:"3 · Абстракция и полиморфизм" },
+    { f:"04-magic-methods.md",            t:"4 · Магические методы" },
+    { f:"TASKS.md",   t:"Задачи раздела",       type:"tasks" },
+    { f:"PROJECT.md", t:"Библиотека фигур",     type:"project" },
   ]},
   { id:"l3b", emoji:"🧩", name:"Проекты и API", dir:"Python/03b-projects-api", mods:[
     { f:"01-project-structure.md", t:"1 · Структура проекта" },
@@ -451,6 +501,15 @@ const COURSE_CPP = [
     { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
     { f:"PROJECT.md", t:"Финальные проекты", type:"project" },
   ]},
+  { id:"l4d", emoji:"🔬", name:"Углублённый C++", dir:"Cpp/03d-deep", mods:[
+    { f:"01-variadic-templates.md", t:"1 · Вариативные шаблоны, fold" },
+    { f:"02-concepts.md",           t:"2 · Концепты (C++20)" },
+    { f:"03-metaprogramming.md",    t:"3 · Метапрограммирование, SFINAE" },
+    { f:"04-stl-internals.md",      t:"4 · STL изнутри" },
+    { f:"05-coroutines-ranges.md",  t:"5 · Корутины и ranges" },
+    { f:"TASKS.md",   t:"Задачи раздела",        type:"tasks" },
+    { f:"PROJECT.md", t:"Своя type-safe библиотека", type:"project" },
+  ]},
 ];
 
 const COURSE_RUST = [
@@ -503,6 +562,15 @@ const COURSE_RUST = [
     { f:"24-async-ecosystem.md",  t:"24 · Async, тесты, экосистема" },
     { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
     { f:"PROJECT.md", t:"Финальные проекты", type:"project" },
+  ]},
+  { id:"l4d", emoji:"🔬", name:"Углублённый Rust", dir:"Rust/03d-deep", mods:[
+    { f:"01-lifetimes-deep.md",      t:"1 · Лайфтаймы глубоко" },
+    { f:"02-advanced-traits.md",     t:"2 · Продвинутые трейты (dyn/GAT)" },
+    { f:"03-interior-mutability.md", t:"3 · Внутренняя изменяемость" },
+    { f:"04-async-deep.md",          t:"4 · Async глубоко (Future/Pin)" },
+    { f:"05-unsafe-abstractions.md", t:"5 · Unsafe и безопасные абстракции" },
+    { f:"TASKS.md",   t:"Задачи раздела",          type:"tasks" },
+    { f:"PROJECT.md", t:"Безопасная абстракция над unsafe", type:"project" },
   ]},
 ];
 
@@ -742,6 +810,427 @@ const COURSE_OS = [
   ]},
 ];
 
+const COURSE_OOP = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Знакомство с ООП", dir:"OOP/00-setup", mods:[
+    { f:"00-what-is-oop.md",   t:"00 · Что такое ООП" },
+    { f:"01-class-object.md",  t:"01 · Класс и объект" },
+    { f:"02-tools.md",         t:"02 · Языки и инструменты" },
+    { f:"TASKS.md",   t:"Задачи уровня 0",          type:"tasks" },
+    { f:"PROJECT.md", t:"Модель предметной области", type:"project" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Классы и объекты", dir:"OOP/01-classes", mods:[
+    { f:"03-constructors.md",     t:"03 · Конструкторы и состояние" },
+    { f:"04-methods.md",          t:"04 · Методы и поведение" },
+    { f:"05-encapsulation.md",    t:"05 · Инкапсуляция и сокрытие" },
+    { f:"06-composition.md",      t:"06 · Композиция и агрегация" },
+    { f:"07-static-immutable.md", t:"07 · Статика и неизменяемость" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",  type:"tasks" },
+    { f:"PROJECT.md", t:"Корзина магазина", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Четыре столпа ООП ⭐", dir:"OOP/02-pillars", mods:[
+    { f:"08-abstraction.md",          t:"08 · Абстракция ⭐⭐" },
+    { f:"09-encapsulation-deep.md",   t:"09 · Инкапсуляция (глубоко) ⭐⭐" },
+    { f:"10-inheritance.md",          t:"10 · Наследование ⭐⭐" },
+    { f:"11-polymorphism.md",         t:"11 · Полиморфизм ⭐⭐" },
+    { f:"12-interfaces.md",           t:"12 · Интерфейсы и абстрактные классы" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",     type:"tasks" },
+    { f:"PROJECT.md", t:"Система оплаты", type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Принципы (SOLID)", dir:"OOP/03-design", mods:[
+    { f:"13-solid-intro.md",                  t:"13 · SOLID — введение" },
+    { f:"14-srp-ocp.md",                      t:"14 · SRP и OCP" },
+    { f:"15-lsp-isp-dip.md",                  t:"15 · LSP, ISP, DIP" },
+    { f:"16-composition-over-inheritance.md", t:"16 · Композиция > наследование" },
+    { f:"17-principles.md",                   t:"17 · DRY, KISS, YAGNI, связность" },
+    { f:"18-uml.md",                          t:"18 · UML и моделирование" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",       type:"tasks" },
+    { f:"PROJECT.md", t:"Рефакторинг по SOLID", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Паттерны и архитектура", dir:"OOP/04-patterns", mods:[
+    { f:"19-creational.md",   t:"19 · Паттерны: порождающие" },
+    { f:"20-structural.md",   t:"20 · Структурные паттерны" },
+    { f:"21-behavioral.md",   t:"21 · Поведенческие паттерны" },
+    { f:"22-antipatterns.md", t:"22 · Антипаттерны и запахи" },
+    { f:"23-architecture.md", t:"23 · Чистая архитектура и слои" },
+    { f:"24-when-not-oop.md", t:"24 · Когда ООП не нужно" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",      type:"tasks" },
+    { f:"PROJECT.md", t:"Спроектируй систему", type:"project" },
+  ]},
+];
+
+const COURSE_TRADING = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Биржа, фьючерсы, платформа", dir:"Trading/00-setup", mods:[
+    { f:"00-what-is-trading.md",  t:"00 · Что такое трейдинг и биржа" },
+    { f:"01-futures.md",          t:"01 · Фьючерсы: плечо, маржа" },
+    { f:"02-broker-platform.md",  t:"02 · Брокер, платформа, демо" },
+    { f:"TASKS.md",   t:"Задачи уровня 0",   type:"tasks" },
+    { f:"PROJECT.md", t:"Рабочее место трейдера", type:"project" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Основы рынка и графика", dir:"Trading/01-basics", mods:[
+    { f:"03-reading-charts.md", t:"03 · Как читать график" },
+    { f:"04-candlesticks.md",   t:"04 · Японские свечи" },
+    { f:"05-orders.md",         t:"05 · Ордера и стакан" },
+    { f:"06-trend.md",          t:"06 · Тренд, флэт, фазы рынка" },
+    { f:"07-long-short.md",     t:"07 · Лонг, шорт и позиция" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",      type:"tasks" },
+    { f:"PROJECT.md", t:"Первые сделки на демо", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Технический анализ ⭐", dir:"Trading/02-technical", mods:[
+    { f:"08-ta-basics.md",           t:"08 · Основы ТА ⭐⭐" },
+    { f:"09-support-resistance.md",  t:"09 · Поддержка и сопротивление ⭐⭐" },
+    { f:"10-trendlines.md",          t:"10 · Линии тренда и каналы" },
+    { f:"11-chart-patterns.md",      t:"11 · Графические паттерны" },
+    { f:"12-candle-patterns.md",     t:"12 · Свечные паттерны" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",      type:"tasks" },
+    { f:"PROJECT.md", t:"Разметка графика и сетапы", type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Индикаторы и стратегии", dir:"Trading/03-indicators", mods:[
+    { f:"13-indicators-intro.md",   t:"13 · Индикаторы и ловушки" },
+    { f:"14-moving-averages.md",    t:"14 · Скользящие средние" },
+    { f:"15-oscillators.md",        t:"15 · Осцилляторы (RSI, MACD)" },
+    { f:"16-volume.md",             t:"16 · Объём и VWAP" },
+    { f:"17-multitimeframe.md",     t:"17 · Мультитаймфрейм" },
+    { f:"18-strategy-backtest.md",  t:"18 · Стратегия и бэктест" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",     type:"tasks" },
+    { f:"PROJECT.md", t:"Своя стратегия и бэктест", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Риск, психология, профи", dir:"Trading/04-advanced", mods:[
+    { f:"19-risk-management.md", t:"19 · Риск-менеджмент ⭐⭐" },
+    { f:"20-psychology.md",      t:"20 · Психология трейдинга" },
+    { f:"21-capital.md",         t:"21 · Капитал и просадки" },
+    { f:"22-plan-journal.md",    t:"22 · Торговый план и журнал" },
+    { f:"23-fundamentals.md",    t:"23 · Новости и фундамент" },
+    { f:"24-reality.md",         t:"24 · Реальность рынка" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",  type:"tasks" },
+    { f:"PROJECT.md", t:"Трейдер по системе", type:"project" },
+  ]},
+];
+
+const COURSE_ALGORITHMS = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Знакомство", dir:"Algorithms/00-setup", mods:[
+    { f:"00-what-is-algorithm.md", t:"00 · Что такое алгоритм и структура" },
+    { f:"01-why-efficiency.md",    t:"01 · Почему эффективность важна" },
+    { f:"02-tools.md",             t:"02 · Где практиковать" },
+    { f:"TASKS.md",   t:"Задачи уровня 0",        type:"tasks" },
+    { f:"PROJECT.md", t:"Эффективность на своих глазах", type:"project" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Базовые структуры", dir:"Algorithms/01-structures", mods:[
+    { f:"03-arrays.md",       t:"03 · Массивы и динамические массивы" },
+    { f:"04-linked-lists.md", t:"04 · Связные списки" },
+    { f:"05-stack-queue.md",  t:"05 · Стек и очередь" },
+    { f:"06-hash-tables.md",  t:"06 · Хеш-таблицы" },
+    { f:"07-strings.md",      t:"07 · Строки" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",      type:"tasks" },
+    { f:"PROJECT.md", t:"Свои структуры данных", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Сложность (Big-O) ⭐", dir:"Algorithms/02-complexity", mods:[
+    { f:"08-big-o.md",            t:"08 · Big-O: язык сложности ⭐⭐" },
+    { f:"09-time-complexity.md",  t:"09 · Временная сложность ⭐⭐" },
+    { f:"10-space-complexity.md", t:"10 · Пространственная сложность ⭐⭐" },
+    { f:"11-analyzing-code.md",   t:"11 · Анализ своего кода" },
+    { f:"12-tradeoffs.md",        t:"12 · Компромиссы и амортизация" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",  type:"tasks" },
+    { f:"PROJECT.md", t:"Аналитик сложности", type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Классические алгоритмы", dir:"Algorithms/03-algorithms", mods:[
+    { f:"13-search.md",    t:"13 · Поиск (линейный, бинарный)" },
+    { f:"14-sorting.md",   t:"14 · Сортировки" },
+    { f:"15-recursion.md", t:"15 · Рекурсия и divide-and-conquer" },
+    { f:"16-trees.md",     t:"16 · Деревья (BST)" },
+    { f:"17-graphs.md",    t:"17 · Графы (BFS/DFS)" },
+    { f:"18-greedy.md",    t:"18 · Жадные алгоритмы и приёмы" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",      type:"tasks" },
+    { f:"PROJECT.md", t:"Библиотека алгоритмов", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Senior", dir:"Algorithms/04-advanced", mods:[
+    { f:"19-dynamic-programming.md", t:"19 · Динамическое программирование" },
+    { f:"20-advanced-graphs.md",     t:"20 · Продвинутые графы" },
+    { f:"21-advanced-structures.md", t:"21 · Продвинутые структуры" },
+    { f:"22-patterns.md",            t:"22 · Паттерны решения задач" },
+    { f:"23-optimization.md",        t:"23 · Оптимизация и производительность" },
+    { f:"24-interviews.md",          t:"24 · Собеседования и путь дальше" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",       type:"tasks" },
+    { f:"PROJECT.md", t:"Алгоритмический портфель", type:"project" },
+  ]},
+];
+
+const COURSE_SENIOR = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Что такое Senior", dir:"Senior/00-mindset", mods:[
+    { f:"00-what-is-senior.md",  t:"00 · Senior — это мышление, не стаж" },
+    { f:"01-middle-vs-senior.md",t:"01 · Middle vs Senior: отличия" },
+    { f:"02-competency-map.md",  t:"02 · Карта компетенций" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Ремесло кода", dir:"Senior/01-craft", mods:[
+    { f:"03-clean-code.md",        t:"03 · Чистый код: для людей" },
+    { f:"04-naming-simplicity.md", t:"04 · Именование и простота (KISS)" },
+    { f:"05-refactoring.md",       t:"05 · Рефакторинг малыми шагами" },
+    { f:"06-code-review.md",       t:"06 · Код-ревью: автор и ревьюер" },
+    { f:"07-tech-debt.md",         t:"07 · Технический долг" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",  type:"tasks" },
+    { f:"PROJECT.md", t:"Спаси легаси",     type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Решения и компромиссы ⭐", dir:"Senior/02-decisions", mods:[
+    { f:"08-tradeoffs.md",        t:"08 · Мышление через trade-offs ⭐⭐" },
+    { f:"09-estimation.md",       t:"09 · Оценка трудозатрат ⭐⭐" },
+    { f:"10-build-vs-buy.md",     t:"10 · Build vs Buy" },
+    { f:"11-adr.md",              t:"11 · ADR — решения с обоснованием" },
+    { f:"12-risk-uncertainty.md", t:"12 · Риски и неопределённость" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",        type:"tasks" },
+    { f:"PROJECT.md", t:"Разбор решения (ADR)",   type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Инженерные практики", dir:"Senior/03-practices", mods:[
+    { f:"13-debugging-method.md",   t:"13 · Методология отладки" },
+    { f:"14-reading-code.md",       t:"14 · Чтение чужого кода" },
+    { f:"15-design-for-change.md",  t:"15 · Проектирование под изменения" },
+    { f:"16-requirements.md",       t:"16 · Работа с требованиями" },
+    { f:"17-performance-mindset.md",t:"17 · Производительность как выбор" },
+    { f:"18-documentation.md",      t:"18 · Документация и знания" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",       type:"tasks" },
+    { f:"PROJECT.md", t:"Въезжаю в чужой проект", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Senior как роль", dir:"Senior/04-leadership", mods:[
+    { f:"19-communication.md", t:"19 · Коммуникация и ясность" },
+    { f:"20-mentoring.md",     t:"20 · Наставничество" },
+    { f:"21-ownership.md",     t:"21 · Ownership и ответственность" },
+    { f:"22-influence.md",     t:"22 · Влияние без власти" },
+    { f:"23-interviews.md",    t:"23 · Собеседования с двух сторон" },
+    { f:"24-growth-career.md", t:"24 · Развитие, карьера, выгорание" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",  type:"tasks" },
+    { f:"PROJECT.md", t:"Доведи фичу как Senior", type:"project" },
+  ]},
+];
+
+const COURSE_SOCIALENG = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение и этика", dir:"SocialEng/00-intro", mods:[
+    { f:"00-what-is-se.md",        t:"00 · Что такое соц. инженерия" },
+    { f:"01-human-weakest-link.md",t:"01 · Почему человек — слабое звено" },
+    { f:"02-ethics-law.md",        t:"02 · Этика и закон ⚠️" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Векторы атак (как узнать)", dir:"SocialEng/01-vectors", mods:[
+    { f:"03-phishing.md",          t:"03 · Фишинг — обман по почте" },
+    { f:"04-vishing-smishing.md",  t:"04 · Вишинг и смишинг" },
+    { f:"05-pretexting.md",        t:"05 · Претекстинг" },
+    { f:"06-baiting.md",           t:"06 · Бейтинг и quid pro quo" },
+    { f:"07-physical.md",          t:"07 · Физические приёмы" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",     type:"tasks" },
+    { f:"PROJECT.md", t:"Детектор красных флагов", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Психология влияния ⭐", dir:"SocialEng/02-psychology", mods:[
+    { f:"08-influence-principles.md",      t:"08 · Шесть принципов влияния ⭐⭐" },
+    { f:"09-urgency-fear.md",              t:"09 · Срочность, страх, любопытство" },
+    { f:"10-cognitive-biases.md",          t:"10 · Когнитивные искажения" },
+    { f:"11-trust.md",                     t:"11 · Как строится доверие" },
+    { f:"12-manipulation-vs-persuasion.md",t:"12 · Манипуляция vs убеждение" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",        type:"tasks" },
+    { f:"PROJECT.md", t:"Анатомия манипуляции",   type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Разведка и таргетинг", dir:"SocialEng/03-recon", mods:[
+    { f:"13-osint.md",            t:"13 · OSINT: что о тебе узнают" },
+    { f:"14-digital-footprint.md",t:"14 · Цифровой след" },
+    { f:"15-spear-phishing.md",   t:"15 · Целевой фишинг (spear/whaling)" },
+    { f:"16-attack-chain.md",     t:"16 · Анатомия атаки: цепочка" },
+    { f:"17-data-breaches.md",    t:"17 · Утечки данных" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",        type:"tasks" },
+    { f:"PROJECT.md", t:"Аудит своего следа",     type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Защита и культура", dir:"SocialEng/04-defense", mods:[
+    { f:"18-personal-hygiene.md",     t:"18 · Личная гигиена безопасности" },
+    { f:"19-verification.md",         t:"19 · Проверка и нулевое доверие" },
+    { f:"20-organization.md",         t:"20 · Защита организации" },
+    { f:"21-phishing-simulations.md", t:"21 · Авторизованные симуляции" },
+    { f:"22-incident-response.md",    t:"22 · Если ты попался" },
+    { f:"23-security-culture.md",     t:"23 · Культура безопасности" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",        type:"tasks" },
+    { f:"PROJECT.md", t:"Программа защиты",        type:"project" },
+  ]},
+];
+
+const COURSE_SECURITY = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Основы и этика", dir:"Security/00-foundations", mods:[
+    { f:"00-ethical-hacker.md",   t:"00 · Кто такой этичный хакер" },
+    { f:"01-attacker-mindset.md", t:"01 · Думай как атакующий" },
+    { f:"02-law-authorization.md",t:"02 · Закон и авторизация ⚠️" },
+    { f:"03-lab-setup.md",        t:"03 · Лаборатория: легальная среда" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Разведка и инструменты", dir:"Security/01-recon", mods:[
+    { f:"04-threat-modeling.md", t:"04 · Модель угроз" },
+    { f:"05-cli-linux.md",       t:"05 · CLI и Linux для безопасности" },
+    { f:"06-recon-scanning.md",  t:"06 · Разведка и сканирование" },
+    { f:"07-auth.md",            t:"07 · Аутентификация и авторизация" },
+    { f:"08-crypto-basics.md",   t:"08 · CIA и основы криптографии" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",        type:"tasks" },
+    { f:"PROJECT.md", t:"Карта поверхности + сканер", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Уязвимости: ломаем и чиним ⭐", dir:"Security/02-vulnerabilities", mods:[
+    { f:"09-injection-sqli.md",  t:"09 · Инъекции и SQLi ⭐⭐" },
+    { f:"10-xss.md",             t:"10 · XSS — межсайтовый скриптинг" },
+    { f:"11-access-control.md",  t:"11 · Контроль доступа и IDOR" },
+    { f:"12-csrf-ssrf.md",       t:"12 · CSRF и SSRF" },
+    { f:"13-misconfiguration.md",t:"13 · Конфигурация и секреты" },
+    { f:"14-owasp-top10.md",     t:"14 · OWASP Top-10 целиком" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",      type:"tasks" },
+    { f:"PROJECT.md", t:"Найди и почини",       type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Защитное программирование", dir:"Security/03-defensive-code", mods:[
+    { f:"15-secure-coding.md",        t:"15 · Принципы безопасного кода" },
+    { f:"16-input-validation.md",     t:"16 · Валидация ввода" },
+    { f:"17-password-storage.md",     t:"17 · Хранение паролей" },
+    { f:"18-crypto-for-devs.md",      t:"18 · Криптография для разработчика" },
+    { f:"19-secrets-dependencies.md", t:"19 · Секреты и зависимости" },
+    { f:"20-defensive-tools.md",      t:"20 · Пишем защитные инструменты" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",         type:"tasks" },
+    { f:"PROJECT.md", t:"Безопасное приложение + toolkit", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Blue team и профессия", dir:"Security/04-blue-team", mods:[
+    { f:"21-monitoring.md",        t:"21 · Мониторинг и детектирование" },
+    { f:"22-hardening.md",         t:"22 · Hardening систем" },
+    { f:"23-incident-response.md", t:"23 · Реагирование на инциденты" },
+    { f:"24-devsecops.md",         t:"24 · DevSecOps и безопасный SDLC" },
+    { f:"25-pentest-bugbounty.md", t:"25 · Пентест и bug bounty легально" },
+    { f:"26-career-ethics.md",     t:"26 · Развитие, карьера, этика" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",       type:"tasks" },
+    { f:"PROJECT.md", t:"Защищённая система под ключ", type:"project" },
+  ]},
+];
+
+const COURSE_CS = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"ComputerScience/00-intro", mods:[
+    { f:"00-why-understand.md",     t:"00 · Зачем понимать компьютер" },
+    { f:"01-abstraction-layers.md", t:"01 · Слои абстракции" },
+    { f:"02-tools.md",              t:"02 · Инструменты: godbolt, objdump…" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Железо исполняет код", dir:"ComputerScience/01-hardware", mods:[
+    { f:"03-cpu-cycle.md",     t:"03 · CPU: fetch-decode-execute" },
+    { f:"04-registers.md",     t:"04 · Регистры" },
+    { f:"05-machine-code.md",  t:"05 · Машинный код и инструкции" },
+    { f:"06-pipeline.md",      t:"06 · Конвейер и предсказание ветвлений" },
+    { f:"07-ram-hierarchy.md", t:"07 · RAM и иерархия памяти" },
+    { f:"08-cache.md",         t:"08 · Кэш L1/L2/L3" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",   type:"tasks" },
+    { f:"PROJECT.md", t:"Почувствуй железо", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · От кода к программе ⭐", dir:"ComputerScience/02-toolchain", mods:[
+    { f:"09-build-stages.md",  t:"09 · Этапы сборки ⭐⭐" },
+    { f:"10-assembly.md",      t:"10 · Язык ассемблера: читаем" },
+    { f:"11-c-to-asm.md",      t:"11 · Из C в ассемблер" },
+    { f:"12-object-files.md",  t:"12 · Объектные файлы и символы" },
+    { f:"13-linking.md",       t:"13 · Линковка: статич./динамич." },
+    { f:"14-elf-pe.md",        t:"14 · ELF и PE" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",       type:"tasks" },
+    { f:"PROJECT.md", t:"Разбери бинарник",      type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Запуск программы", dir:"ComputerScience/03-execution", mods:[
+    { f:"15-loader.md",             t:"15 · Загрузчик: как ОС запускает ELF" },
+    { f:"16-process-layout.md",     t:"16 · Раскладка процесса в памяти" },
+    { f:"17-call-stack.md",         t:"17 · Стек вызовов в деталях" },
+    { f:"18-calling-convention.md", t:"18 · Calling convention и ABI" },
+    { f:"19-virtual-memory.md",     t:"19 · Виртуальная память" },
+    { f:"20-dynamic-libs.md",       t:"20 · Динамические библиотеки, PLT/GOT" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",        type:"tasks" },
+    { f:"PROJECT.md", t:"Анатомия процесса",      type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Производительность", dir:"ComputerScience/04-performance", mods:[
+    { f:"21-compiler-optimization.md", t:"21 · Как компилятор оптимизирует" },
+    { f:"22-cpu-bottlenecks.md",       t:"22 · Что мешает CPU" },
+    { f:"23-cache-friendly.md",        t:"23 · Cache-friendly код" },
+    { f:"24-simd.md",                  t:"24 · SIMD и векторизация" },
+    { f:"25-profiling.md",             t:"25 · Профилирование инструкций" },
+    { f:"26-conclusion.md",            t:"26 · Итог: железо → быстрый код" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Ускорь программу",  type:"project" },
+  ]},
+];
+
+const COURSE_CAPSTONE = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Как строить большое", dir:"Capstone/00-intro", mods:[
+    { f:"00-why-capstone.md", t:"00 · Зачем капстоун-проекты" },
+    { f:"01-methodology.md",  t:"01 · Методология больших проектов" },
+    { f:"02-planning.md",     t:"02 · Выбор и планирование" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Свои структуры данных", dir:"Capstone/01-data-structures", mods:[
+    { f:"03-dynamic-array.md", t:"03 · Свой dynamic array (vector)" },
+    { f:"04-linked-list.md",   t:"04 · Список / стек / очередь" },
+    { f:"05-hash-map.md",      t:"05 · Своя hash map" },
+    { f:"06-smart-pointer.md", t:"06 · Свой smart pointer" },
+    { f:"07-allocator.md",     t:"07 · Свой аллокатор" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",   type:"tasks" },
+    { f:"PROJECT.md", t:"Своя мини-STL",     type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Свой сетевой сервер ⭐", dir:"Capstone/02-server", mods:[
+    { f:"08-architecture-sockets.md", t:"08 · Архитектура и сокеты ⭐⭐" },
+    { f:"09-tcp-echo.md",             t:"09 · TCP echo-сервер" },
+    { f:"10-event-loop.md",           t:"10 · Событийный цикл (epoll)" },
+    { f:"11-concurrency.md",          t:"11 · Конкурентность" },
+    { f:"12-http-server.md",          t:"12 · HTTP-сервер" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",   type:"tasks" },
+    { f:"PROJECT.md", t:"Свой веб-сервер",   type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Своё хранилище / БД", dir:"Capstone/03-storage", mods:[
+    { f:"13-kv-store.md",          t:"13 · Key-value (Redis-подобное)" },
+    { f:"14-protocol-commands.md", t:"14 · Протокол и команды" },
+    { f:"15-persistence.md",       t:"15 · Персистентность: WAL" },
+    { f:"16-storage-engine.md",    t:"16 · Индексы и storage engine" },
+    { f:"17-transactions.md",      t:"17 · Транзакции и ACID" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",   type:"tasks" },
+    { f:"PROJECT.md", t:"Своя мини-БД",      type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Свой язык / движок", dir:"Capstone/04-language", mods:[
+    { f:"18-lexer.md",       t:"18 · Интерпретатор: лексер" },
+    { f:"19-parser-ast.md",  t:"19 · Парсер и AST" },
+    { f:"20-evaluator.md",   t:"20 · Вычислитель" },
+    { f:"21-bytecode-vm.md", t:"21 · Байткод-VM" },
+    { f:"22-game-engine.md", t:"22 · Игровой движок: ECS" },
+    { f:"23-whats-next.md",  t:"23 · Куда расти дальше" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Свой язык",         type:"project" },
+  ]},
+];
+
+const COURSE_DATABASE = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"Database/00-intro", mods:[
+    { f:"00-why-databases.md", t:"00 · Зачем нужны базы данных" },
+    { f:"01-types-and-dbms.md", t:"01 · Типы БД и как устроена СУБД" },
+    { f:"02-tools.md",          t:"02 · Инструменты: psql, клиенты" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Модель и проектирование", dir:"Database/01-modeling", mods:[
+    { f:"03-relational-model.md", t:"03 · Реляционная модель" },
+    { f:"04-keys-relations.md",   t:"04 · Ключи и связи" },
+    { f:"05-normalization.md",    t:"05 · Нормализация" },
+    { f:"06-er-modeling.md",      t:"06 · ER-моделирование" },
+    { f:"07-data-types-schema.md",t:"07 · Типы данных и схема" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",   type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: схема БД",  type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · SQL и запросы ⭐", dir:"Database/02-sql", mods:[
+    { f:"08-select-basics.md",   t:"08 · SELECT, WHERE, ORDER" },
+    { f:"09-joins.md",           t:"09 · JOIN-ы ⭐⭐" },
+    { f:"10-aggregation.md",     t:"10 · Агрегация и GROUP BY" },
+    { f:"11-subqueries-cte.md",  t:"11 · Подзапросы и CTE" },
+    { f:"12-modification-ddl.md",t:"12 · Изменение данных и DDL" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",   type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: запросы",   type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Производительность и надёжность", dir:"Database/03-performance", mods:[
+    { f:"13-indexes.md",            t:"13 · Индексы" },
+    { f:"14-explain.md",            t:"14 · План запроса (EXPLAIN)" },
+    { f:"15-query-optimization.md", t:"15 · Оптимизация запросов" },
+    { f:"16-transactions-acid.md",  t:"16 · Транзакции и ACID" },
+    { f:"17-isolation-locks.md",    t:"17 · Изоляция и блокировки" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",       type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: ускорь БД",     type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Масштаб и Senior", dir:"Database/04-scale", mods:[
+    { f:"18-nosql.md",                t:"18 · NoSQL: типы и когда" },
+    { f:"19-replication-sharding.md", t:"19 · Репликация и шардинг" },
+    { f:"20-cap.md",                  t:"20 · CAP и распределённые БД" },
+    { f:"21-caching.md",              t:"21 · Кэширование" },
+    { f:"22-migrations.md",           t:"22 · Миграции и эволюция схемы" },
+    { f:"23-security.md",             t:"23 · Безопасность БД" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: спроектируй БД", type:"project" },
+  ]},
+];
+
 /* ============== Реестр языков ============== */
 const COURSES = {
   c:      { label:"C",      emoji:"🇨",  sub:"Память вручную · от 🥚 до 🦅",
@@ -771,6 +1260,33 @@ const COURSES = {
   os:     { label:"ОС", emoji:"🖥️", sub:"Как работает система · от 🥚 до 🚀",
             blurb:"Как работает <b>операционная система</b> — невидимый управляющий памятью, процессором и устройствами. Ядро — <b>виртуальная память</b>: кто создаёт и раздаёт ту память, которой ты управлял в языках. Самая глубокая связь с темой памяти курса.",
             levels: COURSE_OS },
+  oop:    { label:"ООП", emoji:"🏛️", sub:"Классы, SOLID, паттерны · от 🥚 до 🚀",
+            blurb:"<b>ООП и проектирование</b> — то, что отличает Senior: классы, четыре столпа ООП, принципы SOLID, паттерны и чистая архитектура. Ядро — <b>четыре столпа</b> (абстракция, инкапсуляция, наследование, полиморфизм). Учишься не просто писать код, а <b>проектировать</b> системы.",
+            levels: COURSE_OOP },
+  trading:{ label:"Трейдинг", emoji:"📈", sub:"Фьючерсы и теханализ · от 🥚 до 🚀",
+            blurb:"<b>Трейдинг и технический анализ</b> на фьючерсах: график, свечи, уровни, паттерны, индикаторы, стратегии. Ядро — <b>технический анализ</b>. ⚠️ Образовательный трек, не финансовый совет: торговля с плечом — высокий риск, большинство теряет деньги. Главное здесь — не «угадать», а <b>управлять риском</b>.",
+            levels: COURSE_TRADING },
+  algorithms:{ label:"Алгоритмы", emoji:"🧮", sub:"Структуры данных и Big-O · от 🥚 до 🚀",
+            blurb:"<b>Алгоритмы и структуры данных</b> — фундамент Senior-инженера и сердце технических собеседований: массивы, списки, хеш-таблицы, деревья, графы, сортировки, рекурсия, динамическое программирование. Ядро — <b>сложность (Big-O)</b>: умение оценить время и память до запуска кода. Связь с памятью прямая — у сложности есть и временная, и пространственная стороны.",
+            levels: COURSE_ALGORITHMS },
+  senior:{ label:"Senior-мышление", emoji:"🧭", sub:"Soft skills и решения · от 🥚 до 🚀",
+            blurb:"<b>Мышление Senior-разработчика</b> — то, что отличает Senior от Middle, когда техника уже есть: чистый код и ревью, принятие решений через <b>trade-offs</b>, оценка, отладка, проектирование под изменения, коммуникация, наставничество и <b>ownership</b>. Ядро — <b>решения и компромиссы</b>. Здесь почти нет кода: это про суждение, практики и образ мышления. Senior — это не объём знаний, а как ты думаешь, решаешь и отвечаешь за результат.",
+            levels: COURSE_SENIOR },
+  socialeng:{ label:"Соц. инженерия", emoji:"🎭", sub:"Защита от обмана · от 🥚 до 🚀",
+            blurb:"<b>Социальная инженерия</b> — атака не на компьютер, а на <b>человека</b> (фишинг, вишинг, претекстинг). Причина большинства взломов. Ядро — <b>психология влияния</b>: понимаешь, на какие «кнопки» жмут, — распознаёшь и не поддаёшься. ⚠️ <b>Защитно-образовательный</b> трек: учит <b>узнавать манипуляцию и защищаться</b>, не применять. Применение к людям без согласия — незаконно. Правило: узнал приём → распознал → устоял → сообщил.",
+            levels: COURSE_SOCIALENG },
+  security:{ label:"Этичный хакинг", emoji:"🛡️", sub:"Понять атаки → писать защиту · от 🥚 до 🚀",
+            blurb:"<b>Этичный хакинг и защита (AppSec)</b>: чтобы хорошо защищать — нужно понимать, как ломают. Уязвимости (OWASP Top-10) с двух сторон — как эксплуатируют и как чинят в коде; безопасное программирование; защитные инструменты; blue team. Ядро — <b>уязвимости: ломаем и чиним</b>. ⚠️ <b>Только white-hat</b>: всё в легальной среде (свои ВМ, CTF, авторизованный пентест). «Серый»/«чёрный» взлом — незаконен. Правило: сломал в лаборатории → понял → защитил в реальности.",
+            levels: COURSE_SECURITY },
+  cs:{ label:"Как работает компьютер", emoji:"⚙️", sub:"Железо, компиляция, ELF · от 🥚 до 🚀",
+            blurb:"<b>Computer Science / устройство компьютера</b>: слой между твоим кодом и железом. CPU, регистры, конвейер, кэш L1/L2/L3; как исходник становится программой (компиляция, ассемблер, линковка, ELF/PE, ABI, calling convention); как ОС запускает процесс (память, стек, виртуальная память, PLT/GOT); и как всё это превратить в <b>быстрый код</b>. Ядро — <b>от кода к программе</b>. Фундамент системного разработчика — то, без чего сборка, segfault и скорость остаются магией.",
+            levels: COURSE_CS },
+  capstone:{ label:"Капстоун-проекты", emoji:"🔨", sub:"Строим большие системы · от 🥚 до 🚀",
+            blurb:"<b>Капстоун-проекты (Блок 9)</b> — превращаем знания в навык на больших проектах, синтезирующих весь курс: свои структуры данных и аллокатор, сетевой сервер (TCP→event loop→HTTP), хранилище/БД (key-value, WAL, индексы, транзакции), интерпретатор языка (лексер→парсер→AST→eval). Ядро — <b>свой сетевой сервер</b>. Пошаговые гайды: не учат теорию, а доводят проекты до результата. Один доведённый проект ценнее тысячи туториалов.",
+            levels: COURSE_CAPSTONE },
+  database:{ label:"Базы данных", emoji:"🗄️", sub:"Данные: SQL, индексы, транзакции · от 🥚 до 🚀",
+            blurb:"Почти каждое приложение хранит данные в БД. Реляционная модель, <b>SQL и JOIN-ы</b>, индексы, транзакции (ACID), NoSQL и масштабирование — один из самых востребованных навыков.",
+            levels: COURSE_DATABASE },
 };
 let currentLang = localStorage.getItem("course-lang") || "c";
 
@@ -818,6 +1334,15 @@ function langFromPath(p) {
   if (p && p.indexOf("ClaudeCode/") === 0) return "claudecode";
   if (p && p.indexOf("Network/") === 0) return "network";
   if (p && p.indexOf("OS/") === 0) return "os";
+  if (p && p.indexOf("OOP/") === 0) return "oop";
+  if (p && p.indexOf("Trading/") === 0) return "trading";
+  if (p && p.indexOf("Algorithms/") === 0) return "algorithms";
+  if (p && p.indexOf("Senior/") === 0) return "senior";
+  if (p && p.indexOf("SocialEng/") === 0) return "socialeng";
+  if (p && p.indexOf("Security/") === 0) return "security";
+  if (p && p.indexOf("ComputerScience/") === 0) return "cs";
+  if (p && p.indexOf("Capstone/") === 0) return "capstone";
+  if (p && p.indexOf("Database/") === 0) return "database";
   if (p && p.indexOf("C/") === 0) return "c";
   return null;
 }
@@ -1012,6 +1537,59 @@ function setupPager(mod){
 }
 
 /* ============== Домашняя страница ============== */
+/* ============== Поиск по урокам ============== */
+let SEARCH_INDEX = null;
+function buildSearchIndex(){
+  SEARCH_INDEX = [];
+  for (const lang in COURSES){
+    const c = COURSES[lang];
+    c.levels.forEach(lv => lv.mods.forEach(m => {
+      SEARCH_INDEX.push({ emoji:c.emoji, label:c.label, level:lv.name.split(" · ")[0],
+        path: lv.dir + "/" + m.f, title: m.t });
+    }));
+  }
+}
+function escapeHtml(s){ return String(s).replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch])); }
+function doSearch(q){
+  const box = document.getElementById("searchResults");
+  q = (q||"").trim().toLowerCase();
+  if (q.length < 2){ box.innerHTML = ""; return; }
+  if (!SEARCH_INDEX) buildSearchIndex();
+  const hits = SEARCH_INDEX.filter(e => e.title.toLowerCase().includes(q)).slice(0, 40);
+  if (!hits.length){ box.innerHTML = `<div class="sr-empty">Ничего не найдено по «${escapeHtml(q)}»</div>`; return; }
+  box.innerHTML = hits.map(h =>
+    `<div class="sr-item" onclick="openSearchHit('${h.path}')">${h.emoji} ${escapeHtml(h.title)}`
+    + `<div class="sr-track">${escapeHtml(h.label)} · ${escapeHtml(h.level)}</div></div>`).join("");
+}
+function openSearchHit(path){
+  const sb = document.getElementById("searchBox"); if (sb) sb.value = "";
+  document.getElementById("searchResults").innerHTML = "";
+  loadModule(path);
+}
+
+/* ============== Прогресс по трекам и сетка ============== */
+function trackProgress(lang){
+  let total = 0; COURSES[lang].levels.forEach(l => total += l.mods.length);
+  const done = JSON.parse(localStorage.getItem("course-progress-" + lang + "-v1") || "[]").length;
+  return { done: Math.min(done, total), total, pct: total ? Math.round(Math.min(done, total) / total * 100) : 0 };
+}
+function tracksGridHTML(){
+  let sumDone = 0, sumTotal = 0;
+  const cards = Object.keys(COURSES).map(lang => {
+    const c = COURSES[lang], p = trackProgress(lang);
+    sumDone += p.done; sumTotal += p.total;
+    return `<div class="track-card" onclick="switchLang('${lang}')">
+      <div class="tc-title">${c.emoji} ${escapeHtml(c.label)}</div>
+      <div class="tc-sub">${escapeHtml(c.sub)}</div>
+      <div class="tc-bar"><div class="tc-fill" style="width:${p.pct}%"></div></div>
+      <div class="tc-pct">${p.done} / ${p.total} · ${p.pct}%</div></div>`;
+  }).join("");
+  const overall = sumTotal ? Math.round(sumDone / sumTotal * 100) : 0;
+  return `<h2>🗺️ Все треки курса</h2>
+    <p>Общий прогресс: <b>${sumDone} / ${sumTotal}</b> блоков · <b>${overall}%</b>. Нажми на карточку, чтобы открыть трек.</p>
+    <div class="track-grid">${cards}</div>`;
+}
+
 async function loadHome(){
   currentPath = null;
   toggleNav(false); window.scrollTo(0,0);
@@ -1027,8 +1605,17 @@ async function loadHome(){
     claudecode: `${c.emoji} Курс: Claude Code как рабочая среда`,
     network: `${c.emoji} Курс: компьютерные сети и интернет`,
     os: `${c.emoji} Курс: операционные системы`,
+    oop: `${c.emoji} Курс: ООП и проектирование`,
+    trading: `${c.emoji} Курс: трейдинг и технический анализ`,
+    algorithms: `${c.emoji} Курс: алгоритмы и структуры данных`,
+    senior: `${c.emoji} Курс: мышление Senior-разработчика`,
+    socialeng: `${c.emoji} Курс: социальная инженерия (защита)`,
+    security: `${c.emoji} Курс: этичный хакинг и защита`,
+    cs: `${c.emoji} Курс: как работает компьютер`,
+    capstone: `${c.emoji} Курс: капстоун-проекты`,
+    database: `${c.emoji} Курс: базы данных`,
   };
-  const isTrack = currentLang === "ai" || currentLang === "interop" || currentLang === "claudecode" || currentLang === "network" || currentLang === "os";
+  const isTrack = currentLang === "ai" || currentLang === "interop" || currentLang === "claudecode" || currentLang === "network" || currentLang === "os" || currentLang === "oop" || currentLang === "trading" || currentLang === "algorithms" || currentLang === "senior" || currentLang === "socialeng" || currentLang === "security" || currentLang === "cs" || currentLang === "capstone" || currentLang === "database";
   const h1 = customTitle[currentLang] || `${c.emoji} Курс по языку ${c.label} — работа с памятью`;
   document.getElementById("article").innerHTML = `
     <h1>${h1}</h1>
@@ -1036,12 +1623,15 @@ async function loadHome(){
     <blockquote><p>Слева — навигация по 5 уровням. Отмечай пройденные блоки — прогресс
        сохраняется в браузере <b>отдельно для каждого трека</b>. После каждого уровня —
        задачи и пет-проект.</p></blockquote>
-    <p>Вверху панели слева — <b>9 треков</b>: языки <b>🇨 C</b>, <b>➕ C++</b>,
-       <b>🐍 Python</b>, <b>🦀 Rust</b>, а также <b>🤖 ИИ</b>, <b>🔗 Интеграция</b>,
-       <b>⚡ Claude Code</b>, <b>🌐 Сети</b> и <b>🖥️ ОС</b>. Сквозная тема — <b>память</b>: в
-       языках это ручная → RAII → GC → borrow checker, у ИИ и Claude Code — <b>контекст</b>
-       (память агента), в Сетях байты <b>путешествуют</b> пакетами, а в ОС — <b>виртуальная
-       память</b> (кто эту память создаёт и раздаёт).</p>
+    <p>Вверху панели слева — <b>18 треков</b>: языки <b>🇨 C</b>, <b>➕ C++</b>, <b>🐍 Python</b>,
+       <b>🦀 Rust</b>, а также <b>🤖 ИИ</b>, <b>🔗 Интеграция</b>, <b>⚡ Claude Code</b>,
+       <b>🌐 Сети</b>, <b>🖥️ ОС</b>, <b>🏛️ ООП</b>, <b>📈 Трейдинг</b>, <b>🧮 Алгоритмы</b>,
+       <b>🧭 Senior-мышление</b>, <b>🎭 Соц. инженерия</b>, <b>🛡️ Этичный хакинг</b>,
+       <b>⚙️ Как работает компьютер</b>, <b>🔨 Капстоун-проекты</b> и <b>🗄️ Базы данных</b>. Это и <b>устройство машины</b>
+       (CPU, компиляция, ELF), и <b>работа с памятью</b>, и <b>проектирование</b> (ООП, SOLID), и
+       <b>мышление Senior</b>, и <b>безопасность</b> (AppSec), и <b>большие проекты</b> (свои
+       сервер/БД/язык) — всё для роста до системного разработчика. 🧭 Есть общий <b>Roadmap</b>
+       (кнопка в шапке слева).</p>
     <h2>Как учиться</h2>
     <ul>
       <li>📖 Читай модуль → 🛠️ повторяй на практике → ✅ решай задачи → 🚀 делай пет-проект.</li>
@@ -1051,7 +1641,8 @@ async function loadHome(){
     <div class="complete-bar" style="border-style:solid;border-color:var(--accent);background:var(--accent-soft)">
       <span>Готов начать?</span>
       <button class="btn-done" style="background:var(--accent)" onclick="loadModule('${first.path}')">Начать с урока 00 →</button>
-    </div>`;
+    </div>
+    ${tracksGridHTML()}`;
 }
 
 /* ============== Решебник ============== */

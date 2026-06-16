@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#f0fdfa"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#134e4a">Trade-offs: нет «лучшего», есть «лучшее для условий» ⭐⭐</text>
+
+  <!-- balance scale -->
+  <g transform="translate(380,0)">
+    <!-- pivot -->
+    <polygon points="0,170 -16,210 16,210" fill="#0f766e"/>
+    <rect x="-4" y="120" width="8" height="55" fill="#0f766e"/>
+    <!-- beam (tilted) -->
+    <g transform="rotate(-7)">
+      <rect x="-200" y="114" width="400" height="9" rx="4" fill="#0f766e"/>
+      <!-- left pan -->
+      <line x1="-180" y1="118" x2="-180" y2="150" stroke="#0f766e" stroke-width="2"/>
+      <rect x="-245" y="150" width="130" height="44" rx="8" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+      <text x="-180" y="170" text-anchor="middle" font-size="12.5" font-weight="700" fill="#134e4a">быстро</text>
+      <text x="-180" y="186" text-anchor="middle" font-size="12.5" font-weight="700" fill="#134e4a">написать</text>
+      <!-- right pan -->
+      <line x1="180" y1="118" x2="180" y2="150" stroke="#0f766e" stroke-width="2"/>
+      <rect x="115" y="150" width="130" height="44" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+      <text x="180" y="170" text-anchor="middle" font-size="12.5" font-weight="700" fill="#134e4a">быстро</text>
+      <text x="180" y="186" text-anchor="middle" font-size="12.5" font-weight="700" fill="#134e4a">работает</text>
+    </g>
+  </g>
+
+  <!-- list of classic tradeoffs -->
+  <rect x="60" y="240" width="640" height="115" rx="10" fill="#fff" stroke="#5eead4"/>
+  <text x="80" y="264" font-size="12.5" font-weight="700" fill="#0f766e">Классические инженерные размены:</text>
+  <g font-size="12" fill="#134e4a">
+    <text x="80" y="288">• простота ⟷ гибкость</text>
+    <text x="80" y="310">• память ⟷ время</text>
+    <text x="80" y="332">• надёжность ⟷ скорость выпуска</text>
+    <text x="400" y="288">• сделать самим ⟷ взять готовое</text>
+    <text x="400" y="310">• консистентность ⟷ доступность (CAP)</text>
+    <text x="400" y="332">• безопасность ⟷ удобство</text>
+  </g>
+
+  <text x="380" y="382" text-anchor="middle" font-size="12.5" font-style="italic" fill="#0f766e">«какая БД/язык/архитектура лучше?» → «зависит от контекста». Senior знает — от чего.</text>
+</svg>

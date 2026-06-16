@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="720" height="420" rx="16" fill="#fffbeb"/>
+  <text x="360" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#713f12">Риск/прибыль и размер позиции ⭐⭐</text>
+
+  <!-- R:R diagram -->
+  <line x1="120" y1="90" x2="120" y2="300" stroke="#94a3b8" stroke-width="2"/>
+  <!-- entry -->
+  <line x1="110" y1="210" x2="320" y2="210" stroke="#1e293b" stroke-width="2"/>
+  <text x="330" y="214" font-size="13" font-weight="700" fill="#1e293b">ВХОД</text>
+  <!-- take profit zone -->
+  <rect x="110" y="110" width="20" height="100" fill="#22c55e" opacity="0.5"/>
+  <line x1="110" y1="110" x2="320" y2="110" stroke="#166534" stroke-width="2" stroke-dasharray="5"/>
+  <text x="330" y="114" font-size="13" font-weight="700" fill="#166534">ТЕЙК (+2R) → прибыль 200$</text>
+  <!-- stop zone -->
+  <rect x="110" y="210" width="20" height="50" fill="#ef4444" opacity="0.5"/>
+  <line x1="110" y1="260" x2="320" y2="260" stroke="#991b1b" stroke-width="2" stroke-dasharray="5"/>
+  <text x="330" y="264" font-size="13" font-weight="700" fill="#991b1b">СТОП (−1R) → риск 100$</text>
+  <text x="360" y="295" text-anchor="middle" font-size="13" fill="#444">риск/прибыль = 1:2 (рискуешь меньше, чем берёшь)</text>
+
+  <!-- math box -->
+  <rect x="60" y="320" width="600" height="84" rx="12" fill="#fef3c7"/>
+  <text x="360" y="348" text-anchor="middle" font-size="13.5" font-weight="700" fill="#713f12">Прибыльно даже при win rate 40%:</text>
+  <text x="360" y="374" text-anchor="middle" font-size="13" fill="#5a4a20">10 сделок: 4 прибыльных ×200$ = +800$ · 6 убыточных ×100$ = −600$ → ИТОГО +200$</text>
+  <text x="360" y="396" text-anchor="middle" font-size="12.5" font-style="italic" fill="#926310">риск ≤1-2% депозита на сделку · размер позиции считаешь ОТ стопа</text>
+</svg>

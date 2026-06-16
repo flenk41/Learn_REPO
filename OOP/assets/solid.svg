@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="720" height="400" rx="16" fill="#f0fdf4"/>
+  <text x="360" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#14532d">SOLID — 5 принципов проектирования</text>
+  <text x="360" y="66" text-anchor="middle" font-size="13" fill="#047857">общая цель: чтобы код было легко МЕНЯТЬ (управление зависимостями)</text>
+
+  <g font-size="13">
+    <rect x="60" y="86" width="600" height="54" rx="10" fill="#fff" stroke="#059669" stroke-width="2"/>
+    <circle cx="92" cy="113" r="18" fill="#059669"/><text x="92" y="119" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">S</text>
+    <text x="124" y="108" font-weight="700" fill="#065f46">Single Responsibility</text>
+    <text x="124" y="128" fill="#334155">одна ответственность / одна причина для изменения</text>
+
+    <rect x="60" y="148" width="600" height="54" rx="10" fill="#fff" stroke="#059669" stroke-width="2"/>
+    <circle cx="92" cy="175" r="18" fill="#059669"/><text x="92" y="181" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">O</text>
+    <text x="124" y="170" font-weight="700" fill="#065f46">Open/Closed</text>
+    <text x="124" y="190" fill="#334155">открыт для расширения, закрыт для изменения (полиморфизм)</text>
+
+    <rect x="60" y="210" width="600" height="54" rx="10" fill="#fff" stroke="#059669" stroke-width="2"/>
+    <circle cx="92" cy="237" r="18" fill="#059669"/><text x="92" y="243" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">L</text>
+    <text x="124" y="232" font-weight="700" fill="#065f46">Liskov Substitution</text>
+    <text x="124" y="252" fill="#334155">потомок заменяет родителя без сюрпризов</text>
+
+    <rect x="60" y="272" width="600" height="54" rx="10" fill="#fff" stroke="#059669" stroke-width="2"/>
+    <circle cx="92" cy="299" r="18" fill="#059669"/><text x="92" y="305" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">I</text>
+    <text x="124" y="294" font-weight="700" fill="#065f46">Interface Segregation</text>
+    <text x="124" y="314" fill="#334155">много маленьких интерфейсов лучше одного толстого</text>
+
+    <rect x="60" y="334" width="600" height="54" rx="10" fill="#fff" stroke="#059669" stroke-width="2"/>
+    <circle cx="92" cy="361" r="18" fill="#059669"/><text x="92" y="367" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">D</text>
+    <text x="124" y="356" font-weight="700" fill="#065f46">Dependency Inversion</text>
+    <text x="124" y="376" fill="#334155">зависеть от абстракций, а не от конкретных реализаций</text>
+  </g>
+</svg>

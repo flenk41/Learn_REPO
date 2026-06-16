@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="400" rx="16" fill="#eef2ff"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#312e81">Динамическое программирование: таблица вместо повторов</text>
+
+  <!-- left: naive recursion repeats -->
+  <text x="190" y="74" text-anchor="middle" font-size="14" font-weight="700" fill="#dc2626">Наивная рекурсия — считает заново</text>
+  <g stroke="#cbd5e1" stroke-width="1.8">
+    <line x1="190" y1="95" x2="130" y2="140"/><line x1="190" y1="95" x2="250" y2="140"/>
+    <line x1="130" y1="140" x2="90" y2="185"/><line x1="130" y1="140" x2="170" y2="185"/>
+    <line x1="250" y1="140" x2="210" y2="185"/><line x1="250" y1="140" x2="290" y2="185"/>
+  </g>
+  <g text-anchor="middle" font-size="12" font-weight="700" font-family="Consolas, monospace">
+    <circle cx="190" cy="95" r="18" fill="#6366f1"/><text x="190" y="100" fill="#fff">f5</text>
+    <circle cx="130" cy="140" r="16" fill="#818cf8"/><text x="130" y="145" fill="#fff">f4</text>
+    <circle cx="250" cy="140" r="16" fill="#f87171"/><text x="250" y="145" fill="#fff">f3</text>
+    <circle cx="90" cy="185" r="15" fill="#f87171"/><text x="90" y="190" fill="#fff">f3</text>
+    <circle cx="170" cy="185" r="15" fill="#fca5a5"/><text x="170" y="190" fill="#fff">f2</text>
+    <circle cx="210" cy="185" r="15" fill="#fca5a5"/><text x="210" y="190" fill="#fff">f2</text>
+    <circle cx="290" cy="185" r="15" fill="#fca5a5"/><text x="290" y="190" fill="#fff">f2</text>
+  </g>
+  <text x="190" y="225" text-anchor="middle" font-size="11" fill="#dc2626">f3, f2 считаются по нескольку раз → O(2ⁿ)</text>
+
+  <line x1="385" y1="60" x2="385" y2="300" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- right: DP table filled once -->
+  <text x="575" y="74" text-anchor="middle" font-size="14" font-weight="700" fill="#16a34a">DP — заполни таблицу один раз</text>
+  <g font-family="Consolas, monospace" font-size="13" text-anchor="middle">
+    <g>
+      <rect x="445" y="95" width="44" height="40" fill="#dcfce7" stroke="#16a34a"/><text x="467" y="121" fill="#166534">0</text>
+      <rect x="489" y="95" width="44" height="40" fill="#dcfce7" stroke="#16a34a"/><text x="511" y="121" fill="#166534">1</text>
+      <rect x="533" y="95" width="44" height="40" fill="#dcfce7" stroke="#16a34a"/><text x="555" y="121" fill="#166534">1</text>
+      <rect x="577" y="95" width="44" height="40" fill="#dcfce7" stroke="#16a34a"/><text x="599" y="121" fill="#166534">2</text>
+      <rect x="621" y="95" width="44" height="40" fill="#dcfce7" stroke="#16a34a"/><text x="643" y="121" fill="#166534">3</text>
+      <rect x="665" y="95" width="44" height="40" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/><text x="687" y="121" fill="#166534" font-weight="700">5</text>
+    </g>
+    <g font-size="11" fill="#475569">
+      <text x="467" y="152">f0</text><text x="511" y="152">f1</text><text x="555" y="152">f2</text>
+      <text x="599" y="152">f3</text><text x="643" y="152">f4</text><text x="687" y="152">f5</text>
+    </g>
+  </g>
+  <text x="577" y="185" text-anchor="middle" font-size="11.5" fill="#16a34a" font-weight="700">каждое значение = сумма двух предыдущих</text>
+  <path d="M555,160 C560,200 595,200 599,162" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#ag)"/>
+  <path d="M599,160 C605,205 640,205 643,162" fill="none" stroke="#16a34a" stroke-width="1.8" marker-end="url(#ag)"/>
+  <defs><marker id="ag" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 z" fill="#16a34a"/></marker></defs>
+  <text x="577" y="240" text-anchor="middle" font-size="11" fill="#15803d">каждая подзадача — РОВНО один раз → O(n)</text>
+
+  <rect x="60" y="315" width="640" height="68" rx="10" fill="#e0e7ff"/>
+  <text x="380" y="340" text-anchor="middle" font-size="12.5" fill="#3730a3">DP = разбей задачу на подзадачи и <tspan font-weight="700">запомни их ответы</tspan> (мемоизация / таблица), чтобы не считать дважды.</text>
+  <text x="380" y="362" text-anchor="middle" font-size="12.5" fill="#3730a3">Размен: тратим <tspan font-weight="700">память</tspan> на таблицу, выигрываем огромную <tspan font-weight="700">скорость</tspan> (O(2ⁿ) → O(n)).</text>
+  <text x="380" y="380" text-anchor="middle" font-size="11" font-style="italic" fill="#4f46e5">тот самый компромисс «время↔память» из темы Big-O</text>
+</svg>

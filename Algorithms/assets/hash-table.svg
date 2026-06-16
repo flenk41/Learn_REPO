@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="380" rx="16" fill="#eef2ff"/>
+  <text x="380" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#312e81">Хеш-таблица: ключ → хеш → корзина (O(1) в среднем)</text>
+
+  <!-- keys -->
+  <g text-anchor="middle">
+    <rect x="40" y="80" width="120" height="34" rx="6" fill="#4f46e5"/><text x="100" y="103" font-size="13" fill="#fff" font-family="Consolas, monospace">"Анна"</text>
+    <rect x="40" y="160" width="120" height="34" rx="6" fill="#4f46e5"/><text x="100" y="183" font-size="13" fill="#fff" font-family="Consolas, monospace">"Иван"</text>
+    <rect x="40" y="240" width="120" height="34" rx="6" fill="#4f46e5"/><text x="100" y="263" font-size="13" fill="#fff" font-family="Consolas, monospace">"Олег"</text>
+  </g>
+
+  <!-- hash function -->
+  <rect x="210" y="120" width="120" height="120" rx="12" fill="#fff" stroke="#4f46e5" stroke-width="2.5"/>
+  <text x="270" y="172" text-anchor="middle" font-size="14" fill="#312e81" font-weight="700">hash()</text>
+  <text x="270" y="194" text-anchor="middle" font-size="11" fill="#6366f1">% размер</text>
+  <defs><marker id="ai" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#818cf8"/></marker></defs>
+  <g stroke="#818cf8" stroke-width="2" marker-end="url(#ai)" fill="none">
+    <path d="M162,97 C190,97 185,150 208,160"/>
+    <path d="M162,177 L208,180"/>
+    <path d="M162,257 C190,257 185,210 208,205"/>
+  </g>
+
+  <!-- buckets -->
+  <text x="540" y="70" text-anchor="middle" font-size="12.5" fill="#475569" font-weight="700">корзины (массив)</text>
+  <g font-size="12.5" font-family="Consolas, monospace">
+    <rect x="420" y="82" width="40" height="34" fill="#e0e7ff" stroke="#a5b4fc"/><text x="440" y="105" text-anchor="middle" fill="#312e81">0</text>
+    <rect x="420" y="120" width="40" height="34" fill="#e0e7ff" stroke="#a5b4fc"/><text x="440" y="143" text-anchor="middle" fill="#312e81">1</text>
+    <rect x="420" y="158" width="40" height="34" fill="#e0e7ff" stroke="#a5b4fc"/><text x="440" y="181" text-anchor="middle" fill="#312e81">2</text>
+    <rect x="420" y="196" width="40" height="34" fill="#e0e7ff" stroke="#a5b4fc"/><text x="440" y="219" text-anchor="middle" fill="#312e81">3</text>
+    <rect x="420" y="234" width="40" height="34" fill="#e0e7ff" stroke="#a5b4fc"/><text x="440" y="257" text-anchor="middle" fill="#312e81">4</text>
+  </g>
+  <!-- entries -->
+  <g text-anchor="middle" font-size="12" font-family="Consolas, monospace">
+    <rect x="475" y="120" width="120" height="34" rx="5" fill="#22c55e"/><text x="535" y="143" fill="#fff">Анна:25</text>
+    <rect x="475" y="196" width="120" height="34" rx="5" fill="#22c55e"/><text x="535" y="219" fill="#fff">Иван:30</text>
+    <!-- collision chain -->
+    <rect x="475" y="234" width="120" height="34" rx="5" fill="#22c55e"/><text x="535" y="257" fill="#fff">Олег:41</text>
+    <rect x="610" y="234" width="120" height="34" rx="5" fill="#f59e0b"/><text x="670" y="257" fill="#fff">Пётр:19</text>
+  </g>
+  <line x1="460" y1="137" x2="473" y2="137" stroke="#16a34a" stroke-width="2"/>
+  <line x1="460" y1="213" x2="473" y2="213" stroke="#16a34a" stroke-width="2"/>
+  <line x1="460" y1="251" x2="473" y2="251" stroke="#16a34a" stroke-width="2"/>
+  <line x1="595" y1="251" x2="608" y2="251" stroke="#f59e0b" stroke-width="2"/>
+  <text x="730" y="290" text-anchor="end" font-size="11" fill="#b45309" font-weight="700">↑ коллизия: цепочка в одной корзине</text>
+
+  <text x="380" y="335" text-anchor="middle" font-size="12.5" fill="#3730a3">Хеш превращает ключ в индекс — доступ почти мгновенный. Разные ключи в одну корзину = коллизия (цепочка).</text>
+  <text x="380" y="357" text-anchor="middle" font-size="11.5" font-style="italic" fill="#4f46e5">средний случай O(1), худший (всё в одну корзину) — O(n)</text>
+</svg>
