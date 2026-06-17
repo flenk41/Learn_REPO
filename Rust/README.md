@@ -97,6 +97,7 @@ flowchart TD
 - [05 · Функции](01-basics/05-functions.md)
 - [06 · Управление потоком и match](01-basics/06-control-flow.md)
 - [07 · Ввод-вывод и строки](01-basics/07-io-strings.md)
+- [07b · Разбиваем проект на файлы](01-basics/07b-multiple-files.md)
 - ✅ [Задачи уровня 1](01-basics/TASKS.md)
 - 🚀 [Пет-проект: угадай число](01-basics/PROJECT.md)
 

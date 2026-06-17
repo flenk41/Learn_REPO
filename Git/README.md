@@ -6,7 +6,7 @@
 > разработки и обязательный пункт любого собеседования.
 
 > 🧭 Дополняет [🧭 Senior-мышление](../Senior/01-craft/06-code-review.md) (код-ревью как практика) и
-> [🛡️ безопасность](../Security/03-defensive-code/19-secrets-supply-chain.md) (секреты в репозитории).
+> [🛡️ безопасность](../Security/03-defensive-code/19-secrets-dependencies.md) (секреты в репозитории).
 
 ---
 

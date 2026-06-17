@@ -75,6 +75,7 @@ flowchart TD
 - [05 · Операторы и условия](01-basics/05-operators-conditions.md)
 - [06 · Циклы](01-basics/06-loops.md)
 - [07 · Функции](01-basics/07-functions.md)
+- [07b · Разбиваем проект на файлы](01-basics/07b-multiple-files.md)
 - ✅ [Задачи уровня 1](01-basics/TASKS.md)
 - 🚀 [Пет-проект: консольный калькулятор](01-basics/PROJECT.md)
 

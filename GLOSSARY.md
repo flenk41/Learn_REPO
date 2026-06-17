@@ -329,5 +329,67 @@
 
 ---
 
+## 🌳 Git и код-ревью
+
+- **Контроль версий (VCS)** — система, хранящая историю изменений проекта (кто/что/когда/зачем). → [Зачем VCS](Git/00-intro/00-why-version-control.md)
+- **Коммит** — снимок всего проекта + автор/дата/сообщение + ссылка на родителя. → [Что такое Git](Git/00-intro/01-what-is-git.md)
+- **Снимок vs дельта** — Git хранит снимки состояния, а не пошаговые изменения. → [Что такое Git](Git/00-intro/01-what-is-git.md)
+- **Staging (индекс)** — зона «что войдёт в следующий коммит»; собирается через `git add`. → [Staging и commit](Git/01-basics/03-repo-staging-commit.md)
+- **HEAD** — указатель на «где ты сейчас» (обычно текущая ветка → её последний коммит). → [Что такое Git](Git/00-intro/01-what-is-git.md)
+- **git status** — компас: что изменено, в staging, на какой ветке; подсказывает команды. → [Staging и commit](Git/01-basics/03-repo-staging-commit.md)
+- **diff / blame** — разница между версиями / кто написал каждую строку и в каком коммите. → [История](Git/01-basics/04-history-log-diff.md)
+- **reset / restore / revert** — отменить коммит (двигает ветку) / откатить файл / коммит-отмена (для опубликованного). → [Отмена изменений](Git/01-basics/05-undoing-changes.md)
+- **reflog** — журнал всех перемещений HEAD; страховка для восстановления «потерянного». → [Восстановление](Git/04-pro/23-recovery.md)
+- **.gitignore** — список путей, которые Git не отслеживает (артефакты, зависимости, секреты). → [.gitignore](Git/01-basics/06-gitignore.md)
+- **Атомарный коммит** — одно логическое, обратимое изменение с ясным сообщением (императив, «почему»). → [Хорошие коммиты](Git/01-basics/07-good-commits.md)
+- **Ветка** — лёгкий подвижный указатель на коммит (не копия файлов); создаётся мгновенно. → [Ветки](Git/02-branching/08-branches.md)
+- **Merge** — объединение веток; fast-forward (перемотка) или merge-коммит (2 родителя). → [Слияние](Git/02-branching/09-merge.md)
+- **Конфликт слияния** — обе ветки правили одно место; решает человек (маркеры `<<< === >>>`). → [Конфликты](Git/02-branching/10-conflicts.md)
+- **Rebase** — «пересадка» коммитов на новую базу → линейная история; переписывает хеши. → [Rebase](Git/02-branching/11-rebase.md)
+- **Золотое правило rebase** — не переписывать опубликованную/общую историю. → [Rebase](Git/02-branching/11-rebase.md)
+- **Remote / origin** — ссылка на копию репозитория на сервере; origin — главный по умолчанию. → [Удалённые репозитории](Git/03-collaboration/13-remotes.md)
+- **fetch / pull / push** — забрать в origin/* / забрать+слить / отдать свои коммиты. → [Fetch/pull/push](Git/03-collaboration/14-fetch-pull-push.md)
+- **Pull request (PR)** — предложение влить ветку с диффом, ревью и CI; ворота качества перед main. → [Pull request](Git/03-collaboration/15-pull-requests.md)
+- **Код-ревью** — проверка изменений другим (качество + знание + обучение); критикуй код, не человека. → [Код-ревью](Git/03-collaboration/16-code-review.md)
+- **Workflow (GitHub Flow / trunk-based / Git Flow)** — модель ветвления команды. → [Рабочие процессы](Git/03-collaboration/17-workflows.md)
+- **Интерактивный rebase** — причесать историю до публикации (squash/reword/drop/reorder). → [Interactive rebase](Git/04-pro/18-interactive-rebase.md)
+- **stash / cherry-pick** — отложить незакоммиченное / перенести один коммит между ветками. → [stash/cherry/reflog](Git/04-pro/19-stash-cherry-reflog.md)
+- **Тег / semver** — метка версии на коммите / MAJOR.MINOR.PATCH как контракт совместимости. → [Теги и релизы](Git/04-pro/20-tags-releases.md)
+- **Git-хук / CI** — скрипт на событие (pre-commit) / серверные проверки на PR (ворота качества). → [Хуки и CI](Git/04-pro/21-hooks-ci.md)
+- **git bisect** — двоичный поиск коммита, внёсшего баг (log₂ проверок вместо перебора). → [Bisect](Git/04-pro/22-large-repos-bisect.md)
+
+---
+
+## 🎮 Roblox (Luau)
+
+- **Roblox Studio** — бесплатный редактор, в котором создают игры Roblox (3D-мир + скрипты). → [Установка](Roblox/00-intro/01-studio-setup.md)
+- **Luau** — язык программирования Roblox (диалект Lua с типами); вся логика на нём. → [Luau основы](Roblox/02-scripting/08-luau-basics.md)
+- **Instance** — любой объект игры (Part, Script, игрок...); всё образует дерево `game` (DataModel). → [Instances](Roblox/01-studio/04-instances-hierarchy.md)
+- **Part** — базовый строительный кубик мира; из Parts собирается почти всё. → [Parts](Roblox/01-studio/03-parts-properties.md)
+- **Anchored / CanCollide** — закреплён ли деталь (физика не двигает) / можно ли пройти насквозь. → [Parts](Roblox/01-studio/03-parts-properties.md)
+- **Workspace** — контейнер видимого 3D-мира в дереве game. → [Instances](Roblox/01-studio/04-instances-hierarchy.md)
+- **Player vs Character** — постоянный объект игрока (очки/данные) vs временное тело (пересоздаётся при респауне). → [Спавн игрока](Roblox/01-studio/06-player-spawn.md)
+- **Humanoid** — компонент персонажа (Health, WalkSpeed, JumpPower); «ручка управления» игроком. → [Спавн игрока](Roblox/01-studio/06-player-spawn.md)
+- **Instance.new / :Clone / :Destroy** — создать объект из кода (нужен `.Parent`) / копировать / удалить. → [Объекты из кода](Roblox/02-scripting/09-instances-from-code.md)
+- **WaitForChild / FindFirstChild** — дождаться объект / найти (nil, если нет) — при доступе из кода. → [Объекты из кода](Roblox/02-scripting/09-instances-from-code.md)
+- **Событие (Event) / :Connect** — сигнал «что-то случилось» (Touched, PlayerAdded); подписка функцией. → [События](Roblox/02-scripting/10-events.md)
+- **Touched** — событие касания детали; всегда проверяй Humanoid (что коснулся игрок). → [События](Roblox/02-scripting/10-events.md)
+- **Debounce** — флаг-защита от многократного срабатывания события за одно действие. → [События](Roblox/02-scripting/10-events.md)
+- **Сервис / GetService** — встроенная система Roblox (Players, RunService, DataStoreService...). → [Сервисы](Roblox/02-scripting/11-services-script-types.md)
+- **Script vs LocalScript** — код на сервере (авторитетный) vs на клиенте (у игрока, недоверенный). → [Сервисы](Roblox/02-scripting/11-services-script-types.md)
+- **ModuleScript** — переиспользуемый код-библиотека; подключается через `require`. → [Сервисы](Roblox/02-scripting/11-services-script-types.md)
+- **task.wait / Heartbeat / deltaTime** — пауза / покадровое обновление / время кадра (для FPS-независимого движения). → [Игровой цикл](Roblox/02-scripting/12-game-state-loops.md)
+- **TweenService** — плавная анимация свойств (двери, GUI, цвета). → [Движение](Roblox/03-gameplay/13-movement-physics.md)
+- **GUI / ScreenGui / UDim2** — экранный интерфейс / контейнер / позиционирование (Scale+Offset). → [GUI](Roblox/03-gameplay/14-gui.md)
+- **RemoteEvent** — мост клиент↔сервер: клиент `FireServer` просит, сервер `OnServerEvent` проверяет. → [Клиент-сервер](Roblox/03-gameplay/15-client-server-remotes.md)
+- **DataStore** — облачное «ключ→значение» хранилище для сохранения прогресса (только сервер, `pcall`). → [DataStore](Roblox/03-gameplay/16-datastore-save.md)
+- **leaderstats** — папка в Player (с IntValue/StringValue), показываемая в таблице игроков (Tab). → [Механики](Roblox/03-gameplay/17-mechanics.md)
+- **Репликация** — авто-синхронизация серверного состояния всем клиентам (клиентское — только себе). → [Мультиплеер](Roblox/04-publish/18-multiplayer-replication.md)
+- **Эксплойт / анти-чит** — взлом клиента игрока; защита = сервер проверяет всё, не верит клиенту. → [Безопасность](Roblox/04-publish/19-security-exploits.md)
+- **Game Pass / Developer Product** — покупка за Robux: постоянная / расходуемая. → [Монетизация](Roblox/04-publish/21-monetization.md)
+- **Удержание (retention)** — главная метрика роста: возвращаются ли игроки; её продвигает алгоритм Roblox. → [Публикация](Roblox/04-publish/22-publishing-growth.md)
+
+---
+
 > 🧭 Не нашёл термин? Загляни в дорожную карту нужного трека (переключатель вверху панели слева)
 > или открой соответствующий модуль уровня 2 — там ядро каждой темы.

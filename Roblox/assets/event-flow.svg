@@ -1,0 +1,34 @@
+<svg viewBox="0 0 720 350" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="350" fill="#fdecea" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#7f1d1d">События: игра реагирует, а не опрашивает</text>
+
+  <!-- flow -->
+  <rect x="30" y="80" width="180" height="80" rx="10" fill="#fff" stroke="#e2231a" stroke-width="2"/>
+  <text x="120" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">игрок коснулся</text>
+  <text x="120" y="132" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">монеты</text>
+  <text x="120" y="150" text-anchor="middle" font-size="10.5" fill="#6b7280">что-то случилось</text>
+
+  <rect x="270" y="80" width="180" height="80" rx="10" fill="#e2231a"/>
+  <text x="360" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Coin.Touched</text>
+  <text x="360" y="130" text-anchor="middle" font-size="11.5" fill="#fde2dd">срабатывает событие</text>
+  <text x="360" y="148" text-anchor="middle" font-size="10.5" fill="#fde2dd">(сигнал)</text>
+
+  <rect x="510" y="80" width="180" height="80" rx="10" fill="#fff" stroke="#e2231a" stroke-width="2"/>
+  <text x="600" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#374151">твоя функция</text>
+  <text x="600" y="128" text-anchor="middle" font-size="11" fill="#6b7280">начислить очки,</text>
+  <text x="600" y="146" text-anchor="middle" font-size="11" fill="#6b7280">убрать монету</text>
+
+  <g stroke="#b91c1c" stroke-width="2.5" fill="none">
+    <path d="M 210 120 L 266 120"/><polygon points="270,120 261,115 261,125" fill="#b91c1c"/>
+    <path d="M 450 120 L 506 120"/><polygon points="510,120 501,115 501,125" fill="#b91c1c"/>
+  </g>
+  <text x="240" y="110" text-anchor="middle" font-size="10" fill="#b91c1c">:Connect</text>
+
+  <!-- code -->
+  <rect x="30" y="190" width="660" height="120" rx="8" fill="#1e1b1b"/>
+  <text x="48" y="214" font-size="12.5" font-family="monospace" fill="#fda4af">Coin.Touched:Connect(function(otherPart)</text>
+  <text x="68" y="236" font-size="12.5" font-family="monospace" fill="#93c5fd">local hum = otherPart.Parent:FindFirstChildWhichIsA("Humanoid")</text>
+  <text x="68" y="258" font-size="12.5" font-family="monospace" fill="#86efac">if hum then          -- проверь, что это ИГРОК!</text>
+  <text x="88" y="280" font-size="12.5" font-family="monospace" fill="#fde68a">Coin:Destroy()    -- + начислить (с debounce!)</text>
+  <text x="48" y="302" font-size="12.5" font-family="monospace" fill="#fda4af">end end)</text>
+</svg>

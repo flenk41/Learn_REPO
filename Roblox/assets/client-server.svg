@@ -1,0 +1,42 @@
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="380" fill="#fdecea" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#7f1d1d">Клиент просит — сервер проверяет и решает</text>
+
+  <!-- server -->
+  <rect x="30" y="60" width="300" height="230" rx="10" fill="#fff" stroke="#e2231a" stroke-width="2.5"/>
+  <rect x="30" y="60" width="300" height="34" rx="10" fill="#e2231a"/>
+  <rect x="30" y="77" width="300" height="17" fill="#e2231a"/>
+  <text x="180" y="83" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">СЕРВЕР (Script) — правда</text>
+  <g font-size="12" fill="#374151">
+    <text x="48" y="118">✓ хранит валюту, данные</text>
+    <text x="48" y="142">✓ начисляет очки, выдаёт</text>
+    <text x="48" y="166">✓ ПРОВЕРЯЕТ каждый запрос</text>
+    <text x="48" y="190">✓ сохраняет (DataStore)</text>
+  </g>
+  <rect x="48" y="208" width="264" height="64" rx="6" fill="#fee2e2"/>
+  <text x="60" y="230" font-size="11" font-family="monospace" fill="#7f1d1d">OnServerEvent:Connect(</text>
+  <text x="72" y="248" font-size="11" font-family="monospace" fill="#7f1d1d">function(player, kind)</text>
+  <text x="72" y="265" font-size="11" font-family="monospace" fill="#b91c1c">if coins &gt;= cost then ...</text>
+
+  <!-- clients -->
+  <rect x="430" y="60" width="260" height="110" rx="10" fill="#fff" stroke="#9ca3af" stroke-width="2"/>
+  <text x="560" y="84" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">КЛИЕНТ A (LocalScript)</text>
+  <text x="560" y="106" text-anchor="middle" font-size="11" fill="#6b7280">GUI · ввод · нажал «купить»</text>
+  <text x="560" y="128" text-anchor="middle" font-size="11" fill="#6b7280">эффекты «себе»</text>
+  <text x="560" y="152" text-anchor="middle" font-size="10.5" fill="#b91c1c">⚠ недоверенный (можно взломать)</text>
+
+  <rect x="430" y="185" width="260" height="80" rx="10" fill="#fff" stroke="#9ca3af" stroke-width="2"/>
+  <text x="560" y="209" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">КЛИЕНТ B</text>
+  <text x="560" y="231" text-anchor="middle" font-size="11" fill="#6b7280">свой GUI, свой ввод</text>
+  <text x="560" y="251" text-anchor="middle" font-size="10.5" fill="#b91c1c">⚠ тоже недоверенный</text>
+
+  <!-- remote arrows -->
+  <path d="M 430 115 L 335 140" stroke="#b91c1c" stroke-width="2.5" fill="none"/>
+  <polygon points="332,141 342,138 339,148" fill="#b91c1c"/>
+  <text x="382" y="118" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b91c1c">:FireServer</text>
+  <text x="382" y="160" text-anchor="middle" font-size="9.5" fill="#6b7280">«хочу купить»</text>
+
+  <rect x="40" y="305" width="650" height="55" rx="8" fill="#fee2e2" stroke="#f3b4a8"/>
+  <text x="360" y="328" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7f1d1d">RemoteEvent — единственный мост. Клиент НЕ выдаёт себе апгрейд — он ПРОСИТ.</text>
+  <text x="360" y="348" text-anchor="middle" font-size="12" fill="#7f1d1d">Сервер сам знает цену, проверяет валюту и решает. `player` подделать нельзя.</text>
+</svg>

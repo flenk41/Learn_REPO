@@ -61,18 +61,24 @@
     width: var(--sidebar-w);
     background: var(--bg-side);
     border-right: 1px solid var(--border);
-    overflow-y: auto;
+    overflow: hidden;
     z-index: 30;
     transition: transform .25s ease;
+    display: flex; flex-direction: column;
   }
   .side-head {
     padding: 20px 20px 14px;
     border-bottom: 1px solid var(--border);
-    position: sticky; top: 0; background: var(--bg-side); z-index: 2;
+    background: var(--bg-side);
+    flex: 0 0 auto;
+    overflow-y: auto;
+    max-height: 62vh;
   }
+  #nav { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
   .side-title { font-size: 17px; font-weight: 800; margin: 0 0 8px; cursor: pointer; }
   .side-sub { font-size: 12px; color: var(--text-soft); }
-  .lang-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+  .lang-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px;
+    max-height: 156px; overflow-y: auto; padding-right: 4px; }
   .lang-tab {
     flex: 1; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-soft);
     padding: 7px 10px; border-radius: 9px; cursor: pointer; font-size: 13px; font-weight: 700;
@@ -278,6 +284,8 @@
       <button class="lang-tab" data-lang="cs" onclick="switchLang('cs')">⚙️ Как работает ПК</button>
       <button class="lang-tab" data-lang="capstone" onclick="switchLang('capstone')">🔨 Капстоун-проекты</button>
       <button class="lang-tab" data-lang="database" onclick="switchLang('database')">🗄️ Базы данных</button>
+      <button class="lang-tab" data-lang="git" onclick="switchLang('git')">🌳 Git и ревью</button>
+      <button class="lang-tab" data-lang="roblox" onclick="switchLang('roblox')">🎮 Roblox</button>
     </div>
     <div class="side-sub" id="sideSub">от 🥚 новичка до 🦅 Senior</div>
     <div class="progress-wrap">
@@ -338,6 +346,7 @@ const COURSE_C = [
     { f:"05-operators-conditions.md", t:"05 · Операторы и условия" },
     { f:"06-loops.md",                t:"06 · Циклы" },
     { f:"07-functions.md",            t:"07 · Функции" },
+    { f:"07b-multiple-files.md",      t:"07b · Разбиваем проект на файлы" },
     { f:"TASKS.md",   t:"Задачи уровня 1",            type:"tasks" },
     { f:"PROJECT.md", t:"Калькулятор",                type:"project" },
   ]},
@@ -462,6 +471,7 @@ const COURSE_CPP = [
     { f:"05-operators-conditions.md", t:"05 · Операторы и условия" },
     { f:"06-loops.md",                t:"06 · Циклы и range-for" },
     { f:"07-functions.md",            t:"07 · Функции и ссылки" },
+    { f:"07b-multiple-files.md",      t:"07b · Разбиваем проект на файлы" },
     { f:"TASKS.md",   t:"Задачи уровня 1", type:"tasks" },
     { f:"PROJECT.md", t:"Калькулятор",     type:"project" },
   ]},
@@ -524,6 +534,7 @@ const COURSE_RUST = [
     { f:"05-functions.md",            t:"05 · Функции" },
     { f:"06-control-flow.md",         t:"06 · Поток и match" },
     { f:"07-io-strings.md",           t:"07 · Ввод-вывод и строки" },
+    { f:"07b-multiple-files.md",      t:"07b · Разбиваем проект на файлы" },
     { f:"TASKS.md",   t:"Задачи уровня 1", type:"tasks" },
     { f:"PROJECT.md", t:"Угадай число",    type:"project" },
   ]},
@@ -1186,6 +1197,96 @@ const COURSE_CAPSTONE = [
   ]},
 ];
 
+const COURSE_ROBLOX = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"Roblox/00-intro", mods:[
+    { f:"00-what-is-roblox.md",      t:"00 · Что такое Roblox и Luau" },
+    { f:"01-studio-setup.md",        t:"01 · Установка Roblox Studio" },
+    { f:"02-explorer-first-part.md", t:"02 · Explorer и первый Part" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Мир и Studio", dir:"Roblox/01-studio", mods:[
+    { f:"03-parts-properties.md",    t:"03 · Parts: свойства, якорь" },
+    { f:"04-instances-hierarchy.md", t:"04 · Instances: дерево объектов" },
+    { f:"05-terrain-lighting.md",    t:"05 · Terrain и освещение" },
+    { f:"06-player-spawn.md",        t:"06 · Спавн игрока и персонаж" },
+    { f:"07-toolbox-assets.md",      t:"07 · Toolbox и ассеты" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",       type:"tasks" },
+    { f:"PROJECT.md", t:"Мир симулятора",        type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Скриптинг ⭐", dir:"Roblox/02-scripting", mods:[
+    { f:"08-luau-basics.md",            t:"08 · Luau: основы" },
+    { f:"09-instances-from-code.md",    t:"09 · Объекты из кода ⭐⭐" },
+    { f:"10-events.md",                 t:"10 · События ⭐⭐" },
+    { f:"11-services-script-types.md",  t:"11 · Сервисы, Script vs LocalScript" },
+    { f:"12-game-state-loops.md",       t:"12 · Состояние и игровой цикл" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",       type:"tasks" },
+    { f:"PROJECT.md", t:"Ядро симулятора",       type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Геймплей", dir:"Roblox/03-gameplay", mods:[
+    { f:"13-movement-physics.md",       t:"13 · Движение и физика" },
+    { f:"14-gui.md",                    t:"14 · GUI: интерфейс игрока" },
+    { f:"15-client-server-remotes.md",  t:"15 · Клиент-сервер, RemoteEvents ⭐⭐" },
+    { f:"16-datastore-save.md",         t:"16 · Сохранение: DataStore" },
+    { f:"17-mechanics.md",              t:"17 · Механики: очки, апгрейды" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",       type:"tasks" },
+    { f:"PROJECT.md", t:"Полный цикл",           type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Доводка и публикация", dir:"Roblox/04-publish", mods:[
+    { f:"18-multiplayer-replication.md", t:"18 · Мультиплеер и репликация" },
+    { f:"19-security-exploits.md",       t:"19 · Безопасность: эксплойты" },
+    { f:"20-optimization.md",            t:"20 · Оптимизация" },
+    { f:"21-monetization.md",            t:"21 · Монетизация (Robux)" },
+    { f:"22-publishing-growth.md",       t:"22 · Публикация и рост" },
+    { f:"23-whats-next.md",              t:"23 · Куда расти дальше" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",       type:"tasks" },
+    { f:"PROJECT.md", t:"Опубликуй игру",        type:"project" },
+  ]},
+];
+
+const COURSE_GIT = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"Git/00-intro", mods:[
+    { f:"00-why-version-control.md", t:"00 · Зачем контроль версий" },
+    { f:"01-what-is-git.md",         t:"01 · Что такое Git: снимки" },
+    { f:"02-setup.md",               t:"02 · Установка и настройка" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Основы", dir:"Git/01-basics", mods:[
+    { f:"03-repo-staging-commit.md", t:"03 · Репозиторий, staging, commit" },
+    { f:"04-history-log-diff.md",    t:"04 · История: log и diff" },
+    { f:"05-undoing-changes.md",     t:"05 · Отмена изменений" },
+    { f:"06-gitignore.md",           t:"06 · .gitignore" },
+    { f:"07-good-commits.md",        t:"07 · Хорошие коммиты" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",   type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: чистая история", type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Ветки и слияние ⭐", dir:"Git/02-branching", mods:[
+    { f:"08-branches.md",        t:"08 · Ветки ⭐⭐" },
+    { f:"09-merge.md",           t:"09 · Слияние (merge) ⭐⭐" },
+    { f:"10-conflicts.md",       t:"10 · Конфликты слияния" },
+    { f:"11-rebase.md",          t:"11 · Rebase" },
+    { f:"12-merge-vs-rebase.md", t:"12 · Merge vs rebase" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",   type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: симуляция команды", type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Совместная работа и ревью", dir:"Git/03-collaboration", mods:[
+    { f:"13-remotes.md",          t:"13 · Удалённые репозитории" },
+    { f:"14-fetch-pull-push.md",  t:"14 · Fetch, pull, push" },
+    { f:"15-pull-requests.md",    t:"15 · Pull request" },
+    { f:"16-code-review.md",      t:"16 · Код-ревью" },
+    { f:"17-workflows.md",        t:"17 · Рабочие процессы" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",   type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: вклад через PR", type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Профи и восстановление", dir:"Git/04-pro", mods:[
+    { f:"18-interactive-rebase.md",  t:"18 · Интерактивный rebase" },
+    { f:"19-stash-cherry-reflog.md", t:"19 · stash, cherry-pick, reflog" },
+    { f:"20-tags-releases.md",       t:"20 · Теги, релизы, semver" },
+    { f:"21-hooks-ci.md",            t:"21 · Хуки и связь с CI" },
+    { f:"22-large-repos-bisect.md",  t:"22 · Большие репозитории, bisect" },
+    { f:"23-recovery.md",            t:"23 · Восстановление и аварии" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",   type:"tasks" },
+    { f:"PROJECT.md", t:"Проект: репозиторий под ключ", type:"project" },
+  ]},
+];
+
 const COURSE_DATABASE = [
   { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"Database/00-intro", mods:[
     { f:"00-why-databases.md", t:"00 · Зачем нужны базы данных" },
@@ -1287,6 +1388,12 @@ const COURSES = {
   database:{ label:"Базы данных", emoji:"🗄️", sub:"Данные: SQL, индексы, транзакции · от 🥚 до 🚀",
             blurb:"Почти каждое приложение хранит данные в БД. Реляционная модель, <b>SQL и JOIN-ы</b>, индексы, транзакции (ACID), NoSQL и масштабирование — один из самых востребованных навыков.",
             levels: COURSE_DATABASE },
+  git:    { label:"Git и код-ревью", emoji:"🌳", sub:"Версии, ветки, PR, ревью · от 🥚 до 🚀",
+            blurb:"Git — память проекта, нужен каждый день. Модель снимков, <b>ветки и слияние</b>, конфликты, rebase, удалённая работа, <b>pull request'ы и код-ревью</b>, восстановление. Базовый навык команды и собеседований.",
+            levels: COURSE_GIT },
+  roblox: { label:"Roblox", emoji:"🎮", sub:"Игра на Luau · от 🥚 до 🚀",
+            blurb:"Сделай и опубликуй свою игру в Roblox: <b>Roblox Studio</b> + язык <b>Luau</b>. Мир и объекты, <b>скриптинг и события</b>, GUI, клиент-сервер, сохранение, монетизация и публикация. Сквозной проект — симулятор. Отличный мотивирующий вход в геймдев.",
+            levels: COURSE_ROBLOX },
 };
 let currentLang = localStorage.getItem("course-lang") || "c";
 
@@ -1315,6 +1422,8 @@ function saveProgress() { localStorage.setItem(STORE_KEY, JSON.stringify([...don
 
 function updateLangUI() {
   document.querySelectorAll(".lang-tab").forEach(b => b.classList.toggle("active", b.dataset.lang === currentLang));
+  const at = document.querySelector(".lang-tab.active");
+  if (at) at.scrollIntoView({ block: "nearest" });
   document.getElementById("sideSub").textContent = COURSES[currentLang].sub;
 }
 function switchLang(lang) {
@@ -1343,6 +1452,8 @@ function langFromPath(p) {
   if (p && p.indexOf("ComputerScience/") === 0) return "cs";
   if (p && p.indexOf("Capstone/") === 0) return "capstone";
   if (p && p.indexOf("Database/") === 0) return "database";
+  if (p && p.indexOf("Git/") === 0) return "git";
+  if (p && p.indexOf("Roblox/") === 0) return "roblox";
   if (p && p.indexOf("C/") === 0) return "c";
   return null;
 }
@@ -1614,8 +1725,10 @@ async function loadHome(){
     cs: `${c.emoji} Курс: как работает компьютер`,
     capstone: `${c.emoji} Курс: капстоун-проекты`,
     database: `${c.emoji} Курс: базы данных`,
+    git: `${c.emoji} Курс: Git и код-ревью`,
+    roblox: `${c.emoji} Курс: игры в Roblox (Luau)`,
   };
-  const isTrack = currentLang === "ai" || currentLang === "interop" || currentLang === "claudecode" || currentLang === "network" || currentLang === "os" || currentLang === "oop" || currentLang === "trading" || currentLang === "algorithms" || currentLang === "senior" || currentLang === "socialeng" || currentLang === "security" || currentLang === "cs" || currentLang === "capstone" || currentLang === "database";
+  const isTrack = currentLang === "ai" || currentLang === "interop" || currentLang === "claudecode" || currentLang === "network" || currentLang === "os" || currentLang === "oop" || currentLang === "trading" || currentLang === "algorithms" || currentLang === "senior" || currentLang === "socialeng" || currentLang === "security" || currentLang === "cs" || currentLang === "capstone" || currentLang === "database" || currentLang === "git" || currentLang === "roblox";
   const h1 = customTitle[currentLang] || `${c.emoji} Курс по языку ${c.label} — работа с памятью`;
   document.getElementById("article").innerHTML = `
     <h1>${h1}</h1>
@@ -1623,11 +1736,11 @@ async function loadHome(){
     <blockquote><p>Слева — навигация по 5 уровням. Отмечай пройденные блоки — прогресс
        сохраняется в браузере <b>отдельно для каждого трека</b>. После каждого уровня —
        задачи и пет-проект.</p></blockquote>
-    <p>Вверху панели слева — <b>18 треков</b>: языки <b>🇨 C</b>, <b>➕ C++</b>, <b>🐍 Python</b>,
+    <p>Вверху панели слева — <b>20 треков</b>: языки <b>🇨 C</b>, <b>➕ C++</b>, <b>🐍 Python</b>,
        <b>🦀 Rust</b>, а также <b>🤖 ИИ</b>, <b>🔗 Интеграция</b>, <b>⚡ Claude Code</b>,
        <b>🌐 Сети</b>, <b>🖥️ ОС</b>, <b>🏛️ ООП</b>, <b>📈 Трейдинг</b>, <b>🧮 Алгоритмы</b>,
        <b>🧭 Senior-мышление</b>, <b>🎭 Соц. инженерия</b>, <b>🛡️ Этичный хакинг</b>,
-       <b>⚙️ Как работает компьютер</b>, <b>🔨 Капстоун-проекты</b> и <b>🗄️ Базы данных</b>. Это и <b>устройство машины</b>
+       <b>⚙️ Как работает компьютер</b>, <b>🔨 Капстоун-проекты</b>, <b>🗄️ Базы данных</b>, <b>🌳 Git и код-ревью</b> и <b>🎮 Roblox</b>. Это и <b>устройство машины</b>
        (CPU, компиляция, ELF), и <b>работа с памятью</b>, и <b>проектирование</b> (ООП, SOLID), и
        <b>мышление Senior</b>, и <b>безопасность</b> (AppSec), и <b>большие проекты</b> (свои
        сервер/БД/язык) — всё для роста до системного разработчика. 🧭 Есть общий <b>Roadmap</b>

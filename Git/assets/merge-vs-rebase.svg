@@ -1,0 +1,40 @@
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="380" fill="#fff5f3" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#7f1d1d">Merge vs Rebase — точность истории против чистоты</text>
+
+  <!-- MERGE -->
+  <rect x="30" y="55" width="320" height="150" rx="10" fill="#fff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="190" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#b91c1c">MERGE</text>
+  <line x1="55" y1="120" x2="290" y2="120" stroke="#b91c1c" stroke-width="2.5"/>
+  <g fill="#b91c1c"><circle cx="75" cy="120" r="9"/><circle cx="135" cy="120" r="9"/><circle cx="195" cy="120" r="9"/><circle cx="315" cy="120" r="0"/></g>
+  <circle cx="300" cy="120" r="11" fill="#7f1d1d"/><text x="300" y="124" text-anchor="middle" font-size="9" fill="#fff">M</text>
+  <path d="M 195 120 L 230 165 L 265 165" stroke="#f05133" stroke-width="2.5" fill="none"/>
+  <path d="M 265 165 L 300 120" stroke="#f05133" stroke-width="2.5" fill="none"/>
+  <g fill="#f05133"><circle cx="230" cy="165" r="9"/><circle cx="265" cy="165" r="9"/></g>
+  <text x="190" y="195" text-anchor="middle" font-size="11" fill="#374151">сохраняет ветвление · merge-коммит</text>
+
+  <!-- REBASE -->
+  <rect x="370" y="55" width="320" height="150" rx="10" fill="#fff" stroke="#f05133" stroke-width="2"/>
+  <text x="530" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#f05133">REBASE</text>
+  <line x1="395" y1="130" x2="660" y2="130" stroke="#b91c1c" stroke-width="2.5"/>
+  <g fill="#b91c1c"><circle cx="415" cy="130" r="9"/><circle cx="475" cy="130" r="9"/><circle cx="535" cy="130" r="9"/></g>
+  <g fill="#f05133"><circle cx="595" cy="130" r="9"/><circle cx="650" cy="130" r="9"/></g>
+  <text x="595" y="115" text-anchor="middle" font-size="10" fill="#f05133">D'</text>
+  <text x="650" y="115" text-anchor="middle" font-size="10" fill="#f05133">E'</text>
+  <text x="530" y="170" text-anchor="middle" font-size="11" fill="#374151">линейная история · новые хеши</text>
+
+  <!-- comparison table -->
+  <rect x="40" y="225" width="305" height="135" rx="8" fill="#ffe4de" stroke="#f3b4a8"/>
+  <text x="55" y="248" font-size="13" font-weight="700" fill="#b91c1c">Merge — когда:</text>
+  <text x="55" y="270" font-size="11.5" fill="#374151">• вливаешь в общую ветку (main)</text>
+  <text x="55" y="290" font-size="11.5" fill="#374151">• важна точная картина ветвления</text>
+  <text x="55" y="310" font-size="11.5" fill="#374151">• безопасно для опубликованного</text>
+  <text x="55" y="338" font-size="11.5" fill="#15803d" font-weight="700">✓ честная, но «ветвистая»</text>
+
+  <rect x="375" y="225" width="305" height="135" rx="8" fill="#ffe4de" stroke="#f3b4a8"/>
+  <text x="390" y="248" font-size="13" font-weight="700" fill="#f05133">Rebase — когда:</text>
+  <text x="390" y="270" font-size="11.5" fill="#374151">• актуализируешь СВОЮ ветку</text>
+  <text x="390" y="290" font-size="11.5" fill="#374151">• причёсываешь до публикации</text>
+  <text x="390" y="310" font-size="11.5" fill="#b91c1c">⚠ только неопубликованное!</text>
+  <text x="390" y="338" font-size="11.5" fill="#15803d" font-weight="700">✓ чистая, но «приукрашенная»</text>
+</svg>
