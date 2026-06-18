@@ -1,0 +1,48 @@
+<svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="360" fill="#eef2ff" rx="12"/>
+  <text x="360" y="34" text-anchor="middle" font-size="19" font-weight="700" fill="#312e81">Каркас дизайна: 6 шагов на любую задачу</text>
+
+  <g font-family="-apple-system,Segoe UI,sans-serif">
+    <rect x="35" y="70" width="200" height="74" rx="10" fill="#fff" stroke="#3730a3" stroke-width="2"/>
+    <text x="50" y="95" font-size="13" font-weight="700" fill="#3730a3">① Требования</text>
+    <text x="50" y="116" font-size="11" fill="#475569">функции + NFR,</text>
+    <text x="50" y="132" font-size="11" fill="#475569">зафиксируй scope</text>
+
+    <rect x="260" y="70" width="200" height="74" rx="10" fill="#fff" stroke="#3730a3" stroke-width="2"/>
+    <text x="275" y="95" font-size="13" font-weight="700" fill="#3730a3">② Оценка масштаба</text>
+    <text x="275" y="116" font-size="11" fill="#475569">rps чтений/записей,</text>
+    <text x="275" y="132" font-size="11" fill="#475569">где будет больно</text>
+
+    <rect x="485" y="70" width="200" height="74" rx="10" fill="#fff" stroke="#3730a3" stroke-width="2"/>
+    <text x="500" y="95" font-size="13" font-weight="700" fill="#3730a3">③ API</text>
+    <text x="500" y="116" font-size="11" fill="#475569">основные операции</text>
+    <text x="500" y="132" font-size="11" fill="#475569">(контракт наружу)</text>
+
+    <rect x="35" y="180" width="200" height="74" rx="10" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+    <text x="50" y="205" font-size="13" font-weight="700" fill="#4338ca">④ Высокоур. схема</text>
+    <text x="50" y="226" font-size="11" fill="#475569">клиент→LB→серверы</text>
+    <text x="50" y="242" font-size="11" fill="#475569">→ кэш/БД/очереди</text>
+
+    <rect x="260" y="180" width="200" height="74" rx="10" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+    <text x="275" y="205" font-size="13" font-weight="700" fill="#4338ca">⑤ Детализация</text>
+    <text x="275" y="226" font-size="11" fill="#475569">углубись в 1-2</text>
+    <text x="275" y="242" font-size="11" fill="#475569">ключевых места</text>
+
+    <rect x="485" y="180" width="200" height="74" rx="10" fill="#312e81"/>
+    <text x="500" y="205" font-size="13" font-weight="700" fill="#fff">⑥ Масштаб + компромиссы</text>
+    <text x="500" y="226" font-size="11" fill="#c7d2fe">как растёт, узкие места,</text>
+    <text x="500" y="242" font-size="11" fill="#c7d2fe">что чем платим</text>
+  </g>
+
+  <g stroke="#6366f1" stroke-width="2" fill="none">
+    <path d="M 235 107 L 258 107"/><polygon points="260,107 252,103 252,111" fill="#6366f1"/>
+    <path d="M 460 107 L 483 107"/><polygon points="485,107 477,103 477,111" fill="#6366f1"/>
+    <path d="M 585 144 L 585 162 L 135 162 L 135 178"/><polygon points="135,180 131,172 139,172" fill="#6366f1"/>
+    <path d="M 235 217 L 258 217"/><polygon points="260,217 252,213 252,221" fill="#6366f1"/>
+    <path d="M 460 217 L 483 217"/><polygon points="485,217 477,213 477,221" fill="#6366f1"/>
+  </g>
+
+  <rect x="35" y="290" width="650" height="48" rx="8" fill="#e0e7ff" stroke="#a5b4fc"/>
+  <text x="360" y="312" text-anchor="middle" font-size="12.5" font-weight="700" fill="#312e81">Структура важнее эрудиции: оценивают ХОД МЫСЛИ, а не зазубренную схему.</text>
+  <text x="360" y="331" text-anchor="middle" font-size="12" fill="#3730a3">Начинай просто → масштабируй итеративно → называй компромиссы.</text>
+</svg>

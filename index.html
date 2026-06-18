@@ -286,6 +286,7 @@
       <button class="lang-tab" data-lang="database" onclick="switchLang('database')">🗄️ Базы данных</button>
       <button class="lang-tab" data-lang="git" onclick="switchLang('git')">🌳 Git и ревью</button>
       <button class="lang-tab" data-lang="roblox" onclick="switchLang('roblox')">🎮 Roblox</button>
+      <button class="lang-tab" data-lang="sysdesign" onclick="switchLang('sysdesign')">🏗️ Системный дизайн</button>
     </div>
     <div class="side-sub" id="sideSub">от 🥚 новичка до 🦅 Senior</div>
     <div class="progress-wrap">
@@ -1197,6 +1198,51 @@ const COURSE_CAPSTONE = [
   ]},
 ];
 
+const COURSE_SYSDESIGN = [
+  { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"SystemDesign/00-intro", mods:[
+    { f:"00-what-is-system-design.md", t:"00 · Что такое системный дизайн" },
+    { f:"01-requirements-estimation.md", t:"01 · Требования и оценка масштаба" },
+    { f:"02-approach-framework.md",    t:"02 · Как подходить к задаче" },
+  ]},
+  { id:"l1", emoji:"🐣", name:"Уровень 1 · Строительные блоки", dir:"SystemDesign/01-building-blocks", mods:[
+    { f:"03-request-path.md",    t:"03 · Путь запроса: DNS, клиент-сервер" },
+    { f:"04-load-balancers.md",  t:"04 · Балансировщики нагрузки" },
+    { f:"05-caching-cdn.md",     t:"05 · Кэширование и CDN" },
+    { f:"06-databases.md",       t:"06 · Базы данных в дизайне" },
+    { f:"07-message-queues.md",  t:"07 · Очереди сообщений" },
+    { f:"TASKS.md",   t:"Задачи уровня 1",       type:"tasks" },
+    { f:"PROJECT.md", t:"Архитектура из блоков",  type:"project" },
+  ]},
+  { id:"l2", emoji:"🐥", name:"Уровень 2 · Масштабирование ⭐", dir:"SystemDesign/02-scaling", mods:[
+    { f:"08-vertical-horizontal.md", t:"08 · Вертикально vs горизонтально ⭐⭐" },
+    { f:"09-stateless-sessions.md",  t:"09 · Stateless и сессии ⭐⭐" },
+    { f:"10-replication-sharding.md",t:"10 · Репликация и шардинг" },
+    { f:"11-consistency-cap.md",     t:"11 · Консистентность и CAP" },
+    { f:"12-bottlenecks.md",         t:"12 · Узкие места" },
+    { f:"TASKS.md",   t:"Задачи уровня 2",       type:"tasks" },
+    { f:"PROJECT.md", t:"Масштабируй ×100",      type:"project" },
+  ]},
+  { id:"l3", emoji:"🦅", name:"Уровень 3 · Данные и связь", dir:"SystemDesign/03-data-comms", mods:[
+    { f:"13-api-design.md",            t:"13 · Дизайн API" },
+    { f:"14-sync-async.md",            t:"14 · Синхронно vs асинхронно" },
+    { f:"15-microservices-monolith.md",t:"15 · Микросервисы vs монолит" },
+    { f:"16-reliability.md",           t:"16 · Надёжность" },
+    { f:"17-observability.md",         t:"17 · Наблюдаемость" },
+    { f:"TASKS.md",   t:"Задачи уровня 3",       type:"tasks" },
+    { f:"PROJECT.md", t:"Устойчивый сервис",     type:"project" },
+  ]},
+  { id:"l4", emoji:"🚀", name:"Уровень 4 · Практика дизайна", dir:"SystemDesign/04-design-practice", mods:[
+    { f:"18-url-shortener.md",      t:"18 · Сокращатель ссылок" },
+    { f:"19-news-feed.md",          t:"19 · Лента соцсети" },
+    { f:"20-chat-system.md",        t:"20 · Чат-мессенджер" },
+    { f:"21-media-ratelimiter.md",  t:"21 · Медиа / rate limiter" },
+    { f:"22-security-at-scale.md",  t:"22 · Безопасность на масштабе" },
+    { f:"23-interview.md",          t:"23 · System Design интервью" },
+    { f:"TASKS.md",   t:"Задачи уровня 4",       type:"tasks" },
+    { f:"PROJECT.md", t:"Спроектируй систему",   type:"project" },
+  ]},
+];
+
 const COURSE_ROBLOX = [
   { id:"l0", emoji:"🥚", name:"Уровень 0 · Введение", dir:"Roblox/00-intro", mods:[
     { f:"00-what-is-roblox.md",      t:"00 · Что такое Roblox и Luau" },
@@ -1396,6 +1442,9 @@ const COURSES = {
   roblox: { label:"Roblox", emoji:"🎮", sub:"Игра на Luau · от 🥚 до 🚀",
             blurb:"Сделай и опубликуй свою игру в Roblox: <b>Roblox Studio</b> + язык <b>Luau</b>. Мир и объекты, <b>скриптинг и события</b>, GUI, клиент-сервер, сохранение, монетизация и публикация. Сквозной проект — симулятор. Отличный мотивирующий вход в геймдев.",
             levels: COURSE_ROBLOX },
+  sysdesign: { label:"Системный дизайн", emoji:"🏗️", sub:"Проектируй системы · от 🥚 до 🚀",
+            blurb:"Как спроектировать сервис на миллионы пользователей: строительные блоки (балансировщики, кэш, CDN, БД, очереди), <b>масштабирование</b> (горизонтально, stateless, реплики, шарды), CAP, API, надёжность, наблюдаемость и разбор классических задач. Ядро — масштабирование и компромиссы. Сердце senior-собеседований.",
+            levels: COURSE_SYSDESIGN },
 };
 let currentLang = localStorage.getItem("course-lang") || "c";
 
@@ -1456,6 +1505,7 @@ function langFromPath(p) {
   if (p && p.indexOf("Database/") === 0) return "database";
   if (p && p.indexOf("Git/") === 0) return "git";
   if (p && p.indexOf("Roblox/") === 0) return "roblox";
+  if (p && p.indexOf("SystemDesign/") === 0) return "sysdesign";
   if (p && p.indexOf("C/") === 0) return "c";
   return null;
 }
@@ -1729,8 +1779,9 @@ async function loadHome(){
     database: `${c.emoji} Курс: базы данных`,
     git: `${c.emoji} Курс: Git и код-ревью`,
     roblox: `${c.emoji} Курс: игры в Roblox (Luau)`,
+    sysdesign: `${c.emoji} Курс: системный дизайн`,
   };
-  const isTrack = currentLang === "ai" || currentLang === "interop" || currentLang === "claudecode" || currentLang === "network" || currentLang === "os" || currentLang === "oop" || currentLang === "trading" || currentLang === "algorithms" || currentLang === "senior" || currentLang === "socialeng" || currentLang === "security" || currentLang === "cs" || currentLang === "capstone" || currentLang === "database" || currentLang === "git" || currentLang === "roblox";
+  const isTrack = currentLang === "ai" || currentLang === "interop" || currentLang === "claudecode" || currentLang === "network" || currentLang === "os" || currentLang === "oop" || currentLang === "trading" || currentLang === "algorithms" || currentLang === "senior" || currentLang === "socialeng" || currentLang === "security" || currentLang === "cs" || currentLang === "capstone" || currentLang === "database" || currentLang === "git" || currentLang === "roblox" || currentLang === "sysdesign";
   const h1 = customTitle[currentLang] || `${c.emoji} Курс по языку ${c.label} — работа с памятью`;
   document.getElementById("article").innerHTML = `
     <h1>${h1}</h1>
@@ -1738,11 +1789,11 @@ async function loadHome(){
     <blockquote><p>Слева — навигация по 5 уровням. Отмечай пройденные блоки — прогресс
        сохраняется в браузере <b>отдельно для каждого трека</b>. После каждого уровня —
        задачи и пет-проект.</p></blockquote>
-    <p>Вверху панели слева — <b>20 треков</b>: языки <b>🇨 C</b>, <b>➕ C++</b>, <b>🐍 Python</b>,
+    <p>Вверху панели слева — <b>21 трек</b>: языки <b>🇨 C</b>, <b>➕ C++</b>, <b>🐍 Python</b>,
        <b>🦀 Rust</b>, а также <b>🤖 ИИ</b>, <b>🔗 Интеграция</b>, <b>⚡ Claude Code</b>,
        <b>🌐 Сети</b>, <b>🖥️ ОС</b>, <b>🏛️ ООП</b>, <b>📈 Трейдинг</b>, <b>🧮 Алгоритмы</b>,
        <b>🧭 Senior-мышление</b>, <b>🎭 Соц. инженерия</b>, <b>🛡️ Этичный хакинг</b>,
-       <b>⚙️ Как работает компьютер</b>, <b>🔨 Капстоун-проекты</b>, <b>🗄️ Базы данных</b>, <b>🌳 Git и код-ревью</b> и <b>🎮 Roblox</b>. Это и <b>устройство машины</b>
+       <b>⚙️ Как работает компьютер</b>, <b>🔨 Капстоун-проекты</b>, <b>🗄️ Базы данных</b>, <b>🌳 Git и код-ревью</b>, <b>🎮 Roblox</b> и <b>🏗️ Системный дизайн</b>. Это и <b>устройство машины</b>
        (CPU, компиляция, ELF), и <b>работа с памятью</b>, и <b>проектирование</b> (ООП, SOLID), и
        <b>мышление Senior</b>, и <b>безопасность</b> (AppSec), и <b>большие проекты</b> (свои
        сервер/БД/язык) — всё для роста до системного разработчика. 🧭 Есть общий <b>Roadmap</b>

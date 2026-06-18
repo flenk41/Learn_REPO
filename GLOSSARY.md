@@ -391,5 +391,34 @@
 
 ---
 
+## 🏗️ Системный дизайн
+
+- **Функциональные vs нефункциональные требования** — что система делает / какой она должна быть (масштаб, доступность, задержка). → [Что такое СД](SystemDesign/00-intro/00-what-is-system-design.md)
+- **Back-of-the-envelope** — грубая оценка масштаба (rps/хранилище) для выбора архитектуры. → [Оценка масштаба](SystemDesign/00-intro/01-requirements-estimation.md)
+- **Каркас из 6 шагов** — требования→оценка→API→схема→детали→компромиссы. → [Подход](SystemDesign/00-intro/02-approach-framework.md)
+- **Балансировщик нагрузки (LB)** — распределяет трафик по серверам; основа масштаба и HA. → [LB](SystemDesign/01-building-blocks/04-load-balancers.md)
+- **CDN** — географический кэш статики ближе к пользователю. → [Кэш и CDN](SystemDesign/01-building-blocks/05-caching-cdn.md)
+- **Кэш / инвалидация** — частые данные в быстром хранилище; сложность — устаревание (TTL/при записи). → [Кэш и CDN](SystemDesign/01-building-blocks/05-caching-cdn.md)
+- **Очередь сообщений** — асинхронная обработка: развязка, сглаживание всплесков, масштаб. → [Очереди](SystemDesign/01-building-blocks/07-message-queues.md)
+- **Идемпотентность** — повторная обработка не вредит (защита от дублей в at-least-once). → [Очереди](SystemDesign/01-building-blocks/07-message-queues.md)
+- **Вертикальное vs горизонтальное масштабирование** — мощнее машина vs больше машин. → [Масштаб](SystemDesign/02-scaling/08-vertical-horizontal.md)
+- **Stateless-сервер** — не хранит состояние у себя; условие горизонтального масштаба. → [Stateless](SystemDesign/02-scaling/09-stateless-sessions.md)
+- **Репликация / шардинг** — копии (масштаб чтения) / разбиение (масштаб записи и объёма). → [Репликация/шардинг](SystemDesign/02-scaling/10-replication-sharding.md)
+- **CAP** — при сетевом разделении выбираешь Consistency или Availability. → [CAP](SystemDesign/02-scaling/11-consistency-cap.md)
+- **Strong vs eventual consistency** — сразу видно всем / согласуются «потом»; выбирай под данные. → [CAP](SystemDesign/02-scaling/11-consistency-cap.md)
+- **Узкое место (bottleneck)** — самый медленный компонент ограничивает всю систему. → [Узкие места](SystemDesign/02-scaling/12-bottlenecks.md)
+- **REST / gRPC / GraphQL** — стили API: ресурсы-HTTP / бинарный RPC / гибкая выборка. → [Дизайн API](SystemDesign/03-data-comms/13-api-design.md)
+- **Синхронно vs асинхронно** — жду ответ / положил и забыл (очередь/события). → [Sync/async](SystemDesign/03-data-comms/14-sync-async.md)
+- **Монолит vs микросервисы** — одна единица (просто) vs много (независимость ценой сложности). → [Микросервисы](SystemDesign/03-data-comms/15-microservices-monolith.md)
+- **SPOF / failover** — единая точка отказа / автопереключение на резерв. → [Надёжность](SystemDesign/03-data-comms/16-reliability.md)
+- **Circuit breaker / timeout / retry** — паттерны устойчивости межсервисных вызовов. → [Надёжность](SystemDesign/03-data-comms/16-reliability.md)
+- **Наблюдаемость (логи/метрики/трассы)** — видеть, что в системе; golden signals, перцентили. → [Наблюдаемость](SystemDesign/03-data-comms/17-observability.md)
+- **Fan-out (on read/write)** — как собрать ленту; гибрид решает проблему знаменитостей. → [Лента](SystemDesign/04-design-practice/19-news-feed.md)
+- **WebSocket / присутствие** — постоянное соединение для реального времени (чат). → [Чат](SystemDesign/04-design-practice/20-chat-system.md)
+- **Presigned URL** — клиент грузит файл прямо в S3, минуя твои серверы. → [Медиа](SystemDesign/04-design-practice/21-media-ratelimiter.md)
+- **Rate limiter (token bucket)** — ограничение частоты запросов (в Redis). → [Rate limiter](SystemDesign/04-design-practice/21-media-ratelimiter.md)
+
+---
+
 > 🧭 Не нашёл термин? Загляни в дорожную карту нужного трека (переключатель вверху панели слева)
 > или открой соответствующий модуль уровня 2 — там ядро каждой темы.
