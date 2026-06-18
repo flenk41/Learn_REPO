@@ -93,6 +93,7 @@ GUI, клиент-сервер, сохранение, монетизация, п
 - [10 · События (Events) ⭐⭐](02-scripting/10-events.md)
 - [11 · Сервисы, Script vs LocalScript](02-scripting/11-services-script-types.md)
 - [12 · Состояние и игровой цикл](02-scripting/12-game-state-loops.md)
+- [12b · Шпаргалка кода: готовые рецепты 📋](02-scripting/12b-code-cookbook.md)
 - ✅ [Задачи уровня 2](02-scripting/TASKS.md) · 🚀 [Проект: ядро симулятора](02-scripting/PROJECT.md)
 
 ### 🦅 Уровень 3 — Геймплей
@@ -101,6 +102,7 @@ GUI, клиент-сервер, сохранение, монетизация, п
 - [15 · Клиент-сервер и RemoteEvents ⭐⭐](03-gameplay/15-client-server-remotes.md)
 - [16 · Сохранение прогресса: DataStore](03-gameplay/16-datastore-save.md)
 - [17 · Механики: очки, апгрейды, лидерборд](03-gameplay/17-mechanics.md)
+- [17b · Сделай свою механику + оптимизация (step-by-step) 🧗](03-gameplay/17b-build-your-own-mechanic.md)
 - ✅ [Задачи уровня 3](03-gameplay/TASKS.md) · 🚀 [Проект: полный цикл](03-gameplay/PROJECT.md)
 
 ### 🚀 Уровень 4 — Доводка и публикация
