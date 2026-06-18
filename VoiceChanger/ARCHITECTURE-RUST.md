@@ -40,6 +40,9 @@
 phase-vocoder на `rustfft`, либо FFI к зрелой C++ библиотеке: Rust честно слабее C++ в готовом DSP,
 но FFI решает (см. [Interop/FFI](../Interop/01-basics/03-ffi-idea.md)).
 
+> 🔬 АЛГОРИТМ реализма (phase vocoder на `rustfft`, разделение формант, PSOLA, эффекты, латентность) —
+> в [DSP deep-dive](DSP-DEEPDIVE.md). Это пригодится, если строишь свой процессор, а не берёшь FFI.
+
 ---
 
 ## 🏗️ Структура (Cargo workspace — переиспускаем ядро)
