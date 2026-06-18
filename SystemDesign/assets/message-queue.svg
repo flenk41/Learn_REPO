@@ -1,0 +1,35 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="320" fill="#eef2ff" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#312e81">Очередь: развязать, сгладить, масштабировать</text>
+
+  <!-- producer -->
+  <rect x="30" y="120" width="120" height="64" rx="10" fill="#fff" stroke="#3730a3" stroke-width="2"/>
+  <text x="90" y="146" text-anchor="middle" font-size="12.5" font-weight="700" fill="#3730a3">продюсер</text>
+  <text x="90" y="165" text-anchor="middle" font-size="9.5" fill="#475569">отвечает сразу</text>
+
+  <!-- queue -->
+  <rect x="210" y="125" width="200" height="54" rx="8" fill="#312e81"/>
+  <g fill="#c7d2fe"><rect x="226" y="140" width="22" height="24" rx="3"/><rect x="254" y="140" width="22" height="24" rx="3"/><rect x="282" y="140" width="22" height="24" rx="3"/><rect x="310" y="140" width="22" height="24" rx="3"/><rect x="338" y="140" width="22" height="24" rx="3"/></g>
+  <text x="310" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#312e81">ОЧЕРЕДЬ (задачи)</text>
+
+  <!-- workers -->
+  <g font-size="11" font-weight="700">
+    <rect x="470" y="70" width="120" height="32" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/><text x="530" y="91" text-anchor="middle" fill="#4338ca">воркер 1</text>
+    <rect x="470" y="136" width="120" height="32" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/><text x="530" y="157" text-anchor="middle" fill="#4338ca">воркер 2</text>
+    <rect x="470" y="202" width="120" height="32" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/><text x="530" y="223" text-anchor="middle" fill="#4338ca">воркер 3</text>
+    <rect x="610" y="136" width="80" height="32" rx="6" fill="#eef2ff" stroke="#a5b4fc" stroke-dasharray="4 3"/><text x="650" y="157" text-anchor="middle" fill="#475569">+ ещё</text>
+  </g>
+
+  <path d="M 150 152 L 208 152" stroke="#3730a3" stroke-width="2.5" fill="none"/><polygon points="210,152 201,148 201,156" fill="#3730a3"/>
+  <text x="178" y="143" text-anchor="middle" font-size="9" fill="#3730a3">кладёт</text>
+  <g stroke="#6366f1" stroke-width="2" fill="none">
+    <path d="M 410 145 L 468 88"/><polygon points="470,87 461,87 464,95" fill="#6366f1"/>
+    <path d="M 410 152 L 468 152"/><polygon points="470,152 461,148 461,156" fill="#6366f1"/>
+    <path d="M 410 159 L 468 216"/><polygon points="470,217 461,212 464,220" fill="#6366f1"/>
+  </g>
+  <text x="440" y="145" text-anchor="middle" font-size="9" fill="#6366f1">разбирают</text>
+
+  <rect x="30" y="252" width="660" height="56" rx="8" fill="#fff" stroke="#a5b4fc"/>
+  <text x="48" y="274" font-size="12" fill="#312e81"><tspan font-weight="700">Развязка:</tspan> продюсер не ждёт. <tspan font-weight="700">Сглаживание:</tspan> всплеск буферизуется. <tspan font-weight="700">Масштаб:</tspan> добавь воркеров.</text>
+  <text x="48" y="294" font-size="12" fill="#475569">⚠️ at-least-once → возможны дубли → консьюмер должен быть идемпотентным (по message_id).</text>
+</svg>

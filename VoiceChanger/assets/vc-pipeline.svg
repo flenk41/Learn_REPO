@@ -1,0 +1,43 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="320" fill="#f0fdfa" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#134e4a">Voice Changer: конвейер реального времени</text>
+
+  <g font-family="-apple-system,Segoe UI,sans-serif">
+    <rect x="25" y="110" width="130" height="70" rx="10" fill="#fff" stroke="#0d9488" stroke-width="2"/>
+    <text x="90" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">1 ЗАХВАТ</text>
+    <text x="90" y="158" text-anchor="middle" font-size="10.5" fill="#475569">микрофон</text>
+    <text x="90" y="172" text-anchor="middle" font-size="10.5" fill="#475569">(буферы)</text>
+
+    <rect x="185" y="100" width="170" height="90" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2.5"/>
+    <text x="270" y="126" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">2 DSP-ЯДРО</text>
+    <text x="270" y="146" text-anchor="middle" font-size="10.5" fill="#134e4a">pitch + formant</text>
+    <text x="270" y="162" text-anchor="middle" font-size="10.5" fill="#134e4a">+ эффекты</text>
+    <text x="270" y="180" text-anchor="middle" font-size="9.5" fill="#0f766e">«сердце реализма»</text>
+
+    <rect x="385" y="110" width="150" height="70" rx="10" fill="#fff" stroke="#0d9488" stroke-width="2"/>
+    <text x="460" y="135" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f766e">3 РОУТИНГ</text>
+    <text x="460" y="155" text-anchor="middle" font-size="10" fill="#475569">вирт. микрофон</text>
+    <text x="460" y="170" text-anchor="middle" font-size="10" fill="#475569">(VB-CABLE)</text>
+
+    <rect x="565" y="110" width="130" height="70" rx="10" fill="#fff" stroke="#0d9488" stroke-width="2"/>
+    <text x="630" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#0f766e">→ Discord</text>
+    <text x="630" y="155" text-anchor="middle" font-size="10" fill="#475569">игры / OBS</text>
+    <text x="630" y="170" text-anchor="middle" font-size="10" fill="#475569">слышат «микрофон»</text>
+  </g>
+
+  <g stroke="#0d9488" stroke-width="2.5" fill="none">
+    <path d="M 155 145 L 183 145"/><polygon points="185,145 176,141 176,149" fill="#0d9488"/>
+    <path d="M 355 145 L 383 145"/><polygon points="385,145 376,141 376,149" fill="#0d9488"/>
+    <path d="M 535 145 L 563 145"/><polygon points="565,145 556,141 556,149" fill="#0d9488"/>
+  </g>
+
+  <!-- UI -->
+  <rect x="185" y="215" width="170" height="44" rx="8" fill="#fff" stroke="#14b8a6" stroke-width="2"/>
+  <text x="270" y="238" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">4 UI — ползунки</text>
+  <text x="270" y="253" text-anchor="middle" font-size="9.5" fill="#475569">pitch/formant/пресеты</text>
+  <path d="M 270 213 L 270 192" stroke="#14b8a6" stroke-width="2" fill="none" stroke-dasharray="4 3"/><polygon points="270,190 266,199 274,199" fill="#14b8a6"/>
+  <text x="380" y="208" font-size="10" fill="#0f766e">параметры (потокобезопасно)</text>
+
+  <rect x="25" y="272" width="670" height="38" rx="8" fill="#ccfbf1" stroke="#5eead4"/>
+  <text x="360" y="295" text-anchor="middle" font-size="11.5" fill="#134e4a">⚠️ 5 ПОТОКИ: аудио-callback (real-time, БЕЗ аллокаций/локов) ⟂ UI-поток · связь — lock-free ring buffer.</text>
+</svg>

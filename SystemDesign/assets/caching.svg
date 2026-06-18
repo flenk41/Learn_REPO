@@ -1,0 +1,35 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="320" fill="#eef2ff" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#312e81">Кэш: hit — мгновенно, miss — в БД и положить</text>
+
+  <!-- request -->
+  <rect x="30" y="130" width="90" height="44" rx="8" fill="#fff" stroke="#3730a3" stroke-width="2"/>
+  <text x="75" y="157" text-anchor="middle" font-size="12" font-weight="700" fill="#3730a3">запрос</text>
+
+  <!-- cache -->
+  <rect x="180" y="115" width="140" height="74" rx="10" fill="#e0e7ff" stroke="#6366f1" stroke-width="2.5"/>
+  <text x="250" y="145" text-anchor="middle" font-size="14" font-weight="700" fill="#4338ca">КЭШ (Redis)</text>
+  <text x="250" y="166" text-anchor="middle" font-size="10.5" fill="#475569">данные в памяти</text>
+
+  <!-- hit -->
+  <rect x="400" y="60" width="280" height="40" rx="8" fill="#dcfce7" stroke="#15803d"/>
+  <text x="415" y="85" font-size="12.5" font-weight="700" fill="#166534">✓ hit → мгновенный ответ (микросекунды)</text>
+
+  <!-- db -->
+  <rect x="430" y="135" width="130" height="54" rx="8" fill="#fff" stroke="#3730a3" stroke-width="2"/>
+  <text x="495" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#3730a3">БД</text>
+  <text x="495" y="176" text-anchor="middle" font-size="9.5" fill="#475569">медленно (диск)</text>
+
+  <!-- arrows -->
+  <path d="M 120 152 L 178 152" stroke="#3730a3" stroke-width="2.5" fill="none"/><polygon points="180,152 171,148 171,156" fill="#3730a3"/>
+  <path d="M 320 135 L 398 85" stroke="#15803d" stroke-width="2.5" fill="none"/><polygon points="400,84 391,84 394,92" fill="#15803d"/>
+  <path d="M 320 165 L 428 162" stroke="#b45309" stroke-width="2.5" fill="none" stroke-dasharray="6 3"/><polygon points="430,162 421,158 421,166" fill="#b45309"/>
+  <text x="375" y="150" font-size="10.5" fill="#b45309" font-weight="700">miss</text>
+  <path d="M 495 135 C 495 110, 360 100, 320 130" stroke="#b45309" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+  <text x="360" y="112" text-anchor="middle" font-size="10" fill="#b45309">положить в кэш</text>
+
+  <rect x="30" y="225" width="660" height="80" rx="8" fill="#fff" stroke="#a5b4fc"/>
+  <text x="48" y="248" font-size="12.5" font-weight="700" fill="#312e81">read-heavy системы выигрывают больше всего: частые данные — из памяти, не из БД.</text>
+  <text x="48" y="270" font-size="12" fill="#475569">⚠️ инвалидация — главная сложность: TTL (истекает через N сек) или сброс при записи.</text>
+  <text x="48" y="290" font-size="12" fill="#475569">⚠️ stale data (устаревшее) · cache stampede (лавина при истечении TTL) · CDN = кэш статики у пользователя.</text>
+</svg>

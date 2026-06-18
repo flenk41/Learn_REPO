@@ -1,0 +1,43 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="320" fill="#f0fdfa" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#134e4a">Нейроконверсия (RVC): разделить «что» и «кто»</text>
+
+  <!-- input -->
+  <rect x="25" y="120" width="110" height="80" rx="10" fill="#fff" stroke="#0d9488" stroke-width="2"/>
+  <text x="80" y="150" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f766e">твой голос</text>
+  <text x="80" y="172" text-anchor="middle" font-size="9.5" fill="#475569">микрофон</text>
+
+  <!-- content encoder -->
+  <rect x="170" y="70" width="170" height="60" rx="9" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+  <text x="255" y="93" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">КОНТЕНТ-энкодер</text>
+  <text x="255" y="111" text-anchor="middle" font-size="9.5" fill="#475569">HuBERT — ЧТО сказано (без тембра)</text>
+
+  <!-- F0 -->
+  <rect x="170" y="190" width="170" height="55" rx="9" fill="#fff" stroke="#0d9488" stroke-width="2"/>
+  <text x="255" y="213" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">детект F0</text>
+  <text x="255" y="231" text-anchor="middle" font-size="9.5" fill="#475569">высота/интонация (± сдвиг)</text>
+
+  <!-- vocoder -->
+  <rect x="385" y="115" width="180" height="90" rx="10" fill="#ccfbf1" stroke="#be123c" stroke-width="2.5"/>
+  <text x="475" y="143" text-anchor="middle" font-size="12.5" font-weight="700" fill="#be123c">ВОКОДЕР</text>
+  <text x="475" y="162" text-anchor="middle" font-size="9.5" fill="#475569">обучен на ЦЕЛЕВОМ голосе</text>
+  <text x="475" y="178" text-anchor="middle" font-size="9.5" fill="#475569">(NSF-HiFiGAN)</text>
+  <text x="475" y="194" text-anchor="middle" font-size="9.5" fill="#0f766e">синтез в тембре цели</text>
+
+  <!-- output -->
+  <rect x="600" y="120" width="95" height="80" rx="10" fill="#fff" stroke="#be123c" stroke-width="2"/>
+  <text x="647" y="150" text-anchor="middle" font-size="11.5" font-weight="700" fill="#be123c">целевой</text>
+  <text x="647" y="168" text-anchor="middle" font-size="11.5" font-weight="700" fill="#be123c">голос</text>
+
+  <g stroke="#0d9488" stroke-width="2.2" fill="none">
+    <path d="M 135 145 L 168 105"/><polygon points="170,103 161,105 165,112" fill="#0d9488"/>
+    <path d="M 135 175 L 168 210"/><polygon points="170,212 161,209 165,202" fill="#0d9488"/>
+    <path d="M 340 100 L 383 135"/><polygon points="385,137 376,134 372,141" fill="#0d9488"/>
+    <path d="M 340 217 L 383 180"/><polygon points="385,178 376,182 372,174" fill="#0d9488"/>
+  </g>
+  <path d="M 565 160 L 598 160" stroke="#be123c" stroke-width="2.2" fill="none"/><polygon points="600,160 591,156 591,164" fill="#be123c"/>
+
+  <rect x="25" y="265" width="670" height="45" rx="8" fill="#fff" stroke="#5eead4"/>
+  <text x="360" y="285" text-anchor="middle" font-size="11.5" fill="#134e4a">Разделить содержание и идентичность → синтез контента в чужом тембре. F0 несёт интонацию.</text>
+  <text x="360" y="302" text-anchor="middle" font-size="10.5" fill="#be123c">⚠️ инференс — в ОТДЕЛЬНОМ потоке (не в аудио-callback) · клонирование реального человека — только с согласия.</text>
+</svg>

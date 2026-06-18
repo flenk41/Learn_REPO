@@ -1,0 +1,34 @@
+<svg viewBox="0 0 720 330" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="330" fill="#fdecea" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#7f1d1d">Player ≠ Character: постоянный vs временное тело</text>
+
+  <!-- Player -->
+  <rect x="40" y="65" width="290" height="220" rx="10" fill="#fff" stroke="#e2231a" stroke-width="2.5"/>
+  <text x="185" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#e2231a">PLAYER (в game.Players)</text>
+  <text x="185" y="114" text-anchor="middle" font-size="11.5" fill="#374151">существует ВСЁ время в игре</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="60" y="130" width="250" height="28" rx="5" fill="#fde2dd"/><text x="74" y="149">• имя, UserId</text>
+    <rect x="60" y="164" width="250" height="28" rx="5" fill="#fde2dd"/><text x="74" y="183">• leaderstats (очки/валюта)</text>
+    <rect x="60" y="198" width="250" height="28" rx="5" fill="#fde2dd"/><text x="74" y="217">• сохраняемые данные</text>
+  </g>
+  <text x="185" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">✓ ЗДЕСЬ храни прогресс</text>
+  <text x="185" y="272" text-anchor="middle" font-size="10.5" fill="#6b7280">(не исчезает при смерти)</text>
+
+  <!-- Character -->
+  <rect x="390" y="65" width="290" height="220" rx="10" fill="#fff" stroke="#9ca3af" stroke-width="2"/>
+  <text x="535" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#374151">CHARACTER (в Workspace)</text>
+  <text x="535" y="114" text-anchor="middle" font-size="11.5" fill="#374151">тело: появл./исчезает (спавн/смерть)</text>
+  <g font-size="12" fill="#1f2937">
+    <rect x="410" y="130" width="250" height="28" rx="5" fill="#f3f4f6"/><text x="424" y="149">• Humanoid (Health, WalkSpeed)</text>
+    <rect x="410" y="164" width="250" height="28" rx="5" fill="#f3f4f6"/><text x="424" y="183">• HumanoidRootPart, части тела</text>
+    <rect x="410" y="198" width="250" height="28" rx="5" fill="#f3f4f6"/><text x="424" y="217">• физика, движение</text>
+  </g>
+  <text x="535" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#b91c1c">✗ НЕ храни прогресс</text>
+  <text x="535" y="272" text-anchor="middle" font-size="10.5" fill="#6b7280">(пересоздаётся при респауне)</text>
+
+  <!-- link -->
+  <path d="M 330 175 L 388 175" stroke="#e2231a" stroke-width="2" fill="none"/><polygon points="390,175 381,171 381,179" fill="#e2231a"/>
+  <text x="360" y="168" text-anchor="middle" font-size="9.5" fill="#e2231a">.Character</text>
+
+  <text x="360" y="312" text-anchor="middle" font-size="12" fill="#7f1d1d">Очки/валюта → на Player (постоянный). Скорость/урон → через Humanoid у Character.</text>
+</svg>
