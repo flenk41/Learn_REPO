@@ -1,0 +1,36 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="300" fill="#eef2ff" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#3730a3">Стек (LIFO) и очередь (FIFO)</text>
+
+  <!-- stack -->
+  <text x="175" y="68" text-anchor="middle" font-size="15" font-weight="700" fill="#4f46e5">СТЕК — LIFO</text>
+  <text x="175" y="86" text-anchor="middle" font-size="10.5" fill="#475569">последним вошёл — первым вышел</text>
+  <g font-size="13" font-weight="700" fill="#1e1b4b">
+    <rect x="120" y="160" width="110" height="32" rx="4" fill="#c7d2fe" stroke="#4f46e5"/><text x="175" y="182" text-anchor="middle">1</text>
+    <rect x="120" y="126" width="110" height="32" rx="4" fill="#c7d2fe" stroke="#4f46e5"/><text x="175" y="148" text-anchor="middle">2</text>
+    <rect x="120" y="92" width="110" height="32" rx="4" fill="#a5b4fc" stroke="#4f46e5" stroke-width="2"/><text x="175" y="114" text-anchor="middle">3 ← вершина</text>
+  </g>
+  <path d="M 270 100 C 310 100, 310 80, 250 80" stroke="#15803d" stroke-width="2" fill="none"/><polygon points="248,80 257,76 257,84" fill="#15803d"/>
+  <text x="300" y="118" font-size="10.5" fill="#15803d">push/pop</text>
+  <text x="175" y="218" text-anchor="middle" font-size="10.5" fill="#475569">оба конца — сверху</text>
+  <text x="175" y="240" text-anchor="middle" font-size="10" fill="#6b7280">отмена, вызовы функций, обход в глубину</text>
+
+  <!-- queue -->
+  <text x="520" y="68" text-anchor="middle" font-size="15" font-weight="700" fill="#4f46e5">ОЧЕРЕДЬ — FIFO</text>
+  <text x="520" y="86" text-anchor="middle" font-size="10.5" fill="#475569">первым вошёл — первым вышел</text>
+  <g font-size="13" font-weight="700" fill="#1e1b4b">
+    <rect x="400" y="110" width="60" height="40" rx="4" fill="#a5b4fc" stroke="#4f46e5" stroke-width="2"/><text x="430" y="135" text-anchor="middle">1</text>
+    <rect x="465" y="110" width="60" height="40" rx="4" fill="#c7d2fe" stroke="#4f46e5"/><text x="495" y="135" text-anchor="middle">2</text>
+    <rect x="530" y="110" width="60" height="40" rx="4" fill="#c7d2fe" stroke="#4f46e5"/><text x="560" y="135" text-anchor="middle">3</text>
+    <rect x="595" y="110" width="60" height="40" rx="4" fill="#c7d2fe" stroke="#4f46e5"/><text x="625" y="135" text-anchor="middle">4</text>
+  </g>
+  <text x="430" y="172" text-anchor="middle" font-size="10" fill="#15803d">dequeue (выход)</text>
+  <text x="625" y="172" text-anchor="middle" font-size="10" fill="#be123c">enqueue (вход)</text>
+  <path d="M 430 105 L 430 90" stroke="#15803d" stroke-width="2" fill="none"/><polygon points="430,88 426,97 434,97" fill="#15803d"/>
+  <path d="M 625 155 L 625 165" stroke="#be123c" stroke-width="0" fill="none"/>
+  <text x="520" y="200" text-anchor="middle" font-size="10" fill="#6b7280">разные концы: вход и выход</text>
+  <text x="520" y="222" text-anchor="middle" font-size="10" fill="#6b7280">задачи, обход в ширину (BFS), буферы</text>
+
+  <rect x="60" y="252" width="600" height="38" rx="8" fill="#fff" stroke="#a5b4fc"/>
+  <text x="360" y="276" text-anchor="middle" font-size="12" fill="#1e1b4b">Все операции — O(1). Разница: стек берёт с ОДНОГО конца, очередь — вход и выход с РАЗНЫХ.</text>
+</svg>

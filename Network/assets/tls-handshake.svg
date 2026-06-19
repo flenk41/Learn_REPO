@@ -1,0 +1,29 @@
+<svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="320" fill="#eff6ff" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1e3a8a">TLS-рукопожатие: шифрование + проверка сервера</text>
+
+  <text x="150" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">КЛИЕНТ</text>
+  <text x="570" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">СЕРВЕР</text>
+  <line x1="150" y1="78" x2="150" y2="270" stroke="#93c5fd" stroke-width="2"/>
+  <line x1="570" y1="78" x2="570" y2="270" stroke="#93c5fd" stroke-width="2"/>
+
+  <!-- steps -->
+  <path d="M 155 100 L 565 100" stroke="#2563eb" stroke-width="2" fill="none"/><polygon points="567,100 558,96 558,104" fill="#2563eb"/>
+  <text x="360" y="94" text-anchor="middle" font-size="11" fill="#1e3a8a">① ClientHello (какие шифры поддерживаю)</text>
+
+  <path d="M 565 135 L 155 135" stroke="#2563eb" stroke-width="2" fill="none"/><polygon points="153,135 162,131 162,139" fill="#2563eb"/>
+  <text x="360" y="129" text-anchor="middle" font-size="11" fill="#1e3a8a">② ServerHello + СЕРТИФИКАТ (с публ. ключом)</text>
+
+  <rect x="200" y="150" width="320" height="34" rx="6" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="360" y="172" text-anchor="middle" font-size="10.5" fill="#1e3a8a">③ клиент ПРОВЕРЯЕТ сертификат у CA (тот ли сервер?)</text>
+
+  <path d="M 155 205 L 565 205" stroke="#2563eb" stroke-width="2" fill="none"/><polygon points="567,205 558,201 558,209" fill="#2563eb"/>
+  <text x="360" y="199" text-anchor="middle" font-size="11" fill="#1e3a8a">④ обмен ключами → общий СЕАНСОВЫЙ ключ</text>
+
+  <rect x="190" y="220" width="340" height="34" rx="6" fill="#dcfce7" stroke="#15803d"/>
+  <text x="360" y="242" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">🔒 ⑤ дальше всё шифруется (симметрично, быстро)</text>
+
+  <rect x="60" y="272" width="600" height="40" rx="8" fill="#fff" stroke="#bfdbfe"/>
+  <text x="360" y="289" text-anchor="middle" font-size="11" fill="#1e3a8a">TLS даёт: ШИФРОВАНИЕ (никто не прочтёт) + АУТЕНТИФИКАЦИЮ (сервер тот, кем представляется).</text>
+  <text x="360" y="305" text-anchor="middle" font-size="10.5" fill="#475569">HTTPS = HTTP поверх TLS. Не прячет: какой домен и объём трафика.</text>
+</svg>

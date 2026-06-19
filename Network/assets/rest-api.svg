@@ -1,0 +1,36 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="300" fill="#eff6ff" rx="12"/>
+  <text x="360" y="32" text-anchor="middle" font-size="19" font-weight="700" fill="#1e3a8a">REST: CRUD ↔ HTTP-методы над ресурсами</text>
+
+  <!-- table -->
+  <g font-size="12.5">
+    <rect x="50" y="60" width="620" height="34" rx="6" fill="#1e3a8a"/>
+    <text x="120" y="83" text-anchor="middle" font-weight="700" fill="#fff">метод</text>
+    <text x="300" y="83" text-anchor="middle" font-weight="700" fill="#fff">путь</text>
+    <text x="500" y="83" text-anchor="middle" font-weight="700" fill="#fff">действие (CRUD)</text>
+
+    <rect x="50" y="96" width="620" height="34" fill="#fff" stroke="#bfdbfe"/>
+    <text x="120" y="118" text-anchor="middle" font-weight="700" fill="#15803d">GET</text>
+    <text x="300" y="118" text-anchor="middle" font-family="monospace" fill="#374151">/users/42</text>
+    <text x="500" y="118" text-anchor="middle" fill="#374151">Read — прочитать</text>
+
+    <rect x="50" y="130" width="620" height="34" fill="#f8fafc" stroke="#bfdbfe"/>
+    <text x="120" y="152" text-anchor="middle" font-weight="700" fill="#2563eb">POST</text>
+    <text x="300" y="152" text-anchor="middle" font-family="monospace" fill="#374151">/users</text>
+    <text x="500" y="152" text-anchor="middle" fill="#374151">Create — создать</text>
+
+    <rect x="50" y="164" width="620" height="34" fill="#fff" stroke="#bfdbfe"/>
+    <text x="120" y="186" text-anchor="middle" font-weight="700" fill="#b45309">PUT/PATCH</text>
+    <text x="300" y="186" text-anchor="middle" font-family="monospace" fill="#374151">/users/42</text>
+    <text x="500" y="186" text-anchor="middle" fill="#374151">Update — изменить</text>
+
+    <rect x="50" y="198" width="620" height="34" fill="#f8fafc" stroke="#bfdbfe"/>
+    <text x="120" y="220" text-anchor="middle" font-weight="700" fill="#b91c1c">DELETE</text>
+    <text x="300" y="220" text-anchor="middle" font-family="monospace" fill="#374151">/users/42</text>
+    <text x="500" y="220" text-anchor="middle" fill="#374151">Delete — удалить</text>
+  </g>
+
+  <rect x="50" y="248" width="620" height="44" rx="8" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="360" y="268" text-anchor="middle" font-size="11.5" fill="#1e3a8a">Ресурсы — существительные (/users), действие — метод. Ответ: JSON + код (200, 201, 404, 500).</text>
+  <text x="360" y="285" text-anchor="middle" font-size="10.5" fill="#475569">Без состояния (stateless): каждый запрос самодостаточен. Списки — с пагинацией.</text>
+</svg>
