@@ -96,6 +96,7 @@ flowchart TD
 - [06 · Циклы и range-based for](01-basics/06-loops.md)
 - [07 · Функции, перегрузка, ссылки](01-basics/07-functions.md)
 - [07b · Разбиваем проект на файлы](01-basics/07b-multiple-files.md)
+- [07c · Макросы: когда нужны, когда избегать](01-basics/07c-macros.md)
 - ✅ [Задачи уровня 1](01-basics/TASKS.md)
 - 🚀 [Пет-проект: калькулятор](01-basics/PROJECT.md)
 
