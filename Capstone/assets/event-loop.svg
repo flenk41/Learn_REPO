@@ -1,0 +1,35 @@
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="290" fill="#fff7ed" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#7c2d12">Event loop: один поток — тысячи соединений</text>
+
+  <!-- connections -->
+  <g font-size="10" fill="#7c2d12">
+    <rect x="30" y="70" width="90" height="26" rx="4" fill="#fff" stroke="#c2410c"/><text x="75" y="88" text-anchor="middle">соед. 1</text>
+    <rect x="30" y="102" width="90" height="26" rx="4" fill="#fff" stroke="#c2410c"/><text x="75" y="120" text-anchor="middle">соед. 2</text>
+    <rect x="30" y="134" width="90" height="26" rx="4" fill="#fff" stroke="#c2410c"/><text x="75" y="152" text-anchor="middle">соед. 3</text>
+    <rect x="30" y="166" width="90" height="26" rx="4" fill="#fff" stroke="#c2410c"/><text x="75" y="184" text-anchor="middle">... 10000</text>
+  </g>
+
+  <!-- epoll -->
+  <rect x="180" y="95" width="150" height="80" rx="10" fill="#ffedd5" stroke="#c2410c" stroke-width="2.5"/>
+  <text x="255" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">epoll</text>
+  <text x="255" y="145" text-anchor="middle" font-size="10" fill="#475569">«кто ГОТОВ?»</text>
+  <text x="255" y="161" text-anchor="middle" font-size="9.5" fill="#6b7280">ждёт события</text>
+
+  <!-- loop -->
+  <rect x="390" y="85" width="290" height="100" rx="10" fill="#fff" stroke="#c2410c" stroke-width="2"/>
+  <text x="535" y="108" text-anchor="middle" font-size="12.5" font-weight="700" fill="#c2410c">ЦИКЛ (1 поток)</text>
+  <text x="408" y="132" font-size="11" font-family="monospace" fill="#374151">while true:</text>
+  <text x="408" y="151" font-size="11" font-family="monospace" fill="#374151">  ready = epoll_wait()</text>
+  <text x="408" y="170" font-size="11" font-family="monospace" fill="#374151">  обработать готовые (не блокируясь)</text>
+
+  <g stroke="#c2410c" stroke-width="2" fill="none">
+    <path d="M 120 110 L 178 120"/><path d="M 120 145 L 178 140"/>
+    <path d="M 330 135 L 388 135"/><polygon points="390,135 381,131 381,139" fill="#c2410c"/>
+  </g>
+
+  <rect x="30" y="210" width="650" height="68" rx="8" fill="#fff" stroke="#fed7aa"/>
+  <text x="48" y="232" font-size="12" fill="#7c2d12"><tspan font-weight="700">Не поток-на-клиента</tspan> (10000 потоков = крах), а ОДИН поток + неблокирующий I/O + epoll.</text>
+  <text x="48" y="253" font-size="11" fill="#475569">epoll сообщает, какие соединения готовы → обрабатываешь только их, мгновенно переходя к следующему.</text>
+  <text x="48" y="270" font-size="10.5" fill="#6b7280">Так работают nginx, Redis, Node.js. Решение проблемы C10K (10000+ соединений).</text>
+</svg>

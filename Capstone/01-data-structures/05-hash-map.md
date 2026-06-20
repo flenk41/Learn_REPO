@@ -30,6 +30,8 @@
 
 ---
 
+![Hash map: ключ → хеш → корзина](../assets/hash-map.svg)
+
 ## ⭐ Milestones
 
 ```

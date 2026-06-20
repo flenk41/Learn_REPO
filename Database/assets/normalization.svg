@@ -1,0 +1,32 @@
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="290" fill="#f5f3ff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#4c1d95">Нормализация: убрать дублирование, разбив на таблицы</text>
+
+  <!-- before -->
+  <text x="200" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">❌ всё в одной (дубли)</text>
+  <g font-size="10">
+    <rect x="40" y="72" width="320" height="24" fill="#6d28d9"/><text x="50" y="89" fill="#fff">заказ | клиент | город | товар</text>
+    <rect x="40" y="96" width="320" height="22" fill="#fff" stroke="#ddd6fe"/><text x="50" y="111" fill="#1e1b4b">1 | Анна | Москва | книга</text>
+    <rect x="40" y="118" width="320" height="22" fill="#fde2dd" stroke="#ddd6fe"/><text x="50" y="133" fill="#b91c1c">2 | Анна | Москва | ручка ← Анна/Москва повтор</text>
+    <rect x="40" y="140" width="320" height="22" fill="#fde2dd" stroke="#ddd6fe"/><text x="50" y="155" fill="#b91c1c">3 | Анна | Масква | перо ← ОПЕЧАТКА при дубле!</text>
+  </g>
+  <text x="200" y="180" text-anchor="middle" font-size="10" fill="#6b7280">меняешь город Анны → правишь во всех строках</text>
+
+  <!-- after -->
+  <text x="540" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">✅ разбито (3НФ)</text>
+  <g font-size="10">
+    <rect x="420" y="72" width="130" height="22" fill="#6d28d9"/><text x="428" y="88" fill="#fff">clients</text>
+    <rect x="420" y="94" width="130" height="20" fill="#fff" stroke="#ddd6fe"/><text x="428" y="108" fill="#1e1b4b">1 | Анна | Москва</text>
+
+    <rect x="565" y="72" width="120" height="22" fill="#6d28d9"/><text x="573" y="88" fill="#fff">orders</text>
+    <rect x="565" y="94" width="120" height="20" fill="#fff" stroke="#ddd6fe"/><text x="573" y="108" fill="#1e1b4b">1 | client=1 | книга</text>
+    <rect x="565" y="114" width="120" height="20" fill="#fff" stroke="#ddd6fe"/><text x="573" y="128" fill="#1e1b4b">2 | client=1 | ручка</text>
+  </g>
+  <path d="M 565 104 L 552 104" stroke="#6d28d9" stroke-width="1.5"/>
+  <text x="555" y="155" text-anchor="middle" font-size="10" fill="#6b7280">город Анны — в ОДНОМ месте (FK связывает)</text>
+
+  <rect x="40" y="200" width="645" height="80" rx="8" fill="#fff" stroke="#c4b5fd"/>
+  <text x="58" y="223" font-size="12.5" font-weight="700" fill="#4c1d95">Каждый факт хранится ОДИН раз → нет рассинхрона и опечаток.</text>
+  <text x="58" y="244" font-size="11.5" fill="#374151">1НФ: атомарные значения · 2НФ: зависят от всего ключа · 3НФ: не зависят друг от друга.</text>
+  <text x="58" y="264" font-size="11" fill="#6b7280">⚠️ Иногда сознательно денормализуют ради скорости чтения (меньше JOIN-ов) — это trade-off.</text>
+</svg>

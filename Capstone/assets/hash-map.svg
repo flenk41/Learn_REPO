@@ -1,0 +1,34 @@
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="290" fill="#fff7ed" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#7c2d12">Hash map: ключ → хеш → корзина (O(1))</text>
+
+  <!-- keys -->
+  <rect x="30" y="70" width="120" height="32" rx="6" fill="#fff" stroke="#c2410c" stroke-width="2"/><text x="90" y="91" text-anchor="middle" font-size="11" font-family="monospace" fill="#7c2d12">"apple"</text>
+  <rect x="30" y="130" width="120" height="32" rx="6" fill="#fff" stroke="#c2410c" stroke-width="2"/><text x="90" y="151" text-anchor="middle" font-size="11" font-family="monospace" fill="#7c2d12">"banana"</text>
+
+  <!-- hash fn -->
+  <rect x="200" y="90" width="110" height="80" rx="8" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/>
+  <text x="255" y="125" text-anchor="middle" font-size="12" font-weight="700" fill="#c2410c">hash(key)</text>
+  <text x="255" y="145" text-anchor="middle" font-size="9.5" fill="#6b7280">% размер</text>
+
+  <!-- buckets -->
+  <g font-size="11">
+    <rect x="400" y="60" width="280" height="26" rx="4" fill="#fff" stroke="#c2410c"/><text x="410" y="78" fill="#7c2d12">[0]</text>
+    <rect x="400" y="90" width="280" height="26" rx="4" fill="#ffedd5" stroke="#c2410c"/><text x="410" y="108" fill="#7c2d12">[1] → "apple": 3</text>
+    <rect x="400" y="120" width="280" height="26" rx="4" fill="#fff" stroke="#c2410c"/><text x="410" y="138" fill="#7c2d12">[2]</text>
+    <rect x="400" y="150" width="280" height="26" rx="4" fill="#ffedd5" stroke="#c2410c"/><text x="410" y="168" fill="#7c2d12">[3] → "banana":5 → "grape":8</text>
+  </g>
+  <text x="540" y="192" text-anchor="middle" font-size="9.5" fill="#b91c1c">↑ КОЛЛИЗИЯ: два ключа в одну корзину → цепочка</text>
+
+  <g stroke="#c2410c" stroke-width="2" fill="none">
+    <path d="M 150 86 L 198 110"/><polygon points="200,111 191,109 194,116" fill="#c2410c"/>
+    <path d="M 150 146 L 198 150"/><polygon points="200,150 191,147 191,155" fill="#c2410c"/>
+    <path d="M 310 110 L 398 103"/><polygon points="400,103 391,100 391,108" fill="#c2410c"/>
+    <path d="M 310 150 L 398 160"/><polygon points="400,160 391,156 390,164" fill="#c2410c"/>
+  </g>
+
+  <rect x="30" y="215" width="650" height="62" rx="8" fill="#fff" stroke="#fed7aa"/>
+  <text x="48" y="237" font-size="12" fill="#7c2d12">Хеш превращает ключ в индекс корзины → доступ за O(1) в среднем (не перебор).</text>
+  <text x="48" y="258" font-size="11" fill="#475569">Коллизии решают цепочками/открытой адресацией. При заполнении — РЕСАЙЗ (×2) + перехеширование.</text>
+  <text x="48" y="274" font-size="10.5" fill="#6b7280">Свой dict/HashMap — классический капстоун: поймёшь, как устроены словари в любом языке.</text>
+</svg>

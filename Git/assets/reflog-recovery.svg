@@ -1,0 +1,32 @@
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="280" fill="#fff5f3" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#7f1d1d">reflog — страховочный трос: почти всё восстановимо</text>
+
+  <!-- panic -->
+  <rect x="30" y="60" width="200" height="60" rx="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="130" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">«всё пропало!»</text>
+  <text x="130" y="104" text-anchor="middle" font-size="10" font-family="monospace" fill="#b91c1c">git reset --hard</text>
+
+  <!-- reflog -->
+  <rect x="270" y="50" width="200" height="120" rx="8" fill="#1e1b1b"/>
+  <text x="370" y="73" text-anchor="middle" font-size="12" font-weight="700" fill="#fda4af">git reflog</text>
+  <text x="286" y="95" font-size="10" font-family="monospace" fill="#86efac">a1b2c3d HEAD@{0} reset</text>
+  <text x="286" y="113" font-size="10" font-family="monospace" fill="#fde68a">9z8y7x6 HEAD@{1} commit ←</text>
+  <text x="286" y="131" font-size="10" font-family="monospace" fill="#93c5fd">d4e5f6a HEAD@{2} commit</text>
+  <text x="286" y="155" font-size="9.5" font-family="monospace" fill="#9ca3af">журнал ВСЕХ движений HEAD</text>
+
+  <!-- recovered -->
+  <rect x="510" y="60" width="180" height="60" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="600" y="84" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">✓ восстановлено</text>
+  <text x="600" y="104" text-anchor="middle" font-size="9.5" font-family="monospace" fill="#15803d">reset --hard 9z8y7x6</text>
+
+  <g stroke="#f05133" stroke-width="2.5" fill="none">
+    <path d="M 230 90 L 268 95"/><polygon points="270,96 261,93 261,101" fill="#f05133"/>
+    <path d="M 470 100 L 508 95"/><polygon points="510,94 501,93 501,101" fill="#f05133"/>
+  </g>
+
+  <rect x="30" y="195" width="660" height="72" rx="8" fill="#ffe4de" stroke="#f3b4a8"/>
+  <text x="48" y="218" font-size="12.5" font-weight="700" fill="#7f1d1d">Правило: НЕ паникуй → git status → git reflog → верни указатель на нужный хеш.</text>
+  <text x="48" y="240" font-size="11.5" fill="#374151">Коммиты живут в reflog ~30-90 дней даже после reset --hard / удаления ветки.</text>
+  <text x="48" y="259" font-size="11" fill="#b91c1c">⚠️ НЕ вернуть: никогда не коммиченное (restore/clean -fd по рабочей папке) → коммить чаще.</text>
+</svg>

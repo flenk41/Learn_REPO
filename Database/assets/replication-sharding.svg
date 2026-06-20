@@ -1,0 +1,28 @@
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="290" fill="#f5f3ff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#4c1d95">Репликация vs шардинг</text>
+
+  <!-- replication -->
+  <rect x="30" y="55" width="320" height="195" rx="10" fill="#fff" stroke="#6d28d9" stroke-width="2"/>
+  <text x="190" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="#6d28d9">РЕПЛИКАЦИЯ (копии)</text>
+  <rect x="130" y="92" width="120" height="34" rx="6" fill="#6d28d9"/><text x="190" y="114" text-anchor="middle" font-size="11" fill="#fff">PRIMARY (запись)</text>
+  <rect x="50" y="150" width="110" height="32" rx="6" fill="#ede9fe" stroke="#6d28d9"/><text x="105" y="171" text-anchor="middle" font-size="10.5" fill="#4c1d95">реплика (чтение)</text>
+  <rect x="220" y="150" width="110" height="32" rx="6" fill="#ede9fe" stroke="#6d28d9"/><text x="275" y="171" text-anchor="middle" font-size="10.5" fill="#4c1d95">реплика (чтение)</text>
+  <g stroke="#a78bfa" stroke-width="1.5"><line x1="170" y1="126" x2="105" y2="150"/><line x1="210" y1="126" x2="275" y2="150"/></g>
+  <text x="190" y="205" text-anchor="middle" font-size="10.5" fill="#15803d">масштаб ЧТЕНИЯ + надёжность</text>
+  <text x="190" y="225" text-anchor="middle" font-size="10" fill="#6b7280">все данные на каждом · ⚠️ lag</text>
+  <text x="190" y="243" text-anchor="middle" font-size="10" fill="#b91c1c">запись всё равно на одном primary</text>
+
+  <!-- sharding -->
+  <rect x="370" y="55" width="320" height="195" rx="10" fill="#fff" stroke="#6d28d9" stroke-width="2"/>
+  <text x="530" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="#6d28d9">ШАРДИНГ (разбиение)</text>
+  <rect x="390" y="95" width="90" height="60" rx="6" fill="#ede9fe" stroke="#6d28d9"/><text x="435" y="120" text-anchor="middle" font-size="10" fill="#4c1d95">шард 1</text><text x="435" y="138" text-anchor="middle" font-size="9" fill="#6b7280">users 0-33%</text>
+  <rect x="485" y="95" width="90" height="60" rx="6" fill="#ede9fe" stroke="#6d28d9"/><text x="530" y="120" text-anchor="middle" font-size="10" fill="#4c1d95">шард 2</text><text x="530" y="138" text-anchor="middle" font-size="9" fill="#6b7280">34-66%</text>
+  <rect x="580" y="95" width="90" height="60" rx="6" fill="#ede9fe" stroke="#6d28d9"/><text x="625" y="120" text-anchor="middle" font-size="10" fill="#4c1d95">шард 3</text><text x="625" y="138" text-anchor="middle" font-size="9" fill="#6b7280">67-100%</text>
+  <text x="530" y="180" text-anchor="middle" font-size="10.5" fill="#15803d">масштаб ЗАПИСИ + объёма</text>
+  <text x="530" y="200" text-anchor="middle" font-size="10" fill="#6b7280">каждый шард — ЧАСТЬ данных</text>
+  <text x="530" y="222" text-anchor="middle" font-size="10" fill="#b91c1c">⚠️ кросс-шард запросы дороги</text>
+  <text x="530" y="240" text-anchor="middle" font-size="10" fill="#b91c1c">крайнее средство</text>
+
+  <text x="360" y="272" text-anchor="middle" font-size="11.5" fill="#4c1d95">Лестница: оптимизация → кэш → реплики (чтение) → шардинг (запись/объём, в последнюю очередь).</text>
+</svg>
