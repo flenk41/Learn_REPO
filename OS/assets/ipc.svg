@@ -1,0 +1,35 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="300" fill="#f1f5f9" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#1e293b">IPC: как процессы общаются между собой</text>
+
+  <!-- pipe -->
+  <rect x="30" y="60" width="320" height="100" rx="8" fill="#fff" stroke="#475569" stroke-width="2"/>
+  <text x="190" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">PIPE (канал)</text>
+  <rect x="50" y="95" width="80" height="36" rx="6" fill="#e2e8f0"/><text x="90" y="118" text-anchor="middle" font-size="11" fill="#1e293b">процесс A</text>
+  <rect x="250" y="95" width="80" height="36" rx="6" fill="#e2e8f0"/><text x="290" y="118" text-anchor="middle" font-size="11" fill="#1e293b">процесс B</text>
+  <path d="M 132 113 L 248 113" stroke="#475569" stroke-width="2.5" fill="none"/><polygon points="250,113 241,109 241,117" fill="#475569"/>
+  <text x="190" y="150" text-anchor="middle" font-size="9.5" fill="#64748b">поток байтов (ls | grep)</text>
+
+  <!-- shared memory -->
+  <rect x="370" y="60" width="320" height="100" rx="8" fill="#fff" stroke="#475569" stroke-width="2"/>
+  <text x="530" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">SHARED MEMORY</text>
+  <rect x="390" y="95" width="70" height="36" rx="6" fill="#e2e8f0"/><text x="425" y="118" text-anchor="middle" font-size="11" fill="#1e293b">A</text>
+  <rect x="600" y="95" width="70" height="36" rx="6" fill="#e2e8f0"/><text x="635" y="118" text-anchor="middle" font-size="11" fill="#1e293b">B</text>
+  <rect x="490" y="98" width="80" height="30" rx="5" fill="#cbd5e1" stroke="#475569"/><text x="530" y="118" text-anchor="middle" font-size="10" fill="#1e293b">общая память</text>
+  <path d="M 462 113 L 488 113" stroke="#475569" stroke-width="2" fill="none"/>
+  <path d="M 572 113 L 598 113" stroke="#475569" stroke-width="2" fill="none"/>
+  <text x="530" y="150" text-anchor="middle" font-size="9.5" fill="#64748b">быстро, но нужна синхронизация</text>
+
+  <!-- signals + sockets -->
+  <rect x="30" y="180" width="320" height="80" rx="8" fill="#fff" stroke="#475569" stroke-width="2"/>
+  <text x="190" y="202" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">SIGNALS (сигналы)</text>
+  <text x="190" y="224" text-anchor="middle" font-size="10.5" fill="#374151">короткое уведомление (SIGTERM, SIGKILL)</text>
+  <text x="190" y="244" text-anchor="middle" font-size="10" fill="#64748b">«прерывание» процесса, без данных</text>
+
+  <rect x="370" y="180" width="320" height="80" rx="8" fill="#fff" stroke="#475569" stroke-width="2"/>
+  <text x="530" y="202" text-anchor="middle" font-size="13" font-weight="700" fill="#475569">SOCKETS / очереди</text>
+  <text x="530" y="224" text-anchor="middle" font-size="10.5" fill="#374151">общение даже между МАШИНАМИ (сеть)</text>
+  <text x="530" y="244" text-anchor="middle" font-size="10" fill="#64748b">message queues, Unix sockets</text>
+
+  <text x="360" y="284" text-anchor="middle" font-size="11.5" fill="#1e293b">Процессы изолированы (своя память) → для общения нужны механизмы IPC. Выбор — по скорости/удобству/границам.</text>
+</svg>

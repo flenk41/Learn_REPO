@@ -1,0 +1,27 @@
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="290" fill="#f0f9ff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#0c4a6e">Линковка: статическая vs динамическая</text>
+
+  <!-- static -->
+  <rect x="30" y="55" width="320" height="210" rx="10" fill="#fff" stroke="#0369a1" stroke-width="2"/>
+  <text x="190" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="#0369a1">СТАТИЧЕСКАЯ (.a)</text>
+  <rect x="60" y="95" width="90" height="34" rx="5" fill="#e0f2fe"/><text x="105" y="117" text-anchor="middle" font-size="10.5" fill="#0c4a6e">main.o</text>
+  <rect x="60" y="135" width="90" height="34" rx="5" fill="#e0f2fe"/><text x="105" y="157" text-anchor="middle" font-size="10.5" fill="#0c4a6e">libm.a</text>
+  <rect x="220" y="115" width="110" height="54" rx="6" fill="#0369a1"/><text x="275" y="139" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">app</text><text x="275" y="156" text-anchor="middle" font-size="9" fill="#bae6fd">(всё внутри)</text>
+  <path d="M 152 130 L 218 138" stroke="#0ea5e9" stroke-width="2" fill="none"/><path d="M 152 152 L 218 148" stroke="#0ea5e9" stroke-width="2" fill="none"/>
+  <text x="190" y="195" text-anchor="middle" font-size="10.5" fill="#15803d">✓ один файл, ничего не нужно рядом</text>
+  <text x="190" y="213" text-anchor="middle" font-size="10.5" fill="#b91c1c">✗ больше размер, обновлять = пересобирать</text>
+  <text x="190" y="245" text-anchor="middle" font-size="10" fill="#64748b">библиотека ВКЛЮЧЕНА в исполняемый файл</text>
+
+  <!-- dynamic -->
+  <rect x="370" y="55" width="320" height="210" rx="10" fill="#fff" stroke="#0369a1" stroke-width="2"/>
+  <text x="530" y="78" text-anchor="middle" font-size="14" font-weight="700" fill="#0369a1">ДИНАМИЧЕСКАЯ (.so/.dll)</text>
+  <rect x="400" y="110" width="100" height="50" rx="6" fill="#0369a1"/><text x="450" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">app</text><text x="450" y="149" text-anchor="middle" font-size="8.5" fill="#bae6fd">(только ссылки)</text>
+  <rect x="560" y="95" width="100" height="32" rx="5" fill="#e0f2fe"/><text x="610" y="116" text-anchor="middle" font-size="10" fill="#0c4a6e">libm.so</text>
+  <rect x="560" y="135" width="100" height="32" rx="5" fill="#e0f2fe"/><text x="610" y="156" text-anchor="middle" font-size="10" fill="#0c4a6e">libssl.so</text>
+  <path d="M 502 128 L 558 111" stroke="#0ea5e9" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+  <path d="M 502 142 L 558 150" stroke="#0ea5e9" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+  <text x="530" y="195" text-anchor="middle" font-size="10.5" fill="#15803d">✓ меньше размер, общая для программ, обновима</text>
+  <text x="530" y="213" text-anchor="middle" font-size="10.5" fill="#b91c1c">✗ нужна рядом («DLL hell», версии)</text>
+  <text x="530" y="245" text-anchor="middle" font-size="10" fill="#64748b">подгружается при ЗАПУСКЕ (PLT/GOT)</text>
+</svg>

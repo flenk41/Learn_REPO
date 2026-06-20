@@ -1,0 +1,33 @@
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="280" fill="#f0f9ff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#0c4a6e">Цикл CPU: fetch → decode → execute</text>
+
+  <!-- three stages in a loop -->
+  <g>
+    <circle cx="160" cy="135" r="62" fill="#fff" stroke="#0369a1" stroke-width="2.5"/>
+    <text x="160" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#0369a1">FETCH</text>
+    <text x="160" y="145" text-anchor="middle" font-size="10.5" fill="#475569">взять инструкцию</text>
+    <text x="160" y="161" text-anchor="middle" font-size="10" fill="#64748b">из памяти (по PC)</text>
+
+    <circle cx="360" cy="135" r="62" fill="#fff" stroke="#0369a1" stroke-width="2.5"/>
+    <text x="360" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#0369a1">DECODE</text>
+    <text x="360" y="145" text-anchor="middle" font-size="10.5" fill="#475569">что за команда?</text>
+    <text x="360" y="161" text-anchor="middle" font-size="10" fill="#64748b">какие операнды?</text>
+
+    <circle cx="560" cy="135" r="62" fill="#fff" stroke="#0369a1" stroke-width="2.5"/>
+    <text x="560" y="125" text-anchor="middle" font-size="14" font-weight="700" fill="#0369a1">EXECUTE</text>
+    <text x="560" y="145" text-anchor="middle" font-size="10.5" fill="#475569">выполнить (ALU)</text>
+    <text x="560" y="161" text-anchor="middle" font-size="10" fill="#64748b">записать результат</text>
+  </g>
+
+  <g stroke="#0ea5e9" stroke-width="2.5" fill="none">
+    <path d="M 222 135 L 296 135"/><polygon points="298,135 289,131 289,139" fill="#0ea5e9"/>
+    <path d="M 422 135 L 496 135"/><polygon points="498,135 489,131 489,139" fill="#0ea5e9"/>
+  </g>
+  <!-- loop back -->
+  <path d="M 560 197 C 560 240, 160 240, 160 197" stroke="#0ea5e9" stroke-width="2" fill="none" stroke-dasharray="5 3"/>
+  <polygon points="160,199 156,208 164,208" fill="#0ea5e9"/>
+  <text x="360" y="236" text-anchor="middle" font-size="10.5" fill="#0369a1">PC += 1 → повтор (миллиарды раз/сек)</text>
+
+  <text x="360" y="266" text-anchor="middle" font-size="12" fill="#0c4a6e">Программа = поток инструкций. CPU бесконечно повторяет цикл. Такт (Hz) — скорость повторения.</text>
+</svg>
