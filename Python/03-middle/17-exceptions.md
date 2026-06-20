@@ -21,6 +21,8 @@ d = {}["key"]         # KeyError
 
 ---
 
+![Исключения: try/except/else/finally](../assets/exceptions.svg)
+
 ## ⭐ try / except
 
 ```python

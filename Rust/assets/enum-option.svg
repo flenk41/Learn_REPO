@@ -1,0 +1,28 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="300" fill="#fbe9e7" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#ce422b">Option: нет null — есть Some или None</text>
+
+  <!-- enum -->
+  <rect x="230" y="55" width="260" height="70" rx="10" fill="#fff" stroke="#ce422b" stroke-width="2.5"/>
+  <text x="360" y="80" text-anchor="middle" font-size="13" font-family="monospace" fill="#ce422b">enum Option&lt;T&gt; {</text>
+  <text x="360" y="100" text-anchor="middle" font-size="12.5" font-family="monospace" fill="#1a1a2e">Some(T),  None</text>
+  <text x="360" y="119" text-anchor="middle" font-size="12.5" font-family="monospace" fill="#1a1a2e">}</text>
+
+  <!-- two variants -->
+  <rect x="70" y="160" width="270" height="56" rx="8" fill="#fff" stroke="#2e7d32" stroke-width="2"/>
+  <text x="205" y="183" text-anchor="middle" font-size="12.5" font-family="monospace" font-weight="700" fill="#2e7d32">Some(42)</text>
+  <text x="205" y="203" text-anchor="middle" font-size="10.5" fill="#475569">значение ЕСТЬ</text>
+
+  <rect x="380" y="160" width="270" height="56" rx="8" fill="#fff" stroke="#9ca3af" stroke-width="2"/>
+  <text x="515" y="183" text-anchor="middle" font-size="12.5" font-family="monospace" font-weight="700" fill="#6b7280">None</text>
+  <text x="515" y="203" text-anchor="middle" font-size="10.5" fill="#475569">значения НЕТ (вместо null)</text>
+
+  <g stroke="#f4b400" stroke-width="2.5" fill="none">
+    <path d="M 300 125 L 220 158"/><polygon points="218,159 227,157 223,165" fill="#f4b400"/>
+    <path d="M 420 125 L 500 158"/><polygon points="502,159 493,157 497,165" fill="#f4b400"/>
+  </g>
+
+  <rect x="70" y="235" width="580" height="55" rx="8" fill="#fff" stroke="#f3b4a8"/>
+  <text x="88" y="257" font-size="12" fill="#1a1a2e">Компилятор ЗАСТАВЛЯЕТ обработать оба случая через <tspan font-family="monospace">match</tspan> → нет «null pointer».</text>
+  <text x="88" y="277" font-size="11" font-family="monospace" fill="#475569">match x { Some(v) =&gt; ..., None =&gt; ... }   // забыл ветку → ошибка компиляции</text>
+</svg>

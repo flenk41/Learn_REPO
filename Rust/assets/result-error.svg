@@ -1,0 +1,28 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="300" fill="#fbe9e7" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#ce422b">Result: ошибки — это значения, не исключения</text>
+
+  <!-- enum -->
+  <rect x="225" y="52" width="270" height="68" rx="10" fill="#fff" stroke="#ce422b" stroke-width="2.5"/>
+  <text x="360" y="76" text-anchor="middle" font-size="12.5" font-family="monospace" fill="#ce422b">enum Result&lt;T, E&gt; {</text>
+  <text x="360" y="96" text-anchor="middle" font-size="12" font-family="monospace" fill="#1a1a2e">Ok(T),  Err(E)</text>
+  <text x="360" y="114" text-anchor="middle" font-size="12" font-family="monospace" fill="#1a1a2e">}</text>
+
+  <rect x="70" y="150" width="270" height="56" rx="8" fill="#fff" stroke="#2e7d32" stroke-width="2"/>
+  <text x="205" y="173" text-anchor="middle" font-size="12.5" font-family="monospace" font-weight="700" fill="#2e7d32">Ok(value)</text>
+  <text x="205" y="193" text-anchor="middle" font-size="10.5" fill="#475569">успех — вот результат</text>
+
+  <rect x="380" y="150" width="270" height="56" rx="8" fill="#fff" stroke="#c62828" stroke-width="2"/>
+  <text x="515" y="173" text-anchor="middle" font-size="12.5" font-family="monospace" font-weight="700" fill="#c62828">Err(error)</text>
+  <text x="515" y="193" text-anchor="middle" font-size="10.5" fill="#475569">ошибка — вот причина</text>
+
+  <g stroke="#f4b400" stroke-width="2.5" fill="none">
+    <path d="M 300 120 L 220 148"/><polygon points="218,149 227,147 223,155" fill="#f4b400"/>
+    <path d="M 420 120 L 500 148"/><polygon points="502,149 493,147 497,155" fill="#f4b400"/>
+  </g>
+
+  <rect x="60" y="226" width="600" height="62" rx="8" fill="#fff" stroke="#f3b4a8"/>
+  <text x="78" y="248" font-size="12" fill="#1a1a2e">Ошибку нельзя «забыть» — она в типе. Оператор <tspan font-family="monospace" font-weight="700">?</tspan> пробрасывает Err вверх:</text>
+  <text x="78" y="268" font-size="11" font-family="monospace" fill="#475569">let f = File::open("x")?;   // Ok → значение; Err → выйти и вернуть ошибку</text>
+  <text x="78" y="284" font-size="10.5" fill="#6b7280">явная обработка вместо скрытых исключений → надёжнее.</text>
+</svg>

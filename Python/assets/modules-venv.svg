@@ -1,0 +1,26 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="300" fill="#eef5fb" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#1e3a5f">Модули, пакеты и виртуальное окружение</text>
+
+  <!-- modules/packages -->
+  <rect x="40" y="55" width="300" height="150" rx="10" fill="#fff" stroke="#3776ab" stroke-width="2"/>
+  <text x="190" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#3776ab">модуль и пакет</text>
+  <text x="58" y="103" font-size="11.5" font-family="monospace" fill="#374151">myapp/            # пакет (папка)</text>
+  <text x="58" y="123" font-size="11.5" font-family="monospace" fill="#374151">├ __init__.py</text>
+  <text x="58" y="143" font-size="11.5" font-family="monospace" fill="#374151">├ utils.py        # модуль (файл)</text>
+  <text x="58" y="163" font-size="11.5" font-family="monospace" fill="#374151">└ main.py</text>
+  <text x="58" y="189" font-size="11" font-family="monospace" fill="#2e7d32">from myapp.utils import f</text>
+
+  <!-- venv -->
+  <rect x="370" y="55" width="310" height="150" rx="10" fill="#fff" stroke="#f59e0b" stroke-width="2"/>
+  <text x="525" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">venv — окружение проекта</text>
+  <text x="388" y="103" font-size="11" font-family="monospace" fill="#374151">python -m venv .venv</text>
+  <text x="388" y="123" font-size="11" font-family="monospace" fill="#374151">source .venv/bin/activate</text>
+  <text x="388" y="143" font-size="11" font-family="monospace" fill="#374151">pip install requests</text>
+  <text x="388" y="169" font-size="10.5" fill="#475569">свои зависимости у КАЖДОГО проекта,</text>
+  <text x="388" y="186" font-size="10.5" fill="#475569">не конфликтуют между собой и с системой</text>
+
+  <rect x="40" y="225" width="640" height="60" rx="8" fill="#fff8e1" stroke="#fde68a"/>
+  <text x="58" y="248" font-size="12" fill="#1e3a5f"><tspan font-weight="700">Модуль</tspan> = файл .py, <tspan font-weight="700">пакет</tspan> = папка с модулями. <tspan font-family="monospace">import</tspan> подключает их.</text>
+  <text x="58" y="270" font-size="11.5" fill="#475569"><tspan font-weight="700">venv</tspan> изолирует зависимости проекта. Список — в <tspan font-family="monospace">requirements.txt</tspan> / pyproject.toml.</text>
+</svg>

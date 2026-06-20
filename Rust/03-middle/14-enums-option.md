@@ -35,6 +35,8 @@ let m = Message::Move { x: 10, y: 20 };
 let w = Message::Write(String::from("привет"));
 ```
 
+![Option: Some или None](../assets/enum-option.svg)
+
 💡 Это мощнее C-enum (который просто числа). Rust-enum — это «тип-сумма»: значение точно
 одного из вариантов, с любыми данными. Идеально для состояний, команд, результатов.
 

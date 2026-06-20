@@ -1,0 +1,31 @@
+<svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="300" fill="#f0f6fb" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#00599c">Класс: данные + методы + правило 0/3/5</text>
+
+  <!-- class box -->
+  <rect x="40" y="55" width="320" height="225" rx="10" fill="#fff" stroke="#00599c" stroke-width="2.5"/>
+  <text x="200" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#00599c">class Vector</text>
+
+  <rect x="60" y="92" width="280" height="50" rx="6" fill="#ffebee" stroke="#c62828" stroke-dasharray="4 3"/>
+  <text x="75" y="111" font-size="11.5" font-weight="700" fill="#c62828">private (данные):</text>
+  <text x="75" y="131" font-size="11" font-family="monospace" fill="#374151">int* data; size_t size;</text>
+
+  <rect x="60" y="150" width="280" height="118" rx="6" fill="#e8f5e9" stroke="#2e7d32"/>
+  <text x="75" y="169" font-size="11.5" font-weight="700" fill="#2e7d32">public (методы):</text>
+  <text x="75" y="189" font-size="11" font-family="monospace" fill="#374151">Vector()          // конструктор</text>
+  <text x="75" y="207" font-size="11" font-family="monospace" fill="#374151">~Vector()         // деструктор</text>
+  <text x="75" y="225" font-size="11" font-family="monospace" fill="#374151">push(int x); int at(i);</text>
+  <text x="75" y="249" font-size="10.5" fill="#6b7280">конструктор создаёт, деструктор очищает (RAII)</text>
+
+  <!-- rule of 0/3/5 -->
+  <rect x="390" y="70" width="300" height="200" rx="10" fill="#fff" stroke="#90caf9"/>
+  <text x="540" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#00599c">правило 0 / 3 / 5</text>
+  <text x="408" y="122" font-size="11.5" fill="#374151"><tspan font-weight="700">Правило 0:</tspan> владеешь ресурсами через</text>
+  <text x="408" y="139" font-size="11.5" fill="#374151">умные указатели/контейнеры → ничего</text>
+  <text x="408" y="156" font-size="11.5" fill="#374151">не пиши (компилятор сам). ⭐ предпочтительно</text>
+  <text x="408" y="184" font-size="11.5" fill="#374151"><tspan font-weight="700">Правило 3/5:</tspan> если управляешь сырым</text>
+  <text x="408" y="201" font-size="11.5" fill="#374151">ресурсом — определи деструктор,</text>
+  <text x="408" y="218" font-size="11.5" fill="#374151">копирующий конструктор/= и</text>
+  <text x="408" y="235" font-size="11.5" fill="#374151">перемещающий конструктор/= (C++11).</text>
+  <text x="408" y="258" font-size="10.5" fill="#6b7280">иначе — двойное free / утечки.</text>
+</svg>

@@ -30,6 +30,8 @@ let arr = [1, 2, 3];
 
 ## ⭐⭐ Result — ошибки как значения
 
+![Result: Ok или Err](../assets/result-error.svg)
+
 ```rust
 enum Result<T, E> {        // встроен в язык
     Ok(T),                 // успех со значением T
