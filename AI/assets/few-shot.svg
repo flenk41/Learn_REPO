@@ -1,0 +1,37 @@
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="280" fill="#faf5ff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#581c87">Few-shot: учим примерами прямо в промпте</text>
+
+  <!-- zero-shot -->
+  <rect x="30" y="55" width="200" height="195" rx="10" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="130" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3aed">ZERO-SHOT</text>
+  <text x="130" y="96" text-anchor="middle" font-size="10" fill="#6b7280">без примеров</text>
+  <rect x="48" y="110" width="164" height="60" rx="6" fill="#f5f3ff"/>
+  <text x="60" y="130" font-size="10" fill="#374151">«Определи тональность:</text>
+  <text x="60" y="148" font-size="10" fill="#374151">Фильм был ужасен»</text>
+  <text x="130" y="195" text-anchor="middle" font-size="10.5" fill="#475569">просто просишь</text>
+  <text x="130" y="228" text-anchor="middle" font-size="9.5" fill="#6b7280">ок для простого</text>
+
+  <!-- one-shot -->
+  <rect x="250" y="55" width="200" height="195" rx="10" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="350" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3aed">ONE-SHOT</text>
+  <text x="350" y="96" text-anchor="middle" font-size="10" fill="#6b7280">1 пример</text>
+  <rect x="268" y="110" width="164" height="80" rx="6" fill="#f5f3ff"/>
+  <text x="278" y="128" font-size="9.5" fill="#15803d">«Отлично!» → позитив</text>
+  <text x="278" y="148" font-size="9.5" fill="#374151">───────────────</text>
+  <text x="278" y="166" font-size="9.5" fill="#374151">«Фильм ужасен» → ?</text>
+  <text x="350" y="212" text-anchor="middle" font-size="10.5" fill="#475569">показал ФОРМАТ</text>
+  <text x="350" y="232" text-anchor="middle" font-size="9.5" fill="#6b7280">задаёт шаблон ответа</text>
+
+  <!-- few-shot -->
+  <rect x="470" y="55" width="220" height="195" rx="10" fill="#fff" stroke="#581c87" stroke-width="2.5"/>
+  <text x="580" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#581c87">FEW-SHOT</text>
+  <text x="580" y="96" text-anchor="middle" font-size="10" fill="#6b7280">несколько примеров</text>
+  <rect x="488" y="110" width="184" height="95" rx="6" fill="#ede9fe"/>
+  <text x="498" y="127" font-size="9" fill="#15803d">«Супер!» → позитив</text>
+  <text x="498" y="143" font-size="9" fill="#b91c1c">«Скучно» → негатив</text>
+  <text x="498" y="159" font-size="9" fill="#6b7280">«Нормально» → нейтрал</text>
+  <text x="498" y="179" font-size="9" fill="#374151">«Фильм ужасен» → ?</text>
+  <text x="580" y="225" text-anchor="middle" font-size="10.5" fill="#581c87" font-weight="700">✓ точнее всего</text>
+  <text x="580" y="243" text-anchor="middle" font-size="9.5" fill="#6b7280">модель видит паттерн</text>
+</svg>

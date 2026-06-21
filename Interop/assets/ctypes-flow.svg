@@ -1,0 +1,38 @@
+<svg viewBox="0 0 720 270" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="270" fill="#ecfeff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#155e75">Python → C: вызов нативной функции (ctypes)</text>
+
+  <!-- python -->
+  <rect x="30" y="70" width="200" height="120" rx="10" fill="#fff" stroke="#0891b2" stroke-width="2"/>
+  <text x="130" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#155e75">Python</text>
+  <text x="44" y="118" font-size="10.5" font-family="monospace" fill="#374151">import ctypes</text>
+  <text x="44" y="136" font-size="10.5" font-family="monospace" fill="#374151">lib = CDLL("./fast.so")</text>
+  <text x="44" y="154" font-size="10.5" font-family="monospace" fill="#374151">lib.add(2, 3)</text>
+  <text x="130" y="178" text-anchor="middle" font-size="9.5" fill="#6b7280">медленный, удобный</text>
+
+  <!-- .so -->
+  <rect x="290" y="70" width="160" height="120" rx="10" fill="#cffafe" stroke="#0891b2" stroke-width="2.5"/>
+  <text x="370" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#155e75">fast.so / .dll</text>
+  <text x="370" y="118" text-anchor="middle" font-size="10" fill="#475569">скомпилированная</text>
+  <text x="370" y="134" text-anchor="middle" font-size="10" fill="#475569">C-библиотека</text>
+  <text x="370" y="160" text-anchor="middle" font-size="9.5" fill="#155e75">C-ABI (общий язык)</text>
+
+  <!-- C -->
+  <rect x="510" y="70" width="180" height="120" rx="10" fill="#fff" stroke="#0891b2" stroke-width="2"/>
+  <text x="600" y="93" text-anchor="middle" font-size="13" font-weight="700" fill="#155e75">C</text>
+  <text x="524" y="118" font-size="10.5" font-family="monospace" fill="#374151">int add(int a,int b){</text>
+  <text x="524" y="136" font-size="10.5" font-family="monospace" fill="#374151">  return a+b;</text>
+  <text x="524" y="154" font-size="10.5" font-family="monospace" fill="#374151">}</text>
+  <text x="600" y="178" text-anchor="middle" font-size="9.5" fill="#6b7280">быстрый</text>
+
+  <g stroke="#0891b2" stroke-width="2.5" fill="none">
+    <path d="M 230 130 L 288 130"/><polygon points="290,130 281,126 281,134" fill="#0891b2"/>
+    <path d="M 450 130 L 508 130"/><polygon points="510,130 501,126 501,134" fill="#0891b2"/>
+  </g>
+  <text x="260" y="122" font-size="8.5" fill="#0891b2">грузит</text>
+  <text x="480" y="122" font-size="8.5" fill="#0891b2">внутри</text>
+
+  <rect x="30" y="210" width="660" height="48" rx="8" fill="#fff" stroke="#a5f3fc"/>
+  <text x="48" y="232" font-size="12" fill="#155e75">Идея FFI: пишешь горячий код на C (скорость), вызываешь из Python (удобство). Мост — C-ABI.</text>
+  <text x="48" y="250" font-size="10.5" fill="#b91c1c">⚠️ на границе сам следишь за типами/памятью/владением — компилятор уже не помогает.</text>
+</svg>

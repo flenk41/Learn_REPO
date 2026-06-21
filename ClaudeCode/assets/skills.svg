@@ -1,0 +1,27 @@
+<svg viewBox="0 0 720 270" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="270" fill="#fbf1ec" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#7c2d12">Skills: прогрессивное раскрытие знаний</text>
+
+  <!-- always loaded -->
+  <rect x="40" y="65" width="280" height="55" rx="8" fill="#fff" stroke="#d97757" stroke-width="2"/>
+  <text x="180" y="88" text-anchor="middle" font-size="12.5" font-weight="700" fill="#b45309">всегда в контексте: имя + описание</text>
+  <text x="180" y="107" text-anchor="middle" font-size="10" fill="#6b7280">«умею верстать .docx» (1 строка, дёшево)</text>
+
+  <!-- loaded on demand -->
+  <rect x="400" y="65" width="290" height="55" rx="8" fill="#fdebd3" stroke="#d97757" stroke-width="2"/>
+  <text x="545" y="88" text-anchor="middle" font-size="12.5" font-weight="700" fill="#92400e">подходит к задаче?</text>
+  <text x="545" y="107" text-anchor="middle" font-size="10" fill="#6b7280">→ агент сам читает SKILL.md</text>
+
+  <rect x="240" y="155" width="240" height="80" rx="8" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+  <text x="360" y="178" text-anchor="middle" font-size="12.5" font-weight="700" fill="#166534">SKILL.md (полная инструкция)</text>
+  <text x="360" y="198" text-anchor="middle" font-size="10" fill="#374151">шаги, примеры, скрипты, файлы —</text>
+  <text x="360" y="214" text-anchor="middle" font-size="10" fill="#374151">грузится ТОЛЬКО когда нужно</text>
+  <text x="360" y="230" text-anchor="middle" font-size="9.5" fill="#15803d">не засоряет контекст заранее</text>
+
+  <g stroke="#d97757" stroke-width="2.5" fill="none">
+    <path d="M 320 92 L 398 92"/><polygon points="400,92 391,88 391,96" fill="#d97757"/>
+    <path d="M 545 120 L 420 153"/><polygon points="418,154 427,152 424,159" fill="#15803d"/>
+  </g>
+
+  <text x="360" y="258" text-anchor="middle" font-size="11.5" fill="#7c2d12">Экономит контекст: видно только «оглавление» навыков, детали подгружаются по необходимости.</text>
+</svg>

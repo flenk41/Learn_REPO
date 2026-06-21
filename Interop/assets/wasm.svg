@@ -1,0 +1,35 @@
+<svg viewBox="0 0 720 260" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="260" fill="#ecfeff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#155e75">WebAssembly: C/C++/Rust → WASM → браузер</text>
+
+  <!-- sources -->
+  <g font-size="12" font-weight="700">
+    <rect x="30" y="70" width="120" height="34" rx="6" fill="#fff" stroke="#0891b2" stroke-width="2"/><text x="90" y="92" text-anchor="middle" fill="#155e75">C / C++</text>
+    <rect x="30" y="113" width="120" height="34" rx="6" fill="#fff" stroke="#0891b2" stroke-width="2"/><text x="90" y="135" text-anchor="middle" fill="#155e75">Rust</text>
+  </g>
+
+  <!-- compile -->
+  <rect x="220" y="85" width="140" height="50" rx="8" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+  <text x="290" y="108" text-anchor="middle" font-size="11" fill="#155e75">компиляция</text>
+  <text x="290" y="124" text-anchor="middle" font-size="9.5" fill="#6b7280">emscripten / wasm-pack</text>
+
+  <!-- wasm -->
+  <rect x="420" y="80" width="120" height="60" rx="8" fill="#0891b2"/>
+  <text x="480" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">.wasm</text>
+  <text x="480" y="124" text-anchor="middle" font-size="9" fill="#cffafe">портативный байткод</text>
+
+  <!-- runs -->
+  <rect x="595" y="65" width="100" height="40" rx="6" fill="#fff" stroke="#0891b2" stroke-width="2"/><text x="645" y="89" text-anchor="middle" font-size="11" font-weight="700" fill="#155e75">браузер</text>
+  <rect x="595" y="115" width="100" height="40" rx="6" fill="#fff" stroke="#0891b2" stroke-width="2"/><text x="645" y="139" text-anchor="middle" font-size="11" font-weight="700" fill="#155e75">сервер/edge</text>
+
+  <g stroke="#0891b2" stroke-width="2" fill="none">
+    <path d="M 150 95 L 218 105"/><path d="M 150 130 L 218 118"/>
+    <path d="M 360 110 L 418 110"/><polygon points="420,110 411,106 411,114" fill="#0891b2"/>
+    <path d="M 540 105 L 593 90"/><path d="M 540 120 L 593 130"/>
+  </g>
+
+  <rect x="30" y="180" width="660" height="68" rx="8" fill="#fff" stroke="#a5f3fc"/>
+  <text x="48" y="203" font-size="12.5" font-weight="700" fill="#155e75">WASM = «нативная скорость в браузере»: тяжёлые вычисления на C/Rust, запуск где угодно.</text>
+  <text x="48" y="224" font-size="11.5" fill="#374151">Игры, видео/3D, криптография, портирование C-библиотек в веб. Безопасная песочница.</text>
+  <text x="48" y="241" font-size="10.5" fill="#6b7280">Связь JS↔WASM — через границу (память/типы), как обычный FFI.</text>
+</svg>

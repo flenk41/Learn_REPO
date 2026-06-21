@@ -1,0 +1,32 @@
+<svg viewBox="0 0 720 270" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="270" fill="#ecfeff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#155e75">Строки на границе языков: разные модели</text>
+
+  <!-- C string -->
+  <rect x="30" y="60" width="320" height="80" rx="8" fill="#fff" stroke="#0891b2" stroke-width="2"/>
+  <text x="190" y="82" text-anchor="middle" font-size="12.5" font-weight="700" fill="#155e75">C-строка: байты + нуль-терминатор</text>
+  <g font-family="monospace" font-size="13">
+    <rect x="50" y="95" width="32" height="30" fill="#cffafe" stroke="#0891b2"/><text x="66" y="115" text-anchor="middle" fill="#155e75">H</text>
+    <rect x="82" y="95" width="32" height="30" fill="#cffafe" stroke="#0891b2"/><text x="98" y="115" text-anchor="middle" fill="#155e75">i</text>
+    <rect x="114" y="95" width="32" height="30" fill="#cffafe" stroke="#0891b2"/><text x="130" y="115" text-anchor="middle" fill="#155e75">!</text>
+    <rect x="146" y="95" width="40" height="30" fill="#fee2e2" stroke="#b91c1c"/><text x="166" y="115" text-anchor="middle" fill="#b91c1c">\0</text>
+  </g>
+  <text x="270" y="115" font-size="9.5" fill="#6b7280">конец = байт \0</text>
+
+  <!-- Rust/Python string -->
+  <rect x="370" y="60" width="320" height="80" rx="8" fill="#fff" stroke="#0891b2" stroke-width="2"/>
+  <text x="530" y="82" text-anchor="middle" font-size="12.5" font-weight="700" fill="#155e75">Rust/Python: длина + UTF-8</text>
+  <g font-family="monospace" font-size="13">
+    <rect x="390" y="95" width="32" height="30" fill="#cffafe" stroke="#0891b2"/><text x="406" y="115" text-anchor="middle" fill="#155e75">H</text>
+    <rect x="422" y="95" width="32" height="30" fill="#cffafe" stroke="#0891b2"/><text x="438" y="115" text-anchor="middle" fill="#155e75">i</text>
+    <rect x="454" y="95" width="32" height="30" fill="#cffafe" stroke="#0891b2"/><text x="470" y="115" text-anchor="middle" fill="#155e75">!</text>
+  </g>
+  <rect x="500" y="95" width="80" height="30" rx="4" fill="#e0f2fe"/><text x="540" y="115" text-anchor="middle" font-size="11" fill="#155e75">len = 3</text>
+  <text x="600" y="115" font-size="9.5" fill="#6b7280">нет \0</text>
+
+  <rect x="30" y="165" width="660" height="92" rx="8" fill="#fff" stroke="#a5f3fc"/>
+  <text x="48" y="188" font-size="12.5" font-weight="700" fill="#155e75">На границе нужно КОНВЕРТИРОВАТЬ явно:</text>
+  <text x="48" y="210" font-size="11.5" fill="#374151">• в C — добавить/убрать нуль-терминатор (CString в Rust, c_char_p в Python).</text>
+  <text x="48" y="229" font-size="11.5" fill="#374151">• следить за кодировкой (UTF-8) и за тем, КТО владеет/освобождает буфер.</text>
+  <text x="48" y="248" font-size="11" fill="#b91c1c">⚠️ забыл \0 / неверная длина / двойное освобождение → краш или дыра.</text>
+</svg>

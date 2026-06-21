@@ -1,0 +1,23 @@
+<svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="280" fill="#faf5ff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#581c87">Галлюцинации: уверенно, но неверно</text>
+
+  <rect x="30" y="55" width="320" height="120" rx="10" fill="#fff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="190" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c">❌ что происходит</text>
+  <text x="48" y="102" font-size="11" fill="#374151">Модель предсказывает ВЕРОЯТНЫЙ текст,</text>
+  <text x="48" y="120" font-size="11" fill="#374151">а не «истину». Не знает — придумает</text>
+  <text x="48" y="138" font-size="11" fill="#374151">правдоподобное: ложный факт, ссылку,</text>
+  <text x="48" y="156" font-size="11" fill="#374151">цитату — уверенным тоном.</text>
+
+  <rect x="370" y="55" width="320" height="120" rx="10" fill="#fff" stroke="#15803d" stroke-width="2"/>
+  <text x="530" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">✅ как снижать</text>
+  <text x="388" y="102" font-size="11" fill="#374151">• дай КОНТЕКСТ/источник (RAG)</text>
+  <text x="388" y="120" font-size="11" fill="#374151">• проси «не знаешь — так и скажи»</text>
+  <text x="388" y="138" font-size="11" fill="#374151">• проверяй факты/цифры/ссылки сам</text>
+  <text x="388" y="156" font-size="11" fill="#374151">• разбей на шаги (chain-of-thought)</text>
+
+  <rect x="30" y="195" width="660" height="65" rx="8" fill="#ede9fe" stroke="#c4b5fd"/>
+  <text x="48" y="218" font-size="12.5" font-weight="700" fill="#581c87">Главное правило: не доверяй фактам от модели слепо — ПРОВЕРЯЙ.</text>
+  <text x="48" y="240" font-size="11.5" fill="#374151">Модель сильна в рассуждении/тексте, слаба в «точных фактах из головы».</text>
+  <text x="48" y="256" font-size="10.5" fill="#6b7280">Критично: медицина, право, финансы, точные цифры, ссылки — всегда сверяй с источником.</text>
+</svg>

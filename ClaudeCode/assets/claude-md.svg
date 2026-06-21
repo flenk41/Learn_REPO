@@ -1,0 +1,29 @@
+<svg viewBox="0 0 720 270" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="270" fill="#fbf1ec" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#7c2d12">CLAUDE.md — постоянная память проекта</text>
+
+  <!-- context window -->
+  <rect x="30" y="60" width="300" height="160" rx="10" fill="#fff" stroke="#d97757" stroke-width="2"/>
+  <text x="180" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="#b45309">контекст (RAM агента)</text>
+  <text x="180" y="103" text-anchor="middle" font-size="10" fill="#6b7280">очищается каждую сессию /clear</text>
+  <rect x="50" y="115" width="260" height="28" rx="5" fill="#fef3c7"/><text x="180" y="134" text-anchor="middle" font-size="10.5" fill="#92400e">текущий разговор</text>
+  <text x="180" y="170" text-anchor="middle" font-size="11" fill="#b91c1c">⚠️ забывается между сессиями</text>
+  <text x="180" y="195" text-anchor="middle" font-size="10" fill="#6b7280">как оперативная память</text>
+
+  <!-- claude.md -->
+  <rect x="400" y="60" width="290" height="160" rx="10" fill="#fff" stroke="#d97757" stroke-width="2.5"/>
+  <text x="545" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">CLAUDE.md (диск)</text>
+  <text x="545" y="103" text-anchor="middle" font-size="10" fill="#6b7280">читается в КАЖДОЙ сессии</text>
+  <g font-size="10" fill="#374151">
+    <text x="418" y="125">• как устроен проект, команды сборки</text>
+    <text x="418" y="143">• соглашения/стиль кода</text>
+    <text x="418" y="161">• важные «не делай так»</text>
+    <text x="418" y="179">• в git → общая для команды</text>
+  </g>
+  <text x="545" y="205" text-anchor="middle" font-size="10.5" fill="#15803d" font-weight="700">постоянная память, не теряется</text>
+
+  <path d="M 400 140 L 332 140" stroke="#d97757" stroke-width="2.5" fill="none"/><polygon points="330,140 339,136 339,144" fill="#d97757"/>
+  <text x="365" y="132" text-anchor="middle" font-size="8.5" fill="#d97757">грузится</text>
+
+  <text x="360" y="248" text-anchor="middle" font-size="12" fill="#7c2d12">Не повторяй одно и то же каждую сессию — запиши в CLAUDE.md. Агент прочитает её сам при старте.</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg viewBox="0 0 720 290" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif">
+  <rect width="720" height="290" fill="#faf5ff" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#581c87">Агент: модель в цикле с инструментами</text>
+
+  <!-- model -->
+  <rect x="270" y="55" width="180" height="64" rx="10" fill="#7c3aed"/>
+  <text x="360" y="82" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">МОДЕЛЬ (LLM)</text>
+  <text x="360" y="102" text-anchor="middle" font-size="10" fill="#ddd6fe">думает: что сделать дальше?</text>
+
+  <!-- tools -->
+  <rect x="40" y="170" width="150" height="44" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="115" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#581c87">🔍 поиск</text>
+  <text x="115" y="206" text-anchor="middle" font-size="9" fill="#6b7280">web/база</text>
+  <rect x="210" y="170" width="150" height="44" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="285" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#581c87">🧮 код</text>
+  <text x="285" y="206" text-anchor="middle" font-size="9" fill="#6b7280">выполнить</text>
+  <rect x="380" y="170" width="150" height="44" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="455" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#581c87">📁 файлы</text>
+  <text x="455" y="206" text-anchor="middle" font-size="9" fill="#6b7280">читать/писать</text>
+  <rect x="550" y="170" width="140" height="44" rx="8" fill="#fff" stroke="#7c3aed" stroke-width="2"/>
+  <text x="620" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#581c87">🌐 API</text>
+  <text x="620" y="206" text-anchor="middle" font-size="9" fill="#6b7280">внешнее</text>
+
+  <!-- loop arrows -->
+  <path d="M 300 119 C 200 140, 150 150, 120 168" stroke="#7c3aed" stroke-width="2" fill="none"/><polygon points="118,170 122,161 127,168" fill="#7c3aed"/>
+  <text x="175" y="140" font-size="9.5" fill="#7c3aed">① выбирает инструмент</text>
+  <path d="M 300 200 C 360 240, 420 200, 420 122" stroke="#15803d" stroke-width="2" fill="none" stroke-dasharray="5 3"/><polygon points="420,120 416,129 424,127" fill="#15803d"/>
+  <text x="420" y="250" text-anchor="middle" font-size="9.5" fill="#15803d">② результат → снова думает (цикл)</text>
+
+  <rect x="40" y="237" width="320" height="0"/>
+  <text x="220" y="275" text-anchor="middle" font-size="11" fill="#581c87">пока задача не решена</text>
+
+  <rect x="400" y="55" width="290" height="0"/>
+  <text x="545" y="78" text-anchor="middle" font-size="11.5" fill="#581c87">обычный промпт = 1 ответ.</text>
+  <text x="545" y="96" text-anchor="middle" font-size="11.5" fill="#581c87">агент = думать→действовать→</text>
+  <text x="545" y="113" text-anchor="middle" font-size="11.5" fill="#581c87">наблюдать, много шагов сам.</text>
+</svg>
